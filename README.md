@@ -38,7 +38,7 @@ export function add(a: number, b: number) {
 }
 ````
 
-Now invokate `automd update`:
+Now invoke `automd update`:
 
 ```sh
 npx automd@latest update
@@ -71,7 +71,7 @@ Behind the scenes, we use [untyped](https://untyped.unjs.io/) with a [jiti](http
 
 ### Supported Args
 
-- `src`: Path to the source file. The default is `./src/index` a and can be omitted.
+- `src`: Path to the source file. The default is `./src/index` and can be omitted.
 
 ## Development
 
