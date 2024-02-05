@@ -38,10 +38,10 @@ export function add(a: number, b: number) {
 }
 ````
 
-Now invoke `automd update`:
+Now invoke `automd`:
 
 ```sh
-npx automd@latest update
+npx automd@latest
 ```
 
 The declared section will be automatically updated:

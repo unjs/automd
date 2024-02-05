@@ -2,11 +2,14 @@
 
 import { defineCommand, runMain } from "citty";
 import consola from "consola";
+import { name, description, version } from "../package.json";
 import { automd } from "./automd";
 
-const update = defineCommand({
+const main = defineCommand({
   meta: {
-    name: "update",
+    name,
+    description,
+    version,
   },
   args: {
     dir: {
@@ -28,16 +31,6 @@ const update = defineCommand({
     consola.success(
       `Updated \`${options.file}\` in \`${updates.length}\` sections.`,
     );
-  },
-});
-
-const main = defineCommand({
-  meta: {
-    name: "automd",
-    description: "automatically maintain markdown contents",
-  },
-  subCommands: {
-    update,
   },
 });
 
