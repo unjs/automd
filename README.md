@@ -47,7 +47,7 @@ The declared section will be automatically updated!
 ### Supported Args
 
 - `src`: Path to the source file. The default is `./src/index` and can be omitted.
-- `headingLevel`: Nested level for markdown headings (default is `3` => `###`)
+- `headingLevel`: Nested level for markdown group headings (default is `3` => `###`) - Note: Each export uses `headingLevel+1`.
 
 ## Development
 

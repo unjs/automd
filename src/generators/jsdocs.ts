@@ -19,12 +19,18 @@ export default defineGenerator({
 });
 
 function renderSchema(schema: Schema, opts: { headingLevel: number }) {
-  const md: string[] = [];
+  const sections = Object.create(null) as Record<string, [string, string[]][]>;
+
   for (const [name, meta] of Object.entries(schema.properties || {})) {
     // Only functions
-    if (meta.type !== "function") {
+    if (
+      meta.type !== "function" ||
+      meta.default?.toString?.().startsWith("class")
+    ) {
       continue;
     }
+
+    const lines: string[] = [];
 
     // Parse tag annotations
     const tags = parseTags(meta.tags);
@@ -36,13 +42,13 @@ function renderSchema(schema: Schema, opts: { headingLevel: number }) {
 
     const jsSig = `${name}(${(meta.args || []).map((arg) => arg.name).join(", ")})`;
 
-    md.push(`${"#".repeat(opts.headingLevel)} \`${jsSig}\``, "");
+    lines.push(`${"#".repeat(opts.headingLevel + 1)} \`${jsSig}\``, "");
 
     if (meta.title) {
-      md.push(meta.title.trim());
+      lines.push(meta.title.trim());
     }
     if (meta.description) {
-      md.push("", meta.description.trim());
+      lines.push("", meta.description.trim());
     }
 
     for (const tag of tags) {
@@ -50,14 +56,30 @@ function renderSchema(schema: Schema, opts: { headingLevel: number }) {
         const codeBlock = tag.contents.startsWith("`")
           ? tag.contents
           : `\`\`\`ts\n${tag.contents}\n\`\`\``;
-        md.push("", "**Example:**", "", codeBlock);
+        lines.push("", "**Example:**", "", codeBlock);
       }
     }
 
-    md.push("");
+    lines.push("");
+
+    const group = tags.find((t) => t.tag === "@group")?.contents || "";
+    sections[group] = sections[group] || [];
+    sections[group].push([name, lines]);
   }
 
-  return md.join("\n");
+  const lines: string[] = [];
+  for (const group of Object.keys(sections).sort()) {
+    if (group) {
+      lines.push(`${"#".repeat(opts.headingLevel)} ${group}`, "");
+    }
+    for (const item of sections[group].sort((i1, i2) =>
+      i1[0].localeCompare(i2[0]),
+    )) {
+      lines.push(...item[1]);
+    }
+  }
+
+  return lines.join("\n");
 }
 
 function parseTags(lines: string[] = []) {
