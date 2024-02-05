@@ -1,12 +1,8 @@
-# JSRand
-
-Random number utils.
-
 ## Utils
 
-<!-- AUTOMD_START generator="jsdocs" src="./index.ts" -->
+<!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
 
-## `add(a, b)`
+### `add(a, b)`
 
 Adds two numbers together.
 

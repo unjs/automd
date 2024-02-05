@@ -12,31 +12,14 @@ Your automated markdown maintainer!
 
 Create a section in your `README.md`:
 
-    # JSRand
+```md
+## Utils
 
-    Random number utils.
+<!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
+<!-- AUTOMD_END -->
+```
 
-    ## Utils
-
-    <!-- AUTOMD_START generator="jsdocs" src="./index.ts" -->
-    <!-- AUTOMD_END -->
-
-Make sure to have some utility exports in `index.ts` annotated with JSDocs. **Example:**
-
-````ts
-/**
- * Adds two numbers together.
- *
- * @example
- *
- * ```js
- * add(1, 2); // 3
- * ```
- */
-export function add(a: number, b: number) {
-  return a + b;
-}
-````
+Make sure to have some utility exports in `src/index.ts` annotated with JSDocs.
 
 Now invoke `automd`:
 
@@ -44,34 +27,14 @@ Now invoke `automd`:
 npx automd@latest
 ```
 
-The declared section will be automatically updated:
+The declared section will be automatically updated! See [./playground](./playground/) for output!
 
-    # JSRand
-
-    Random number utils.
-
-    ## Utils
-
-    <!-- AUTOMD_START generator="jsdocs" src="./index.ts" -->
-
-    ## `add(a, b)`
-
-    Adds two numbers together.
-
-    **Example:**
-
-    ```js
-    add(1, 2); // 3
-    ```
-
-
-    <!-- AUTOMD_END -->
-
-Behind the scenes, we use [untyped](https://untyped.unjs.io/) with a [jiti](https://github.com/unjs/jiti) based loader for TypeScript support.
+Behind the scenes, audomd uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support .
 
 ### Supported Args
 
 - `src`: Path to the source file. The default is `./src/index` and can be omitted.
+- `headingLevel`: Nested level for markdown headings (default is `3` => `###`)
 
 ## Development
 

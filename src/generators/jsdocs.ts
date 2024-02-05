@@ -5,18 +5,20 @@ import { defineGenerator } from "../generator";
 
 export default defineGenerator({
   name: "api",
-  async generate(ctx) {
-    const entryPath = resolve(ctx.options.dir, ctx.args.src || "./src/index");
+  async generate({ options, args }) {
+    const entryPath = resolve(options.dir, args.src || "./src/index");
 
     const schema = await loadSchema(entryPath);
 
     return {
-      contents: renderSchema(schema),
+      contents: renderSchema(schema, {
+        headingLevel: Number.parseInt(args.headingLevel) || 3,
+      }),
     };
   },
 });
 
-function renderSchema(schema: Schema) {
+function renderSchema(schema: Schema, opts: { headingLevel: number }) {
   const md: string[] = [];
   for (const [name, meta] of Object.entries(schema.properties || {})) {
     // Only functions
@@ -34,7 +36,7 @@ function renderSchema(schema: Schema) {
 
     const jsSig = `${name}(${(meta.args || []).map((arg) => arg.name).join(", ")})`;
 
-    md.push(`## \`${jsSig}\``, "");
+    md.push(`${"#".repeat(opts.headingLevel)} \`${jsSig}\``, "");
 
     if (meta.title) {
       md.push(meta.title.trim());
