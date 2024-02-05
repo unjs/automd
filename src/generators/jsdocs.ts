@@ -4,7 +4,7 @@ import type { Schema } from "untyped";
 import { defineGenerator } from "../generator";
 
 export default defineGenerator({
-  name: "api",
+  name: "jsdocs",
   async generate({ options, args }) {
     const entryPath = resolve(options.dir, args.src || "./src/index");
 
