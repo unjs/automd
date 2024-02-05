@@ -12,12 +12,9 @@ Your automated markdown maintainer!
 
 Create a section in your `README.md`:
 
-```md
-## Utils
-
-<!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
-<!-- AUTOMD_END -->
-```
+    ## Utils
+    <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
+    <!-- AUTOMD_END -->
 
 Make sure to have some utility exports in `src/index.ts` annotated with JSDocs.
 
@@ -27,9 +24,25 @@ Now invoke `automd`:
 npx automd@latest
 ```
 
-The declared section will be automatically updated! See [./playground](./playground/) for output!
+The declared section will be automatically updated!
 
-Behind the scenes, audomd uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support .
+    ## Utils
+
+    <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
+
+    ### `add(a, b)`
+
+    Adds two numbers together.
+
+    **Example:**
+    ```js
+    add(1, 2); // 3
+    ```
+
+    <!-- AUTOMD_END -->
+
+> [!NOTE]
+> automd uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support .
 
 ### Supported Args
 
@@ -56,3 +69,7 @@ Published under [MIT License](./LICENSE).
 [npm-version-href]: https://npmjs.com/package/automd
 [npm-downloads-src]: https://img.shields.io/npm/dm/automd?style=flat&colorA=18181B&colorB=F0DB4F
 [npm-downloads-href]: https://npmjs.com/package/automd
+
+```
+
+```
