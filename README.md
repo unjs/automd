@@ -6,7 +6,7 @@
 Your automated markdown maintainer!
 
 > [!NOTE]
-> This project is is erly trial stages!
+> This project is in the early stages and under development.
 
 ## JSDocs Generator
 
@@ -44,7 +44,7 @@ Now invokate `automd update`:
 npx automd@latest update
 ```
 
-The declarated automatically updated!
+The declared section will be automatically updated:
 
     # JSRand
 
@@ -71,12 +71,12 @@ Behind the scenes, we use [untyped](https://untyped.unjs.io/) with a [jiti](http
 
 ### Supported Args
 
-- `src`: Path to the source file. Default is `./src/index` a and can be omited
+- `src`: Path to the source file. The default is `./src/index` a and can be omitted.
 
 ## Development
 
 - Clone this repository
-- Install latest LTS version of [Node.js](https://nodejs.org/en/)
+- Install the latest LTS version of [Node.js](https://nodejs.org/en/)
 - Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
 - Install dependencies using `pnpm install`
 - Run playground test using `pnpm dev`
