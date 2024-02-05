@@ -69,10 +69,11 @@ export async function automd(_options: Partial<AutoMDOptions> = {}) {
       ),
     );
 
-    const generatorName = args.generator || "jsdocs";
+    const generatorName = args.generator;
     const generator = generators[generatorName];
     if (!generator) {
-      throw new Error(`Unknown generator: \`${generatorName}\``);
+      // TODO: Warn?
+      continue;
     }
 
     const generateContext: GenerateContext = {
