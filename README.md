@@ -8,6 +8,11 @@ Your automated markdown maintainer!
 > [!NOTE]
 > This project is in the early stages and under development.
 
+## 🦴 Used by
+
+- [unjs/ufo](https://github.com/unjs/ufo)
+- [unjs/omark](https://github.com/unjs/omark)
+
 ## JSDocs Generator
 
 Create a section in your `README.md`:
