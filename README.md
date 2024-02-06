@@ -64,9 +64,7 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 (make sure to have some utility exports in `src/index.ts` annotated with JSDocs.)
 
-**Example Output:**
-
-    ## Utils
+**Updated Result:**
 
     <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
 
@@ -98,7 +96,7 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 <!-- AUTOMD_END -->
 ```
 
-The declared section will be automatically updated!
+**Updated Result:**
 
     ## Usage
 
