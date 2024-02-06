@@ -1,7 +1,7 @@
 import { resolve } from "node:path";
 import { loadSchema } from "untyped/loader";
 import type { Schema } from "untyped";
-import { upperFirst } from "scule";
+import { titleCase } from "scule";
 import { defineGenerator } from "../generator";
 
 export default defineGenerator({
@@ -91,7 +91,7 @@ function renderSchema(schema: Schema, opts: { headingLevel: number }) {
     return a.localeCompare(b);
   })) {
     if (group) {
-      lines.push(`${"#".repeat(opts.headingLevel)} ${upperFirst(group)}`, "");
+      lines.push(`${"#".repeat(opts.headingLevel)} ${titleCase(group)}`, "");
     }
     for (const item of sections[group].sort((i1, i2) =>
       i1[0].localeCompare(i2[0]),
