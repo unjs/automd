@@ -6,6 +6,13 @@ export default defineGenerator({
   name: "pm-install",
   async generate({ options, args }) {
     const name = args.name || (await inferPackageName(options.dir));
+
+    if (!name) {
+      return {
+        contents: "<!-- package name is unspecified -->",
+      };
+    }
+
     const pkgInstalls = [
       ["npm", "install"],
       ["yarn", "add"],
