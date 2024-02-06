@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/unjs/automd/compare/v0.1.2...v0.1.3)
+
+### 🚀 Enhancements
+
+- **jsdocs:** Support default group ([9bdda0b](https://github.com/unjs/automd/commit/9bdda0b))
+
+### 🏡 Chore
+
+- Stub after release ([5d7af8f](https://github.com/unjs/automd/commit/5d7af8f))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.1.2
 
 [compare changes](https://github.com/unjs/automd/compare/v0.1.1...v0.1.2)
