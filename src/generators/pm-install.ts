@@ -20,8 +20,9 @@ export default defineGenerator({
       ["bun", "install"],
     ];
 
+    // TODO: support noAuto/no-auto
     if (args.auto ?? true) {
-      pkgInstalls.unshift(["npx nypm@latest", "add"]);
+      pkgInstalls.unshift(["npx nypm", "i"]);
     }
 
     return {

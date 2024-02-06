@@ -98,7 +98,7 @@ The `pm-install` generator generates commands for several JavaScript package man
 
     ```sh
     # ✨ Auto-detect
-    npx nypm@latest add -D package-name
+    npx nypm i -D package-name
 
     # npm
     npm install -D package-name
@@ -119,7 +119,7 @@ The `pm-install` generator generates commands for several JavaScript package man
 
 - `name`: The package name (by default tries to read from the `name` field in `package.json`).
 - `dev`: Install as a dev dependency. (defaults to `false`).
-- `auto`: Auto-detect package manager. (defaults to `true`). [Docs](https://github.com/unjs/nypm#-nypm)
+- `auto`: Auto-detect package manager using [unjs/nypm](https://github.com/unjs/nypm#-nypm). (defaults to `true`).
 
 ## Development
 

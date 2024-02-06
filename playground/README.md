@@ -1,22 +1,22 @@
 ## Usage
 
-<!-- AUTOMD_START generator="pm-install" dev="true" -->
+<!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
 
 ```sh
 # ✨ Auto-detect
-npx nypm@latest add -D automd-playground
+npx nypm i -D package-name
 
 # npm
-npm install -D automd-playground
+npm install -D package-name
 
 # yarn
-yarn add -D automd-playground
+yarn add -D package-name
 
 # pnpm
-pnpm install -D automd-playground
+pnpm install -D package-name
 
 # bun
-bun install -D automd-playground
+bun install -D package-name
 ```
 
 <!-- AUTOMD_END -->
