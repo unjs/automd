@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.4
+
+[compare changes](https://github.com/unjs/automd/compare/v0.1.3...v0.1.4)
+
+### 🩹 Fixes
+
+- Remove log ([b4cdf5f](https://github.com/unjs/automd/commit/b4cdf5f))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.1.3
 
 [compare changes](https://github.com/unjs/automd/compare/v0.1.2...v0.1.3)
