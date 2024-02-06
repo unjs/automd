@@ -12,6 +12,7 @@ Your automated markdown maintainer!
 
 - [unjs/ufo](https://github.com/unjs/ufo)
 - [unjs/omark](https://github.com/unjs/omark)
+- [unjs/nypm](https://github.com/unjs/nypm)
 
 ## Usage
 
