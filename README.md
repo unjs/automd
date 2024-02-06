@@ -49,27 +49,20 @@ There are several available generators for automd each supporting different argu
 
 See [open issues](https://github.com/unjs/automd/issues?q=is%3Aopen+is%3Aissue+label%3Agenerator) for proposed generators and feel free to suggest any generator ideas to be included!
 
-### `jsdocs` Generator
+### `jsdocs`
 
-jsdocs generator can automatically read through your code and extract and sync documentation of function exports leveraging JSDocs and TypeScript hints.
+The `jsdocs` generator can automatically read through your code and extract and sync documentation of function exports leveraging JSDocs and TypeScript hints.
 
 Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support.
 
 #### Usage
 
-```md
-<!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
-
-...
-
-<!-- AUTOMD_END -->
-```
+    <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
+    <!-- AUTOMD_END -->
 
 (make sure to have some utility exports in `src/index.ts` annotated with JSDocs.)
 
-**Example Output:**
-
-    ## Utils
+**Updated Result:**
 
     <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
 
@@ -84,11 +77,49 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
     <!-- AUTOMD_END -->
 
-### Args supported for `jsdocs`
+#### Arguments
 
 - `src`: Path to the source file. The default is `./src/index` and can be omitted.
 - `headingLevel`: Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for the title in nested levels.
-- `group`: Only render function exportes annotated with `@group name`. By default, there is no group filter. Value can be a string or array of strings.
+- `group`: Only render function exports annotated with `@group name`. By default, there is no group filter. Value can be a string or an array of strings.
+
+### `pm-install`
+
+The `pm-install` generator generates commands for several JavaScript package managers.
+
+#### Usage
+
+    <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
+    <!-- AUTOMD_END -->
+
+**Updated Result:**
+
+    <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
+
+    ```sh
+    # ✨ Auto-detect
+    npx nypm i -D package-name
+
+    # npm
+    npm install -D package-name
+
+    # yarn
+    yarn add -D package-name
+
+    # pnpm
+    pnpm install -D package-name
+
+    # bun
+    bun install -D package-name
+    ```
+
+    <!-- AUTOMD_END -->
+
+#### Arguments
+
+- `name`: The package name (by default tries to read from the `name` field in `package.json`).
+- `dev`: Install as a dev dependency. (defaults to `false`).
+- `auto`: Auto-detect package manager using [unjs/nypm](https://github.com/unjs/nypm#-nypm). (defaults to `true`).
 
 ## Development
 
