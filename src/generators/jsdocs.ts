@@ -13,8 +13,8 @@ export default defineGenerator({
 
     return {
       contents: renderSchema(schema, {
+        ...args,
         headingLevel: Number.parseInt(args.headingLevel) || 2,
-        group: args.group,
       }),
     };
   },
@@ -22,7 +22,11 @@ export default defineGenerator({
 
 function renderSchema(
   schema: Schema,
-  opts: { headingLevel: number; group?: string | string[] },
+  opts: {
+    headingLevel: number;
+    group?: string | string[];
+    defaultGroup?: string;
+  },
 ) {
   const sections = Object.create(null) as Record<string, [string, string[]][]>;
 
@@ -46,7 +50,8 @@ function renderSchema(
     }
 
     // Find group
-    const group = tags.find((t) => t.tag === "@group")?.contents || "";
+    const group =
+      tags.find((t) => t.tag === "@group")?.contents || opts.defaultGroup || "";
 
     // Filter by group if specified
     if (
@@ -96,6 +101,8 @@ function renderSchema(
     sections[group] = sections[group] || [];
     sections[group].push([name, lines]);
   }
+
+  console.log(sections);
 
   const lines: string[] = [];
   for (const group of Object.keys(sections).sort((a, b) => {
