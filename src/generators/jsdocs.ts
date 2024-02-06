@@ -14,12 +14,16 @@ export default defineGenerator({
     return {
       contents: renderSchema(schema, {
         headingLevel: Number.parseInt(args.headingLevel) || 2,
+        group: args.group,
       }),
     };
   },
 });
 
-function renderSchema(schema: Schema, opts: { headingLevel: number }) {
+function renderSchema(
+  schema: Schema,
+  opts: { headingLevel: number; group?: string | string[] },
+) {
   const sections = Object.create(null) as Record<string, [string, string[]][]>;
 
   for (const [name, meta] of Object.entries(schema.properties || {})) {
@@ -41,6 +45,20 @@ function renderSchema(schema: Schema, opts: { headingLevel: number }) {
       continue;
     }
 
+    // Find group
+    const group = tags.find((t) => t.tag === "@group")?.contents || "";
+
+    // Filter by group if specified
+    if (
+      opts.group &&
+      (typeof opts.group === "string"
+        ? group !== opts.group
+        : !opts.group.includes(group))
+    ) {
+      continue;
+    }
+
+    // Generate signature for function arguments
     const jsSig = `${name}(${(meta.args || [])
       .map((arg) => {
         let str = arg.name;
@@ -75,7 +93,6 @@ function renderSchema(schema: Schema, opts: { headingLevel: number }) {
 
     lines.push("");
 
-    const group = tags.find((t) => t.tag === "@group")?.contents || "";
     sections[group] = sections[group] || [];
     sections[group].push([name, lines]);
   }

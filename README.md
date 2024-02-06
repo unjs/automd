@@ -52,7 +52,8 @@ The declared section will be automatically updated!
 ### Supported Args
 
 - `src`: Path to the source file. The default is `./src/index` and can be omitted.
-- `headingLevel`: Nested level for markdown group headings (default is `2` => `##`) - Note: Each export uses `headingLevel+1`.
+- `headingLevel`: Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for title in nested levels.
+- `group`: Only render function exportes anotated with `@group name`. By default there is no group filter. Value can be an string or array of strings.
 
 ## Development
 
