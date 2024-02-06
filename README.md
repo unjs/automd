@@ -77,7 +77,7 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
     <!-- AUTOMD_END -->
 
-#### Args supported for `jsdocs`
+#### Arguments
 
 - `src`: Path to the source file. The default is `./src/index` and can be omitted.
 - `headingLevel`: Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for the title in nested levels.
