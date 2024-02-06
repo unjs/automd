@@ -5,13 +5,7 @@ import { defineGenerator } from "../generator";
 export default defineGenerator({
   name: "pm-install",
   async generate({ options, args }) {
-    const name =
-      args.name ||
-      (await readPackageJSON(options.dir)
-        .then((pkg) => pkg?.name || "package-name")
-        .catch(() => undefined)) ||
-      "package-name";
-    const dev = !!args.dev;
+    const name = args.name || (await inferPackageName(options.dir));
     const pkgInstalls = [
       ["npm", "install"],
       ["yarn", "add"],
@@ -24,7 +18,7 @@ export default defineGenerator({
         pkgInstalls
           .map(
             ([cmd, install]) =>
-              `# ${cmd}\n${cmd} ${install} ${name}${dev ? " -D" : ""}`,
+              `# ${cmd}\n${cmd} ${install} ${name}${args.dev ? " -D" : ""}`,
           )
           .join("\n\n"),
         "sh",
@@ -32,3 +26,10 @@ export default defineGenerator({
     };
   },
 });
+
+async function inferPackageName(dir: string) {
+  const pkgName = await readPackageJSON(dir)
+    .then((pkg) => pkg?.name)
+    .catch(() => undefined);
+  return pkgName || process.env.npm_package_name;
+}
