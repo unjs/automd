@@ -36,6 +36,7 @@
     "citty": "^0.1.5",
     "consola": "^3.2.3",
     "magic-string": "^0.30.7",
+    "scule": "^1.2.0",
     "untyped": "^1.4.2"
   },
   "devDependencies": {
