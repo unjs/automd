@@ -85,7 +85,7 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 ### `pm-install` Generator
 
-`pm-install` Generator generates commands for several JavaScript package managers.
+The `pm-install` generator generates commands for several JavaScript package managers.
 
 #### Usage
 
