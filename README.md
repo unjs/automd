@@ -51,7 +51,7 @@ See [open issues](https://github.com/unjs/automd/issues?q=is%3Aopen+is%3Aissue+l
 
 ### `jsdocs` Generator
 
-`jsdocs` generator can automatically read through your code and extract and sync documentation of function exports leveraging JSDocs and TypeScript hints.
+The `jsdocs` generator can automatically read through your code and extract and sync documentation of function exports leveraging JSDocs and TypeScript hints.
 
 Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support.
 
