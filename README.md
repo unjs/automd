@@ -114,7 +114,7 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 #### Args supported for `pm-install`
 
-- `name`: The package name. (by default tries to read to the `name` field in `package.json`).
+- `name`: The package name (by default tries to read from the `name` field in `package.json`).
 - `dev`: Install as a dev dependency. (defaults to `false`).
 - `auto`: Auto-detect package manager. (defaults to `true`). [Docs](https://github.com/unjs/nypm#-nypm)
 
