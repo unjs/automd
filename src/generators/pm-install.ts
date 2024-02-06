@@ -8,9 +8,8 @@ export default defineGenerator({
     const name =
       args.name ||
       (await readPackageJSON(options.dir).then(
-        (pkg) => pkg.name ?? undefined,
-      )) ||
-      "package-name";
+        (pkg) => pkg?.name || 'package-name',
+      ));
     const dev = !!args.dev;
     const pkgInstalls = [
       ["npm", "install"],
