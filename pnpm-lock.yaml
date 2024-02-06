@@ -11,6 +11,9 @@ dependencies:
   consola:
     specifier: ^3.2.3
     version: 3.2.3
+  destr:
+    specifier: ^2.0.2
+    version: 2.0.2
   magic-string:
     specifier: ^0.30.7
     version: 0.30.7
@@ -1405,7 +1408,6 @@ packages:
 
   /destr@2.0.2:
     resolution: {integrity: sha512-65AlobnZMiCET00KaFFjUefxDX0khFA/E4myqZ7a6Sq1yZtR8+FVIvilVX66vF2uobSumxooYZChiRPCKNqhmg==}
-    dev: true
 
   /dir-glob@3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}

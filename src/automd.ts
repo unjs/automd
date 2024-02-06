@@ -2,6 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { existsSync } from "node:fs";
 import MagicString from "magic-string";
+import { destr } from "destr";
 import generators from "./generators";
 import { GenerateContext, GenerateResult } from "./generator";
 
@@ -64,9 +65,9 @@ export async function automd(_options: Partial<AutoMDOptions> = {}) {
     const end = start + match.groups.contents.length;
 
     const args = Object.fromEntries(
-      [...match.groups.args.matchAll(/(?<key>\w+)="(?<value>[^"]*)"/g)].map(
-        (m) => [m.groups?.key, m.groups?.value],
-      ),
+      [
+        ...match.groups.args.matchAll(/(?<key>\w+)=(["'])(?<value>[^\2]+?)\2/g),
+      ].map((m) => [m.groups?.key, destr(m.groups?.value)]),
     );
 
     const generatorName = args.generator;
