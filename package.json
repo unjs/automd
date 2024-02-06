@@ -1,6 +1,6 @@
 {
   "name": "automd",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Your automated markdown maintainer!",
   "repository": "unjs/automd",
   "license": "MIT",
