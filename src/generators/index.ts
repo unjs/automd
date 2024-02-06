@@ -4,5 +4,5 @@ import npmInstall from "./npm-install";
 
 export default {
   jsdocs,
-  'npm-install': npmInstall,
+  "npm-install": npmInstall,
 } as Record<string, Generator>;
