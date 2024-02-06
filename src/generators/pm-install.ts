@@ -20,12 +20,16 @@ export default defineGenerator({
       ["bun", "install"],
     ];
 
+    if (args.auto ?? true) {
+      pkgInstalls.unshift(["npx nypm@latest", "add"]);
+    }
+
     return {
       contents: codeBlock(
         pkgInstalls
           .map(
             ([cmd, install]) =>
-              `# ${cmd}\n${cmd} ${install} ${name}${args.dev ? " -D" : ""}`,
+              `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install} ${name}${args.dev ? " -D" : ""}`,
           )
           .join("\n\n"),
         "sh",

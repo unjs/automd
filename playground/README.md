@@ -3,6 +3,9 @@
 <!-- AUTOMD_START generator="pm-install" -->
 
 ```sh
+# ✨ Auto-detect
+npx nypm@latest add automod-playground
+
 # npm
 npm install automod-playground
 

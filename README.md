@@ -100,6 +100,7 @@ The declared section will be automatically updated!
 
 - `name`: The package name. (by default tries to read to the `name` field in `package.json`).
 - `dev`: Install as a dev dependency. (defaults to `false`).
+- `auto`: Auto-detect package manager. (defaults to `true`). [Docs](https://github.com/unjs/nypm#-nypm)
 
 ## Development
 
