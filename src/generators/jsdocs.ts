@@ -13,7 +13,7 @@ export default defineGenerator({
 
     return {
       contents: renderSchema(schema, {
-        headingLevel: Number.parseInt(args.headingLevel) || 3,
+        headingLevel: Number.parseInt(args.headingLevel) || 2,
       }),
     };
   },
