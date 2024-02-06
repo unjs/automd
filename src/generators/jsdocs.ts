@@ -68,7 +68,15 @@ function renderSchema(schema: Schema, opts: { headingLevel: number }) {
   }
 
   const lines: string[] = [];
-  for (const group of Object.keys(sections).sort()) {
+  for (const group of Object.keys(sections).sort((a, b) => {
+    if (a === "") {
+      return 1;
+    }
+    if (b === "") {
+      return -1;
+    }
+    return a.localeCompare(b);
+  })) {
     if (group) {
       lines.push(`${"#".repeat(opts.headingLevel)} ${group}`, "");
     }
