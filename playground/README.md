@@ -1,22 +1,22 @@
 ## Usage
 
-<!-- AUTOMD_START generator="pm-install" -->
+<!-- AUTOMD_START generator="pm-install" dev="true" -->
 
 ```sh
 # ✨ Auto-detect
-npx nypm@latest add automd-playground
+npx nypm@latest add -D automd-playground
 
 # npm
-npm install automd-playground
+npm install -D automd-playground
 
 # yarn
-yarn add automd-playground
+yarn add -D automd-playground
 
 # pnpm
-pnpm install automd-playground
+pnpm install -D automd-playground
 
 # bun
-bun install automd-playground
+bun install -D automd-playground
 ```
 
 <!-- AUTOMD_END -->

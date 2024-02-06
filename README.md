@@ -98,16 +98,16 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
     ```sh
     # npm
-    npm install package-name -D
+    npm install -D package-name
 
     # yarn
-    yarn add package-name -D
+    yarn add -D package-name
 
     # pnpm
-    pnpm install package-name -D
+    pnpm install -D package-name
 
     # bun
-    bun install package-name -D
+    bun install -D package-name
     ```
 
     <!-- AUTOMD_END -->

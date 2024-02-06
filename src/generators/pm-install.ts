@@ -29,7 +29,7 @@ export default defineGenerator({
         pkgInstalls
           .map(
             ([cmd, install]) =>
-              `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install} ${name}${args.dev ? " -D" : ""}`,
+              `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}`,
           )
           .join("\n\n"),
         "sh",
