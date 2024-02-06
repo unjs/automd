@@ -112,7 +112,7 @@ The `pm-install` generator generates commands for several JavaScript package man
 
     <!-- AUTOMD_END -->
 
-#### Args supported for `pm-install`
+#### Arguments
 
 - `name`: The package name (by default tries to read from the `name` field in `package.json`).
 - `dev`: Install as a dev dependency. (defaults to `false`).
