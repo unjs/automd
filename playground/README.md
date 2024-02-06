@@ -1,5 +1,20 @@
 ## Usage
 
+<!-- AUTOMD_START generator="pm-x" name="package-name" usage="[path]" -->
+
+```sh
+# npm
+npx package-name [path]
+
+# pnpm
+pnpm dlx package-name [path]
+
+# bun
+bunx package-name [path]
+```
+
+<!-- AUTOMD_END -->
+
 <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
 
 ```sh
