@@ -1,6 +1,29 @@
 # Changelog
 
 
+## v0.1.5
+
+[compare changes](https://github.com/unjs/automd/compare/v0.1.4...v0.1.5)
+
+### 🚀 Enhancements
+
+- `pm-install` generator ([#9](https://github.com/unjs/automd/pull/9))
+
+### 🩹 Fixes
+
+- Remove log ([b4cdf5f](https://github.com/unjs/automd/commit/b4cdf5f))
+
+### 🏡 Chore
+
+- **release:** V0.1.4 ([b36fe54](https://github.com/unjs/automd/commit/b36fe54))
+- Update readme ([f8ee292](https://github.com/unjs/automd/commit/f8ee292))
+- Update readme ([957c995](https://github.com/unjs/automd/commit/957c995))
+
+### ❤️ Contributors
+
+- Christian Preston ([@cpreston321](http://github.com/cpreston321))
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.1.4
 
 [compare changes](https://github.com/unjs/automd/compare/v0.1.3...v0.1.4)
