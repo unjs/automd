@@ -15,9 +15,9 @@ Your automated markdown maintainer!
 
 ## Generators
 
-These are the available generators for `automd`:
+There are several available generators for automd. See [issues](https://github.com/unjs/automd/issues?q=is%3Aopen+is%3Aissue+label%3Agenerator) for proposed generators and feel free to suggest any generator ideas to be included!
 
-### JSDocs Generator
+### `jsdocs` Generator
 
 Create a section in your `README.md`:
 
@@ -59,11 +59,12 @@ The declared section will be automatically updated!
 - `headingLevel`: Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for title in nested levels.
 - `group`: Only render function exportes anotated with `@group name`. By default there is no group filter. Value can be an string or array of strings.
 
-### PM Install Generator
+### `pm-install` Generator
 
 Create a section in your `README.md`:
 
     ## Usage
+
     <!-- AUTOMD_START generator="pm-install" -->
     <!-- AUTOMD_END -->
 
@@ -95,9 +96,9 @@ The declared section will be automatically updated!
 
     <!-- AUTOMD_END -->
 
-#### PM Install Supported Args
+#### Supported Args
 
-- `name`: The package name. (defaults to the `name` field in `package.json`).
+- `name`: The package name. (by default tries to read to the `name` field in `package.json`).
 - `dev`: Install as a dev dependency. (defaults to `false`).
 
 ## Development
