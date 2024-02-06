@@ -28,7 +28,7 @@
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src -w",
     "prepack": "pnpm build",
     "play": "jiti playground",
-    "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
+    "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags && pnpm build --stub",
     "test": "pnpm lint && pnpm test:types",
     "test:types": "tsc --noEmit --skipLibCheck"
   },
