@@ -13,23 +13,58 @@ Your automated markdown maintainer!
 - [unjs/ufo](https://github.com/unjs/ufo)
 - [unjs/omark](https://github.com/unjs/omark)
 
-## JSDocs Generator
+## Usage
 
-Create a section in your `README.md`:
+Automd scans for the `<!-- AUTOMD_START --> ... <!-- AUTOMD_END -->` comments within the markdown document and update their contents using generators.
 
-    ## Utils
-    <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
-    <!-- AUTOMD_END -->
+The syntax is like this:
 
-Make sure to have some utility exports in `src/index.ts` annotated with JSDocs.
+```md
+<!-- AUTOMD_START generator="<generator name>" [... generator args] -->
 
-Now invoke `automd`:
+...
+
+<!-- AUTOMD_END -->
+```
+
+### Using CLI
+
+Easiest way to use automd, is to use the CLI. You can install automd or run `npx automd` in your project.
+
+By default, `README.md` file in current working directory will be checked.
+
+You can use `--dir` and `--file` arguments to customize default beavior to operate on any other markdown file.
 
 ```sh
 npx automd@latest
 ```
 
-The declared section will be automatically updated!
+### Programmatic API
+
+[WIP]
+
+## Generators
+
+There are several available generators for automd each supporting different aguments. See [issues](https://github.com/unjs/automd/issues?q=is%3Aopen+is%3Aissue+label%3Agenerator) for proposed generators and feel free to suggest any generator ideas to be included!
+
+### `jsdocs` Generator
+
+jsdocs generator can automatically read through your code and extract documentation of function exports leveraging JSDocs and TypeScript hints.
+
+Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support.
+
+#### Usage
+
+```md
+## Utils
+
+<!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
+<!-- AUTOMD_END -->
+```
+
+(make sure to have some utility exports in `src/index.ts` annotated with JSDocs.)
+
+#### Example Output
 
     ## Utils
 
@@ -46,10 +81,7 @@ The declared section will be automatically updated!
 
     <!-- AUTOMD_END -->
 
-> [!NOTE]
-> automd uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support .
-
-### Supported Args
+### Args
 
 - `src`: Path to the source file. The default is `./src/index` and can be omitted.
 - `headingLevel`: Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for title in nested levels.
@@ -75,7 +107,3 @@ Published under [MIT License](./LICENSE).
 [npm-version-href]: https://npmjs.com/package/automd
 [npm-downloads-src]: https://img.shields.io/npm/dm/automd?style=flat&colorA=18181B&colorB=F0DB4F
 [npm-downloads-href]: https://npmjs.com/package/automd
-
-```
-
-```
