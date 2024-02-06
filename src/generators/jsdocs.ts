@@ -41,7 +41,19 @@ function renderSchema(schema: Schema, opts: { headingLevel: number }) {
       continue;
     }
 
-    const jsSig = `${name}(${(meta.args || []).map((arg) => arg.name).join(", ")})`;
+    const jsSig = `${name}(${(meta.args || [])
+      .map((arg) => {
+        let str = arg.name;
+        if (arg.optional) {
+          str += "?";
+        }
+        const tsType = simpleArgType(arg.tsType);
+        if (tsType) {
+          str += `: ${tsType}`;
+        }
+        return str;
+      })
+      .join(", ")})`;
 
     lines.push(`${"#".repeat(opts.headingLevel + 1)} \`${jsSig}\``, "");
 
@@ -118,4 +130,18 @@ function parseTags(lines: string[] = []) {
   }
 
   return parsedTags;
+}
+
+// Silly, but works!
+function simpleArgType(tsType = "") {
+  return tsType
+    .split(/\s*\|\s*/)
+    .filter((t) => t && t !== "object" && t.startsWith("{"))
+    .map((ot) =>
+      ot
+        .split(/\s*[,;]\s*/g)
+        .map((p) => p.replaceAll(/\s*:\s*(string|boolean|number)/g, ""))
+        .join(", "),
+    )
+    .join(" | ");
 }
