@@ -13,27 +13,58 @@ Your automated markdown maintainer!
 - [unjs/ufo](https://github.com/unjs/ufo)
 - [unjs/omark](https://github.com/unjs/omark)
 
-## Generators
+## Usage
 
-There are several available generators for automd. See [issues](https://github.com/unjs/automd/issues?q=is%3Aopen+is%3Aissue+label%3Agenerator) for proposed generators and feel free to suggest any generator ideas to be included!
+Automd scans for the annotation comments within the markdown document and updates their contents using built-in generators.
 
-### `jsdocs` Generator
+The syntax is like this:
 
-Create a section in your `README.md`:
+```md
+<!-- AUTOMD_START generator="jsdocs" [...args] -->
 
-    ## Utils
-    <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
-    <!-- AUTOMD_END -->
+...
 
-Make sure to have some utility exports in `src/index.ts` annotated with JSDocs.
+<!-- AUTOMD_END -->
+```
 
-Now invoke `automd`
+### Using CLI
+
+The easiest way to use automd is to use the CLI. You can install automd and add it to the `build` or `release` command in `package.json` or directly run `npx automd` in your project.
 
 ```sh
 npx automd@latest
 ```
 
-The declared section will be automatically updated!
+By default, the `README.md` file in the current working directory will be used as the target.
+
+You can use `--dir` and `--file` arguments to customize the default behavior to operate on any other markdown file.
+
+### Programmatic API
+
+[WIP]
+
+## Generators
+
+There are several available generators for automd each supporting different arguments.
+
+See [open issues](https://github.com/unjs/automd/issues?q=is%3Aopen+is%3Aissue+label%3Agenerator) for proposed generators and feel free to suggest any generator ideas to be included!
+
+### `jsdocs` Generator
+
+`jsdocs` generator can automatically read through your code and extract and sync documentation of function exports leveraging JSDocs and TypeScript hints.
+
+Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support.
+
+#### Usage
+
+```md
+<!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
+<!-- AUTOMD_END -->
+```
+
+(make sure to have some utility exports in `src/index.ts` annotated with JSDocs.)
+
+**Example Output:**
 
     ## Utils
 
@@ -50,57 +81,44 @@ The declared section will be automatically updated!
 
     <!-- AUTOMD_END -->
 
-> [!NOTE]
-> automd uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support .
-
-#### JSDocs Supported Args
+#### Args supported for `jsdocs`
 
 - `src`: Path to the source file. The default is `./src/index` and can be omitted.
-- `headingLevel`: Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for title in nested levels.
-- `group`: Only render function exportes anotated with `@group name`. By default there is no group filter. Value can be an string or array of strings.
+- `headingLevel`: Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for the title in nested levels.
+- `group`: Only render function exportes annotated with `@group name`. By default, there is no group filter. Value can be a string or array of strings.
 
 ### `pm-install` Generator
 
-Create a section in your `README.md`:
+`pm-install` Generator generates commands for several JavaScript package managers.
 
-    ## Usage
+#### Usage
 
-    <!-- AUTOMD_START generator="pm-install" -->
-    <!-- AUTOMD_END -->
-
-Now invoke `automd`
-
-```sh
-npx automd@latest
+```md
+<!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
+<!-- AUTOMD_END -->
 ```
 
 The declared section will be automatically updated!
 
     ## Usage
 
-    <!-- AUTOMD_START generator="pm-install" name="example-package" dev="true" -->
+    <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
 
     ```sh
     # npm
-    npm install example-package -D
+    npm install package-name -D
 
     # yarn
-    yarn add example-package -D
+    yarn add package-name -D
 
     # pnpm
-    pnpm install example-package -D
+    pnpm install package-name -D
 
     # bun
-    bun install example-package -D
+    bun install package-name -D
     ```
 
     <!-- AUTOMD_END -->
-
-#### Supported Args
-
-- `name`: The package name. (by default tries to read to the `name` field in `package.json`).
-- `dev`: Install as a dev dependency. (defaults to `false`).
-- `auto`: Auto-detect package manager. (defaults to `true`). [Docs](https://github.com/unjs/nypm#-nypm)
 
 ## Development
 
