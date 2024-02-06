@@ -98,8 +98,6 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 **Updated Result:**
 
-    ## Usage
-
     <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
 
     ```sh
