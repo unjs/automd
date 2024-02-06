@@ -57,10 +57,8 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 #### Usage
 
-```md
-<!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
-<!-- AUTOMD_END -->
-```
+    <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
+    <!-- AUTOMD_END -->
 
 (make sure to have some utility exports in `src/index.ts` annotated with JSDocs.)
 
@@ -91,10 +89,8 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 #### Usage
 
-```md
-<!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
-<!-- AUTOMD_END -->
-```
+    <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
+    <!-- AUTOMD_END -->
 
 **Updated Result:**
 
