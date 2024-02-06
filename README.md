@@ -49,7 +49,7 @@ There are several available generators for automd each supporting different argu
 
 See [open issues](https://github.com/unjs/automd/issues?q=is%3Aopen+is%3Aissue+label%3Agenerator) for proposed generators and feel free to suggest any generator ideas to be included!
 
-### `jsdocs` Generator
+### `jsdocs`
 
 The `jsdocs` generator can automatically read through your code and extract and sync documentation of function exports leveraging JSDocs and TypeScript hints.
 
