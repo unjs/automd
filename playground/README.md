@@ -1,6 +1,6 @@
 ## Usage
 
-<!-- AUTOMD_START generator="npm-install" -->
+<!-- AUTOMD_START generator="pm-install" -->
 
 ```sh
 # npm

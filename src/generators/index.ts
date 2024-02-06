@@ -1,8 +1,8 @@
 import { Generator } from "../generator";
 import jsdocs from "./jsdocs";
-import npmInstall from "./npm-install";
+import pmInstall from "./pm-install";
 
 export default {
   jsdocs,
-  "npm-install": npmInstall,
+  "pm-install": pmInstall,
 } as Record<string, Generator>;

@@ -13,7 +13,11 @@ Your automated markdown maintainer!
 - [unjs/ufo](https://github.com/unjs/ufo)
 - [unjs/omark](https://github.com/unjs/omark)
 
-## JSDocs Generator
+## Generators
+
+These are the available generators for `automd`:
+
+### JSDocs Generator
 
 Create a section in your `README.md`:
 
@@ -23,7 +27,7 @@ Create a section in your `README.md`:
 
 Make sure to have some utility exports in `src/index.ts` annotated with JSDocs.
 
-Now invoke `automd`:
+Now invoke `automd`
 
 ```sh
 npx automd@latest
@@ -49,11 +53,52 @@ The declared section will be automatically updated!
 > [!NOTE]
 > automd uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support .
 
-### Supported Args
+#### JSDocs Supported Args
 
 - `src`: Path to the source file. The default is `./src/index` and can be omitted.
 - `headingLevel`: Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for title in nested levels.
 - `group`: Only render function exportes anotated with `@group name`. By default there is no group filter. Value can be an string or array of strings.
+
+### PM Install Generator
+
+Create a section in your `README.md`:
+
+    ## Usage
+    <!-- AUTOMD_START generator="pm-install" -->
+    <!-- AUTOMD_END -->
+
+Now invoke `automd`
+
+```sh
+npx automd@latest
+```
+
+The declared section will be automatically updated!
+
+    ## Usage
+
+    <!-- AUTOMD_START generator="pm-install" name="example-package" dev="true" -->
+
+    ```sh
+    # npm
+    npm install example-package -D
+
+    # yarn
+    yarn add example-package -D
+
+    # pnpm
+    pnpm install example-package -D
+
+    # bun
+    bun install example-package -D
+    ```
+
+    <!-- AUTOMD_END -->
+
+#### PM Install Supported Args
+
+- `name`: The package name. (defaults to the `name` field in `package.json`).
+- `dev`: Install as a dev dependency. (defaults to `false`).
 
 ## Development
 
@@ -75,7 +120,3 @@ Published under [MIT License](./LICENSE).
 [npm-version-href]: https://npmjs.com/package/automd
 [npm-downloads-src]: https://img.shields.io/npm/dm/automd?style=flat&colorA=18181B&colorB=F0DB4F
 [npm-downloads-href]: https://npmjs.com/package/automd
-
-```
-
-```

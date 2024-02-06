@@ -3,24 +3,28 @@ import { codeBlock } from "omark";
 import { defineGenerator } from "../generator";
 
 export default defineGenerator({
-  name: "npm-install",
+  name: "pm-install",
   async generate({ options, args }) {
-    const pkg = await readPackageJSON(options.dir);
-    const name = args.name || pkg.name || "package-name";
+    const name =
+      args.name ||
+      (await readPackageJSON(options.dir).then(
+        (pkg) => pkg.name ?? undefined,
+      )) ||
+      "package-name";
     const dev = !!args.dev;
     const pkgInstalls = [
-      ["npm", "install", "--save-dev"],
-      ["yarn", "add", "-D"],
-      ["pnpm", "install", "-D"],
-      ["bun", "install", "-D"],
+      ["npm", "install"],
+      ["yarn", "add"],
+      ["pnpm", "install"],
+      ["bun", "install"],
     ];
 
     return {
       contents: codeBlock(
         pkgInstalls
           .map(
-            ([cmd, install, d]) =>
-              `# ${cmd}\n${cmd} ${install} ${name}${dev ? " " + d : ""}`,
+            ([cmd, install]) =>
+              `# ${cmd}\n${cmd} ${install} ${name}${dev ? " -D" : ""}`,
           )
           .join("\n\n"),
         "sh",
