@@ -97,6 +97,9 @@ The `pm-install` generator generates commands for several JavaScript package man
     <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
 
     ```sh
+    # ✨ Auto-detect
+    npx nypm@latest add -D package-name
+
     # npm
     npm install -D package-name
 
