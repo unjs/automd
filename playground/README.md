@@ -4,19 +4,19 @@
 
 ```sh
 # ✨ Auto-detect
-npx nypm@latest add automod-playground
+npx nypm@latest add automd-playground
 
 # npm
-npm install automod-playground
+npm install automd-playground
 
 # yarn
-yarn add automod-playground
+yarn add automd-playground
 
 # pnpm
-pnpm install automod-playground
+pnpm install automd-playground
 
 # bun
-bun install automod-playground
+bun install automd-playground
 ```
 
 <!-- AUTOMD_END -->
