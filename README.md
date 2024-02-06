@@ -81,7 +81,42 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 - `src`: Path to the source file. The default is `./src/index` and can be omitted.
 - `headingLevel`: Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for the title in nested levels.
-- `group`: Only render function exportes annotated with `@group name`. By default, there is no group filter. Value can be a string or array of strings.
+- `group`: Only render function exports annotated with `@group name`. By default, there is no group filter. Value can be a string or array of strings.
+
+### `pm-install` Generator
+
+`pm-install` Generator generates commands for several JavaScript package managers.
+
+#### Usage
+
+    <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
+    <!-- AUTOMD_END -->
+
+**Updated Result:**
+
+    <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
+
+    ```sh
+    # npm
+    npm install package-name -D
+
+    # yarn
+    yarn add package-name -D
+
+    # pnpm
+    pnpm install package-name -D
+
+    # bun
+    bun install package-name -D
+    ```
+
+    <!-- AUTOMD_END -->
+
+#### Args supported for `pm-install`
+
+- `name`: The package name. (by default tries to read to the `name` field in `package.json`).
+- `dev`: Install as a dev dependency. (defaults to `false`).
+- `auto`: Auto-detect package manager. (defaults to `true`). [Docs](https://github.com/unjs/nypm#-nypm)
 
 ## Development
 
