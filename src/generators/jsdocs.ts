@@ -102,8 +102,6 @@ function renderSchema(
     sections[group].push([name, lines]);
   }
 
-  console.log(sections);
-
   const lines: string[] = [];
   for (const group of Object.keys(sections).sort((a, b) => {
     if (a === "") {
