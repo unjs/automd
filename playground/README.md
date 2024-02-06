@@ -1,8 +1,28 @@
+## Usage
+
+<!-- AUTOMD_START generator="npm-install" -->
+
+```sh
+# npm
+npm install automod-playground
+
+# yarn
+yarn add automod-playground
+
+# pnpm
+pnpm install automod-playground
+
+# bun
+bun install automod-playground
+```
+
+<!-- AUTOMD_END -->
+
 ## Utils
 
 <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
 
-#### `add(a, b)`
+### `add(a, b)`
 
 Adds two numbers together.
 

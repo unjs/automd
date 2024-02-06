@@ -37,6 +37,8 @@
     "consola": "^3.2.3",
     "destr": "^2.0.2",
     "magic-string": "^0.30.7",
+    "omark": "^0.1.0",
+    "pkg-types": "^1.0.3",
     "scule": "^1.3.0",
     "untyped": "^1.4.2"
   },
