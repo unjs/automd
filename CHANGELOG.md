@@ -1,6 +1,32 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/unjs/automd/compare/v0.1.1...v0.1.2)
+
+### 🚀 Enhancements
+
+- **jsdocs:** Add optional and simplified arg types for objects ([7dc55a4](https://github.com/unjs/automd/commit/7dc55a4))
+- Allow desrializing args ([d49593e](https://github.com/unjs/automd/commit/d49593e))
+- **jsdocs:** Allow group filter ([0e31974](https://github.com/unjs/automd/commit/0e31974))
+
+### 🩹 Fixes
+
+- Use title case for section titles ([d18e529](https://github.com/unjs/automd/commit/d18e529))
+
+### 💅 Refactors
+
+- Default `headingLevel` to 2 ([4faec97](https://github.com/unjs/automd/commit/4faec97))
+
+### 🏡 Chore
+
+- Add used by section ([3954be9](https://github.com/unjs/automd/commit/3954be9))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.1.1
 
 
