@@ -1,7 +1,11 @@
 # 🤖 automd
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
+<!-- automd:badges -->
+
+[![npm version](https://img.shields.io/npm/v/automd?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/automd)
+[![npm downloads](https://img.shields.io/npm/dm/automd?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/automd)
+
+<!-- /automd -->
 
 Your automated markdown maintainer!
 
@@ -20,10 +24,8 @@ Automd scans for the annotation comments within the markdown document and update
 
 The syntax is like this:
 
-```md
-<!-- automd:generator [...args] -->
-<!-- /automd -->
-```
+  <!-- automd:generator [...args] -->
+  <!-- /automd -->
 
 ### Using CLI
 
@@ -174,21 +176,21 @@ The `pm-x` generator generates commands for running a package through JavaScript
 
 ### `badges`
 
-The `badges` generator generates badges for npm version, npm downloads and some optional ones like codecov & bundle.
+The `badges` generator generates badges for npm version, npm downloads and some optional ones like codecov and bundle.
 
 #### Usage
 
-    <!-- AUTOMD_START generator="badges" name="package-name" -->
-    <!-- AUTOMD_END -->
+    <!-- automd:badges name=package-name -->
+    <!-- /automd -->
 
 **Updated Result:**
 
-    <!-- AUTOMD_START generator="badges" name="package-name" -->
+    <!-- automd:badges name=package-name -->
 
     [![npm version](https://img.shields.io/npm/v/package-name?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/package-name)
     [![npm downloads](https://img.shields.io/npm/dm/package-name?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/package-name)
 
-    <!-- AUTOMD_END -->
+    <!-- /automd -->
 
 #### Arguments
 
@@ -218,10 +220,3 @@ The `badges` generator generates badges for npm version, npm downloads and some 
 Made with 💛
 
 Published under [MIT License](./LICENSE).
-
-<!-- Badges -->
-
-[npm-version-src]: https://img.shields.io/npm/v/automd?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-version-href]: https://npmjs.com/package/automd
-[npm-downloads-src]: https://img.shields.io/npm/dm/automd?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-downloads-href]: https://npmjs.com/package/automd

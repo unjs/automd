@@ -38,8 +38,6 @@ export async function automd(_config: Config = {}) {
 
   const blocks = findAutoMdBlocks(fileContents);
 
-  consola.log(blocks);
-
   for (const block of blocks) {
     const args = parseRawArgs(block.rawArgs);
     const generator = generators[block.generator];
