@@ -1,7 +1,7 @@
 import { Generator } from "../generator";
 import jsdocs from "./jsdocs";
-import pmInstall from "./pm-install";
-import pmX from "./pm-x";
+import pmInstall from "./pm/install";
+import pmX from "./pm/x";
 
 export default {
   jsdocs,
