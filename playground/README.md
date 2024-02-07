@@ -79,7 +79,7 @@ add(1, 2); // 3
 
 ### `subtract(a, b)`
 
-Adds two numbers together.
+Subtracts two numbers together.
 
 **Example:**
 
