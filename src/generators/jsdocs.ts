@@ -115,7 +115,15 @@ function renderSchema(
   })) {
     if (group) {
       if (opts.collapse) {
-        lines.push(`<details>`, "<summary>", "", `${"#".repeat(opts.headingLevel)} ${titleCase(group)}`, "", "</summary>", "");
+        lines.push(
+          `<details>`,
+          "<summary>",
+          "",
+          `${"#".repeat(opts.headingLevel)} ${titleCase(group)}`,
+          "",
+          "</summary>",
+          "",
+        );
       } else {
         lines.push(`${"#".repeat(opts.headingLevel)} ${titleCase(group)}`, "");
       }
