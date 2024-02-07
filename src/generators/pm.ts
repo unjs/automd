@@ -26,19 +26,26 @@ export const pmInstall = defineGenerator({
       };
     }
 
-    // TODO: support noAuto/no-auto
     if (args.auto ?? true) {
       INSTALL_COMMANDS.unshift(["npx nypm", "i"]);
     }
 
+    const contents = INSTALL_COMMANDS.map(
+      ([cmd, install]) =>
+        `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}${version ? `@^${version}` : ""}`,
+    )
+
+    if (args.separate ?? false) {
+      return {
+        contents: codeBlock(
+          contents.join("\n\n"),
+          "sh",
+        ),
+      };
+    }
+
     return {
-      contents: codeBlock(
-        INSTALL_COMMANDS.map(
-          ([cmd, install]) =>
-            `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}${version ? `@^${version}` : ""}`,
-        ).join("\n\n"),
-        "sh",
-      ),
+      contents: contents.map((cmd) => codeBlock(cmd, "sh")).join("\n\n")
     };
   },
 });
@@ -54,14 +61,22 @@ export const pmX = defineGenerator({
       };
     }
 
+    const contents = RUN_COMMANDS.map(
+      ([pm, cmd]) =>
+        `# ${pm}\n${cmd} ${name}@${version ? `${version}` : ""}${args.args ? ` ${args.args}` : ""}`,
+    )
+
+    if (args.separate ?? false) {
+      return {
+        contents: codeBlock(
+          contents.join("\n\n"),
+          "sh",
+        ),
+      };
+    }
+
     return {
-      contents: codeBlock(
-        RUN_COMMANDS.map(
-          ([pm, cmd]) =>
-            `# ${pm}\n${cmd} ${name}@${version ? `${version}` : ""}${args.args ? ` ${args.args}` : ""}`,
-        ).join("\n\n"),
-        "sh",
-      ),
+      contents: contents.map((cmd) => codeBlock(cmd, "sh")).join("\n\n")
     };
   },
 });

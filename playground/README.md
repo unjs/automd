@@ -26,21 +26,29 @@ bunx automd@0.2.0 .
 
 <!-- /automd -->
 
-<!-- automd:pm-install dev -->
+<!-- automd:pm-install dev seprate-->
 
 ```sh
 # ✨ Auto-detect
 npx nypm i -D automd@^0.2.0
+```
 
+```sh
 # npm
 npm install -D automd@^0.2.0
+```
 
+```sh
 # yarn
 yarn add -D automd@^0.2.0
+```
 
+```sh
 # pnpm
 pnpm install -D automd@^0.2.0
+```
 
+```sh
 # bun
 bun install -D automd@^0.2.0
 ```

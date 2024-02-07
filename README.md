@@ -142,6 +142,7 @@ The `pm-install` generator generates installation commands for several JavaScrip
 
 - `name`: The package name (by default tries to read from the `name` field in `package.json`).
 - `dev`: Install as a dev dependency (defaults to `false`).
+- `seprate`: Seprate code blocks for each package manager (defaults to `false`).
 - `auto`: Auto-detect package manager using [unjs/nypm](https://github.com/unjs/nypm#-nypm) (defaults to `true`).
 
 ### `pm-x`
@@ -173,6 +174,7 @@ The `pm-x` generator generates commands for running/executing a package through 
 #### Arguments
 
 - `name`: The package name (by default tries to read from the `name` field in `package.json`).
+- `seprate`: Seprate code blocks for each package manager (defaults to `false`).
 - `args`: An additional string appended at the end of each command suggesting arguments to be used with the program. (defaults to `""`).
 
 ### `badges`
