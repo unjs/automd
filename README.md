@@ -159,7 +159,8 @@ The `pm-x` generator generates commands for running a package through JavaScript
 - Install the latest LTS version of [Node.js](https://nodejs.org/en/)
 - Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
 - Install dependencies using `pnpm install`
-- Run playground test using `pnpm dev`
+- Run unit tests using `pnpm dev`
+- Run playground test using `pnpm play`
 
 ## License
 

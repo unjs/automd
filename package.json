@@ -23,12 +23,13 @@
   "scripts": {
     "automd": "jiti src/cli.ts",
     "build": "unbuild",
-    "dev": "pnpm automd --dir playground",
+    "dev": "vitest",
+    "play": "pnpm automd --dir playground",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src",
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src -w",
     "prepack": "pnpm build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags && pnpm build --stub",
-    "test": "pnpm lint && pnpm test:types",
+    "test": "pnpm lint && pnpm test:types && vitest run --coverage",
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
@@ -49,7 +50,8 @@
     "jiti": "^1.21.0",
     "prettier": "^3.1.1",
     "typescript": "^5.3.3",
-    "unbuild": "^2.0.0"
+    "unbuild": "^2.0.0",
+    "vitest": "^1.2.2"
   },
   "packageManager": "pnpm@8.12.1"
 }
