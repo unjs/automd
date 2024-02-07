@@ -26,6 +26,7 @@ function renderSchema(
     headingLevel: number;
     group?: string | string[];
     defaultGroup?: string;
+    collapse?: boolean;
   },
 ) {
   const sections = Object.create(null) as Record<string, [string, string[]][]>;
@@ -44,7 +45,7 @@ function renderSchema(
     // Parse tag annotations
     const tags = parseTags(meta.tags);
 
-    // Ignore deprecated and intenral functions
+    // Ignore deprecated and internal functions
     if (tags.some((t) => t.tag === "@deprecated" || t.tag === "@internal")) {
       continue;
     }
@@ -113,12 +114,19 @@ function renderSchema(
     return a.localeCompare(b);
   })) {
     if (group) {
-      lines.push(`${"#".repeat(opts.headingLevel)} ${titleCase(group)}`, "");
+      if (opts.collapse) {
+        lines.push(`<details>`, "<summary>", "", `${"#".repeat(opts.headingLevel)} ${titleCase(group)}`, "", "</summary>", "");
+      } else {
+        lines.push(`${"#".repeat(opts.headingLevel)} ${titleCase(group)}`, "");
+      }
     }
     for (const item of sections[group].sort((i1, i2) =>
       i1[0].localeCompare(i2[0]),
     )) {
       lines.push(...item[1]);
+    }
+    if (group && opts.collapse) {
+      lines.push(`</details>`);
     }
   }
 

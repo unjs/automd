@@ -58,9 +58,14 @@ bun install -D automd@^0.2.0
 
 <!-- /automd -->
 
+<!-- automd:jsdocs collapse -->
+
+<details>
+<summary>
+
 ## Utils
 
-<!-- automd:jsdocs -->
+</summary>
 
 ### `add(a, b)`
 
@@ -72,5 +77,16 @@ Adds two numbers together.
 add(1, 2); // 3
 ```
 
+### `subtract(a, b)`
+
+Adds two numbers together.
+
+**Example:**
+
+```js
+subtract(2, 1); // 1
+```
+
+</details>
 
 <!-- /automd -->
