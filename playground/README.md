@@ -1,6 +1,11 @@
 # automd playground
 
-<!-- automd:badges -->
+<!-- automd:badges name=defu codecov bundlephobia -->
+
+[![npm version](https://img.shields.io/npm/v/defu)](https://npmjs.com/package/defu)
+[![npm downloads](https://img.shields.io/npm/dm/defu)](https://npmjs.com/package/defu)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/defu)](https://bundlephobia.com/package/defu)
+[![codecov](https://img.shields.io/codecov/c/gh/unjs/automd)](https://codecov.io/gh/unjs/automd)
 
 <!-- /automd -->
 
@@ -55,5 +60,6 @@ Adds two numbers together.
 ```js
 add(1, 2); // 3
 ```
+
 
 <!-- /automd -->

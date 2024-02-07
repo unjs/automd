@@ -180,15 +180,17 @@ The `badges` generator generates badges for npm version, npm downloads and some 
 
 #### Usage
 
-    <!-- automd:badges name=package-name -->
+    <!-- automd:badges name=defu codecov bundlephobia -->
     <!-- /automd -->
 
 **Updated Result:**
 
-    <!-- automd:badges name=package-name -->
+    <!-- automd:badges name=defu codecov bundlephobia -->
 
-    [![npm version](https://img.shields.io/npm/v/package-name?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/package-name)
-    [![npm downloads](https://img.shields.io/npm/dm/package-name?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/package-name)
+    [![npm version](https://img.shields.io/npm/v/defu)](https://npmjs.com/package/defu)
+    [![npm downloads](https://img.shields.io/npm/dm/defu)](https://npmjs.com/package/defu)
+    [![bundle size](https://img.shields.io/bundlephobia/minzip/defu)](https://bundlephobia.com/package/defu)
+    [![codecov](https://img.shields.io/codecov/c/gh/unjs/automd)](https://codecov.io/gh/unjs/automd)
 
     <!-- /automd -->
 
