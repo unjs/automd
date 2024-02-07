@@ -7,7 +7,7 @@ import generators from "./generators";
 import { GenerateContext, GenerateResult } from "./generator";
 
 const AUTOMD_RE =
-  /^(?<open><!--\s*AUTOMD_START\s*(?<args>[^>]*)\s*-->)(?<contents>.+?)(?<close><!--\s*AUTOMD_END\s*-->)/gms;
+  /^(?<open><!--\s*AUTOMD_START\s*(?<args>.*?)\s*-->)(?<contents>.+?)(?<close><!--\s*AUTOMD_END\s*-->)/gms;
 
 export interface AutoMDOptions {
   /**
