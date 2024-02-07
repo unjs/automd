@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import MagicString from "magic-string";
-import generators from "./generators";
+import builtinGenerators from "./generators";
 import { GenerateContext, GenerateResult } from "./generator";
 import { findAutoMdBlocks, parseRawArgs } from "./_parse";
 import { consola } from "./_utils";
@@ -32,7 +32,13 @@ export async function automd(_config: Config = {}) {
   };
   const updates: UpdateEntry[] = [];
 
+  const generators = {
+    ...builtinGenerators,
+    ...config.generators,
+  };
+
   const blocks = findAutoMdBlocks(fileContents);
+
   for (const block of blocks) {
     const args = parseRawArgs(block.rawArgs);
     const generatorName = args.generator;

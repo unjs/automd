@@ -42,7 +42,7 @@ You can use `--dir` and `--file` arguments to customize the default behavior to 
 
 ### Configuration
 
-You can specify configuration in `.automdrc` or `automd.config.{js,ts,cjs,mjs,json}` (powered by [unjs/c12](https://c12.unjs.io)).
+You can specify configuration in `.automdrc` or `automd.config` (`js`, `ts`, `mjs`, `cjs` or `json` format) (powered by [unjs/c12](https://c12.unjs.io)).
 
 Example: `automd.config.js`
 
@@ -52,6 +52,15 @@ export default {
   file: "DOCS.md",
 };
 ```
+
+#### Config
+
+- `dir`: Working directory (defaults to current working directory)
+  - You can use `--dir` to override with CLI
+- `file`: The markdown file name or path (relative to dir)
+  - You can use `--file` to override with CLI
+- `generators`: A map of generator names to custom generators
+  - You can use `automd.config` to specify them
 
 ### Programmatic API
 
