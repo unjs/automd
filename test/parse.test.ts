@@ -7,6 +7,10 @@ describe("parseRawArgs", () => {
     [`no-foo`, { foo: false }],
     [`foo="bar"`, { foo: "bar" }],
     [`foo=bar`, { foo: "bar" }],
+    [
+      `a-key=a-value another-key=another-value`,
+      { "a-key": "a-value", "another-key": "another-value" },
+    ],
   ] as const;
   for (const [input, expected] of tests) {
     it(`${JSON.stringify(input)} => ${JSON.stringify(expected)}`, () => {
@@ -21,7 +25,7 @@ describe("findAutoMdBlocks", () => {
 (a)
 <!-- /automd -->
 
-<!-- automd:pm-install dev -->
+<!-- automd:pm-install dev no-auto -->
 (b)
 <!-- /automd -->
 
@@ -41,7 +45,9 @@ describe("findAutoMdBlocks", () => {
   it("should find all blocks", () => {
     const blocks = findAutoMdBlocks(fixture);
     expect(blocks[0]).toMatchObject(mkBlock("pm-x", "args=.", "(a)"));
-    expect(blocks[1]).toMatchObject(mkBlock("pm-install", "dev", "(b)"));
+    expect(blocks[1]).toMatchObject(
+      mkBlock("pm-install", "dev no-auto", "(b)"),
+    );
     expect(blocks[2]).toMatchObject(mkBlock("jsdocs", "", "(c)"));
   });
 });
