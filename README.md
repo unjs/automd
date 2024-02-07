@@ -2,8 +2,8 @@
 
 <!-- automd:badges -->
 
-[![npm version](https://img.shields.io/npm/v/automd?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/automd)
-[![npm downloads](https://img.shields.io/npm/dm/automd?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/automd)
+[![npm version](https://img.shields.io/npm/v/automd)](https://npmjs.com/package/automd)
+[![npm downloads](https://img.shields.io/npm/dm/automd)](https://npmjs.com/package/automd)
 
 <!-- /automd -->
 
@@ -194,17 +194,16 @@ The `badges` generator generates badges for npm version, npm downloads and some 
 
 #### Arguments
 
-- `name`: The package name (by default tries to read from the `name` field in `package.json`).
-- `style`: The badge style (defaults to `flat`).
-- `colorA`: The left color of the badge (defaults to `18181B`).
-- `colorB`: The right color of the badge (defaults to `F0DB4F`).
-- `downloads-enabled`: Show npm downloads badge (defaults to `true`).
-- `version-enabled`: Show npm version badge (defaults to `true`).
-- `codecov-enabled`: Show codecov badge (defaults to `false`).
-- `bundle-enabled`: Show bundle size badge (defaults to `false`).
+- `name`: The npm package name. By default tries to infer from `package.json`
+- `github`: Github repository name. By default tries to infer from `package.json`
+- `bundlephobia`: Show [bundle-phobia](https://bundlephobia.com/) badge. (requires `name`)
+- `codecov`: Enable [codecov](https://codecov.io) badge (requires `github`)
+- `no-npmDownloads`: Hide npm downloads badge
+- `no-npmVersion`: Hide npm version badge
+- `provider`: Can be one of the `shields` (for [shields.io](https://shields.io/)) or `badgen` / `badgenClassic` (for [badgen.net](https://badgen.net/)). Default is `badgen`.
 
-> [!NOTE]
-> Each badge `downloads|version|codecov|bundle` can be enabled or disabled using `*-enabled` arguments also can be overridden with custom URLs using `*-src`, `*-href` and badge name `*-name` arguments.
+> [!TIP]
+> You can use additional `style`, `labelColor` and `color` args for `shields` provider for example: `provider=shidls style=flat-square labelColor=f0db4f color=18181b`
 
 ## Development
 

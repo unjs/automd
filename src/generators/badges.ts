@@ -2,89 +2,105 @@ import { image, link } from "omark";
 import { defineGenerator } from "../generator";
 import { getPkg } from "../_utils";
 
+type BadgeType = keyof typeof badgeTypes;
+type BadgeProvider = Record<BadgeType, string> & { _params?: string[] };
+
+const badgeTypes = {
+  npmVersion: {
+    name: "npm version",
+    to: "https://npmjs.com/package/{name}",
+  },
+  npmDownloads: {
+    name: "npm downloads",
+    to: "https://npmjs.com/package/{name}",
+  },
+  bundlephobia: {
+    name: "bundle size",
+    to: "https://bundlephobia.com/package/{name}",
+  },
+  codecov: {
+    name: "codecov",
+    to: "https://codecov.io/gh/{github}",
+  },
+};
+
+const badgeProviders = <Record<string, BadgeProvider>>{
+  shields: {
+    _params: ["style", "color", "labelColor"],
+    npmVersion: "https://img.shields.io/npm/v/{name}",
+    npmDownloads: "https://img.shields.io/npm/dm/{name}",
+    bundlephobia: "https://img.shields.io/bundlephobia/minzip/{name}",
+    codecov: "https://img.shields.io/codecov/c/gh/{github}",
+  },
+  badgen: {
+    npmVersion: "https://flat.badgen.net/npm/v/{name}",
+    npmDownloads: "https://flat.badgen.net/npm/dm/{name}",
+    bundlephobia: "https://flat.badgen.net/bundlephobia/minzip/{name}",
+    codecov: "https://flat.badgen.net/codecov/c/github/{github}",
+  },
+  badgenClassic: {
+    npmVersion: "https://badgen.net/npm/v/{name}",
+    npmDownloads: "https://badgen.net/npm/dm/{name}",
+    bundlephobia: "https://badgen.net/bundlephobia/minzip/{name}",
+    codecov: "https://badgen.net/codecov/c/github/{github}",
+  },
+};
+
 export const badges = defineGenerator({
   name: "badges",
   async generate({ config, args }) {
-    const { name } = await getPkg(config.dir, args);
-
-    if (!name) {
-      return {
-        contents: "<!-- package name is unspecified for badges -->",
-      };
-    }
-
-    const colorA = args.colorA || "18181B";
-    const colorB = args.colorB || "F0DB4F";
-    const style: "flat" | "flat-square" | "plastic" = args.style || "flat";
-
-    const badges = {
-      version: {
-        enabled: "true",
-        name: "npm version",
-        src: `https://img.shields.io/npm/v/${name}?style=${style}&colorA=${colorA}&colorB=${colorB}`,
-        href: `https://npmjs.com/package/${name}`,
-      },
-      downloads: {
-        enabled: "true",
-        name: "npm downloads",
-        src: `https://img.shields.io/npm/dm/${name}?style=${style}&colorA=${colorA}&colorB=${colorB}`,
-        href: `https://npmjs.com/package/${name}`,
-      },
-      codecov: {
-        enabled: "false",
-        name: "Codecov",
-        src: `https://img.shields.io/codecov/c/gh/${name}/main?style=${style}&colorA=${colorA}&colorB=${colorB}`,
-        href: `https://codecov.io/gh/${name}`,
-      },
-      bundle: {
-        enabled: "false",
-        name: "Bundle size",
-        src: `https://img.shields.io/bundlephobia/minzip/${name}?style=${style}&colorA=${colorA}&colorB=${colorB}`,
-        href: `https://bundlephobia.com/result?p=${name}`,
-      },
+    const pkg = await getPkg(config.dir, args);
+    const ctx: Record<string, any> = {
+      name: pkg.name,
+      github: pkg.github,
+      ...args,
     };
 
-    // TODO: Add custom badges? JSON.stringify(args['custom-badges'], null, 2)
+    const fillStr = (str: string) =>
+      str.replace(/{(\w+)}/g, (_, key) => ctx[key] || "");
 
-    // Dynamically replace values with args if they exist
-    // e.g version-src="Test" -> badges.ersion.src="....."
-    for (const key in badges) {
-      const k = key as keyof typeof badges;
-      for (const prop in badges[k]) {
-        const p = prop as keyof (typeof badges)[typeof k];
-        // Make sure the value is a string and exists
-        if (args[`${k}-${p}`] && typeof args[`${k}-${p}`] === "string") {
-          if (p === "enabled") {
-            badges[k][p] = args[`${k}-${p}`] === "true" ? "true" : "false";
-            continue;
-          }
-          badges[k][p] = args[`${k}-${p}`];
-        }
+    const provider = badgeProviders[args.provider] || badgeProviders.shields;
+    const providerParams = (provider._params || [])
+      .filter((key) => ctx[key])
+      .map(
+        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(ctx[key])}`,
+      )
+      .join("&");
+
+    const badges = {
+      npmVersion: {
+        enabled: ctx.name,
+        ...badgeTypes.npmVersion,
+      },
+      npmDownloads: {
+        enabled: ctx.name,
+        ...badgeTypes.npmDownloads,
+      },
+      bundlephobia: {
+        enabled: args.bundlephobia && ctx.name,
+        ...badgeTypes.bundlephobia,
+      },
+      codecov: {
+        enabled: args.codecov && ctx.github,
+        ...badgeTypes.codecov,
+      },
+    } as const;
+
+    const md: string[] = [];
+
+    for (const [badgeType, badge] of Object.entries(badges)) {
+      if (!badge.enabled || !provider[badgeType as BadgeType]) {
+        continue;
       }
+      const to = fillStr(badge.to);
+      const imgURL =
+        fillStr(provider[badgeType as BadgeType]) +
+        (providerParams ? `?${providerParams}` : "");
+      md.push(link(to, image(imgURL, badge.name)));
     }
 
     return {
-      contents: generateBadgesMd(badges),
+      contents: md.join("\n"),
     };
   },
 });
-
-const generateBadgesMd = (badges: Record<string, any>) => {
-  let str = "";
-
-  for (const key in badges) {
-    const badge = badges[key];
-
-    if (badge.enabled === "false") {
-      continue;
-    }
-
-    str += link(badge.href, image(badge.src, badge.name)) + "\n";
-  }
-
-  if (str.endsWith("\n")) {
-    str = str.slice(0, -1);
-  }
-
-  return str;
-};

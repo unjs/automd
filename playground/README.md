@@ -2,9 +2,6 @@
 
 <!-- automd:badges -->
 
-[![npm version](https://img.shields.io/npm/v/automd?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/automd)
-[![npm downloads](https://img.shields.io/npm/dm/automd?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/automd)
-
 <!-- /automd -->
 
 ## Usage
