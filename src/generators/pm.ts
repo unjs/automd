@@ -1,6 +1,6 @@
 import { codeBlock } from "omark";
-import { readPackageJSON } from "pkg-types";
 import { defineGenerator } from "../generator";
+import { getPkg } from "../_utils";
 
 const INSTALL_COMMANDS = [
   ["npm", "install"],
@@ -18,7 +18,7 @@ const RUN_COMMANDS = [
 export const pmInstall = defineGenerator({
   name: "pm-install",
   async generate({ options, args }) {
-    const name = args.name || (await _inferPackageName(options.dir));
+    const { name, version } = await getPkg(options.dir, args);
 
     if (!name) {
       return {
@@ -35,7 +35,7 @@ export const pmInstall = defineGenerator({
       contents: codeBlock(
         INSTALL_COMMANDS.map(
           ([cmd, install]) =>
-            `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}`,
+            `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}${version ? `@^${version}` : ""}`,
         ).join("\n\n"),
         "sh",
       ),
@@ -46,7 +46,7 @@ export const pmInstall = defineGenerator({
 export const pmX = defineGenerator({
   name: "pm-x",
   async generate({ options, args }) {
-    const name = args.name || (await _inferPackageName(options.dir));
+    const { name, version } = await getPkg(options.dir, args);
 
     if (!name) {
       return {
@@ -58,17 +58,10 @@ export const pmX = defineGenerator({
       contents: codeBlock(
         RUN_COMMANDS.map(
           ([pm, cmd]) =>
-            `# ${pm}\n${cmd} ${name}@latest${args.usage ? ` ${args.usage}` : ""}`,
+            `# ${pm}\n${cmd} ${name}@${version ? `${version}` : ""}${args.args ? ` ${args.args}` : ""}`,
         ).join("\n\n"),
         "sh",
       ),
     };
   },
 });
-
-async function _inferPackageName(dir: string) {
-  const pkgName = await readPackageJSON(dir)
-    .then((pkg) => pkg?.name)
-    .catch(() => undefined);
-  return pkgName || process.env.npm_package_name;
-}
