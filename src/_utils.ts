@@ -1,4 +1,7 @@
 import { readPackageJSON } from "pkg-types";
+import _consola from "consola";
+
+export const consola = _consola.withTag("automd");
 
 export async function getPkg(
   dir: string,
