@@ -7,6 +7,12 @@ export const badges = defineGenerator({
   async generate({ config, args }) {
     const { name } = await getPkg(config.dir, args);
 
+    if (!name) {
+      return {
+        contents: "<!-- package name is unspecified for badges -->",
+      };
+    }
+
     const colorA = args.colorA || "18181B";
     const colorB = args.colorB || "F0DB4F";
     const style: "flat" | "flat-square" | "plastic" = args.style || "flat";
@@ -39,12 +45,6 @@ export const badges = defineGenerator({
     };
 
     // TODO: Add custom badges? JSON.stringify(args['custom-badges'], null, 2)
-
-    if (!name) {
-      return {
-        contents: "<!-- package name is unspecified for badges -->",
-      };
-    }
 
     // Dynamically replace values with args if they exist
     // e.g version-src="Test" -> badges.ersion.src="....."
