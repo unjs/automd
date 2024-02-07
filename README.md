@@ -106,9 +106,9 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 - `headingLevel`: Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for the title in nested levels.
 - `group`: Only render function exports annotated with `@group name`. By default, there is no group filter. Value can be a string or an array of strings.
 
-### `pm-install`
+### `pm-install|pm-i`
 
-The `pm-install` generator generates installation commands for several JavaScript package managers.
+The `pm-install|pm-i` generator generates installation commands for several JavaScript package managers.
 
 #### Usage
 
