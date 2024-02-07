@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import MagicString from "magic-string";
-import generators from "./generators";
+import builtinGenerators from "./generators";
 import { GenerateContext, GenerateResult } from "./generator";
 import { findAutoMdBlocks, parseRawArgs } from "./_parse";
 import { consola } from "./_utils";
@@ -27,18 +27,24 @@ export async function automd(_config: Config = {}) {
 
   type UpdateEntry = {
     block: ReturnType<typeof findAutoMdBlocks>[0];
-    generatorName: string;
     context: GenerateContext;
   };
   const updates: UpdateEntry[] = [];
 
+  const generators = {
+    ...builtinGenerators,
+    ...config.generators,
+  };
+
   const blocks = findAutoMdBlocks(fileContents);
+
+  consola.log(blocks);
+
   for (const block of blocks) {
     const args = parseRawArgs(block.rawArgs);
-    const generatorName = args.generator;
-    const generator = generators[generatorName];
+    const generator = generators[block.generator];
     if (!generator) {
-      consola.warn(`Unknown generator: \`${generatorName}\``);
+      consola.warn(`Unknown generator: \`${block.generator}\``);
       continue;
     }
 
@@ -50,7 +56,7 @@ export async function automd(_config: Config = {}) {
 
     const generateResult: GenerateResult = await generator.generate(context);
 
-    updates.push({ block, context, generatorName });
+    updates.push({ block, context });
 
     fileEditor.overwrite(
       block.loc.start,

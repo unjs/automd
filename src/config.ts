@@ -1,4 +1,5 @@
 import { resolve } from "node:path";
+import type { Generator } from "./generator";
 
 export interface Config {
   /**
@@ -14,14 +15,18 @@ export interface Config {
    * Defaults to `README.md`
    */
   file?: string;
+
+  /** Custom generators */
+  generators?: Record<string, Generator>;
 }
 
 export type ResolvedConfig = { [P in keyof Config]-?: Config[P] };
 
 export function resolveConfig(config: Config | null): ResolvedConfig {
-  const _config = {
+  const _config = <ResolvedConfig>{
     dir: ".",
     file: "README.md",
+    generators: {},
     ...config,
   };
   _config.dir = resolve(_config.dir);

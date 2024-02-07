@@ -1,13 +1,14 @@
 import { destr } from "destr";
 
 const AUTOMD_RE =
-  /^(?<open><!--\s*AUTOMD_START\s*(?<args>.*?)\s*-->)(?<contents>.+?)(?<close><!--\s*AUTOMD_END\s*-->)/gms;
+  /^(?<open><!--\s*automd:(?<generator>.+?)\s+(?<args>.*?)\s*-->)(?<contents>.+?)(?<close><!--\s*\/automd\s*-->)/gims;
 
 export function findAutoMdBlocks(md: string) {
   const blocks: {
-    loc: { start: number; end: number };
+    generator: string;
     rawArgs: string;
     contents: string;
+    loc: { start: number; end: number };
   }[] = [];
 
   for (const match of md.matchAll(AUTOMD_RE)) {
@@ -19,9 +20,10 @@ export function findAutoMdBlocks(md: string) {
     const end = start + match.groups.contents.length;
 
     blocks.push({
-      loc: { start, end },
+      generator: match.groups.generator,
       rawArgs: match.groups.args,
       contents: match.groups.contents,
+      loc: { start, end },
     });
   }
 
@@ -29,9 +31,18 @@ export function findAutoMdBlocks(md: string) {
 }
 
 export function parseRawArgs(rawArgs: string) {
-  return Object.fromEntries(
-    [...rawArgs.matchAll(/(?<key>[\w-]+)=?(["'])?(?<value>[^\2]+?)\2/g)].map(
-      (m) => [m.groups?.key, destr(m.groups?.value)],
-    ),
-  );
+  const args = Object.create(null);
+
+  for (const part of rawArgs.split(/\s+/)) {
+    const [key, value] = part.split("=");
+    if (key && value) {
+      args[key] = destr(value);
+    } else if (part.startsWith("no-")) {
+      args[part.slice(3)] = false;
+    } else {
+      args[part] = true;
+    }
+  }
+
+  return args;
 }
