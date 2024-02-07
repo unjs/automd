@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "automd": "jiti src/cli.ts",
-    "build": "automd && unbuild",
+    "build": "pnpm automd && unbuild",
     "dev": "vitest",
     "play": "pnpm automd --dir playground",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src",
