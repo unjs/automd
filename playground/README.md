@@ -9,7 +9,7 @@
 
 ## Usage
 
-<!-- AUTOMD_START generator="pm-x" args="." -->
+<!-- automd:pm-x args=. -->
 
 ```sh
 # npm
@@ -22,9 +22,9 @@ pnpm dlx automd@0.1.5 .
 bunx automd@0.1.5 .
 ```
 
-<!-- AUTOMD_END -->
+<!-- /automd -->
 
-<!-- AUTOMD_START generator="pm-install" dev="true" -->
+<!-- automd:pm-install dev -->
 
 ```sh
 # ✨ Auto-detect
@@ -43,11 +43,11 @@ pnpm install -D automd@^0.1.5
 bun install -D automd@^0.1.5
 ```
 
-<!-- AUTOMD_END -->
+<!-- /automd -->
 
 ## Utils
 
-<!-- AUTOMD_START generator="jsdocs" -->
+<!-- automd:jsdocs -->
 
 ### `add(a, b)`
 
@@ -59,5 +59,4 @@ Adds two numbers together.
 add(1, 2); // 3
 ```
 
-
-<!-- AUTOMD_END -->
+<!-- /automd -->
