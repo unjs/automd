@@ -1,10 +1,11 @@
-import { readPackageJSON } from "pkg-types";
+import { image, link } from "omark";
 import { defineGenerator } from "../generator";
+import { getPkg } from "../_utils";
 
 export const badges = defineGenerator({
   name: "badges",
-  async generate({ options, args }) {
-    const name = args.name || (await inferPackageName(options.dir));
+  async generate({ config, args }) {
+    const { name } = await getPkg(config.dir, args);
 
     const colorA = args.colorA || "18181B";
     const colorB = args.colorB || "F0DB4F";
@@ -78,7 +79,7 @@ const generateBadgesMd = (badges: Record<string, any>) => {
       continue;
     }
 
-    str += `[![${badge.name}](${badge.src})](${badge.href})\n`;
+    str += link(badge.href, image(badge.src, badge.name)) + "\n";
   }
 
   if (str.endsWith("\n")) {
@@ -87,10 +88,3 @@ const generateBadgesMd = (badges: Record<string, any>) => {
 
   return str;
 };
-
-async function inferPackageName(dir: string) {
-  const pkgName = await readPackageJSON(dir)
-    .then((pkg) => pkg?.name)
-    .catch(() => undefined);
-  return pkgName || process.env.npm_package_name;
-}
