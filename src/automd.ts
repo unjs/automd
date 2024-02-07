@@ -44,7 +44,9 @@ export async function automd(_config: Config = {}) {
     const generator = generators[block.generator];
     if (!generator) {
       const suggestions = didYouMean(block.generator, Object.keys(generators));
-      consola.warn(`Unknown generator:\`${block.generator}\`.${suggestions ? ` Did you mean "generator:\`${suggestions}\`"?` : ""}`);
+      consola.warn(
+        `Unknown generator:\`${block.generator}\`.${suggestions ? ` Did you mean "generator:\`${suggestions}\`"?` : ""}`,
+      );
       continue;
     }
 
