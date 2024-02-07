@@ -1,9 +1,9 @@
 # 🤖 automd
 
-<!-- automd:badges -->
+<!-- automd:badges labelColor="f0db4f" color="18181b" -->
 
-[![npm version](https://img.shields.io/npm/v/automd)](https://npmjs.com/package/automd)
-[![npm downloads](https://img.shields.io/npm/dm/automd)](https://npmjs.com/package/automd)
+[![npm version](https://img.shields.io/npm/v/automd?color=18181b&labelColor=f0db4f)](https://npmjs.com/package/automd)
+[![npm downloads](https://img.shields.io/npm/dm/automd?color=18181b&labelColor=f0db4f)](https://npmjs.com/package/automd)
 
 <!-- /automd -->
 
