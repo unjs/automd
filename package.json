@@ -33,6 +33,7 @@
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
+    "c12": "^1.6.1",
     "citty": "^0.1.5",
     "consola": "^3.2.3",
     "destr": "^2.0.2",

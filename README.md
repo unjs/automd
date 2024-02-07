@@ -40,6 +40,19 @@ By default, the `README.md` file in the current working directory will be used a
 
 You can use `--dir` and `--file` arguments to customize the default behavior to operate on any other markdown file.
 
+### Configuration
+
+You can specify configuration in `.automdrc` or `automd.config.{js,ts,cjs,mjs,json}` (powered by [unjs/c12](https://c12.unjs.io)).
+
+Example: `automd.config.js`
+
+```ts
+/** @type {import("automd").Config} */
+export default {
+  file: "DOCS.md",
+};
+```
+
 ### Programmatic API
 
 [WIP]

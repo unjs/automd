@@ -1,27 +1,11 @@
 import { readFile, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
 import { existsSync } from "node:fs";
 import MagicString from "magic-string";
 import generators from "./generators";
 import { GenerateContext, GenerateResult } from "./generator";
 import { findAutoMdBlocks, parseRawArgs } from "./_parse";
 import { consola } from "./_utils";
-
-export interface AutoMDOptions {
-  /**
-   * Working directory
-   *
-   * Defaults to the current working directory
-   */
-  dir: string;
-
-  /**
-   * Name or path of the markdown file to update relative to dir
-   *
-   * Defaults to `README.md`
-   */
-  file: string;
-}
+import { Config, resolveConfig } from "./config";
 
 /**
  * Update markdown contents
@@ -31,20 +15,14 @@ export interface AutoMDOptions {
  * - `file`: Name or path of the markdown file to update relative to dir
  *
  */
-export async function automd(_options: Partial<AutoMDOptions> = {}) {
-  const options: AutoMDOptions = {
-    dir: ".",
-    file: "README.md",
-    ..._options,
-  };
-  options.dir = resolve(options.dir);
-  options.file = resolve(options.dir, options.file);
+export async function automd(_config: Config = {}) {
+  const config = resolveConfig(_config);
 
-  if (!existsSync(options.file)) {
-    throw new Error(`File not found: \`${options.file}\``);
+  if (!existsSync(config.file)) {
+    throw new Error(`File not found: \`${config.file}\``);
   }
 
-  const fileContents = await readFile(options.file, "utf8");
+  const fileContents = await readFile(config.file, "utf8");
   const fileEditor = new MagicString(fileContents);
 
   type UpdateEntry = {
@@ -66,7 +44,7 @@ export async function automd(_options: Partial<AutoMDOptions> = {}) {
 
     const context: GenerateContext = {
       args,
-      options,
+      config,
       oldContents: block.contents,
     };
 
@@ -82,11 +60,11 @@ export async function automd(_options: Partial<AutoMDOptions> = {}) {
   }
 
   if (updates.length > 0 && fileEditor.hasChanged()) {
-    writeFile(options.file, fileEditor.toString(), "utf8");
+    writeFile(config.file, fileEditor.toString(), "utf8");
   }
 
   return {
-    options,
+    config,
     updates,
   };
 }

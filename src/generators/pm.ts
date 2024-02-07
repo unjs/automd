@@ -17,8 +17,8 @@ const RUN_COMMANDS = [
 
 export const pmInstall = defineGenerator({
   name: "pm-install",
-  async generate({ options, args }) {
-    const { name, version } = await getPkg(options.dir, args);
+  async generate({ config, args }) {
+    const { name, version } = await getPkg(config.dir, args);
 
     if (!name) {
       return {
@@ -45,8 +45,8 @@ export const pmInstall = defineGenerator({
 
 export const pmX = defineGenerator({
   name: "pm-x",
-  async generate({ options, args }) {
-    const { name, version } = await getPkg(options.dir, args);
+  async generate({ config, args }) {
+    const { name, version } = await getPkg(config.dir, args);
 
     if (!name) {
       return {

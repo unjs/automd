@@ -6,7 +6,9 @@
     "esModuleInterop": true,
     "strict": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
-  },
-  "include": ["src"]
+    "resolveJsonModule": true,
+    "paths": {
+      "automd": ["./src/index.ts"]
+    }
+  }
 }
