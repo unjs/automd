@@ -26,7 +26,7 @@ bunx automd@0.2.0 .
 
 <!-- /automd -->
 
-<!-- automd:pm-install dev seprate-->
+<!-- automd:pm-install dev separate-->
 
 ```sh
 # ✨ Auto-detect

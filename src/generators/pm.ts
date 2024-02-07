@@ -35,7 +35,9 @@ export const pmInstall = defineGenerator({
         `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}${version ? `@^${version}` : ""}`,
     );
 
-    if (args.separate ?? false) {
+    console.log(args)
+
+    if ((args.separate ?? false) === false) {
       return {
         contents: codeBlock(contents.join("\n\n"), "sh"),
       };
@@ -63,7 +65,7 @@ export const pmX = defineGenerator({
         `# ${pm}\n${cmd} ${name}@${version ? `${version}` : ""}${args.args ? ` ${args.args}` : ""}`,
     );
 
-    if (args.separate ?? false) {
+    if ((args.separate ?? false) === false) {
       return {
         contents: codeBlock(contents.join("\n\n"), "sh"),
       };
