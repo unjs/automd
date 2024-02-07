@@ -4,13 +4,13 @@
 
 ```sh
 # npm
-npx package-name [path]
+npx package-name@latest [path]
 
 # pnpm
-pnpm dlx package-name [path]
+pnpm dlx package-name@latest [path]
 
 # bun
-bunx package-name [path]
+bunx package-name@latest [path]
 ```
 
 <!-- AUTOMD_END -->

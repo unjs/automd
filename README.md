@@ -122,6 +122,37 @@ The `pm-install` generator generates commands for several JavaScript package man
 - `dev`: Install as a dev dependency. (defaults to `false`).
 - `auto`: Auto-detect package manager using [unjs/nypm](https://github.com/unjs/nypm#-nypm). (defaults to `true`).
 
+### `pm-x`
+
+The `pm-x` generator generates commands for running a package through JavaScript package managers.
+
+#### Usage
+
+    <!-- AUTOMD_START generator="pm-x" name="package-name" usage="[files] <flags>" -->
+    <!-- AUTOMD_END -->
+
+**Updated Result:**
+
+    <!-- AUTOMD_START generator="pm-x" name="package-name" usage="[files] <flags>" -->
+
+    ```sh
+    # npm
+    npx package-name@latest [files] <flags>
+
+    # pnpm
+    pnpm dlx package-name@latest [files] <flags>
+
+    # bun
+    bunx package-name@latest [files] <flags>
+    ```
+
+    <!-- AUTOMD_END -->
+
+#### Arguments
+
+- `name`: The package name (by default tries to read from the `name` field in `package.json`).
+- `usage`: An additional string appended at the end of each command suggesting usage. (defaults to `""`).
+
 ## Development
 
 - Clone this repository
