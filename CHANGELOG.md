@@ -1,6 +1,53 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/unjs/automd/compare/v0.1.5...v0.2.0)
+
+### 🚀 Enhancements
+
+- `pm-x` generator ([#11](https://github.com/unjs/automd/pull/11))
+- Support config ([b05cccb](https://github.com/unjs/automd/commit/b05cccb))
+- Custom generators ([c959738](https://github.com/unjs/automd/commit/c959738))
+- ⚠️  Better syntax ([#13](https://github.com/unjs/automd/pull/13))
+- `badges` generator ([#12](https://github.com/unjs/automd/pull/12))
+
+### 🩹 Fixes
+
+- Allow extended chars in automd comment ([33e440f](https://github.com/unjs/automd/commit/33e440f))
+
+### 💅 Refactors
+
+- Split parse utils ([2381934](https://github.com/unjs/automd/commit/2381934))
+
+### 🏡 Chore
+
+- Add nypm to the list ([8c41fb4](https://github.com/unjs/automd/commit/8c41fb4))
+- Update dev script ([e950a09](https://github.com/unjs/automd/commit/e950a09))
+- Add vitest dependency ([5b315d4](https://github.com/unjs/automd/commit/5b315d4))
+- Update license ([8c8df45](https://github.com/unjs/automd/commit/8c8df45))
+- Remove log ([e056ca4](https://github.com/unjs/automd/commit/e056ca4))
+
+### ✅ Tests
+
+- Add unit tests for parse utils ([0bf0a3c](https://github.com/unjs/automd/commit/0bf0a3c))
+- Update test for keys with `-` ([c04df9d](https://github.com/unjs/automd/commit/c04df9d))
+
+### 🤖 CI
+
+- Enable vitest ([9ce08f4](https://github.com/unjs/automd/commit/9ce08f4))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Better syntax ([#13](https://github.com/unjs/automd/pull/13))
+
+### ❤️ Contributors
+
+- Christian Preston ([@cpreston321](http://github.com/cpreston321))
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Uncenter
+
 ## v0.1.5
 
 [compare changes](https://github.com/unjs/automd/compare/v0.1.4...v0.1.5)
