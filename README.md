@@ -196,16 +196,16 @@ The `badges` generator generates badges for npm version, npm downloads and some 
 
 #### Arguments
 
-- `name`: The npm package name. By default tries to infer from `package.json`
-- `github`: Github repository name. By default tries to infer from `package.json`
-- `bundlephobia`: Show [bundle-phobia](https://bundlephobia.com/) badge. (requires `name`)
-- `codecov`: Enable [codecov](https://codecov.io) badge (requires `github`)
-- `no-npmDownloads`: Hide npm downloads badge
-- `no-npmVersion`: Hide npm version badge
-- `provider`: Can be one of the `shields` (for [shields.io](https://shields.io/)) or `badgen` / `badgenClassic` (for [badgen.net](https://badgen.net/)). Default is `badgen`.
+- `name`: The npm package name. By default tries to infer from `package.json`.
+- `github`: Github repository name. By default tries to infer from `package.json`.
+- `bundlephobia`: Show [bundle-phobia](https://bundlephobia.com/) badge (requires `name`).
+- `codecov`: Enable [codecov](https://codecov.io) badge (requires `github`).
+- `no-npmDownloads`: Hide npm downloads badge.
+- `no-npmVersion`: Hide npm version badge.
+- `provider`: Can be one of `shields` (for [shields.io](https://shields.io/)) or `badgen` / `badgenClassic` (for [badgen.net](https://badgen.net/)). Default is `badgen`.
 
 > [!TIP]
-> You can use additional `style`, `labelColor` and `color` args for `shields` provider for example: `provider=shidls style=flat-square labelColor=f0db4f color=18181b`
+> You can use additional `style`, `labelColor` and `color` args for `shields` provider for example: `provider=shields style=flat-square labelColor=f0db4f color=18181b`.
 
 ## Development
 
