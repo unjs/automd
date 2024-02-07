@@ -2,9 +2,14 @@ import { describe, it, expect } from "vitest";
 import { parseRawArgs, findAutoMdBlocks } from "../src/_parse";
 
 describe("parseRawArgs", () => {
-  const tests = [[`foo="bar"`, { foo: "bar" }]] as const;
+  const tests = [
+    [`foo`, { foo: true }],
+    [`no-foo`, { foo: false }],
+    [`foo="bar"`, { foo: "bar" }],
+    [`foo=bar`, { foo: "bar" }],
+  ] as const;
   for (const [input, expected] of tests) {
-    it(`${input} => ${JSON.stringify(expected)}`, () => {
+    it(`${JSON.stringify(input)} => ${JSON.stringify(expected)}`, () => {
       expect(parseRawArgs(input)).toEqual(expected);
     });
   }
@@ -12,47 +17,31 @@ describe("parseRawArgs", () => {
 
 describe("findAutoMdBlocks", () => {
   const fixture = `
-<!-- AUTOMD_START generator="pm-x" args="." -->
-<!-- AUTOMD_END -->
+<!-- automd:pm-x args=. -->
+(a)
+<!-- /automd -->
 
-<!-- AUTOMD_START generator="pm-install" dev="true" -->
-<!-- AUTOMD_END -->
+<!-- automd:pm-install dev -->
+(b)
+<!-- /automd -->
 
-<!-- AUTOMD_START generator="jsdocs" -->
-<!-- AUTOMD_END -->
+<!-- automd:jsdocs -->
+(c)
+<!-- /automd -->
   `;
 
+  // eslint-disable-next-line unicorn/consistent-function-scoping
+  const mkBlock = (generator: string, rawArgs: string, contents: string) => ({
+    generator,
+    rawArgs,
+    contents: expect.stringContaining(contents),
+    loc: { start: expect.any(Number), end: expect.any(Number) },
+  });
+
   it("should find all blocks", () => {
-    expect(findAutoMdBlocks(fixture)).toMatchInlineSnapshot(`
-      [
-        {
-          "contents": "
-      ",
-          "loc": {
-            "end": 49,
-            "start": 48,
-          },
-          "rawArgs": "generator="pm-x" args="."",
-        },
-        {
-          "contents": "
-      ",
-          "loc": {
-            "end": 126,
-            "start": 125,
-          },
-          "rawArgs": "generator="pm-install" dev="true"",
-        },
-        {
-          "contents": "
-      ",
-          "loc": {
-            "end": 188,
-            "start": 187,
-          },
-          "rawArgs": "generator="jsdocs"",
-        },
-      ]
-    `);
+    const blocks = findAutoMdBlocks(fixture);
+    expect(blocks[0]).toMatchObject(mkBlock("pm-x", "args=.", "(a)"));
+    expect(blocks[1]).toMatchObject(mkBlock("pm-install", "dev", "(b)"));
+    expect(blocks[2]).toMatchObject(mkBlock("jsdocs", "", "(c)"));
   });
 });

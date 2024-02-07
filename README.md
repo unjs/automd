@@ -21,11 +21,8 @@ Automd scans for the annotation comments within the markdown document and update
 The syntax is like this:
 
 ```md
-<!-- AUTOMD_START generator="jsdocs" [...args] -->
-
-...
-
-<!-- AUTOMD_END -->
+<!-- automd:generator [...args] -->
+<!-- /automd -->
 ```
 
 ### Using CLI
@@ -80,14 +77,14 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 #### Usage
 
-    <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
-    <!-- AUTOMD_END -->
+    <!-- automd:jsdocs" src="./src/index" -->
+    <!-- /automd -->
 
 (make sure to have some utility exports in `src/index.ts` annotated with JSDocs.)
 
 **Updated Result:**
 
-    <!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
+    <!-- automd:jsdocs" src="./src/index" -->
 
     ### `add(a, b)`
 
@@ -98,7 +95,7 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
     add(1, 2); // 3
     ```
 
-    <!-- AUTOMD_END -->
+    <!-- /automd -->
 
 #### Arguments
 
@@ -112,12 +109,12 @@ The `pm-install` generator generates commands for several JavaScript package man
 
 #### Usage
 
-    <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
-    <!-- AUTOMD_END -->
+    <!-- automd:pm-install" name=package-name dev -->
+    <!-- /automd -->
 
 **Updated Result:**
 
-    <!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
+    <!-- automd:pm-install" name=package-name dev -->
 
     ```sh
     # ✨ Auto-detect
@@ -136,7 +133,7 @@ The `pm-install` generator generates commands for several JavaScript package man
     bun install -D package-name
     ```
 
-    <!-- AUTOMD_END -->
+    <!-- /automd -->
 
 #### Arguments
 
@@ -150,12 +147,12 @@ The `pm-x` generator generates commands for running a package through JavaScript
 
 #### Usage
 
-    <!-- AUTOMD_START generator="pm-x" name="package-name" usage="[files] <flags>" -->
-    <!-- AUTOMD_END -->
+    <!-- automd:pm-x" name="package-name" usage="[files] <flags>" -->
+    <!-- /automd -->
 
 **Updated Result:**
 
-    <!-- AUTOMD_START generator="pm-x" name="package-name" usage="[files] <flags>" -->
+    <!-- automd:pm-x" name="package-name" usage="[files] <flags>" -->
 
     ```sh
     # npm
@@ -168,7 +165,7 @@ The `pm-x` generator generates commands for running a package through JavaScript
     bunx package-name@latest [files] <flags>
     ```
 
-    <!-- AUTOMD_END -->
+    <!-- /automd -->
 
 #### Arguments
 
