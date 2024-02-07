@@ -35,7 +35,7 @@ export default defineGenerator({
         src: `https://img.shields.io/bundlephobia/minzip/${name}?style=${style}&colorA=${colorA}&colorB=${colorB}`,
         href: `https://bundlephobia.com/result?p=${name}`,
       },
-    }
+    };
 
     // TODO: Add custom badges? JSON.stringify(args['custom-badges'], null, 2)
 
@@ -50,7 +50,7 @@ export default defineGenerator({
     for (const key in badges) {
       const k = key as keyof typeof badges;
       for (const prop in badges[k]) {
-        const p = prop as keyof typeof badges[typeof k];
+        const p = prop as keyof (typeof badges)[typeof k];
         // Make sure the value is a string and exists
         if (args[`${k}-${p}`] && typeof args[`${k}-${p}`] === "string") {
           if (p === "enabled") {
@@ -86,7 +86,7 @@ const generateBadgesMd = (badges: Record<string, any>) => {
   }
 
   return str;
-}
+};
 
 async function inferPackageName(dir: string) {
   const pkgName = await readPackageJSON(dir)
