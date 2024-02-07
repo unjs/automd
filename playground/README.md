@@ -9,30 +9,45 @@
 
 ## Usage
 
-<!-- AUTOMD_START generator="pm-install" name="package-name" dev="true" -->
+<!-- AUTOMD_START generator="pm-x" args="." -->
+
+```sh
+# npm
+npx automd@0.1.5 .
+
+# pnpm
+pnpm dlx automd@0.1.5 .
+
+# bun
+bunx automd@0.1.5 .
+```
+
+<!-- AUTOMD_END -->
+
+<!-- AUTOMD_START generator="pm-install" dev="true" -->
 
 ```sh
 # ✨ Auto-detect
-npx nypm i -D package-name
+npx nypm i -D automd@^0.1.5
 
 # npm
-npm install -D package-name
+npm install -D automd@^0.1.5
 
 # yarn
-yarn add -D package-name
+yarn add -D automd@^0.1.5
 
 # pnpm
-pnpm install -D package-name
+pnpm install -D automd@^0.1.5
 
 # bun
-bun install -D package-name
+bun install -D automd@^0.1.5
 ```
 
 <!-- AUTOMD_END -->
 
 ## Utils
 
-<!-- AUTOMD_START generator="jsdocs" src="./src/index" -->
+<!-- AUTOMD_START generator="jsdocs" -->
 
 ### `add(a, b)`
 

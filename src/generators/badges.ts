@@ -1,7 +1,7 @@
 import { readPackageJSON } from "pkg-types";
 import { defineGenerator } from "../generator";
 
-export default defineGenerator({
+export const badges = defineGenerator({
   name: "badges",
   async generate({ options, args }) {
     const name = args.name || (await inferPackageName(options.dir));

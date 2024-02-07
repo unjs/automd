@@ -1,8 +1,8 @@
-import { AutoMDOptions } from "./automd";
+import type { ResolvedConfig } from "./config";
 
 export interface GenerateContext {
   args: Record<string, any>;
-  options: AutoMDOptions;
+  config: ResolvedConfig;
   oldContents: string;
 }
 

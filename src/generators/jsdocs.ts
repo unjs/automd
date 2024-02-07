@@ -4,10 +4,10 @@ import type { Schema } from "untyped";
 import { titleCase } from "scule";
 import { defineGenerator } from "../generator";
 
-export default defineGenerator({
+export const jsdocs = defineGenerator({
   name: "jsdocs",
-  async generate({ options, args }) {
-    const entryPath = resolve(options.dir, args.src || "./src/index");
+  async generate({ config, args }) {
+    const entryPath = resolve(config.dir, args.src || "./src/index");
 
     const schema = await loadSchema(entryPath);
 

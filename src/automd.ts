@@ -1,29 +1,11 @@
 import { readFile, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
 import { existsSync } from "node:fs";
 import MagicString from "magic-string";
-import { destr } from "destr";
 import generators from "./generators";
 import { GenerateContext, GenerateResult } from "./generator";
-
-const AUTOMD_RE =
-  /^(?<open><!--\s*AUTOMD_START\s*(?<args>[^>]*)\s*-->)(?<contents>.+?)(?<close><!--\s*AUTOMD_END\s*-->)/gms;
-
-export interface AutoMDOptions {
-  /**
-   * Working directory
-   *
-   * Defaults to the current working directory
-   */
-  dir: string;
-
-  /**
-   * Name or path of the markdown file to update relative to dir
-   *
-   * Defaults to `README.md`
-   */
-  file: string;
-}
+import { findAutoMdBlocks, parseRawArgs } from "./_parse";
+import { consola } from "./_utils";
+import { Config, resolveConfig } from "./config";
 
 /**
  * Update markdown contents
@@ -33,76 +15,56 @@ export interface AutoMDOptions {
  * - `file`: Name or path of the markdown file to update relative to dir
  *
  */
-export async function automd(_options: Partial<AutoMDOptions> = {}) {
-  const options: AutoMDOptions = {
-    dir: ".",
-    file: "README.md",
-    ..._options,
-  };
-  options.dir = resolve(options.dir);
-  options.file = resolve(options.dir, options.file);
+export async function automd(_config: Config = {}) {
+  const config = resolveConfig(_config);
 
-  if (!existsSync(options.file)) {
-    throw new Error(`File not found: \`${options.file}\``);
+  if (!existsSync(config.file)) {
+    throw new Error(`File not found: \`${config.file}\``);
   }
 
-  const fileContents = await readFile(options.file, "utf8");
+  const fileContents = await readFile(config.file, "utf8");
   const fileEditor = new MagicString(fileContents);
 
   type UpdateEntry = {
+    block: ReturnType<typeof findAutoMdBlocks>[0];
     generatorName: string;
     context: GenerateContext;
-    loc: { start: number; end: number };
   };
   const updates: UpdateEntry[] = [];
 
-  for (const match of fileContents.matchAll(AUTOMD_RE)) {
-    if (match.index === undefined || !match.groups) {
-      continue;
-    }
-
-    const start = match.index + match.groups.open.length;
-    const end = start + match.groups.contents.length;
-
-    const args = Object.fromEntries(
-      [
-        ...match.groups.args.matchAll(
-          /(?<key>[\w-]+)=(["'])(?<value>[^\2]+?)\2/g,
-        ),
-      ].map((m) => [m.groups?.key, destr(m.groups?.value)]),
-    );
-
+  const blocks = findAutoMdBlocks(fileContents);
+  for (const block of blocks) {
+    const args = parseRawArgs(block.rawArgs);
     const generatorName = args.generator;
     const generator = generators[generatorName];
     if (!generator) {
-      // TODO: Warn?
+      consola.warn(`Unknown generator: \`${generatorName}\``);
       continue;
     }
 
-    const generateContext: GenerateContext = {
+    const context: GenerateContext = {
       args,
-      options,
-      oldContents: match.groups.contents,
+      config,
+      oldContents: block.contents,
     };
 
-    const generateResult: GenerateResult =
-      await generator.generate(generateContext);
+    const generateResult: GenerateResult = await generator.generate(context);
 
-    updates.push({
-      generatorName,
-      context: generateContext,
-      loc: { start, end },
-    });
+    updates.push({ block, context, generatorName });
 
-    fileEditor.overwrite(start, end, `\n\n${generateResult.contents}\n\n`);
+    fileEditor.overwrite(
+      block.loc.start,
+      block.loc.end,
+      `\n\n${generateResult.contents}\n\n`,
+    );
   }
 
   if (updates.length > 0 && fileEditor.hasChanged()) {
-    writeFile(options.file, fileEditor.toString(), "utf8");
+    writeFile(config.file, fileEditor.toString(), "utf8");
   }
 
   return {
-    options,
+    config,
     updates,
   };
 }

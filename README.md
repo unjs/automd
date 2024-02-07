@@ -40,6 +40,19 @@ By default, the `README.md` file in the current working directory will be used a
 
 You can use `--dir` and `--file` arguments to customize the default behavior to operate on any other markdown file.
 
+### Configuration
+
+You can specify configuration in `.automdrc` or `automd.config.{js,ts,cjs,mjs,json}` (powered by [unjs/c12](https://c12.unjs.io)).
+
+Example: `automd.config.js`
+
+```ts
+/** @type {import("automd").Config} */
+export default {
+  file: "DOCS.md",
+};
+```
+
 ### Programmatic API
 
 [WIP]
@@ -122,6 +135,37 @@ The `pm-install` generator generates commands for several JavaScript package man
 - `dev`: Install as a dev dependency. (defaults to `false`).
 - `auto`: Auto-detect package manager using [unjs/nypm](https://github.com/unjs/nypm#-nypm). (defaults to `true`).
 
+### `pm-x`
+
+The `pm-x` generator generates commands for running a package through JavaScript package managers.
+
+#### Usage
+
+    <!-- AUTOMD_START generator="pm-x" name="package-name" usage="[files] <flags>" -->
+    <!-- AUTOMD_END -->
+
+**Updated Result:**
+
+    <!-- AUTOMD_START generator="pm-x" name="package-name" usage="[files] <flags>" -->
+
+    ```sh
+    # npm
+    npx package-name@latest [files] <flags>
+
+    # pnpm
+    pnpm dlx package-name@latest [files] <flags>
+
+    # bun
+    bunx package-name@latest [files] <flags>
+    ```
+
+    <!-- AUTOMD_END -->
+
+#### Arguments
+
+- `name`: The package name (by default tries to read from the `name` field in `package.json`).
+- `usage`: An additional string appended at the end of each command suggesting usage. (defaults to `""`).
+
 ### `badges`
 
 The `badges` generator generates badges for npm version, npm downloads and some optional ones like codecov & bundle.
@@ -160,7 +204,8 @@ The `badges` generator generates badges for npm version, npm downloads and some 
 - Install the latest LTS version of [Node.js](https://nodejs.org/en/)
 - Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
 - Install dependencies using `pnpm install`
-- Run playground test using `pnpm dev`
+- Run unit tests using `pnpm dev`
+- Run playground test using `pnpm play`
 
 ## License
 
