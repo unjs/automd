@@ -38,6 +38,7 @@
     "consola": "^3.2.3",
     "defu": "^6.1.4",
     "destr": "^2.0.2",
+    "didyoumean2": "^6.0.1",
     "magic-string": "^0.30.7",
     "omark": "^0.1.0",
     "pkg-types": "^1.0.3",

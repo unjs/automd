@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import MagicString from "magic-string";
+import didYouMean from "didyoumean2";
 import builtinGenerators from "./generators";
 import { GenerateContext, GenerateResult } from "./generator";
 import { findAutoMdBlocks, parseRawArgs } from "./_parse";
@@ -42,7 +43,8 @@ export async function automd(_config: Config = {}) {
     const args = parseRawArgs(block.rawArgs);
     const generator = generators[block.generator];
     if (!generator) {
-      consola.warn(`Unknown generator: \`${block.generator}\``);
+      const suggestions = didYouMean(block.generator, Object.keys(generators));
+      consola.warn(`Unknown generator:\`${block.generator}\`.${suggestions ? ` Did you mean "generator:\`${suggestions}\`"?` : ""}`);
       continue;
     }
 
