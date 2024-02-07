@@ -54,12 +54,12 @@ export default {
 
 #### Config
 
-- `dir`: Working directory (defaults to current working directory)
-  - You can use `--dir` to override with CLI
-- `file`: The markdown file name or path (relative to dir)
-  - You can use `--file` to override with CLI
-- `generators`: A map of generator names to custom generators
-  - You can use `automd.config` to specify them
+- `dir`: Working directory (defaults to the current working directory).
+  - You can use `--dir` to override with CLI.
+- `file`: The markdown file name or path (relative to `dir`).
+  - You can use `--file` to override with CLI.
+- `generators`: A map of generator names to custom generators.
+  - You can use `automd.config` to specify them.
 
 ### Programmatic API
 
@@ -82,7 +82,8 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
     <!-- automd:jsdocs src="./src/index" -->
     <!-- /automd -->
 
-(make sure to have some utility exports in `src/index.ts` annotated with JSDocs.)
+> [!NOTE]
+> Make sure you have some utility exports in `src/index.ts` annotated with JSDocs.
 
 **Updated Result:**
 
@@ -107,7 +108,7 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 ### `pm-install`
 
-The `pm-install` generator generates commands for several JavaScript package managers.
+The `pm-install` generator generates installation commands for several JavaScript package managers.
 
 #### Usage
 
@@ -140,21 +141,21 @@ The `pm-install` generator generates commands for several JavaScript package man
 #### Arguments
 
 - `name`: The package name (by default tries to read from the `name` field in `package.json`).
-- `dev`: Install as a dev dependency. (defaults to `false`).
-- `auto`: Auto-detect package manager using [unjs/nypm](https://github.com/unjs/nypm#-nypm). (defaults to `true`).
+- `dev`: Install as a dev dependency (defaults to `false`).
+- `auto`: Auto-detect package manager using [unjs/nypm](https://github.com/unjs/nypm#-nypm) (defaults to `true`).
 
 ### `pm-x`
 
-The `pm-x` generator generates commands for running a package through JavaScript package managers.
+The `pm-x` generator generates commands for running/executing a package through JavaScript package managers.
 
 #### Usage
 
-    <!-- automd:pm-x name="package-name" usage="[files] <flags>" -->
+    <!-- automd:pm-x name="package-name" args="[files] <flags>" -->
     <!-- /automd -->
 
 **Updated Result:**
 
-    <!-- automd:pm-x name="package-name" usage="[files] <flags>" -->
+    <!-- automd:pm-x name="package-name" args="[files] <flags>" -->
 
     ```sh
     # npm
@@ -172,11 +173,11 @@ The `pm-x` generator generates commands for running a package through JavaScript
 #### Arguments
 
 - `name`: The package name (by default tries to read from the `name` field in `package.json`).
-- `usage`: An additional string appended at the end of each command suggesting usage. (defaults to `""`).
+- `args`: An additional string appended at the end of each command suggesting arguments to be used with the program. (defaults to `""`).
 
 ### `badges`
 
-The `badges` generator generates badges for npm version, npm downloads and some optional ones like codecov and bundle.
+The `badges` generator generates badges for the latest npm version, npm download statistics, code coverage, and bundle size.
 
 #### Usage
 
@@ -198,8 +199,8 @@ The `badges` generator generates badges for npm version, npm downloads and some 
 
 - `name`: The npm package name. By default tries to infer from `package.json`.
 - `github`: Github repository name. By default tries to infer from `package.json`.
-- `bundlephobia`: Show [bundle-phobia](https://bundlephobia.com/) badge (requires `name`).
-- `codecov`: Enable [codecov](https://codecov.io) badge (requires `github`).
+- `bundlephobia`: Show [Bundlephobia](https://bundlephobia.com/) badge (requires `name`).
+- `codecov`: Enable [Codecov](https://codecov.io) badge (requires `github`).
 - `no-npmDownloads`: Hide npm downloads badge.
 - `no-npmVersion`: Hide npm version badge.
 - `provider`: Can be one of `shields` (for [shields.io](https://shields.io/)) or `badgen` / `badgenClassic` (for [badgen.net](https://badgen.net/)). Default is `badgen`.
