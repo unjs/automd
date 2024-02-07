@@ -66,7 +66,7 @@ export async function automd(_options: Partial<AutoMDOptions> = {}) {
 
     const args = Object.fromEntries(
       [
-        ...match.groups.args.matchAll(/(?<key>\w+)=(["'])(?<value>[^\2]+?)\2/g),
+        ...match.groups.args.matchAll(/(?<key>[\w-]+)=(["'])(?<value>[^\2]+?)\2/g),
       ].map((m) => [m.groups?.key, destr(m.groups?.value)]),
     );
 

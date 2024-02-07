@@ -122,6 +122,38 @@ The `pm-install` generator generates commands for several JavaScript package man
 - `dev`: Install as a dev dependency. (defaults to `false`).
 - `auto`: Auto-detect package manager using [unjs/nypm](https://github.com/unjs/nypm#-nypm). (defaults to `true`).
 
+### `badges`
+
+The `badges` generator generates badges for npm version, npm downloads and some optional ones like codecov & bundle.
+
+#### Usage
+
+    <!-- AUTOMD_START generator="badges" name="package-name" -->
+    <!-- AUTOMD_END -->
+
+**Updated Result:**
+
+    <!-- AUTOMD_START generator="badges" name="package-name" -->
+
+    [![npm version](https://img.shields.io/npm/v/package-name?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/package-name)
+    [![npm downloads](https://img.shields.io/npm/dm/package-name?style=flat&colorA=18181B&colorB=F0DB4F)](https://npmjs.com/package/package-name)
+
+    <!-- AUTOMD_END -->
+
+#### Arguments
+
+- `name`: The package name (by default tries to read from the `name` field in `package.json`).
+- `style`: The badge style (defaults to `flat`).
+- `colorA`: The left color of the badge (defaults to `18181B`).
+- `colorB`: The right color of the badge (defaults to `F0DB4F`).
+- `downloads-enabled`: Show npm downloads badge (defaults to `true`).
+- `version-enabled`: Show npm version badge (defaults to `true`).
+- `codecov-enabled`: Show codecov badge (defaults to `false`).
+- `bundle-enabled`: Show bundle size badge (defaults to `false`).
+
+> [!NOTE]
+> Each badge `downloads|version|codecov|bundle` can be enabled or disabled using `*-enabled` arguments also can be overridden with custom URLs using `*-src`, `*-href` and badge name `*-name` arguments.
+
 ## Development
 
 - Clone this repository
