@@ -1,5 +1,8 @@
 # automd playground
 
+<!-- automd:bagdges  -->
+<!-- /automd -->
+
 <!-- automd:badges color=yellow name=defu codecov bundlephobia -->
 
 [![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
