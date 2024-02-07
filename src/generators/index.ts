@@ -6,6 +6,7 @@ import { pmX, pmInstall } from "./pm";
 export default {
   jsdocs,
   badges,
+  "pm-i": pmInstall,
   "pm-install": pmInstall,
   "pm-x": pmX,
 } as Record<string, Generator>;
