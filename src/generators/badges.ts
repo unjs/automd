@@ -3,7 +3,7 @@ import { defineGenerator } from "../generator";
 import { getPkg } from "../_utils";
 
 type BadgeType = keyof typeof badgeTypes;
-type BadgeProvider = Record<BadgeType, string> & { _params?: string[] };
+type BadgeProvider = Record<BadgeType, string>;
 
 const badgeTypes = {
   npmVersion: {
@@ -25,13 +25,14 @@ const badgeTypes = {
 };
 
 const badgeProviders = <Record<string, BadgeProvider>>{
+  // https://shields.io/badges/static-badge
   shields: {
-    _params: ["style", "color", "labelColor"],
     npmVersion: "https://img.shields.io/npm/v/{name}",
     npmDownloads: "https://img.shields.io/npm/dm/{name}",
     bundlephobia: "https://img.shields.io/bundlephobia/minzip/{name}",
     codecov: "https://img.shields.io/codecov/c/gh/{github}",
   },
+  // https://badgen.net/help
   badgen: {
     npmVersion: "https://flat.badgen.net/npm/v/{name}",
     npmDownloads: "https://flat.badgen.net/npm/dm/{name}",
@@ -59,12 +60,14 @@ export const badges = defineGenerator({
     const fillStr = (str: string) =>
       str.replace(/{(\w+)}/g, (_, key) => ctx[key] || "");
 
-    const provider = badgeProviders[args.provider] || badgeProviders.shields;
-    const providerParams = (provider._params || [])
-      .filter((key) => ctx[key])
-      .map(
-        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(ctx[key])}`,
-      )
+    const provider = badgeProviders[args.provider] || badgeProviders.badgen;
+    const providerParams = Object.entries({
+      color: args.color,
+      labelColor: args.labelColor,
+      ...args.styleParams,
+    })
+      .filter(([, value]) => value)
+      .map(([key, value]) => `${key}=${encodeURIComponent(value as string)}`)
       .join("&");
 
     const badges = {

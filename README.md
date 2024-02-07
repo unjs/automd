@@ -1,9 +1,9 @@
 # 🤖 automd
 
-<!-- automd:badges labelColor="f0db4f" color="18181b" -->
+<!-- automd:badges color=yellow -->
 
-[![npm version](https://img.shields.io/npm/v/automd?color=18181b&labelColor=f0db4f)](https://npmjs.com/package/automd)
-[![npm downloads](https://img.shields.io/npm/dm/automd?color=18181b&labelColor=f0db4f)](https://npmjs.com/package/automd)
+[![npm version](https://flat.badgen.net/npm/v/automd?color=yellow)](https://npmjs.com/package/automd)
+[![npm downloads](https://flat.badgen.net/npm/dm/automd?color=yellow)](https://npmjs.com/package/automd)
 
 <!-- /automd -->
 
@@ -181,17 +181,17 @@ The `badges` generator generates badges for the latest npm version, npm download
 
 #### Usage
 
-    <!-- automd:badges name=defu codecov bundlephobia -->
+    <!-- automd:badges color=yellow name=defu codecov bundlephobia -->
     <!-- /automd -->
 
 **Updated Result:**
 
-    <!-- automd:badges name=defu codecov bundlephobia -->
+    <!-- automd:badges color=yellow name=defu codecov bundlephobia -->
 
-    [![npm version](https://img.shields.io/npm/v/defu)](https://npmjs.com/package/defu)
-    [![npm downloads](https://img.shields.io/npm/dm/defu)](https://npmjs.com/package/defu)
-    [![bundle size](https://img.shields.io/bundlephobia/minzip/defu)](https://bundlephobia.com/package/defu)
-    [![codecov](https://img.shields.io/codecov/c/gh/unjs/automd)](https://codecov.io/gh/unjs/automd)
+    [![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
+    [![npm downloads](https://flat.badgen.net/npm/dm/defu?color=yellow)](https://npmjs.com/package/defu)
+    [![bundle size](https://flat.badgen.net/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
+    [![codecov](https://flat.badgen.net/codecov/c/github/unjs/automd?color=yellow)](https://codecov.io/gh/unjs/automd)
 
     <!-- /automd -->
 
@@ -206,7 +206,7 @@ The `badges` generator generates badges for the latest npm version, npm download
 - `provider`: Can be one of `shields` (for [shields.io](https://shields.io/)) or `badgen` / `badgenClassic` (for [badgen.net](https://badgen.net/)). Default is `badgen`.
 
 > [!TIP]
-> You can use additional `style`, `labelColor` and `color` args for `shields` provider for example: `provider=shields style=flat-square labelColor=f0db4f color=18181b`.
+> You can use additional args `color`, `labelColor` to customize style. For provider specific params, use `styleParams`.
 
 ## Development
 

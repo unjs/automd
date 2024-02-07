@@ -1,11 +1,11 @@
 # automd playground
 
-<!-- automd:badges name=defu codecov bundlephobia -->
+<!-- automd:badges color=yellow name=defu codecov bundlephobia -->
 
-[![npm version](https://img.shields.io/npm/v/defu)](https://npmjs.com/package/defu)
-[![npm downloads](https://img.shields.io/npm/dm/defu)](https://npmjs.com/package/defu)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/defu)](https://bundlephobia.com/package/defu)
-[![codecov](https://img.shields.io/codecov/c/gh/unjs/automd)](https://codecov.io/gh/unjs/automd)
+[![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
+[![npm downloads](https://flat.badgen.net/npm/dm/defu?color=yellow)](https://npmjs.com/package/defu)
+[![bundle size](https://flat.badgen.net/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
+[![codecov](https://flat.badgen.net/codecov/c/github/unjs/automd?color=yellow)](https://codecov.io/gh/unjs/automd)
 
 <!-- /automd -->
 
@@ -15,13 +15,13 @@
 
 ```sh
 # npm
-npx automd@0.1.5 .
+npx automd@0.2.0 .
 
 # pnpm
-pnpm dlx automd@0.1.5 .
+pnpm dlx automd@0.2.0 .
 
 # bun
-bunx automd@0.1.5 .
+bunx automd@0.2.0 .
 ```
 
 <!-- /automd -->
@@ -30,19 +30,19 @@ bunx automd@0.1.5 .
 
 ```sh
 # ✨ Auto-detect
-npx nypm i -D automd@^0.1.5
+npx nypm i -D automd@^0.2.0
 
 # npm
-npm install -D automd@^0.1.5
+npm install -D automd@^0.2.0
 
 # yarn
-yarn add -D automd@^0.1.5
+yarn add -D automd@^0.2.0
 
 # pnpm
-pnpm install -D automd@^0.1.5
+pnpm install -D automd@^0.2.0
 
 # bun
-bun install -D automd@^0.1.5
+bun install -D automd@^0.2.0
 ```
 
 <!-- /automd -->
