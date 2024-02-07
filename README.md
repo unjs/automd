@@ -1,7 +1,11 @@
 # 🤖 automd
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
+<!-- automd:badges -->
+
+[![npm version](https://img.shields.io/npm/v/automd)](https://npmjs.com/package/automd)
+[![npm downloads](https://img.shields.io/npm/dm/automd)](https://npmjs.com/package/automd)
+
+<!-- /automd -->
 
 Your automated markdown maintainer!
 
@@ -20,10 +24,8 @@ Automd scans for the annotation comments within the markdown document and update
 
 The syntax is like this:
 
-```md
-<!-- automd:generator [...args] -->
-<!-- /automd -->
-```
+  <!-- automd:generator [...args] -->
+  <!-- /automd -->
 
 ### Using CLI
 
@@ -172,6 +174,39 @@ The `pm-x` generator generates commands for running a package through JavaScript
 - `name`: The package name (by default tries to read from the `name` field in `package.json`).
 - `usage`: An additional string appended at the end of each command suggesting usage. (defaults to `""`).
 
+### `badges`
+
+The `badges` generator generates badges for npm version, npm downloads and some optional ones like codecov and bundle.
+
+#### Usage
+
+    <!-- automd:badges name=defu codecov bundlephobia -->
+    <!-- /automd -->
+
+**Updated Result:**
+
+    <!-- automd:badges name=defu codecov bundlephobia -->
+
+    [![npm version](https://img.shields.io/npm/v/defu)](https://npmjs.com/package/defu)
+    [![npm downloads](https://img.shields.io/npm/dm/defu)](https://npmjs.com/package/defu)
+    [![bundle size](https://img.shields.io/bundlephobia/minzip/defu)](https://bundlephobia.com/package/defu)
+    [![codecov](https://img.shields.io/codecov/c/gh/unjs/automd)](https://codecov.io/gh/unjs/automd)
+
+    <!-- /automd -->
+
+#### Arguments
+
+- `name`: The npm package name. By default tries to infer from `package.json`.
+- `github`: Github repository name. By default tries to infer from `package.json`.
+- `bundlephobia`: Show [bundle-phobia](https://bundlephobia.com/) badge (requires `name`).
+- `codecov`: Enable [codecov](https://codecov.io) badge (requires `github`).
+- `no-npmDownloads`: Hide npm downloads badge.
+- `no-npmVersion`: Hide npm version badge.
+- `provider`: Can be one of `shields` (for [shields.io](https://shields.io/)) or `badgen` / `badgenClassic` (for [badgen.net](https://badgen.net/)). Default is `badgen`.
+
+> [!TIP]
+> You can use additional `style`, `labelColor` and `color` args for `shields` provider for example: `provider=shields style=flat-square labelColor=f0db4f color=18181b`.
+
 ## Development
 
 - Clone this repository
@@ -186,10 +221,3 @@ The `pm-x` generator generates commands for running a package through JavaScript
 Made with 💛
 
 Published under [MIT License](./LICENSE).
-
-<!-- Badges -->
-
-[npm-version-src]: https://img.shields.io/npm/v/automd?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-version-href]: https://npmjs.com/package/automd
-[npm-downloads-src]: https://img.shields.io/npm/dm/automd?style=flat&colorA=18181B&colorB=F0DB4F
-[npm-downloads-href]: https://npmjs.com/package/automd
