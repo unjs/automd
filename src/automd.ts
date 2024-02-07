@@ -70,8 +70,6 @@ export async function automd(_options: Partial<AutoMDOptions> = {}) {
       ].map((m) => [m.groups?.key, destr(m.groups?.value)]),
     );
 
-    console.log(args);
-
     const generatorName = args.generator;
     const generator = generators[generatorName];
     if (!generator) {
