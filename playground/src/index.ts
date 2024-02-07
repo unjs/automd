@@ -14,7 +14,7 @@ export function add(a: number, b: number) {
 }
 
 /**
- * Adds two numbers together.
+ * Subtracts two numbers together.
  *
  * @example
  *
