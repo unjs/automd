@@ -17,7 +17,7 @@ export default defineGenerator({
       contents: codeBlock(
         RUN_COMMANDS.map(
           ([pm, cmd]) =>
-            `# ${pm}\n${cmd} ${name}${args.usage ? ` ${args.usage}` : ""}`,
+            `# ${pm}\n${cmd} ${name}@latest${args.usage ? ` ${args.usage}` : ""}`,
         ).join("\n\n"),
         "sh",
       ),
