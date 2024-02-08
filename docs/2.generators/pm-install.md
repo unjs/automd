@@ -4,8 +4,10 @@ The `pm-install` or `pm-i` generator generates installation commands for several
 
 ## Usage
 
-    <!-- automd:pm-install name=package-name dev -->
-    <!-- /automd -->
+```md
+<!-- automd:pm-install name=package-name dev -->
+<!-- /automd -->
+```
 
 **Updated Result:**
 

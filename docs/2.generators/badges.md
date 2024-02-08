@@ -4,19 +4,23 @@ The `badges` generator generates badges for the latest npm version, npm download
 
 ## Usage
 
-    <!-- automd:badges color=yellow name=defu codecov bundlephobia -->
-    <!-- /automd -->
+```md
+<!-- automd:badges color=yellow name=defu codecov bundlephobia -->
+<!-- /automd -->
+```
 
 **Updated Result:**
 
-    <!-- automd:badges color=yellow name=defu codecov bundlephobia -->
+```md
+<!-- automd:badges color=yellow name=defu codecov bundlephobia -->
 
-    [![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
-    [![npm downloads](https://flat.badgen.net/npm/dm/defu?color=yellow)](https://npmjs.com/package/defu)
-    [![bundle size](https://flat.badgen.net/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
-    [![codecov](https://flat.badgen.net/codecov/c/github/unjs/automd?color=yellow)](https://codecov.io/gh/unjs/automd)
+[![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
+[![npm downloads](https://flat.badgen.net/npm/dm/defu?color=yellow)](https://npmjs.com/package/defu)
+[![bundle size](https://flat.badgen.net/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
+[![codecov](https://flat.badgen.net/codecov/c/github/unjs/automd?color=yellow)](https://codecov.io/gh/unjs/automd)
 
-    <!-- /automd -->
+<!-- /automd -->
+```
 
 ## Arguments
 

@@ -4,8 +4,10 @@ The `pm-x` generator generates commands for running/executing a package through 
 
 ## Usage
 
-    <!-- automd:pm-x name="package-name" args="[files] <flags>" -->
-    <!-- /automd -->
+```md
+<!-- automd:pm-x name="package-name" args="[files] <flags>" -->
+<!-- /automd -->
+```
 
 **Updated Result:**
 

@@ -6,26 +6,31 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 ## Usage
 
-    <!-- automd:jsdocs src="./src/index" -->
-    <!-- /automd -->
+```md
+<!-- automd:jsdocs src="./src/index" -->
+<!-- /automd -->
+```
 
 > [!NOTE]
 > Make sure you have some utility exports in `src/index.ts` annotated with JSDocs.
 
 **Updated Result:**
 
-    <!-- automd:jsdocs src="./src/index" -->
+````md
+<!-- automd:jsdocs src="./src/index" -->
 
-    ### `add(a, b)`
+### `add(a, b)`
 
-    Adds two numbers together.
+Adds two numbers together.
 
-    **Example:**
-    ```js
-    add(1, 2); // 3
-    ```
+**Example:**
 
-    <!-- /automd -->
+```js
+add(1, 2); // 3
+```
+
+<!-- /automd -->
+````
 
 ## Arguments
 
