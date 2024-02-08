@@ -1,0 +1,16 @@
+{
+  "$schema": "https://cdn.jsdelivr.net/gh/unjs/docs/schema/config.json",
+  "name": "automd",
+  "description": "",
+  "shortDescription": "automated markdown maintainer!",
+  "github": "unjs/automd",
+  "url": "https://automd.unjs.io",
+  "redirects": {
+    "/generators": "/guide/generators",
+  },
+  "landing": {
+    "heroCode": "",
+    "heroLinks": {},
+    "features": [],
+  },
+}

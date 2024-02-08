@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "docs",
+  "scripts": {
+    "dev": "undocs dev",
+    "build": "undocs build"
+  },
+  "devDependencies": {
+    "undocs": "^0.2.3"
+  }
+}
