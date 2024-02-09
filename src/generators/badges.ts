@@ -22,6 +22,10 @@ const badgeTypes = {
     name: "codecov",
     to: "https://codecov.io/gh/{github}",
   },
+  license: {
+    name: "license",
+    to: "https://github.com/{github}/blob/{licenseBranch}/LICENSE",
+  },
 };
 
 const badgeProviders = <Record<string, BadgeProvider>>{
@@ -31,6 +35,7 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmDownloads: "https://img.shields.io/npm/dm/{name}",
     bundlephobia: "https://img.shields.io/bundlephobia/minzip/{name}",
     codecov: "https://img.shields.io/codecov/c/gh/{github}",
+    license: "https://img.shields.io/github/license/{github}",
   },
   // https://badgen.net/help
   badgen: {
@@ -38,12 +43,14 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmDownloads: "https://flat.badgen.net/npm/dm/{name}",
     bundlephobia: "https://flat.badgen.net/bundlephobia/minzip/{name}",
     codecov: "https://flat.badgen.net/codecov/c/github/{github}",
+    license: "https://flat.badgen.net/github/license/{github}",
   },
   badgenClassic: {
     npmVersion: "https://badgen.net/npm/v/{name}",
     npmDownloads: "https://badgen.net/npm/dm/{name}",
     bundlephobia: "https://badgen.net/bundlephobia/minzip/{name}",
     codecov: "https://badgen.net/codecov/c/github/{github}",
+    license: "https://badgen.net/github/license/{github}",
   },
 };
 
@@ -54,6 +61,7 @@ export const badges = defineGenerator({
     const ctx: Record<string, any> = {
       name: pkg.name,
       github: pkg.github,
+      licenseBranch: "main",
       ...args,
     };
 
@@ -86,6 +94,10 @@ export const badges = defineGenerator({
       codecov: {
         enabled: args.codecov && ctx.github,
         ...badgeTypes.codecov,
+      },
+      license: {
+        enabled: args.license && ctx.github,
+        ...badgeTypes.license,
       },
     } as const;
 

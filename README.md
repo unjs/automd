@@ -1,9 +1,10 @@
 # 🤖 automd
 
-<!-- automd:badges color=yellow -->
+<!-- automd:badges license color=yellow -->
 
 [![npm version](https://flat.badgen.net/npm/v/automd?color=yellow)](https://npmjs.com/package/automd)
 [![npm downloads](https://flat.badgen.net/npm/dm/automd?color=yellow)](https://npmjs.com/package/automd)
+[![license](https://flat.badgen.net/github/license/unjs/automd?color=yellow)](https://github.com/unjs/automd/blob/main/LICENSE)
 
 <!-- /automd -->
 
