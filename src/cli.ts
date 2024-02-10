@@ -36,7 +36,9 @@ const main = defineCommand({
     const { updates } = await automd(_config);
 
     let newContent = 0;
+    let filesChecked = 0;
     for (const [file, entries] of updates) {
+      filesChecked++;
       for (const { block, context } of entries) {
         if (context.oldContents === block.contents) {
           continue;
@@ -52,8 +54,8 @@ const main = defineCommand({
       }
     }
 
-    if (!newContent) {
-      consola.info("No updates applied");
+    if (filesChecked) {
+      consola.info(`Checked \`${filesChecked}\` markdown file${filesChecked > 1 ? 's' : ''}. \`${newContent || "No"}\` updates were applied.`);
     }
   },
 });
