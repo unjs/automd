@@ -39,7 +39,9 @@ export function resolveConfig(config: Config | null): ResolvedConfig {
     ...config,
   };
   _config.dir = resolve(_config.dir);
-  _config.files = (Array.isArray(_config.files) ? _config.files : [_config.files]).map((f) => resolve(_config.dir, f));
+  _config.files = (
+    Array.isArray(_config.files) ? _config.files : [_config.files]
+  ).map((f) => resolve(_config.dir, f));
   _config.dirs = _config.dirs.map((d) => resolve(_config.dir, d));
   return _config;
 }
@@ -63,7 +65,10 @@ export async function loadConfig(
 
   if (_config.dirs.length > 0) {
     const fg = await import("fast-glob");
-    const files = await fg.glob([..._config.dirs].map((d) => `${d}/**/*.md`), { onlyFiles: true });
+    const files = await fg.glob(
+      [..._config.dirs].map((d) => `${d}/**/*.md`),
+      { onlyFiles: true },
+    );
     if (files && files.length > 0) {
       _config.files = [..._config.files, ...files];
     }

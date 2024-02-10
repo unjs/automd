@@ -46,7 +46,10 @@ export async function automd(_config: Config = {}) {
       const args = parseRawArgs(block.rawArgs);
       const generator = generators[block.generator];
       if (!generator) {
-        const suggestions = didYouMean(block.generator, Object.keys(generators));
+        const suggestions = didYouMean(
+          block.generator,
+          Object.keys(generators),
+        );
         consola.warn(
           `Unknown generator:\`${block.generator}\`.${suggestions ? ` Did you mean "generator:\`${suggestions}\`"?` : ""}`,
         );
@@ -76,13 +79,13 @@ export async function automd(_config: Config = {}) {
       );
     }
 
-    if ((updates.get(file) || [])?.length  > 0 && fileEditor.hasChanged()) {
+    if ((updates.get(file) || [])?.length > 0 && fileEditor.hasChanged()) {
       await writeFile(file, fileEditor.toString(), "utf8");
     }
   }
 
   return {
     config,
-    updates: [...updates.entries()]
+    updates: [...updates.entries()],
   };
 }
