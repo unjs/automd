@@ -55,7 +55,9 @@ const main = defineCommand({
     }
 
     if (filesChecked) {
-      consola.info(`Checked \`${filesChecked}\` markdown file${filesChecked > 1 ? 's' : ''}. \`${newContent || "No"}\` updates were applied.`);
+      consola.info(
+        `Checked \`${filesChecked}\` markdown file${filesChecked > 1 ? "s" : ""}. \`${newContent || "No"}\` updates were applied.`,
+      );
     }
   },
 });
