@@ -38,9 +38,13 @@ const main = defineCommand({
     let newContent = 0;
     for (const [file, entries] of updates) {
       for (const { block, context } of entries) {
-        if (context.oldContents === block.contents) { continue; }
+        if (context.oldContents === block.contents) {
+          continue;
+        }
         newContent++;
-        consola.success(`Updated \`${file}\` (\`${entries.length}\` ent${entries.length > 1 ? 'ies' : 'ry'}) `);
+        consola.success(
+          `Updated \`${file}\` (\`${entries.length}\` ent${entries.length > 1 ? "ies" : "ry"}) `,
+        );
 
         if (args.verbose) {
           consola.info(`- <!-- automd:${block.generator} ${block.rawArgs} -->`);
@@ -50,7 +54,7 @@ const main = defineCommand({
 
     if (newContent === 0) {
       consola.info("No updates applied");
-      process.exit(1)
+      process.exit(1);
     }
   },
 });
