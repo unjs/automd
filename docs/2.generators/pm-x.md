@@ -5,26 +5,26 @@ The `pm-x` generator generates commands for running/executing a package through 
 ## Usage
 
 ```md
-<!-- automd:pm-x name="package-name" args="[files] <flags>" -->
-<!-- /automd -->
+  <!-- automd:pm-x name="package-name" args="[files] <flags>" -->
+  <!-- /automd -->
 ```
 
-**Updated Result:**
+**Generated Result:**
 
-    <!-- automd:pm-x name="package-name" args="[files] <flags>" -->
+<!-- automd:pm-x name="package-name" args=[files] <flags> -->
 
-    ```sh
-    # npm
-    npx package-name@latest [files] <flags>
+```sh
+# npm
+npx package-name@0.2.0 [files]
 
-    # pnpm
-    pnpm dlx package-name@latest [files] <flags>
+# pnpm
+pnpm dlx package-name@0.2.0 [files]
 
-    # bun
-    bunx package-name@latest [files] <flags>
-    ```
+# bun
+bunx package-name@0.2.0 [files]
+```
 
-    <!-- /automd -->
+<!-- /automd -->
 
 ## Arguments
 

@@ -7,17 +7,16 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 ## Usage
 
 ```md
-<!-- automd:jsdocs src="./src/index" -->
-<!-- /automd -->
+  <!-- automd:jsdocs src="./src/index" -->
+  <!-- /automd -->
 ```
 
 > [!NOTE]
 > Make sure you have some utility exports in `src/index.ts` annotated with JSDocs.
 
-**Updated Result:**
+**Generated Result:**
 
-````md
-<!-- automd:jsdocs src="./src/index" -->
+<!-- automd:jsdocs src="../playground/src/index" -->
 
 ### `add(a, b)`
 
@@ -29,8 +28,8 @@ Adds two numbers together.
 add(1, 2); // 3
 ```
 
+
 <!-- /automd -->
-````
 
 ## Arguments
 

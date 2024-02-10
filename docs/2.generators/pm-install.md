@@ -5,32 +5,32 @@ The `pm-install` or `pm-i` generator generates installation commands for several
 ## Usage
 
 ```md
-<!-- automd:pm-install name=package-name dev -->
-<!-- /automd -->
+  <!-- automd:pm-install name=package-name dev -->
+  <!-- /automd -->
 ```
 
-**Updated Result:**
+**Generated Result:**
 
-    <!-- automd:pm-install name=package-name dev -->
+<!-- automd:pm-install name=package-name dev -->
 
-    ```sh
-    # ✨ Auto-detect
-    npx nypm i -D package-name
+```sh
+# ✨ Auto-detect
+npx nypm i -D package-name@^0.2.0
 
-    # npm
-    npm install -D package-name
+# npm
+npm install -D package-name@^0.2.0
 
-    # yarn
-    yarn add -D package-name
+# yarn
+yarn add -D package-name@^0.2.0
 
-    # pnpm
-    pnpm install -D package-name
+# pnpm
+pnpm install -D package-name@^0.2.0
 
-    # bun
-    bun install -D package-name
-    ```
+# bun
+bun install -D package-name@^0.2.0
+```
 
-    <!-- /automd -->
+<!-- /automd -->
 
 ## Arguments
 

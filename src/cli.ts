@@ -22,20 +22,36 @@ const main = defineCommand({
       type: "string",
       default: "README.md",
     },
+    verbose: {
+      description: "show verbose output",
+      type: "boolean",
+    },
   },
   async setup({ args }) {
     const _config = await loadConfig(args.dir, {
       dir: args.dir,
-      file: args.file,
+      files: [args.file],
     });
-    const { updates, config } = await automd(_config);
-    if (updates.length === 0) {
-      consola.warn(`No updates applied to \`${config.file}\``);
-      process.exit(1);
+
+    const { updates } = await automd(_config);
+
+    let newContent = 0;
+    for (const [file, entries] of updates) {
+      for (const { block, context } of entries) {
+        if (context.oldContents === block.contents) { continue; }
+        newContent++;
+        consola.success(`Updated \`${file}\` (\`${entries.length}\` ent${entries.length > 1 ? 'ies' : 'ry'}) `);
+
+        if (args.verbose) {
+          consola.info(`- <!-- automd:${block.generator} ${block.rawArgs} -->`);
+        }
+      }
     }
-    consola.success(
-      `Updated \`${config.file}\` in \`${updates.length}\` sections.`,
-    );
+
+    if (newContent === 0) {
+      consola.info("No updates applied");
+      process.exit(1)
+    }
   },
 });
 

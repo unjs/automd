@@ -10,11 +10,19 @@ export interface Config {
   dir?: string;
 
   /**
+   * Directories to scan for markdown files from the working directory
+   *
+   * @example `["docs", "src"]`
+   * @example `"docs"`
+   */
+  dirs?: string[];
+
+  /**
    * Name or path of the markdown file to update relative to dir
    *
    * Defaults to `README.md`
    */
-  file?: string;
+  files?: string | string[];
 
   /** Custom generators */
   generators?: Record<string, Generator>;
@@ -25,12 +33,14 @@ export type ResolvedConfig = { [P in keyof Config]-?: Config[P] };
 export function resolveConfig(config: Config | null): ResolvedConfig {
   const _config = <ResolvedConfig>{
     dir: ".",
-    file: "README.md",
+    dirs: [],
+    files: "README.md",
     generators: {},
     ...config,
   };
   _config.dir = resolve(_config.dir);
-  _config.file = resolve(_config.dir, _config.file);
+  _config.files = (Array.isArray(_config.files) ? _config.files : [_config.files]).map((f) => resolve(_config.dir, f));
+  _config.dirs = _config.dirs.map((d) => resolve(_config.dir, d));
   return _config;
 }
 
@@ -49,5 +59,15 @@ export async function loadConfig(
     overrides,
   });
 
-  return resolveConfig(config);
+  const _config = resolveConfig(config);
+
+  if (_config.dirs.length > 0) {
+    const fg = await import("fast-glob");
+    const files = await fg.glob([..._config.dirs].map((d) => `${d}/**/*.md`), { onlyFiles: true });
+    if (files && files.length > 0) {
+      _config.files = [..._config.files, ...files];
+    }
+  }
+
+  return _config;
 }
