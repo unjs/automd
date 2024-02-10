@@ -50,7 +50,6 @@ const main = defineCommand({
 
     if (newContent === 0) {
       consola.info("No updates applied");
-      process.exit(1)
     }
   },
 });
