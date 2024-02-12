@@ -20,17 +20,30 @@ export interface Config {
   generators?: Record<string, Generator>;
 }
 
-export type ResolvedConfig = { [P in keyof Config]-?: Config[P] };
+const RESOLVED_CONFIG_SYMBOL = Symbol("automdConfig");
 
-export function resolveConfig(config: Config | null): ResolvedConfig {
+export type ResolvedConfig = { [P in keyof Config]-?: Config[P] } & {
+  [RESOLVED_CONFIG_SYMBOL]: true;
+};
+
+export function resolveConfig(
+  config?: Config | ResolvedConfig,
+): ResolvedConfig {
+  if (config && RESOLVED_CONFIG_SYMBOL in config) {
+    return config as ResolvedConfig;
+  }
+
   const _config = <ResolvedConfig>{
     dir: ".",
     file: "README.md",
     generators: {},
+    [RESOLVED_CONFIG_SYMBOL]: true,
     ...config,
   };
+
   _config.dir = resolve(_config.dir);
   _config.file = resolve(_config.dir, _config.file);
+
   return _config;
 }
 
@@ -49,5 +62,5 @@ export async function loadConfig(
     overrides,
   });
 
-  return resolveConfig(config);
+  return resolveConfig(config as Config);
 }
