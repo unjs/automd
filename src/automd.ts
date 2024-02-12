@@ -10,15 +10,15 @@ export async function automd(_config: Config = {}): Promise<AutomdResult> {
   const { loadConfig } = await import("./config");
   const config = await loadConfig(_config.dir, _config);
 
-  if (!existsSync(config.file)) {
-    throw new Error(`File not found: ${config.file}`);
+  if (!existsSync(config.input)) {
+    throw new Error(`File not found: ${config.input}`);
   }
 
-  const contents = await fsp.readFile(config.file, "utf8");
+  const contents = await fsp.readFile(config.input, "utf8");
 
   const result = await transform(contents, config);
 
-  await fsp.writeFile(config.file, result.contents, "utf8");
+  await fsp.writeFile(config.output, result.contents, "utf8");
 
   return {
     config,

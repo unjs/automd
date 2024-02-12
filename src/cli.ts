@@ -16,25 +16,30 @@ const main = defineCommand({
       description: "current working directory",
       type: "string",
     },
-    file: {
-      description: "name or path the markdown file to update",
+    input: {
+      description: "name or path the markdown input to update",
       type: "string",
       default: "README.md",
+    },
+    output: {
+      description: "name or path the markdown output (defaults to input)",
+      type: "string",
     },
   },
   async setup({ args }) {
     const { updates, config } = await automd({
       dir: args.dir,
-      file: args.file,
+      input: args.input,
+      output: args.output,
     });
 
     if (updates.length === 0) {
-      consola.warn(`No updates applied to \`${config.file}\``);
+      consola.warn(`No updates applied to \`${config.input}\``);
       process.exit(1);
     }
 
     consola.success(
-      `Updated \`${config.file}\` in \`${updates.length}\` sections.`,
+      `Updated \`${config.input}\` in \`${updates.length}\` sections.`,
     );
   },
 });

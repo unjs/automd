@@ -23,7 +23,7 @@
   "scripts": {
     "automd": "jiti src/cli.ts",
     "build": "pnpm automd && unbuild",
-    "dev": "vitest -u",
+    "dev": "vitest --coverage -u",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src",
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src -w",
     "prepack": "pnpm build",

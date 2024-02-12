@@ -10,11 +10,18 @@ export interface Config {
   dir?: string;
 
   /**
-   * Name or path of the markdown file to update relative to dir
+   * Name or path of the input file.
    *
    * Defaults to `README.md`
    */
-  file?: string;
+  input?: string;
+
+  /**
+   * Name or path of the output file.
+   *
+   * Defaults to the same as `input`
+   */
+  output?: string;
 
   /** Custom generators */
   generators?: Record<string, Generator>;
@@ -35,14 +42,18 @@ export function resolveConfig(
 
   const _config = <ResolvedConfig>{
     dir: ".",
-    file: "README.md",
+    input: "README.md",
     generators: {},
     [RESOLVED_CONFIG_SYMBOL]: true,
     ...config,
   };
 
   _config.dir = resolve(_config.dir);
-  _config.file = resolve(_config.dir, _config.file);
+  _config.input = resolve(_config.dir, _config.input);
+
+  _config.output = _config.output
+    ? resolve(_config.dir, _config.output)
+    : _config.input;
 
   return _config;
 }
