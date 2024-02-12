@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "automd": "jiti src/cli.ts",
+    "docs:dev": "cd docs && bun i && bun dev",
     "build": "pnpm automd && unbuild",
     "dev": "vitest --coverage -u",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src",
