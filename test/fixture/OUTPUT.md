@@ -1,18 +1,15 @@
-# automd playground
+# Automd built-in generator fixtures
 
-<!-- automd:bagdges  -->
-<!-- /automd -->
+## `badges`
 
-<!-- automd:badges color=yellow name=defu codecov bundlephobia -->
+<!-- automd:badges  -->
 
-[![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
-[![npm downloads](https://flat.badgen.net/npm/dm/defu?color=yellow)](https://npmjs.com/package/defu)
-[![bundle size](https://flat.badgen.net/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
-[![codecov](https://flat.badgen.net/codecov/c/github/unjs/automd?color=yellow)](https://codecov.io/gh/unjs/automd)
+[![npm version](https://flat.badgen.net/npm/v/automd)](https://npmjs.com/package/automd)
+[![npm downloads](https://flat.badgen.net/npm/dm/automd)](https://npmjs.com/package/automd)
 
 <!-- /automd -->
 
-## Usage
+## `pm-x`
 
 <!-- automd:pm-x args=. -->
 
@@ -28,6 +25,8 @@ bunx automd@0.2.0 .
 ```
 
 <!-- /automd -->
+
+## `pm-install`
 
 <!-- automd:pm-install dev separate-->
 
@@ -58,7 +57,7 @@ bun install -D automd@^0.2.0
 
 <!-- /automd -->
 
-## Utils
+## `jsdocs`
 
 <!-- automd:jsdocs -->
 
