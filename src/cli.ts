@@ -57,9 +57,6 @@ const main = defineCommand({
       const fileStr =
         input === output ? `  ${input}` : `  ${input} ~> ${output}`;
 
-      const changesStr =
-        f.updates.map((u) => u.block.generator).join(", ") || "-";
-
       const t =
         // prettier-ignore
         f.updates.length === 0 ? changeTypes.alreadyUpdate : (f.hasChanged ? changeTypes.updated : changeTypes.noChanges);
