@@ -38,10 +38,13 @@ export async function transform(
     );
   }
 
+  const hasChanged = editor.hasChanged();
+  const hasIssues = updates.some((u) => u.result.issues?.length);
+
   return {
-    hasChanged: editor.hasChanged(),
-    hasIssues: updates.some((u) => u.result.issues?.length),
-    contents: editor.toString(),
+    hasChanged,
+    hasIssues,
+    contents: hasChanged ? editor.toString() : contents,
     updates,
   };
 }
