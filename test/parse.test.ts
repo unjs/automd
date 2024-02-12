@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseRawArgs, findAutoMdBlocks } from "../src/_parse";
+import { parseRawArgs, findBlocks } from "../src/_parse";
 
 describe("parseRawArgs", () => {
   const tests = [
@@ -19,7 +19,7 @@ describe("parseRawArgs", () => {
   }
 });
 
-describe("findAutoMdBlocks", () => {
+describe("findBlocks", () => {
   const fixture = `
 <!-- automd:pm-x args=. -->
 (a)
@@ -43,7 +43,7 @@ describe("findAutoMdBlocks", () => {
   });
 
   it("should find all blocks", () => {
-    const blocks = findAutoMdBlocks(fixture);
+    const blocks = findBlocks(fixture);
     expect(blocks[0]).toMatchObject(mkBlock("pm-x", "args=.", "(a)"));
     expect(blocks[1]).toMatchObject(
       mkBlock("pm-install", "dev no-auto", "(b)"),
