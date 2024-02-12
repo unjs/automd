@@ -1,13 +1,13 @@
+import { existsSync, promises as fsp } from "node:fs";
 import type { Config, ResolvedConfig } from "./config";
 import { TransformResult, transform } from "./transform";
+import { loadConfig } from "./config";
 
 export interface AutomdResult extends TransformResult {
   config: ResolvedConfig;
 }
 
 export async function automd(_config: Config = {}): Promise<AutomdResult> {
-  const { existsSync, promises: fsp } = await import("node:fs");
-  const { loadConfig } = await import("./config");
   const config = await loadConfig(_config.dir, _config);
 
   if (!existsSync(config.input)) {

@@ -1,8 +1,8 @@
 import type { PackageJson } from "pkg-types";
+import { readPackageJSON } from "pkg-types";
 import { defu } from "defu";
 
 export async function getPkg(dir: string, input: Record<string, string> = {}) {
-  const { readPackageJSON } = await import("pkg-types");
   const pkg = await readPackageJSON(dir).catch(() => undefined);
   return defu(
     {
