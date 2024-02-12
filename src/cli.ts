@@ -5,7 +5,7 @@ import { defineCommand, runMain } from "citty";
 import consola from "consola";
 import { getColor } from "consola/utils";
 import { name, description, version } from "../package.json";
-import { automd } from "./automd";
+import { AutomdResult, automd } from "./automd";
 
 const main = defineCommand({
   meta: {
@@ -48,20 +48,41 @@ const main = defineCommand({
       updated: { label: "updated", color: getColor("blue") },
       noChanges: { label: "no changes", color: getColor("green") },
       alreadyUpdate: { label: "already up-to-date", color: getColor("gray") },
+      issues: { label: "with issues", color: getColor("yellow") },
+    };
+    const getChangeType = (res: AutomdResult) => {
+      if (res.updates.length === 0) {
+        return changeTypes.alreadyUpdate;
+      }
+      if (res.hasIssues) {
+        return changeTypes.issues;
+      }
+      return res.hasChanged ? changeTypes.updated : changeTypes.noChanges;
     };
 
-    for (const f of fileUpdates) {
-      const [input, output] = [f.input, f.output].map((i) =>
-        relative(f._config.dir, i),
+    for (const res of fileUpdates) {
+      const [input, output] = [res.input, res.output].map((i) =>
+        relative(res._config.dir, i),
       );
-      const fileStr =
-        input === output ? `  ${input}` : `  ${input} ~> ${output}`;
+      const t = getChangeType(res);
 
-      const t =
-        // prettier-ignore
-        f.updates.length === 0 ? changeTypes.alreadyUpdate : (f.hasChanged ? changeTypes.updated : changeTypes.noChanges);
+      const f = `${input === output ? `  ${input}` : `  ${input} ~> ${output}`}`;
 
-      consola.log(t.color(`  ─ ${fileStr} ${t.label}`));
+      consola.log(t.color(`  ─  ${f} ${t.label}`));
+    }
+
+    const issues = fileUpdates
+      .filter((f) => f.hasIssues)
+      .map(
+        (f) =>
+          `${changeTypes.issues.color(relative(f._config.dir, f.input))} \n\n ${f.updates.flatMap((u) => u.result.issues).join("\n")}`,
+      );
+
+    if (issues.length > 0) {
+      consola.warn(`Some issues happened during update!`);
+      for (const issue of issues) {
+        consola.error(issue);
+      }
     }
   },
 });

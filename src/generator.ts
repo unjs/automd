@@ -9,7 +9,7 @@ export interface GenerateContext {
 
 export interface GenerateResult {
   contents: string;
-  warnings?: string[];
+  issues?: string[];
 }
 
 export interface Generator {

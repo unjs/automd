@@ -6,6 +6,7 @@ import { Config, ResolvedConfig, resolveConfig } from "./config";
 
 export interface TransformResult {
   hasChanged: boolean;
+  hasIssues: boolean;
   contents: string;
   updates: { block: Block; result: GenerateResult }[];
 }
@@ -39,6 +40,7 @@ export async function transform(
 
   return {
     hasChanged: editor.hasChanged(),
+    hasIssues: updates.some((u) => u.result.issues?.length),
     contents: editor.toString(),
     updates,
   };
@@ -55,10 +57,10 @@ async function _transformBlock(
   if (!generator) {
     const didYouMean = await import("didyoumean2").then((r) => r.default || r);
     const suggestions = didYouMean(block.generator, Object.keys(generators));
-    const warn = `[automd] Unknown generator:\`${block.generator}\`.${suggestions ? ` Did you mean "generator:\`${suggestions}\`"?` : ""}`;
+    const error = `Unknown generator:\`${block.generator}\`.${suggestions ? ` Did you mean "generator:\`${suggestions}\`"?` : ""}`;
     return {
-      contents: `/* ${warn} */`,
-      warnings: [warn],
+      contents: `<!-- ⚠️  ${error} -->`,
+      issues: [error],
     };
   }
 
@@ -68,7 +70,14 @@ async function _transformBlock(
     block,
   };
 
-  const result = (await generator.generate(context)) as GenerateResult;
-
-  return result;
+  try {
+    const result = (await generator.generate(context)) as GenerateResult;
+    return result;
+  } catch (_error: any) {
+    const error = `(${block.generator}) ${_error.message || _error}`;
+    return {
+      contents: `<!-- ⚠️  ${error} -->`,
+      issues: [error],
+    };
+  }
 }
