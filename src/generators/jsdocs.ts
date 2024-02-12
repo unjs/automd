@@ -1,12 +1,13 @@
-import { resolve } from "node:path";
-import { loadSchema } from "untyped/loader";
 import type { Schema } from "untyped";
+import { resolve } from "pathe";
 import { titleCase } from "scule";
 import { defineGenerator } from "../generator";
 
 export const jsdocs = defineGenerator({
   name: "jsdocs",
   async generate({ config, args }) {
+    const { loadSchema } = await import("untyped/loader");
+
     const entryPath = resolve(config.dir, args.src || "./src/index");
 
     const schema = await loadSchema(entryPath);
