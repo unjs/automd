@@ -10,16 +10,16 @@ export interface Config {
   dir?: string;
 
   /**
-   * Name or path of the input file.
+   * Name or path to the input file or files with glob patterns.
    *
-   * Defaults to `README.md`
+   * Default is `README.md`.
    */
-  input?: string;
+  input?: string | string[];
 
   /**
-   * Name or path of the output file.
+   * Name or path of the output files.
    *
-   * Defaults to the same as `input`
+   * Default output is same as input.
    */
   output?: string;
 
@@ -31,6 +31,8 @@ const RESOLVED_CONFIG_SYMBOL = Symbol("automdConfig");
 
 export type ResolvedConfig = { [P in keyof Config]-?: Config[P] } & {
   [RESOLVED_CONFIG_SYMBOL]: true;
+  input: string[];
+  output?: string;
 };
 
 export function resolveConfig(
@@ -49,11 +51,10 @@ export function resolveConfig(
   };
 
   _config.dir = resolve(_config.dir);
-  _config.input = resolve(_config.dir, _config.input);
 
-  _config.output = _config.output
-    ? resolve(_config.dir, _config.output)
-    : _config.input;
+  _config.input = (
+    Array.isArray(_config.input) ? _config.input : [_config.input]
+  ).filter(Boolean);
 
   return _config;
 }

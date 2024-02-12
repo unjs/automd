@@ -39,6 +39,7 @@
     "defu": "^6.1.4",
     "destr": "^2.0.2",
     "didyoumean2": "^6.0.1",
+    "globby": "^14.0.1",
     "magic-string": "^0.30.7",
     "omark": "^0.1.0",
     "pathe": "^1.1.2",
