@@ -1,13 +1,15 @@
+import type { Block } from "./_parse";
 import type { ResolvedConfig } from "./config";
 
 export interface GenerateContext {
   args: Record<string, any>;
   config: ResolvedConfig;
-  oldContents: string;
+  block: Block;
 }
 
 export interface GenerateResult {
   contents: string;
+  warnings?: string[];
 }
 
 export interface Generator {

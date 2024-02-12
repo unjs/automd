@@ -3,13 +3,15 @@ import { destr } from "destr";
 const AUTOMD_RE =
   /^(?<open><!--\s*automd:(?<generator>.+?)\s+(?<args>.*?)\s*-->)(?<contents>.+?)(?<close><!--\s*\/automd\s*-->)/gims;
 
-export function findAutoMdBlocks(md: string) {
-  const blocks: {
-    generator: string;
-    rawArgs: string;
-    contents: string;
-    loc: { start: number; end: number };
-  }[] = [];
+export interface Block {
+  generator: string;
+  rawArgs: string;
+  contents: string;
+  loc: { start: number; end: number };
+}
+
+export function findBlocks(md: string): Block[] {
+  const blocks: Block[] = [];
 
   for (const match of md.matchAll(AUTOMD_RE)) {
     if (match.index === undefined || !match.groups) {

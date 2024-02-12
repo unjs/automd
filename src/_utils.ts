@@ -1,8 +1,5 @@
 import { readPackageJSON, type PackageJson } from "pkg-types";
-import _consola from "consola";
 import { defu } from "defu";
-
-export const consola = _consola.withTag("automd");
 
 export async function getPkg(dir: string, input: Record<string, string> = {}) {
   const pkg = await readPackageJSON(dir).catch(() => undefined);

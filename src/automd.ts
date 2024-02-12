@@ -1,78 +1,27 @@
-import { readFile, writeFile } from "node:fs/promises";
-import { existsSync } from "node:fs";
-import MagicString from "magic-string";
-import didYouMean from "didyoumean2";
-import builtinGenerators from "./generators";
-import { GenerateContext, GenerateResult } from "./generator";
-import { findAutoMdBlocks, parseRawArgs } from "./_parse";
-import { consola } from "./_utils";
-import { Config, resolveConfig } from "./config";
+import { existsSync, promises as fsp } from "node:fs";
+import type { Config, ResolvedConfig } from "./config";
+import { TransformResult, transform } from "./transform";
 
-/**
- * Update markdown contents
- *
- * Options:
- * - `dir`: Working directory
- * - `file`: Name or path of the markdown file to update relative to dir
- *
- */
-export async function automd(_config: Config = {}) {
-  const config = resolveConfig(_config);
+export interface AutomdResult extends TransformResult {
+  config: ResolvedConfig;
+}
+
+export async function automd(_config: Config = {}): Promise<AutomdResult> {
+  const { loadConfig } = await import("./config");
+  const config = await loadConfig(_config.dir, _config);
 
   if (!existsSync(config.file)) {
-    throw new Error(`File not found: \`${config.file}\``);
+    throw new Error(`File not found: ${config.file}`);
   }
 
-  const fileContents = await readFile(config.file, "utf8");
-  const fileEditor = new MagicString(fileContents);
+  const contents = await fsp.readFile(config.file, "utf8");
 
-  type UpdateEntry = {
-    block: ReturnType<typeof findAutoMdBlocks>[0];
-    context: GenerateContext;
-  };
-  const updates: UpdateEntry[] = [];
+  const result = await transform(contents, config);
 
-  const generators = {
-    ...builtinGenerators,
-    ...config.generators,
-  };
-
-  const blocks = findAutoMdBlocks(fileContents);
-
-  for (const block of blocks) {
-    const args = parseRawArgs(block.rawArgs);
-    const generator = generators[block.generator];
-    if (!generator) {
-      const suggestions = didYouMean(block.generator, Object.keys(generators));
-      consola.warn(
-        `Unknown generator:\`${block.generator}\`.${suggestions ? ` Did you mean "generator:\`${suggestions}\`"?` : ""}`,
-      );
-      continue;
-    }
-
-    const context: GenerateContext = {
-      args,
-      config,
-      oldContents: block.contents,
-    };
-
-    const generateResult: GenerateResult = await generator.generate(context);
-
-    updates.push({ block, context });
-
-    fileEditor.overwrite(
-      block.loc.start,
-      block.loc.end,
-      `\n\n${generateResult.contents}\n\n`,
-    );
-  }
-
-  if (updates.length > 0 && fileEditor.hasChanged()) {
-    writeFile(config.file, fileEditor.toString(), "utf8");
-  }
+  await fsp.writeFile(config.file, result.contents, "utf8");
 
   return {
     config,
-    updates,
+    ...result,
   };
 }
