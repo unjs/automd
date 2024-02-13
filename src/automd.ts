@@ -20,7 +20,7 @@ export async function automd(_config: Config = {}): Promise<AutomdResult[]> {
       cwd: config.dir,
       absolute: false,
       onlyFiles: true,
-      ignore: ["node_modules", "dist"],
+      ignore: ["node_modules", "dist", ".*", ...(config.ignore || [])],
     });
   } else {
     inputFiles = inputFiles

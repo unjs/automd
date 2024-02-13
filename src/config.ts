@@ -23,6 +23,13 @@ export interface Config {
    */
   output?: string;
 
+  /**
+   * Ignore patterns if input is a glob pattern
+   *
+   * By default `node_modules`, `dist` and `.*` files are ignored.
+   */
+  ignore?: string[];
+
   /** Custom generators */
   generators?: Record<string, Generator>;
 }
