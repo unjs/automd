@@ -29,62 +29,63 @@ const main = defineCommand({
     },
   },
   async setup({ args }) {
-    const fileUpdates = await automd({
+    const results = await automd({
       dir: args.dir,
       input: args.input,
       output: args.output,
     });
 
-    if (fileUpdates.length === 0) {
+    if (results.length === 0) {
       consola.warn(`No files processed!`);
       process.exit(1);
     }
-
     consola.success(
-      `Automd updated in \`${relative(process.cwd(), fileUpdates[0]._config.dir)}\``,
+      `Automd updated in \`${relative(process.cwd(), results[0]._config.dir)}\``,
     );
-
-    const changeTypes = {
-      updated: { label: "updated", color: getColor("blue") },
-      noChanges: { label: "no changes", color: getColor("green") },
-      alreadyUpdate: { label: "already up-to-date", color: getColor("gray") },
-      issues: { label: "with issues", color: getColor("yellow") },
-    };
-    const getChangeType = (res: AutomdResult) => {
-      if (res.updates.length === 0) {
-        return changeTypes.alreadyUpdate;
-      }
-      if (res.hasIssues) {
-        return changeTypes.issues;
-      }
-      return res.hasChanged ? changeTypes.updated : changeTypes.noChanges;
-    };
-
-    for (const res of fileUpdates) {
-      const [input, output] = [res.input, res.output].map((i) =>
-        relative(res._config.dir, i),
-      );
-      const t = getChangeType(res);
-
-      const f = `${input === output ? `  ${input}` : `  ${input} ~> ${output}`}`;
-
-      consola.log(t.color(`  ─  ${f} ${t.label}`));
-    }
-
-    const issues = fileUpdates
-      .filter((f) => f.hasIssues)
-      .map(
-        (f) =>
-          `${changeTypes.issues.color(relative(f._config.dir, f.input))} \n\n ${f.updates.flatMap((u) => u.result.issues).join("\n")}`,
-      );
-
-    if (issues.length > 0) {
-      consola.warn(`Some issues happened during update!`);
-      for (const issue of issues) {
-        consola.error(issue);
-      }
-    }
+    _printResults(results);
   },
 });
 
 runMain(main);
+
+// --- internal utils ---
+
+const _types = {
+  updated: { label: "updated", color: getColor("blue") },
+  noChanges: { label: "no changes", color: getColor("green") },
+  alreadyUpdate: { label: "already up-to-date", color: getColor("gray") },
+  issues: { label: "with issues", color: getColor("yellow") },
+};
+
+function _printResults(results: AutomdResult[]) {
+  for (const res of results) {
+    const type = _getChangeType(res);
+    const input = relative(res._config.dir, res.input);
+    const output = relative(res._config.dir, res.output);
+    const name = `${input === output ? `  ${input}` : `  ${input} ~> ${output}`}`;
+    consola.log(type.color(`  ─  ${name} ${type.label}`));
+  }
+  const issues = results
+    .filter((res) => res.hasIssues)
+    .map((res) => _formatIssues(res));
+  if (issues.length > 0) {
+    consola.warn(`Some issues happened during update:`);
+    for (const issue of issues) {
+      consola.error(issue);
+    }
+  }
+}
+
+function _getChangeType(res: AutomdResult) {
+  if (res.updates.length === 0) {
+    return _types.alreadyUpdate;
+  }
+  if (res.hasIssues) {
+    return _types.issues;
+  }
+  return res.hasChanged ? _types.updated : _types.noChanges;
+}
+
+function _formatIssues(res: AutomdResult) {
+  return `${_types.issues.color(relative(res._config.dir, res.input))} \n\n ${res.updates.flatMap((u) => u.result.issues).join("\n")}`;
+}
