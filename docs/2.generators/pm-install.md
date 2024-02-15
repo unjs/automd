@@ -2,35 +2,39 @@
 
 The `pm-install` or `pm-i` generator generates installation commands for several JavaScript package managers.
 
-## Usage
+<!-- automd:example generator=pm-install name=package-name dev -->
 
-```md
-<!-- automd:pm-install name=package-name dev -->
-<!-- /automd -->
-```
+## Example
 
-**Updated Result:**
+### Input
 
-    <!-- automd:pm-install name=package-name dev -->
+    <!-- automd:pm-install name=package-name dev=true -->
+    <!-- /automd -->
 
+### Output
+
+    <!-- automd:pm-install name=package-name dev=true -->
+    
     ```sh
     # ✨ Auto-detect
-    npx nypm i -D package-name
-
+    npx nypm i -D package-name@^0.2.0
+    
     # npm
-    npm install -D package-name
-
+    npm install -D package-name@^0.2.0
+    
     # yarn
-    yarn add -D package-name
-
+    yarn add -D package-name@^0.2.0
+    
     # pnpm
-    pnpm install -D package-name
-
+    pnpm install -D package-name@^0.2.0
+    
     # bun
-    bun install -D package-name
+    bun install -D package-name@^0.2.0
     ```
-
+    
     <!-- /automd -->
+
+<!-- /automd -->
 
 ## Arguments
 

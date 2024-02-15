@@ -1,8 +1,8 @@
 {
   "$schema": "https://cdn.jsdelivr.net/gh/unjs/docs/schema/config.json",
-  "name": "automd",
-  "description": "",
-  "shortDescription": "automated markdown maintainer!",
+  "name": "AutoMD",
+  "description": "your automated markdown maintainer.",
+  "shortDescription": "Markdown, Automated.",
   "github": "unjs/automd",
   "url": "https://automd.unjs.io",
   "redirects": {

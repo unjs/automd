@@ -4,33 +4,33 @@ The `jsdocs` generator can automatically read through your code and extract and 
 
 Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support.
 
-## Usage
+<!-- automd:example generator=jsdocs src="../test/fixture/src/index" -->
 
-```md
-<!-- automd:jsdocs src="./src/index" -->
+## Example
+
+### Input
+
+    <!-- automd:jsdocs src=../test/fixture/src/index -->
+    <!-- /automd -->
+
+### Output
+
+    <!-- automd:jsdocs src=../test/fixture/src/index -->
+    
+    ### `add(a, b)`
+    
+    Adds two numbers together.
+    
+    **Example:**
+    
+    ```js
+    add(1, 2); // 3
+    ```
+    
+    
+    <!-- /automd -->
+
 <!-- /automd -->
-```
-
-> [!NOTE]
-> Make sure you have some utility exports in `src/index.ts` annotated with JSDocs.
-
-**Updated Result:**
-
-````md
-<!-- automd:jsdocs src="./src/index" -->
-
-### `add(a, b)`
-
-Adds two numbers together.
-
-**Example:**
-
-```js
-add(1, 2); // 3
-```
-
-<!-- /automd -->
-````
 
 ## Arguments
 

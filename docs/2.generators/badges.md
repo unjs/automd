@@ -2,26 +2,26 @@
 
 The `badges` generator generates badges for the latest npm version, npm download statistics, code coverage, and bundle size.
 
-## Usage
+<!-- automd:example generator=badges color=yellow license name=defu codecov bundlephobia -->
 
-```md
-<!-- automd:badges color=yellow license name=defu codecov bundlephobia -->
+## Example
+
+### Input
+
+    <!-- automd:badges color=yellow license=true name=defu codecov=true bundlephobia=true -->
+    <!-- /automd -->
+
+### Output
+
+    <!-- automd:badges color=yellow license=true name=defu codecov=true bundlephobia=true -->
+    
+    [![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
+    [![npm downloads](https://flat.badgen.net/npm/dm/defu?color=yellow)](https://npmjs.com/package/defu)
+    [![bundle size](https://flat.badgen.net/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
+    
+    <!-- /automd -->
+
 <!-- /automd -->
-```
-
-**Updated Result:**
-
-```md
-<!-- automd:badges color=yellow name=defu license codecov bundlephobia -->
-
-[![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
-[![npm downloads](https://flat.badgen.net/npm/dm/defu?color=yellow)](https://npmjs.com/package/defu)
-[![bundle size](https://flat.badgen.net/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
-[![codecov](https://flat.badgen.net/codecov/c/github/unjs/automd?color=yellow)](https://codecov.io/gh/unjs/automd)
-[![license](https://flat.badgen.net/github/license/unjs/automd?color=yellow)](https://github.com/unjs/automd/blob/main/LICENSE)
-
-<!-- /automd -->
-```
 
 ## Arguments
 

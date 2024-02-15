@@ -2,29 +2,33 @@
 
 The `pm-x` generator generates commands for running/executing a package through JavaScript package managers.
 
-## Usage
+<!-- automd:example generator=pm-x name="package-name" args="[files] <flags>" -->
 
-```md
-<!-- automd:pm-x name="package-name" args="[files] <flags>" -->
-<!-- /automd -->
-```
+## Example
 
-**Updated Result:**
+### Input
 
-    <!-- automd:pm-x name="package-name" args="[files] <flags>" -->
+    <!-- automd:pm-x name=package-name args="[files] <flags>"=true -->
+    <!-- /automd -->
 
+### Output
+
+    <!-- automd:pm-x name=package-name args="[files] <flags>"=true -->
+    
     ```sh
     # npm
-    npx package-name@latest [files] <flags>
-
+    npx package-name@0.2.0 "[files]
+    
     # pnpm
-    pnpm dlx package-name@latest [files] <flags>
-
+    pnpm dlx package-name@0.2.0 "[files]
+    
     # bun
-    bunx package-name@latest [files] <flags>
+    bunx package-name@0.2.0 "[files]
     ```
-
+    
     <!-- /automd -->
+
+<!-- /automd -->
 
 ## Arguments
 
