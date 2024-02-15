@@ -68,8 +68,8 @@ runMain(main);
 
 const _types = {
   updated: { label: "updated", color: "blue" },
-  noChanges: { label: "no changes", color: "green" },
-  alreadyUpdate: { label: "already up-to-date", color: "gray" },
+  noChanges: { label: "no changes", color: "gray" },
+  alreadyUpdate: { label: "already up-to-date", color: "green" },
   issues: { label: "with issues", color: "yellow" },
 } as const;
 
@@ -108,12 +108,12 @@ function _printResults(
 
 function _getChangeType(res: AutomdResult) {
   if (res.updates.length === 0) {
-    return _types.alreadyUpdate;
+    return _types.noChanges;
   }
   if (res.hasIssues) {
     return _types.issues;
   }
-  return res.hasChanged ? _types.updated : _types.noChanges;
+  return res.hasChanged ? _types.updated : _types.alreadyUpdate;
 }
 
 function _formatIssues(res: AutomdResult, config: ResolvedConfig) {
