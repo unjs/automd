@@ -1,7 +1,7 @@
 import { destr } from "destr";
 
 const AUTOMD_RE =
-  /^(?<open><!--\s*automd:(?<generator>.+?)\s+(?<args>.*?)\s*-->)(?<contents>.+?)(?<close><!--\s*\/automd\s*-->)/gims;
+  /^(?<open><!--\s*automd:(?<generator>.+?)\s+(?<args>.*?)\s*-->)(?<contents>.+?)(?<close>^<!--\s*\/automd\s*-->)/gims;
 
 export interface Block {
   generator: string;
