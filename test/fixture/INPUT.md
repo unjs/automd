@@ -19,3 +19,8 @@
 
 <!-- automd:jsdocs -->
 <!-- /automd -->
+
+## `fetch`
+
+<!-- automd:fetch url="https://gist.github.com/pi0/c176defbba5568b6d06ea619a75f6104/raw" -->
+<!-- /automd -->
