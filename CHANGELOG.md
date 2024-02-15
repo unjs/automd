@@ -1,6 +1,79 @@
 # Changelog
 
 
+## v0.3.0
+
+[compare changes](https://github.com/unjs/automd/compare/v0.2.0...v0.3.0)
+
+### 🚀 Enhancements
+
+- `pm-i` alias ([#22](https://github.com/unjs/automd/pull/22))
+- Support `separate` for pm generators ([#24](https://github.com/unjs/automd/pull/24))
+- Did you mean? ([#25](https://github.com/unjs/automd/pull/25))
+- `license` badge ([#27](https://github.com/unjs/automd/pull/27))
+- ⚠️  Allow to specify `input` and `output` ([92baec6](https://github.com/unjs/automd/commit/92baec6))
+- Multi file input/output ([#21](https://github.com/unjs/automd/pull/21))
+- Allow extending `ignore` patterns ([e4ac409](https://github.com/unjs/automd/commit/e4ac409))
+- Support watcher ([13e391b](https://github.com/unjs/automd/commit/13e391b))
+- Pass transform function to generators for sub-generation ([1700a9a](https://github.com/unjs/automd/commit/1700a9a))
+- `fetch` generator ([155dfc0](https://github.com/unjs/automd/commit/155dfc0))
+
+### 🔥 Performance
+
+- Resolve config once ([62a757a](https://github.com/unjs/automd/commit/62a757a))
+
+### 🩹 Fixes
+
+- Graceful issue handling ([c02dc1b](https://github.com/unjs/automd/commit/c02dc1b))
+- Return original content if no changes ([49421d3](https://github.com/unjs/automd/commit/49421d3))
+- **parser:** Check `<!-- /automd -->` to be start of a line ([03a71a5](https://github.com/unjs/automd/commit/03a71a5))
+
+### 💅 Refactors
+
+- Improve badges ([db2fb78](https://github.com/unjs/automd/commit/db2fb78))
+- ⚠️  Split transform utils ([014838b](https://github.com/unjs/automd/commit/014838b))
+- Avoid `node:` static imports ([2ffa57b](https://github.com/unjs/automd/commit/2ffa57b))
+- Simplify `node:` usage for now ([40e49d9](https://github.com/unjs/automd/commit/40e49d9))
+- Improve cli impl ([9c6e747](https://github.com/unjs/automd/commit/9c6e747))
+
+### 📖 Documentation
+
+- Various fixes ([#16](https://github.com/unjs/automd/pull/16))
+- Use unjs badge colors ([#17](https://github.com/unjs/automd/pull/17))
+- Fix syntax example ([#18](https://github.com/unjs/automd/pull/18))
+- Update with auto generated examples! ([375367a](https://github.com/unjs/automd/commit/375367a))
+
+### 🏡 Chore
+
+- **release:** V0.2.0 ([f2cc711](https://github.com/unjs/automd/commit/f2cc711))
+- Fix readme ([#15](https://github.com/unjs/automd/pull/15))
+- Initiate docs ([8801856](https://github.com/unjs/automd/commit/8801856))
+- Improve docs formatting ([816bebb](https://github.com/unjs/automd/commit/816bebb))
+- Add `docs:dev` script ([bf4bdb1](https://github.com/unjs/automd/commit/bf4bdb1))
+- Apply automated fixes ([2b58e08](https://github.com/unjs/automd/commit/2b58e08))
+- Remove unused code ([c041248](https://github.com/unjs/automd/commit/c041248))
+- Update test ([30d3346](https://github.com/unjs/automd/commit/30d3346))
+- Apply automated fixes ([40e11ba](https://github.com/unjs/automd/commit/40e11ba))
+- Update lockfile ([a49c629](https://github.com/unjs/automd/commit/a49c629))
+- Add `docs:auto:md` command ([dc8085a](https://github.com/unjs/automd/commit/dc8085a))
+- Make timings more accurate ([ac1cb8d](https://github.com/unjs/automd/commit/ac1cb8d))
+
+### ✅ Tests
+
+- Update tests ([7c31f11](https://github.com/unjs/automd/commit/7c31f11))
+- Add snapshot test for generators ([affd5ee](https://github.com/unjs/automd/commit/affd5ee))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Allow to specify `input` and `output` ([92baec6](https://github.com/unjs/automd/commit/92baec6))
+- ⚠️  Split transform utils ([014838b](https://github.com/unjs/automd/commit/014838b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Christian Preston ([@cpreston321](http://github.com/cpreston321))
+- Uncenter
+
 ## v0.2.0
 
 [compare changes](https://github.com/unjs/automd/compare/v0.1.5...v0.2.0)
