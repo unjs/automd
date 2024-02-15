@@ -5,6 +5,7 @@ export interface GenerateContext {
   args: Record<string, any>;
   config: ResolvedConfig;
   block: Block;
+  transform: (contents: string) => Promise<GenerateResult>;
 }
 
 export interface GenerateResult {

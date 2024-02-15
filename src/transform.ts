@@ -43,6 +43,7 @@ export async function transform(
   const hasChanged = editor.hasChanged();
   const hasIssues = updates.some((u) => u.result.issues?.length);
   const time = performance.now() - start;
+
   return {
     hasChanged,
     hasIssues,
@@ -74,6 +75,7 @@ async function _transformBlock(
     args,
     config,
     block,
+    transform: (contents: string) => transform(contents, config),
   };
 
   try {
