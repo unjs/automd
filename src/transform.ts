@@ -9,12 +9,14 @@ export interface TransformResult {
   hasIssues: boolean;
   contents: string;
   updates: { block: Block; result: GenerateResult }[];
+  time: number;
 }
 
 export async function transform(
   contents: string,
   _config?: Config,
 ): Promise<TransformResult> {
+  const start = performance.now();
   const config = resolveConfig(_config);
 
   const editor = new MagicString(contents);
@@ -40,12 +42,13 @@ export async function transform(
 
   const hasChanged = editor.hasChanged();
   const hasIssues = updates.some((u) => u.result.issues?.length);
-
+  const time = performance.now() - start;
   return {
     hasChanged,
     hasIssues,
     contents: hasChanged ? editor.toString() : contents,
     updates,
+    time,
   };
 }
 

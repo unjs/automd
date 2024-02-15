@@ -33,6 +33,7 @@
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
+    "@parcel/watcher": "^2.4.0",
     "c12": "^1.7.0",
     "citty": "^0.1.5",
     "consola": "^3.2.3",

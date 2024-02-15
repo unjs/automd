@@ -1,5 +1,6 @@
 import { resolve } from "pathe";
 import type { Generator } from "./generator";
+import type { AutomdResult } from "./automd";
 
 export interface Config {
   /**
@@ -29,6 +30,16 @@ export interface Config {
    * By default `node_modules`, `dist` and `.*` files are ignored.
    */
   ignore?: string[];
+
+  /**
+   * Watch for changes in input files and regenerate output
+   */
+  watch?: boolean;
+
+  /**
+   * Watch callback
+   */
+  onWatch?: (event: { results: AutomdResult[]; time: number }) => void;
 
   /** Custom generators */
   generators?: Record<string, Generator>;
@@ -79,6 +90,9 @@ export async function loadConfig(
     name: "automd",
     dotenv: true,
     overrides,
+    defaults: {
+      ignore: ["node_modules", "dist", ".*"],
+    },
   });
 
   return resolveConfig(config as Config);
