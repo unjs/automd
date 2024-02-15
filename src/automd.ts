@@ -13,6 +13,7 @@ export interface AutomdResult extends TransformResult {
 export async function automd(
   _config: Config = {},
 ): Promise<{ results: AutomdResult[]; _config: ResolvedConfig; time: number }> {
+  const start = performance.now();
   const config = await loadConfig(_config.dir, _config);
 
   let inputFiles = config.input;
@@ -34,15 +35,15 @@ export async function automd(
 
   const cache: ResultCache = new Map();
 
-  const start = performance.now();
   const results = await Promise.all(
     inputFiles.map((i) => _automd(i, config, multiFiles, cache)),
   );
-  const time = Math.round((performance.now() - start) * 1000) / 1000;
 
   if (config.watch) {
     await _watch(inputFiles, config, multiFiles, cache);
   }
+
+  const time = performance.now() - start;
 
   return {
     _config: config,
@@ -61,11 +62,13 @@ async function _automd(
   multiFiles: boolean,
   cache: ResultCache,
 ): Promise<AutomdResult> {
+  const start = performance.now();
   const input = resolve(config.dir, relativeInput);
   const contents = await fsp.readFile(input, "utf8");
 
   const cachedResult = await cache.get(input);
   if (cachedResult?.contents === contents) {
+    cachedResult.time = performance.now() - start;
     return cachedResult;
   }
 
@@ -83,6 +86,7 @@ async function _automd(
     ...transformResult,
   };
   cache.set(input, result);
+  result.time = performance.now() - start;
   return result;
 }
 
