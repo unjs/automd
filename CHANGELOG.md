@@ -1,6 +1,54 @@
 # Changelog
 
 
+## v0.3.1
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.0...v0.3.1)
+
+### 🚀 Enhancements
+
+- **badges:** Support packagephobia ([79cb700](https://github.com/unjs/automd/commit/79cb700))
+- `js-import` generator ([89a4bf0](https://github.com/unjs/automd/commit/89a4bf0))
+- Add `with-automd` generator ([3df4a62](https://github.com/unjs/automd/commit/3df4a62))
+- **fetch:** Support `gh:` prefix ([b12087e](https://github.com/unjs/automd/commit/b12087e))
+- Support generator unwrap ([3d3422f](https://github.com/unjs/automd/commit/3d3422f))
+- `file` generator ([3ca4924](https://github.com/unjs/automd/commit/3ca4924))
+
+### 🩹 Fixes
+
+- **jsdocs:** Trim last line ([7259a71](https://github.com/unjs/automd/commit/7259a71))
+- **badges:** Respect `npmVersion` and `npmDownloads` ([01e49f4](https://github.com/unjs/automd/commit/01e49f4))
+- **jsimport:** Wrap with `printWith` of `80` ([a65b0c3](https://github.com/unjs/automd/commit/a65b0c3))
+- **transform:** Always trim before replace ([c2eb2a9](https://github.com/unjs/automd/commit/c2eb2a9))
+
+### 💅 Refactors
+
+- Rename `js-import` to `jsimport` ([bc9a221](https://github.com/unjs/automd/commit/bc9a221))
+
+### 📖 Documentation
+
+- Use shorthands in examples ([2a6b4de](https://github.com/unjs/automd/commit/2a6b4de))
+
+### 🏡 Chore
+
+- **release:** V0.3.0 ([610dbb3](https://github.com/unjs/automd/commit/610dbb3))
+- Apply automated fixes ([0919539](https://github.com/unjs/automd/commit/0919539))
+- Update docs ([c79b0e6](https://github.com/unjs/automd/commit/c79b0e6))
+- Update snapshot ([c65ce22](https://github.com/unjs/automd/commit/c65ce22))
+- Update readme ([cbb521d](https://github.com/unjs/automd/commit/cbb521d))
+- Apply automated fixes ([b93f840](https://github.com/unjs/automd/commit/b93f840))
+- Add STORY.md ([1aa13eb](https://github.com/unjs/automd/commit/1aa13eb))
+- Update dev script ([1b39861](https://github.com/unjs/automd/commit/1b39861))
+- Use `gh:` proto for fetch examples ([804ee57](https://github.com/unjs/automd/commit/804ee57))
+
+### ✅ Tests
+
+- Add format test ([0d0dfa1](https://github.com/unjs/automd/commit/0d0dfa1))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.3.0
 
 [compare changes](https://github.com/unjs/automd/compare/v0.2.0...v0.3.0)
