@@ -33,12 +33,16 @@ export async function transform(
   for (const block of blocks) {
     const result = await _transformBlock(block, config, generators);
     if (result.unwrap) {
-      editor.overwrite(block._loc.start, block._loc.end, `${result.contents}`);
+      editor.overwrite(
+        block._loc.start,
+        block._loc.end,
+        `${result.contents.trim()}`,
+      );
     } else {
       editor.overwrite(
         block.loc.start,
         block.loc.end,
-        `\n\n${result.contents}\n\n`,
+        `\n\n${result.contents.trim()}\n\n`,
       );
     }
     updates.push({ block, result });
@@ -90,7 +94,7 @@ async function _transformBlock(
     }
     if (result.unwrap) {
       const nestedRes = await transform(result.contents, config);
-      result.contents = nestedRes.contents.trim();
+      result.contents = nestedRes.contents;
       // TODO: inherit time, issues, etc.
       if (nestedRes.hasIssues) {
         result.issues = [
