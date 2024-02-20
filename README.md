@@ -33,12 +33,22 @@ Your automated markdown maintainer!
 
 </details>
 
-
 <!-- /automd -->
 
 ## License
 
-Made with 💛 Published under the [MIT License](./LICENSE).
+<!-- automd:contributors license=MIT author="pi0" -->
+
+Published under the [MIT](https://github.com/unjs/automd/blob/main/LICENSE) license.
+Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/automd/graphs/contributors) 💛
+<br><br>
+<a href="https://github.com/unjs/automd/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=unjs/automd" />
+</a>
+
+<!-- /automd -->
+
+---
 
 <!-- automd:with-automd -->
 

@@ -6,6 +6,7 @@ import { fetch as _fetch } from "./fetch";
 import { jsimport } from "./jsimport";
 import { withAutomd } from "./with-automd";
 import { file } from "./file";
+import { contributors } from "./contributors";
 
 export default {
   jsdocs,
@@ -17,4 +18,5 @@ export default {
   file,
   jsimport,
   "with-automd": withAutomd,
+  contributors,
 } as Record<string, Generator>;

@@ -39,3 +39,8 @@
 
 <!-- automd:file src="./TEST.md" -->
 <!-- /automd -->
+
+## `contributors`
+
+<!-- automd:contributors author=pi0 license=MIT -->
+<!-- /automd -->

@@ -134,3 +134,16 @@ When your code doesn't work, don't blame yourself. It's clearly the compiler's f
 Why waste time solving problems when someone else has already done it for you? Stack Overflow is your best friend, your mentor, and your savior. Just make sure to upvote the answers that save your bacon.
 
 <!-- /automd -->
+
+## `contributors`
+
+<!-- automd:contributors author=pi0 license=MIT -->
+
+Published under the [MIT](https://github.com/unjs/automd/blob/main/LICENSE) license.
+Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/automd/graphs/contributors) 💛
+<br><br>
+<a href="https://github.com/unjs/automd/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=unjs/automd" />
+</a>
+
+<!-- /automd -->

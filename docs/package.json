@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "docs",
+  "repository": "unjs/automd",
   "scripts": {
     "dev": "undocs dev",
     "build": "undocs build"
