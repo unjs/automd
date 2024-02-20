@@ -2,22 +2,23 @@
 
 The `badges` generator generates badges for the latest npm version, npm download statistics, code coverage, and bundle size.
 
-<!-- automd:example generator=badges color=yellow license name=defu codecov bundlephobia -->
+<!-- automd:example generator=badges color=yellow license name=defu codecov bundlephobia packagephobia -->
 
 ## Example
 
 ### Input
 
-    <!-- automd:badges color=yellow license=true name=defu codecov=true bundlephobia=true -->
+    <!-- automd:badges color=yellow license=true name=defu codecov=true bundlephobia=true packagephobia=true -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:badges color=yellow license=true name=defu codecov=true bundlephobia=true -->
+    <!-- automd:badges color=yellow license=true name=defu codecov=true bundlephobia=true packagephobia=true -->
     
     [![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
     [![npm downloads](https://flat.badgen.net/npm/dm/defu?color=yellow)](https://npmjs.com/package/defu)
     [![bundle size](https://flat.badgen.net/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
+    [![install size](https://flat.badgen.net/packagephobia/publish/defu?color=yellow)](https://packagephobia.com/result?p=defu)
     
     <!-- /automd -->
 

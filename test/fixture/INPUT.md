@@ -2,7 +2,7 @@
 
 ## `badges`
 
-<!-- automd:badges  -->
+<!-- automd:badges bundlephobia packagephobia  -->
 <!-- /automd -->
 
 ## `pm-x`

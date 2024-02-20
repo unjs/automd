@@ -3,7 +3,7 @@ import { defineGenerator } from "../generator";
 import { getPkg } from "../_utils";
 
 type BadgeType = keyof typeof badgeTypes;
-type BadgeProvider = Record<BadgeType, string>;
+type BadgeProvider = Record<BadgeType, string | false>;
 
 const badgeTypes = {
   npmVersion: {
@@ -17,6 +17,10 @@ const badgeTypes = {
   bundlephobia: {
     name: "bundle size",
     to: "https://bundlephobia.com/package/{name}",
+  },
+  packagephobia: {
+    name: "install size",
+    to: "https://packagephobia.com/result?p={name}",
   },
   codecov: {
     name: "codecov",
@@ -34,6 +38,7 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmVersion: "https://img.shields.io/npm/v/{name}",
     npmDownloads: "https://img.shields.io/npm/dm/{name}",
     bundlephobia: "https://img.shields.io/bundlephobia/minzip/{name}",
+    packagephobia: false, // https://github.com/badges/shields/issues/1701
     codecov: "https://img.shields.io/codecov/c/gh/{github}",
     license: "https://img.shields.io/github/license/{github}",
   },
@@ -42,6 +47,7 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmVersion: "https://flat.badgen.net/npm/v/{name}",
     npmDownloads: "https://flat.badgen.net/npm/dm/{name}",
     bundlephobia: "https://flat.badgen.net/bundlephobia/minzip/{name}",
+    packagephobia: "https://flat.badgen.net/packagephobia/publish/{name}",
     codecov: "https://flat.badgen.net/codecov/c/github/{github}",
     license: "https://flat.badgen.net/github/license/{github}",
   },
@@ -49,6 +55,7 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmVersion: "https://badgen.net/npm/v/{name}",
     npmDownloads: "https://badgen.net/npm/dm/{name}",
     bundlephobia: "https://badgen.net/bundlephobia/minzip/{name}",
+    packagephobia: "https://badgen.net/packagephobia/publish/{name}",
     codecov: "https://badgen.net/codecov/c/github/{github}",
     license: "https://badgen.net/github/license/{github}",
   },
@@ -91,6 +98,10 @@ export const badges = defineGenerator({
         enabled: args.bundlephobia && ctx.name,
         ...badgeTypes.bundlephobia,
       },
+      packagephobia: {
+        enabled: args.packagephobia && ctx.name,
+        ...badgeTypes.packagephobia,
+      },
       codecov: {
         enabled: args.codecov && ctx.github,
         ...badgeTypes.codecov,
@@ -109,7 +120,7 @@ export const badges = defineGenerator({
       }
       const to = fillStr(badge.to);
       const imgURL =
-        fillStr(provider[badgeType as BadgeType]) +
+        fillStr(provider[badgeType as BadgeType] as string) +
         (providerParams ? `?${providerParams}` : "");
       md.push(link(to, image(imgURL, badge.name)));
     }
