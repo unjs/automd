@@ -20,11 +20,6 @@
 <!-- automd:jsdocs -->
 <!-- /automd -->
 
-## `fetch`
-
-<!-- automd:fetch url="https://gist.github.com/pi0/c176defbba5568b6d06ea619a75f6104/raw" -->
-<!-- /automd -->
-
 ## `jsimport`
 
 <!-- automd:jsimport cjs=true cdn=true name=pkg imports=foo,bar -->
@@ -33,4 +28,14 @@
 ## `with-automd`
 
 <!-- automd:with-automd -->
+<!-- /automd -->
+
+## `fetch`
+
+<!-- automd:fetch url="https://gist.github.com/pi0/c176defbba5568b6d06ea619a75f6104/raw" -->
+<!-- /automd -->
+
+## `file`
+
+<!-- automd:file src="./TEST.md" -->
 <!-- /automd -->

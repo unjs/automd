@@ -1,6 +1,6 @@
 # fetch
 
-The `fetch` generator fetches a URL (using [unjs/ofetch](https://ofetch.unjs.io)) and renders downloads content inside.
+The `fetch` generator fetches a URL (using [unjs/ofetch](https://ofetch.unjs.io)) and inlines response body.
 
 <!-- automd:example generator=fetch url="https://gist.github.com/pi0/c176defbba5568b6d06ea619a75f6104/raw" -->
 
