@@ -25,7 +25,7 @@
     "docs:dev": "cd docs && bun i && bun dev",
     "docs:automd": "pnpm automd --dir docs --input '**/*.md'  --watch",
     "build": "pnpm automd && unbuild",
-    "dev": "vitest --coverage -u",
+    "dev": "vitest -u",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src",
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src -w",
     "prepack": "pnpm build",
