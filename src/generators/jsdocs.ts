@@ -123,7 +123,7 @@ function renderSchema(
     }
   }
 
-  return lines.join("\n");
+  return lines.join("\n").trim();
 }
 
 function parseTags(lines: string[] = []) {

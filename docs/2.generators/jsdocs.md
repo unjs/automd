@@ -27,7 +27,6 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
     add(1, 2); // 3
     ```
     
-    
     <!-- /automd -->
 
 <!-- /automd -->

@@ -19,9 +19,6 @@ The `pm-install` or `pm-i` generator generates installation commands for several
     # ✨ Auto-detect
     npx nypm i -D package-name
     
-    # ✨ Auto-detect
-    npx nypm i -D package-name
-    
     # npm
     npm install -D package-name
     
