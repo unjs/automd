@@ -71,7 +71,6 @@ Adds two numbers together.
 add(1, 2); // 3
 ```
 
-
 <!-- /automd -->
 
 ## `fetch`
