@@ -8,12 +8,12 @@ The `fetch` generator fetches a URL (using [unjs/ofetch](https://ofetch.unjs.io)
 
 ### Input
 
-    <!-- automd:fetch url=gh:unjs/automd/main/test/fixture/TEST.md -->
+    <!-- automd:fetch url="gh:unjs/automd/main/test/fixture/TEST.md" -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:fetch url=gh:unjs/automd/main/test/fixture/TEST.md -->
+    <!-- automd:fetch url="gh:unjs/automd/main/test/fixture/TEST.md" -->
     
     ## The Lazy Coder's Guide to Programming
     

@@ -8,12 +8,12 @@ The `with-automd` generator generates a benner that notifies docs are updated wi
 
 ### Input
 
-    <!-- automd:with-automd lastUpdate=now -->
+    <!-- automd:with-automd lastUpdate="now" -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:with-automd lastUpdate=now -->
+    <!-- automd:with-automd lastUpdate="now" -->
     
     ---
     _🤖 docs are auto updated with [automd](https:/automd.unjs.io) (last updated: now)_

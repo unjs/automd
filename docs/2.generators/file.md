@@ -8,12 +8,12 @@ The `file` generator reads a file and inlines it's contents.
 
 ### Input
 
-    <!-- automd:file src=../test/fixture/TEST.md -->
+    <!-- automd:file src="../test/fixture/TEST.md" -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:file src=../test/fixture/TEST.md -->
+    <!-- automd:file src="../test/fixture/TEST.md" -->
     
     ## The Lazy Coder's Guide to Programming
     

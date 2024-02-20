@@ -8,12 +8,12 @@ The `contributors` generator generates an image of contributors using [contrib.r
 
 ### Input
 
-    <!-- automd:contributors author=pi0 license=MIT -->
+    <!-- automd:contributors author="pi0" license="MIT" -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:contributors author=pi0 license=MIT -->
+    <!-- automd:contributors author="pi0" license="MIT" -->
     
     Published under the [MIT](https://github.com/unjs/automd/blob/main/LICENSE) license.
     Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/automd/graphs/contributors) 💛

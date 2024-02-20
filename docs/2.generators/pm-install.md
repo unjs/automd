@@ -8,12 +8,12 @@ The `pm-install` or `pm-i` generator generates installation commands for several
 
 ### Input
 
-    <!-- automd:pm-install version=false name=package-name dev -->
+    <!-- automd:pm-install version=false name="package-name" dev -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:pm-install version=false name=package-name dev -->
+    <!-- automd:pm-install version=false name="package-name" dev -->
     
     ```sh
     # ✨ Auto-detect

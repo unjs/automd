@@ -15,7 +15,7 @@ export default <Config>{
             if (v === false) {
               k.startsWith("no-") ? k.slice(3) : `no-${k}`;
             }
-            return `${k}=${v}`;
+            return `${k}=${JSON.stringify(v)}`;
           })
           .join(" ");
 

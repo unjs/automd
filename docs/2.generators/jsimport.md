@@ -8,12 +8,12 @@ The `jsimport` generator generates JavaScript usage example to be imported.
 
 ### Input
 
-    <!-- automd:jsimport cjs cdn name=pkg imports=foo,bar -->
+    <!-- automd:jsimport cjs cdn name="pkg" imports="foo,bar" -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:jsimport cjs cdn name=pkg imports=foo,bar -->
+    <!-- automd:jsimport cjs cdn name="pkg" imports="foo,bar" -->
     
     **ESM** (Node.js, Bun)
     
