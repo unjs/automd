@@ -101,3 +101,36 @@ Why waste time solving problems when someone else has already done it for you? S
 
 
 <!-- /automd -->
+
+## `js-import`
+
+<!-- automd:js-import cjs=true cdn=true name=pkg imports=foo,bar -->
+
+**ESM** (Node.js, Bun)
+
+```js
+import {
+  foo,
+  bar,
+} from "pkg";
+```
+
+**CommonJS** (Legacy Node.js)
+
+```js
+const {
+  foo,
+  bar,
+} = require("pkg");
+```
+
+**CDN** (Deno, Bun and Browsers)
+
+```js
+import {
+  foo,
+  bar,
+} from "https://esm.sh/pkg";
+```
+
+<!-- /automd -->
