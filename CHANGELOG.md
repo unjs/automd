@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.3.2
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.1...v0.3.2)
+
+### 🚀 Enhancements
+
+- Contributors generator ([f627d63](https://github.com/unjs/automd/commit/f627d63))
+- **with-automd:** `separator` option ([7e5d3a6](https://github.com/unjs/automd/commit/7e5d3a6))
+
+### 🩹 Fixes
+
+- Fix auto updated message ([8eaaba9](https://github.com/unjs/automd/commit/8eaaba9))
+
+### 📖 Documentation
+
+- Use quote for args for more clarity ([6b261b9](https://github.com/unjs/automd/commit/6b261b9))
+
+### 🏡 Chore
+
+- **release:** V0.3.1 ([9f60d8d](https://github.com/unjs/automd/commit/9f60d8d))
+- Apply automated fixes ([91bb79a](https://github.com/unjs/automd/commit/91bb79a))
+- Update readme ([36ce791](https://github.com/unjs/automd/commit/36ce791))
+- Update readme ([f74e9ff](https://github.com/unjs/automd/commit/f74e9ff))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.3.1
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.0...v0.3.1)
