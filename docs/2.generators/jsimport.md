@@ -1,47 +1,47 @@
-# js-import
+# jsimport
 
-The `js-import` generator generates JavaScript usage example to be imported.
+The `jsimport` generator generates JavaScript usage example to be imported.
 
-<!-- automd:example cjs cdn generator=js-import name=pkg imports="foo,bar" -->
+<!-- automd:example cjs cdn generator=jsimport name=pkg imports="foo,bar" -->
 
 ## Example
 
 ### Input
 
-    <!-- automd:js-import cjs=true cdn=true name=pkg imports=foo,bar -->
+    <!-- automd:jsimport cjs=true cdn=true name=pkg imports=foo,bar -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:js-import cjs=true cdn=true name=pkg imports=foo,bar -->
-    
+    <!-- automd:jsimport cjs=true cdn=true name=pkg imports=foo,bar -->
+
     **ESM** (Node.js, Bun)
-    
+
     ```js
     import {
       foo,
       bar,
     } from "pkg";
     ```
-    
+
     **CommonJS** (Legacy Node.js)
-    
+
     ```js
     const {
       foo,
       bar,
     } = require("pkg");
     ```
-    
+
     **CDN** (Deno, Bun and Browsers)
-    
+
     ```js
     import {
       foo,
       bar,
     } from "https://esm.sh/pkg";
     ```
-    
+
     <!-- /automd -->
 
 <!-- /automd -->

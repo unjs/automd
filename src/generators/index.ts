@@ -14,6 +14,5 @@ export default {
   "pm-x": pmX,
   fetch: _fetch,
   jsimport,
-  "js-import": jsimport,
   "with-automd": withAutomd,
 } as Record<string, Generator>;

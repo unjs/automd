@@ -7,7 +7,7 @@ import { defineGenerator } from "../generator";
 const DEFAULT_CDN = "https://esm.sh/";
 
 export const jsimport = defineGenerator({
-  name: "js-import",
+  name: "jsimport",
   async generate({ config, args }) {
     const { name } = await getPkg(config.dir, args);
 
