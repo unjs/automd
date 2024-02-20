@@ -87,11 +87,11 @@ export const badges = defineGenerator({
 
     const badges = {
       npmVersion: {
-        enabled: ctx.name,
+        enabled: ctx.name && args.npmVersion !== false,
         ...badgeTypes.npmVersion,
       },
       npmDownloads: {
-        enabled: ctx.name,
+        enabled: ctx.name && args.npmDownloads !== false,
         ...badgeTypes.npmDownloads,
       },
       bundlephobia: {
