@@ -99,6 +99,7 @@ When your code doesn't work, don't blame yourself. It's clearly the compiler's f
 
 Why waste time solving problems when someone else has already done it for you? Stack Overflow is your best friend, your mentor, and your savior. Just make sure to upvote the answers that save your bacon.
 
+
 <!-- /automd -->
 
 ## `jsimport`
@@ -108,19 +109,28 @@ Why waste time solving problems when someone else has already done it for you? S
 **ESM** (Node.js, Bun)
 
 ```js
-import { foo, bar } from "pkg";
+import {
+  foo,
+  bar,
+} from "pkg";
 ```
 
 **CommonJS** (Legacy Node.js)
 
 ```js
-const { foo, bar } = require("pkg");
+const {
+  foo,
+  bar,
+} = require("pkg");
 ```
 
 **CDN** (Deno, Bun and Browsers)
 
 ```js
-import { foo, bar } from "https://esm.sh/pkg";
+import {
+  foo,
+  bar,
+} from "https://esm.sh/pkg";
 ```
 
 <!-- /automd -->
