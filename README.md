@@ -8,15 +8,9 @@
 
 <!-- /automd -->
 
-Your automated markdown maintainer!
+Automated markdown maintainer!
 
-📚 Read more in the [Documentation](https://automd.unjs.io)
-
-## 🦴 Used by
-
-- [unjs/ufo](https://github.com/unjs/ufo)
-- [unjs/omark](https://github.com/unjs/omark)
-- [unjs/nypm](https://github.com/unjs/nypm)
+📚 [documentation](https://automd.unjs.io)
 
 ## Contribution
 
@@ -51,6 +45,7 @@ Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/a
 <!-- automd:with-automd separator -->
 
 ---
+
 _🤖 docs are auto updated with [automd](https:/automd.unjs.io) (last updated: Tue Feb 20 2024)_
 
 <!-- /automd -->
