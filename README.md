@@ -12,9 +12,9 @@ Automated markdown maintainer!
 
 📚 [documentation](https://automd.unjs.io)
 
-## Contribution
+<!-- automd:fetch url="gh:unjs/.github/main/snippets/readme-contrib-node-pnpm.md" -->
 
-<!-- automd:fetch url="gh:unjs/.github/main/snippets/readme-contrib-pnpm.md" -->
+## Contribution
 
 <details>
   <summary>Local development</summary>
