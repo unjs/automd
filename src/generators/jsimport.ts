@@ -34,19 +34,35 @@ export const jsimport = defineGenerator({
         ? `\n${importNames.map((i) => "  " + i + ",").join("\n")}\n`
         : (importNames[0] && ` ${importNames[0]} `) || "";
 
+    const formatMultiLine = (str: string) => {
+      return str.length > (args.printWidth || 80)
+        ? str
+        : str
+            .replace(/\n/g, "")
+            .replace(/,\s*}/, "}")
+            .replace(/(\w)}/, "$1 }")
+            .replace(/\s+/g, " ");
+    };
+
     if (args.esm !== false) {
-      const code = `import {${fmtImports}} from "${importPath}";`;
+      const code = formatMultiLine(
+        `import {${fmtImports}} from "${importPath}";`,
+      );
       lines.push("**ESM** (Node.js, Bun)", codeBlock(code, "js"));
     }
 
     if (args.cjs) {
-      const code = `const {${fmtImports}} = require("${importPath}");`;
+      const code = formatMultiLine(
+        `const {${fmtImports}} = require("${importPath}");`,
+      );
       lines.push("**CommonJS** (Legacy Node.js)", codeBlock(code, "js"));
     }
 
     if (args.cdn) {
       const cdnBase = typeof args.cdn === "string" ? args.cdn : DEFAULT_CDN;
-      const code = `import {${fmtImports}} from "${cdnBase}${importPath}";`;
+      const code = formatMultiLine(
+        `import {${fmtImports}} from "${cdnBase}${importPath}";`,
+      );
       lines.push("**CDN** (Deno, Bun and Browsers)", codeBlock(code, "js"));
     }
 
