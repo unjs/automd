@@ -10,8 +10,18 @@ export const withAutomd = defineGenerator({
 
     const emoji = args.emoji === false ? "" : "🤖 ";
 
+    const lines: string[] = [];
+
+    if (args.separator !== false) {
+      lines.push("---");
+    }
+
+    lines.push(
+      `_${emoji}docs are auto updated with [automd](https:/automd.unjs.io)${lastUpdate}_`,
+    );
+
     return {
-      contents: `_${emoji}docs are auto updated with [automd](https:/automd.unjs.io)${lastUpdate}_`,
+      contents: lines.join("\n"),
     };
   },
 });

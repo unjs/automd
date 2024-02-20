@@ -48,10 +48,9 @@ Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/a
 
 <!-- /automd -->
 
+<!-- automd:with-automd separator -->
+
 ---
-
-<!-- automd:with-automd -->
-
 _🤖 docs are auto updated with [automd](https:/automd.unjs.io) (last updated: Tue Feb 20 2024)_
 
 <!-- /automd -->
