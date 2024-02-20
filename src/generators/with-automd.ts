@@ -13,11 +13,11 @@ export const withAutomd = defineGenerator({
     const lines: string[] = [];
 
     if (args.separator !== false) {
-      lines.push("---");
+      lines.push("---", "");
     }
 
     lines.push(
-      `_${emoji}docs are auto updated with [automd](https:/automd.unjs.io)${lastUpdate}_`,
+      `_${emoji}auto updated with [automd](https://automd.unjs.io)${lastUpdate}_`,
     );
 
     return {

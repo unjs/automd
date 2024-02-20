@@ -91,7 +91,8 @@ describe("transform", () => {
         <!-- automd:with-automd lastUpdate=now -->
 
         ---
-        _🤖 docs are auto updated with [automd](https:/automd.unjs.io) (last updated: now)_
+
+        _🤖 auto updated with [automd](https://automd.unjs.io) (last updated: now)_
 
         <!-- /automd -->
         c
