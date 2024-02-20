@@ -8,12 +8,12 @@ The `badges` generator generates badges for the latest npm version, npm download
 
 ### Input
 
-    <!-- automd:badges color=yellow license=true name=defu codecov=true bundlephobia=true packagephobia=true -->
+    <!-- automd:badges color=yellow license name=defu codecov bundlephobia packagephobia -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:badges color=yellow license=true name=defu codecov=true bundlephobia=true packagephobia=true -->
+    <!-- automd:badges color=yellow license name=defu codecov bundlephobia packagephobia -->
     
     [![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
     [![npm downloads](https://flat.badgen.net/npm/dm/defu?color=yellow)](https://npmjs.com/package/defu)

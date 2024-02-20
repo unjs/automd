@@ -35,7 +35,6 @@ The `fetch` generator fetches a URL (using [unjs/ofetch](https://ofetch.unjs.io)
     
     Why waste time solving problems when someone else has already done it for you? Stack Overflow is your best friend, your mentor, and your savior. Just make sure to upvote the answers that save your bacon.
     
-    
     <!-- /automd -->
 
 <!-- /automd -->

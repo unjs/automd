@@ -8,7 +8,15 @@ export default <Config>{
         const { generator, ...generatorArgs } = args;
 
         const argsString = Object.entries(generatorArgs)
-          .map(([k, v]) => `${k}=${v}`)
+          .map(([k, v]) => {
+            if (v === true) {
+              return k;
+            }
+            if (v === false) {
+              k.startsWith("no-") ? k.slice(3) : `no-${k}`;
+            }
+            return `${k}=${v}`;
+          })
           .join(" ");
 
         const input = `<!-- automd:${generator} ${argsString} -->\n<!-- /automd -->`;

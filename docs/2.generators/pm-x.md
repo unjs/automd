@@ -8,12 +8,12 @@ The `pm-x` generator generates commands for running/executing a package through 
 
 ### Input
 
-    <!-- automd:pm-x version=latest name=package-name args="[files] <flags>"=true -->
+    <!-- automd:pm-x version=latest name=package-name args="[files] <flags>" -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:pm-x version=latest name=package-name args="[files] <flags>"=true -->
+    <!-- automd:pm-x version=latest name=package-name args="[files] <flags>" -->
     
     ```sh
     # npm
