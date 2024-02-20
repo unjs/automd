@@ -1,7 +1,7 @@
 import MagicString from "magic-string";
 import builtinGenerators from "./generators";
 import { GenerateContext, GenerateResult } from "./generator";
-import { Block, findBlocks, parseRawArgs } from "./_parse";
+import { Block, containsAutomd, findBlocks, parseRawArgs } from "./_parse";
 import { Config, ResolvedConfig, resolveConfig } from "./config";
 
 export interface TransformResult {
@@ -32,12 +32,16 @@ export async function transform(
 
   for (const block of blocks) {
     const result = await _transformBlock(block, config, generators);
+    if (result.unwrap) {
+      editor.overwrite(block._loc.start, block._loc.end, `${result.contents}`);
+    } else {
+      editor.overwrite(
+        block.loc.start,
+        block.loc.end,
+        `\n\n${result.contents}\n\n`,
+      );
+    }
     updates.push({ block, result });
-    editor.overwrite(
-      block.loc.start,
-      block.loc.end,
-      `\n\n${result.contents}\n\n`,
-    );
   }
 
   const hasChanged = editor.hasChanged();
@@ -80,6 +84,22 @@ async function _transformBlock(
 
   try {
     const result = (await generator.generate(context)) as GenerateResult;
+
+    if (!result.unwrap && containsAutomd(result.contents)) {
+      result.unwrap = true;
+    }
+    if (result.unwrap) {
+      const nestedRes = await transform(result.contents, config);
+      result.contents = nestedRes.contents.trim();
+      // TODO: inherit time, issues, etc.
+      if (nestedRes.hasIssues) {
+        result.issues = [
+          ...(result.issues || []),
+          ...nestedRes.updates.flatMap((u) => u.result.issues || []),
+        ];
+      }
+    }
+
     return result;
   } catch (_error: any) {
     const error = `(${block.generator}) ${_error.message || _error}`;

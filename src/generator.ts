@@ -11,6 +11,7 @@ export interface GenerateContext {
 export interface GenerateResult {
   contents: string;
   issues?: string[];
+  unwrap?: boolean;
 }
 
 export interface Generator {

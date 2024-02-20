@@ -1,17 +1,19 @@
 import { destr } from "destr";
 
-const AUTOMD_RE =
-  /^(?<open><!--\s*automd:(?<generator>.+?)\s+(?<args>.*?)\s*-->)(?<contents>.+?)(?<close>^<!--\s*\/automd\s*-->)/gims;
-
 export interface Block {
   generator: string;
   rawArgs: string;
   contents: string;
   loc: { start: number; end: number };
+  _loc: { start: number; end: number };
 }
 
 export function findBlocks(md: string): Block[] {
   const blocks: Block[] = [];
+
+  // Regex is stateful, so we need to reset it
+  const AUTOMD_RE =
+    /^(?<open><!--\s*automd:(?<generator>.+?)\s+(?<args>.*?)\s*-->)(?<contents>.+?)(?<close>^<!--\s*\/automd\s*-->)/gims;
 
   for (const match of md.matchAll(AUTOMD_RE)) {
     if (match.index === undefined || !match.groups) {
@@ -26,10 +28,15 @@ export function findBlocks(md: string): Block[] {
       rawArgs: match.groups.args,
       contents: match.groups.contents,
       loc: { start, end },
+      _loc: { start: match.index, end: match.index + match[0].length },
     });
   }
 
   return blocks;
+}
+
+export function containsAutomd(md: string) {
+  return /^<!--\s*automd:/gims.test(md);
 }
 
 export function parseRawArgs(rawArgs: string) {

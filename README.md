@@ -20,6 +20,8 @@ Your automated markdown maintainer!
 
 ## Contribution
 
+<!-- automd:fetch url="gh:unjs/.github/main/snippets/readme-contrib-pnpm.md" -->
+
 <details>
   <summary>Local development</summary>
 
@@ -27,14 +29,16 @@ Your automated markdown maintainer!
 - Install the latest LTS version of [Node.js](https://nodejs.org/en/)
 - Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
 - Install dependencies using `pnpm install`
-- Run unit tests using `pnpm dev`
-- Run playground test using `pnpm play`
+- Run tests using `pnpm dev` or `pnpm test`
 
 </details>
 
+
+<!-- /automd -->
+
 ## License
 
-Made with 💛 Published under [MIT License](./LICENSE).
+Made with 💛 Published under the [MIT License](./LICENSE).
 
 <!-- automd:with-automd -->
 
