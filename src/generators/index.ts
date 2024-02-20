@@ -4,6 +4,8 @@ import { badges } from "./badges";
 import { pmX, pmInstall } from "./pm";
 import { fetch as _fetch } from "./fetch";
 import { jsimport } from "./jsimport";
+import { withAutomd } from "./with-automd";
+
 export default {
   jsdocs,
   badges,
@@ -13,4 +15,5 @@ export default {
   fetch: _fetch,
   jsimport,
   "js-import": jsimport,
+  "with-automd": withAutomd,
 } as Record<string, Generator>;

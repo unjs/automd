@@ -29,3 +29,8 @@
 
 <!-- automd:js-import cjs=true cdn=true name=pkg imports=foo,bar -->
 <!-- /automd -->
+
+## `with-automd`
+
+<!-- automd:with-automd -->
+<!-- /automd -->
