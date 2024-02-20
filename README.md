@@ -18,7 +18,10 @@ Your automated markdown maintainer!
 - [unjs/omark](https://github.com/unjs/omark)
 - [unjs/nypm](https://github.com/unjs/nypm)
 
-## Development
+## Contribution
+
+<details>
+  <summary>Local development</summary>
 
 - Clone this repository
 - Install the latest LTS version of [Node.js](https://nodejs.org/en/)
@@ -27,8 +30,14 @@ Your automated markdown maintainer!
 - Run unit tests using `pnpm dev`
 - Run playground test using `pnpm play`
 
+</details>
+
 ## License
 
-Made with 💛
+Made with 💛 Published under [MIT License](./LICENSE).
 
-Published under [MIT License](./LICENSE).
+<!-- automd:with-automd -->
+
+_🤖 docs are auto updated with [automd](https:/automd.unjs.io) (last updated: Tue Feb 20 2024)_
+
+<!-- /automd -->
