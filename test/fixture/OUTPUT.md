@@ -17,13 +17,13 @@
 
 ```sh
 # npm
-npx automd@0.3.2 .
+npx automd@0.3.3 .
 
 # pnpm
-pnpm dlx automd@0.3.2 .
+pnpm dlx automd@0.3.3 .
 
 # bun
-bunx automd@0.3.2 .
+bunx automd@0.3.3 .
 ```
 
 <!-- /automd -->
@@ -34,27 +34,27 @@ bunx automd@0.3.2 .
 
 ```sh
 # ✨ Auto-detect
-npx nypm i -D automd@^0.3.2
+npx nypm i -D automd@^0.3.3
 ```
 
 ```sh
 # npm
-npm install -D automd@^0.3.2
+npm install -D automd@^0.3.3
 ```
 
 ```sh
 # yarn
-yarn add -D automd@^0.3.2
+yarn add -D automd@^0.3.3
 ```
 
 ```sh
 # pnpm
-pnpm install -D automd@^0.3.2
+pnpm install -D automd@^0.3.3
 ```
 
 ```sh
 # bun
-bun install -D automd@^0.3.2
+bun install -D automd@^0.3.3
 ```
 
 <!-- /automd -->
