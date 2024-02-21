@@ -91,7 +91,7 @@ export async function loadConfig(
     dotenv: true,
     overrides,
     defaults: {
-      ignore: ["node_modules", "dist", ".*"],
+      ignore: ["**/node_modules", "**/dist", "**/.*"],
       dir,
     },
   });
