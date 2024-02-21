@@ -34,11 +34,7 @@ const main = defineCommand({
     },
   },
   async setup({ args }) {
-    const {
-      results,
-      _config: config,
-      time,
-    } = await automd({
+    const { results, config, time } = await automd({
       dir: args.dir,
       input: args.input?.split(",").map((i) => i.trim()),
       output: args.output,
