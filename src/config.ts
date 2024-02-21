@@ -92,6 +92,7 @@ export async function loadConfig(
     overrides,
     defaults: {
       ignore: ["node_modules", "dist", ".*"],
+      dir,
     },
   });
 
