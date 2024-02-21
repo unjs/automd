@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.3.4
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.3...v0.3.4)
+
+### 🩹 Fixes
+
+- **pm-install:** Disable version by default ([f59c5a6](https://github.com/unjs/automd/commit/f59c5a6))
+
+### 📖 Documentation
+
+- Improve auto format ([1fc788a](https://github.com/unjs/automd/commit/1fc788a))
+
+### 🏡 Chore
+
+- Apply automated fixes ([669567b](https://github.com/unjs/automd/commit/669567b))
+
+### ✅ Tests
+
+- Disable version in snapshots ([b7ce756](https://github.com/unjs/automd/commit/b7ce756))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.3.3
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.2...v0.3.3)
