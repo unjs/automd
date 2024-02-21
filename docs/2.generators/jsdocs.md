@@ -16,30 +16,30 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 ### Output
 
     <!-- automd:jsdocs src="/test/fixture/src/example" -->
-    
+
     ### `add(a, b)`
-    
+
     Adds two numbers together.
-    
+
     **Example:**
-    
+
     ```js
     add(1, 2); // 3
     ```
-    
+
     ### `object`
-    
+
     #### `key`
-    
+
     An object key
-    
+
     ##### `subkey`
-    
+
     - **Type**: `string`
     - **Default**: `"value"`
-    
+
     A subkey
-    
+
     <!-- /automd -->
 
 <!-- /automd -->

@@ -22,7 +22,7 @@ export default <Config>{
           .join(" ")
           .trim();
 
-        const input = `<!-- automd:${generator} ${argsString} -->\n<!-- /automd -->`;
+        const input = `<!-- automd:${generator}${argsString ? ` ${argsString}` : ""} -->\n<!-- /automd -->`;
         const output = (await transform(input)).contents;
         return {
           contents: `### Input\n\n${_mdCode(input)}\n\n### Output\n\n${_mdCode(output)}`,
@@ -35,6 +35,9 @@ export default <Config>{
 function _mdCode(md: string) {
   return md
     .split("\n")
-    .map((l) => `    ${l}`)
+    .map((l) => {
+      l = l.trim();
+      return l ? `    ${l}` : "";
+    })
     .join("\n");
 }

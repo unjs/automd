@@ -14,18 +14,18 @@ The `pm-x` generator generates commands for running/executing a package through 
 ### Output
 
     <!-- automd:pm-x version="latest" name="package-name" args="\"[files]" <flags>" -->
-    
+
     ```sh
     # npm
     npx package-name@latest "[files]
-    
+
     # pnpm
     pnpm dlx package-name@latest "[files]
-    
+
     # bun
     bunx package-name@latest "[files]
     ```
-    
+
     <!-- /automd -->
 
 <!-- /automd -->

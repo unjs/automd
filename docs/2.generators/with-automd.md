@@ -8,17 +8,17 @@ The `with-automd` generator generates a benner that notifies docs are updated wi
 
 ### Input
 
-    <!-- automd:with-automd  -->
+    <!-- automd:with-automd -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:with-automd  -->
-    
+    <!-- automd:with-automd -->
+
     ---
-    
+
     _🤖 auto updated with [automd](https://automd.unjs.io)_
-    
+
     <!-- /automd -->
 
 <!-- /automd -->
