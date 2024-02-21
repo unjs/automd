@@ -14,6 +14,11 @@ describe("automd generators", () => {
     });
     output = results[0].contents;
     expect(output).toMatchFileSnapshot(`fixture/OUTPUT.md`);
+
+    const issues = results
+      .flatMap((r) => r.updates.flatMap((u) => u.result.issues))
+      .filter(Boolean);
+    expect(issues).toEqual([]);
   });
 
   it("is formatted", async () => {
