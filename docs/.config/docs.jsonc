@@ -3,7 +3,7 @@
   "name": "AutoMD",
   "description": "your automated markdown maintainer....",
   "shortDescription": "Markdown, Automated.",
-  "github": "unjs/automd2",
+  "github": "unjs/automd",
   "url": "https://automd.unjs.io",
   "redirects": {
     "/generators": "/guide/generators",
