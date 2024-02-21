@@ -40,7 +40,7 @@ const main = defineCommand({
       time,
     } = await automd({
       dir: args.dir,
-      input: args.input,
+      input: args.input?.split(",").map((i) => i.trim()),
       output: args.output,
       watch: args.watch,
       onWatch: (event) => {
