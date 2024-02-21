@@ -1,5 +1,4 @@
 import type { Config } from "../src";
-import { kebabCase } from "scule";
 
 export default <Config>{
   input: ["README.md", "docs/**/*.md"],
@@ -18,7 +17,7 @@ export default <Config>{
             if (v === false) {
               return k.startsWith("no-") ? k.slice(3) : `no-${k}`;
             }
-            return `${kebabCase(k)}=${JSON.stringify(v)}`;
+            return `${k}=${JSON.stringify(v)}`;
           })
           .join(" ")
           .trim();

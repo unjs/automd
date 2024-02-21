@@ -7,8 +7,6 @@
     "build": "undocs build"
   },
   "devDependencies": {
-    "automd": "^0.3.2",
-    "scule": "^1.3.0",
     "undocs": "^0.2.6"
   }
 }
