@@ -2,9 +2,9 @@
 
 The `pm-x` generator generates commands for running/executing a package through JavaScript package managers.
 
-<!-- automd:example generator=pm-x version=latest name="package-name" args="[files] <flags>" -->
-
 ## Example
+
+<!-- automd:example generator=pm-x version=latest name="package-name" args="[files] <flags>" -->
 
 ### Input
 

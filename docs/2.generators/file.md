@@ -2,9 +2,9 @@
 
 The `file` generator reads a file and inlines it's contents.
 
-<!-- automd:example generator=file src="../test/fixture/TEST.md" -->
-
 ## Example
+
+<!-- automd:example generator=file src="../test/fixture/TEST.md" -->
 
 ### Input
 

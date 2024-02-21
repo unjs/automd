@@ -4,9 +4,9 @@ The `jsdocs` generator can automatically read through your code and extract and 
 
 Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github.com/unjs/jiti) loader for JSDocs parsing and TypeScript support.
 
-<!-- automd:example generator=jsdocs src="../test/fixture/src/index" -->
-
 ## Example
+
+<!-- automd:example generator=jsdocs src="../test/fixture/src/index" -->
 
 ### Input
 

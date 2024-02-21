@@ -2,9 +2,9 @@
 
 The `badges` generator generates badges for the latest npm version, npm download statistics, code coverage, and bundle size.
 
-<!-- automd:example generator=badges color=yellow license name=defu codecov bundlephobia packagephobia -->
-
 ## Example
+
+<!-- automd:example generator=badges color=yellow license name=defu codecov bundlephobia packagephobia -->
 
 ### Input
 

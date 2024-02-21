@@ -2,9 +2,9 @@
 
 The `fetch` generator fetches a URL (using [unjs/ofetch](https://ofetch.unjs.io)) and inlines response body.
 
-<!-- automd:example generator=fetch url="gh:unjs/automd/main/test/fixture/TEST.md" -->
-
 ## Example
+
+<!-- automd:example generator=fetch url="gh:unjs/automd/main/test/fixture/TEST.md" -->
 
 ### Input
 

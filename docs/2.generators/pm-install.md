@@ -2,18 +2,18 @@
 
 The `pm-install` or `pm-i` generator generates installation commands for several JavaScript package managers.
 
-<!-- automd:example generator=pm-install no-version name=package-name dev -->
-
 ## Example
+
+<!-- automd:example generator=pm-install no-version name=package-name dev -->
 
 ### Input
 
-    <!-- automd:pm-install version=false name="package-name" dev -->
+    <!-- automd:pm-install no-version name="package-name" dev -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:pm-install version=false name="package-name" dev -->
+    <!-- automd:pm-install no-version name="package-name" dev -->
     
     ```sh
     # ✨ Auto-detect

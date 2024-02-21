@@ -2,9 +2,9 @@
 
 The `with-automd` generator generates a benner that notifies docs are updated with automd + the last update time.
 
-<!-- automd:example generator=with-automd -->
-
 ## Example
+
+<!-- automd:example generator=with-automd -->
 
 ### Input
 

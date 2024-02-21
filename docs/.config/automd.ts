@@ -1,4 +1,5 @@
 import { defineGenerator, type Config } from "../../src";
+import { kebabCase } from "scule";
 
 export default <Config>{
   generators: {
@@ -13,16 +14,17 @@ export default <Config>{
               return k;
             }
             if (v === false) {
-              k.startsWith("no-") ? k.slice(3) : `no-${k}`;
+              return k.startsWith("no-") ? k.slice(3) : `no-${k}`;
             }
-            return `${k}=${JSON.stringify(v)}`;
+            return `${kebabCase(k)}=${JSON.stringify(v)}`;
           })
-          .join(" ");
+          .join(" ")
+          .trim();
 
         const input = `<!-- automd:${generator} ${argsString} -->\n<!-- /automd -->`;
         const output = (await transform(input)).contents;
         return {
-          contents: `## Example\n\n### Input\n\n${_mdCode(input)}\n\n### Output\n\n${_mdCode(output)}`,
+          contents: `### Input\n\n${_mdCode(input)}\n\n### Output\n\n${_mdCode(output)}`,
         };
       },
     }),

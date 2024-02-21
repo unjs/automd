@@ -2,9 +2,9 @@
 
 The `contributors` generator generates an image of contributors using [contrib.rocks](https://contrib.rocks/) service plus additional data about authors and license.
 
-<!-- automd:example generator=contributors author=pi0 license=MIT -->
-
 ## Example
+
+<!-- automd:example generator=contributors author=pi0 license=MIT -->
 
 ### Input
 
