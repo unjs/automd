@@ -10,9 +10,12 @@ export interface AutomdResult extends TransformResult {
   output: string;
 }
 
-export async function automd(
-  _config: Config = {},
-): Promise<{ results: AutomdResult[]; _config: ResolvedConfig; time: number }> {
+export async function automd(_config: Config = {}): Promise<{
+  results: AutomdResult[];
+  time: number;
+  config: ResolvedConfig;
+  unwatch?: () => void | Promise<void>;
+}> {
   const start = performance.now();
   const config = await loadConfig(_config.dir, _config);
 
@@ -39,16 +42,18 @@ export async function automd(
     inputFiles.map((i) => _automd(i, config, multiFiles, cache)),
   );
 
+  let unwatch;
   if (config.watch) {
-    await _watch(inputFiles, config, multiFiles, cache);
+    unwatch = await _watch(inputFiles, config, multiFiles, cache);
   }
 
   const time = performance.now() - start;
 
   return {
-    _config: config,
     time,
     results,
+    config,
+    unwatch,
   };
 }
 
@@ -119,4 +124,6 @@ async function _watch(
   process.on("SIGINT", () => {
     subscription.unsubscribe();
   });
+
+  return subscription.unsubscribe;
 }
