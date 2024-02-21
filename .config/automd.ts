@@ -1,11 +1,11 @@
-import { defineGenerator, type Config } from "../src";
+import type { Config } from "../src";
 import { kebabCase } from "scule";
 
 export default <Config>{
   input: ["README.md", "docs/**/*.md"],
   ignore: ["test/fixture/**"],
   generators: {
-    example: defineGenerator({
+    example: {
       name: "example",
       async generate({ args, transform }) {
         const { generator, ...generatorArgs } = args;
@@ -29,7 +29,7 @@ export default <Config>{
           contents: `### Input\n\n${_mdCode(input)}\n\n### Output\n\n${_mdCode(output)}`,
         };
       },
-    }),
+    },
   },
 };
 
