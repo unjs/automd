@@ -1,6 +1,50 @@
 # Changelog
 
 
+## v0.3.3
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.2...v0.3.3)
+
+### 🚀 Enhancements
+
+- Auto normalize key casings ([bc0e4d2](https://github.com/unjs/automd/commit/bc0e4d2))
+- **automd:** Expose `unwatch` ([6ee0d6b](https://github.com/unjs/automd/commit/6ee0d6b))
+- Improve jsdocs ([d2ee600](https://github.com/unjs/automd/commit/d2ee600))
+- Resolve relative to file url ([4790e7c](https://github.com/unjs/automd/commit/4790e7c))
+
+### 🩹 Fixes
+
+- **config:** Add `dir` to defaults ([4017016](https://github.com/unjs/automd/commit/4017016))
+- **with-automd:** Hide last update by default ([96e2ade](https://github.com/unjs/automd/commit/96e2ade))
+- **cli:** Split input patterns ([efe6285](https://github.com/unjs/automd/commit/efe6285))
+- **config:** Extend default ignores ([ea0667a](https://github.com/unjs/automd/commit/ea0667a))
+
+### 📖 Documentation
+
+- Update ([3552482](https://github.com/unjs/automd/commit/3552482))
+- Explicitly add automd dep ([f876ff4](https://github.com/unjs/automd/commit/f876ff4))
+- Add scule dep ([44fc486](https://github.com/unjs/automd/commit/44fc486))
+- Remove additional dependency requirement ([5b0b197](https://github.com/unjs/automd/commit/5b0b197))
+- Fix github repo ([a7beba1](https://github.com/unjs/automd/commit/a7beba1))
+
+### 🏡 Chore
+
+- Apply automated fixes ([29ca7d3](https://github.com/unjs/automd/commit/29ca7d3))
+- Set automd config for repo ([361cd50](https://github.com/unjs/automd/commit/361cd50))
+- Remove dependency on stub ([41cab79](https://github.com/unjs/automd/commit/41cab79))
+- Avoid depending automd config on src ([224aad6](https://github.com/unjs/automd/commit/224aad6))
+- Disable global setup for now ([41a621d](https://github.com/unjs/automd/commit/41a621d))
+
+### ✅ Tests
+
+- Integrate with automd on repo ([c66a576](https://github.com/unjs/automd/commit/c66a576))
+- Fail on issues ([40c6fea](https://github.com/unjs/automd/commit/40c6fea))
+- Add `hanging-process` reporter ([4ab612b](https://github.com/unjs/automd/commit/4ab612b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.3.2
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.1...v0.3.2)
