@@ -3,108 +3,54 @@ import { resolve } from "pathe";
 import { titleCase } from "scule";
 import { defineGenerator } from "../generator";
 
+type RenderOptions = {
+  group?: string | string[];
+  defaultGroup?: string;
+};
+
 export const jsdocs = defineGenerator({
   name: "jsdocs",
   async generate({ config, args }) {
     const { loadSchema } = await import("untyped/loader");
-
     const entryPath = resolve(config.dir, args.src || "./src/index");
-
     const schema = await loadSchema(entryPath);
 
+    const lines = _render(
+      schema,
+      args as RenderOptions,
+      Number.parseInt(args.headingLevel) || 2,
+    );
+
+    lines.push(..._renderBody(schema));
+
     return {
-      contents: renderSchema(schema, {
-        ...args,
-        headingLevel: Number.parseInt(args.headingLevel) || 2,
-      }),
+      contents: _render(
+        schema,
+        args as RenderOptions,
+        Number.parseInt(args.headingLevel) || 2,
+      )
+        .join("\n")
+        .replace(/\n{3,}/g, "\n\n"),
     };
   },
 });
 
-function renderSchema(
-  schema: Schema,
-  opts: {
-    headingLevel: number;
-    group?: string | string[];
-    defaultGroup?: string;
-  },
-) {
+// -- main renderer --
+
+function _render(schema: Schema, opts: RenderOptions, headingLevel: number) {
   const sections = Object.create(null) as Record<string, [string, string[]][]>;
-
-  for (const [name, meta] of Object.entries(schema.properties || {})) {
-    // Only functions
-    if (
-      meta.type !== "function" ||
-      meta.default?.toString?.().startsWith("class")
-    ) {
+  for (const [key, keySchema] of Object.entries(schema.properties || {})) {
+    const section = _renderSection(key, keySchema, opts, headingLevel + 1);
+    if (!section) {
       continue;
     }
-
-    const lines: string[] = [];
-
-    // Parse tag annotations
-    const tags = parseTags(meta.tags);
-
-    // Ignore deprecated and intenral functions
-    if (tags.some((t) => t.tag === "@deprecated" || t.tag === "@internal")) {
-      continue;
-    }
-
-    // Find group
-    const group =
-      tags.find((t) => t.tag === "@group")?.contents || opts.defaultGroup || "";
-
-    // Filter by group if specified
-    if (
-      opts.group &&
-      (typeof opts.group === "string"
-        ? group !== opts.group
-        : !opts.group.includes(group))
-    ) {
-      continue;
-    }
-
-    // Generate signature for function arguments
-    const jsSig = `${name}(${(meta.args || [])
-      .map((arg) => {
-        let str = arg.name;
-        if (arg.optional) {
-          str += "?";
-        }
-        const tsType = simpleArgType(arg.tsType);
-        if (tsType) {
-          str += `: ${tsType}`;
-        }
-        return str;
-      })
-      .join(", ")})`;
-
-    lines.push(`${"#".repeat(opts.headingLevel + 1)} \`${jsSig}\``, "");
-
-    if (meta.title) {
-      lines.push(meta.title.trim());
-    }
-    if (meta.description) {
-      lines.push("", meta.description.trim());
-    }
-
-    for (const tag of tags) {
-      if (tag.tag === "@example") {
-        const codeBlock = tag.contents.startsWith("`")
-          ? tag.contents
-          : `\`\`\`ts\n${tag.contents}\n\`\`\``;
-        lines.push("", "**Example:**", "", codeBlock);
-      }
-    }
-
-    lines.push("");
-
-    sections[group] = sections[group] || [];
-    sections[group].push([name, lines]);
+    sections[section.group] = sections[section.group] || [];
+    sections[section.group].push([section.heading, section.lines]);
   }
 
   const lines: string[] = [];
-  for (const group of Object.keys(sections).sort((a, b) => {
+
+  const sortedGroups = Object.keys(sections).sort((a, b) => {
     if (a === "") {
       return 1;
     }
@@ -112,21 +58,111 @@ function renderSchema(
       return -1;
     }
     return a.localeCompare(b);
-  })) {
+  });
+  for (const group of sortedGroups) {
     if (group) {
-      lines.push(`${"#".repeat(opts.headingLevel)} ${titleCase(group)}`, "");
+      lines.push(`\n${"#".repeat(headingLevel)} ${titleCase(group)}\n`);
     }
-    for (const item of sections[group].sort((i1, i2) =>
-      i1[0].localeCompare(i2[0]),
-    )) {
-      lines.push(...item[1]);
+    const sortedSections = sections[group].sort((a, b) =>
+      a[0].localeCompare(b[0]),
+    );
+    for (const section of sortedSections) {
+      const heading = `\n${"#".repeat(headingLevel + 1)} ${section[0]}\n`;
+      lines.push(heading, ...section[1]);
     }
   }
 
-  return lines.join("\n").trim();
+  return lines;
 }
 
-function parseTags(lines: string[] = []) {
+// --- section renderer ---
+
+function _renderSection(
+  key: string,
+  schema: Schema,
+  opts: RenderOptions,
+  headingLevel: number,
+) {
+  // Parse tag annotations
+  const tags = _parseTags(schema.tags);
+
+  // Ignore deprecated and intenral functions
+  if (tags.some((t) => t.tag === "@deprecated" || t.tag === "@internal")) {
+    return;
+  }
+
+  // Find group
+  const group =
+    tags.find((t) => t.tag === "@group")?.contents || opts.defaultGroup || "";
+
+  // Filter by group if specified
+  if (
+    opts.group &&
+    (typeof opts.group === "string"
+      ? group !== opts.group
+      : !opts.group.includes(group))
+  ) {
+    return;
+  }
+
+  let heading = `\`${key}\``;
+  const lines: string[] = [];
+
+  if (schema.type === "function") {
+    // Function signature in heading
+    heading = `\`${_generateFunctionSig(key, schema)}\``;
+  } else if (schema.type !== "object") {
+    // JS value
+    lines.push(
+      `- **Type**: \`${schema.markdownType || schema.tsType || schema.type}\``,
+    );
+    if ("default" in schema) {
+      lines.push(`- **Default**: \`${JSON.stringify(schema.default)}\``);
+    }
+    lines.push("");
+  }
+
+  // Add body
+  lines.push(..._renderBody(schema));
+
+  // Render example tags
+  for (const tag of tags) {
+    if (tag.tag === "@example") {
+      const codeBlock = tag.contents.startsWith("`")
+        ? tag.contents
+        : `\`\`\`ts\n${tag.contents}\n\`\`\``;
+      lines.push("", "**Example:**", "", codeBlock);
+    }
+  }
+
+  // Add object properties
+  if (schema.type === "object") {
+    lines.push(..._render(schema, opts, headingLevel));
+  }
+
+  return {
+    heading,
+    lines,
+    group,
+  };
+}
+
+// -- body ---
+
+function _renderBody(schema: Schema) {
+  const lines: string[] = [];
+  if (schema.title) {
+    lines.push(schema.title.trim());
+  }
+  if (schema.description) {
+    lines.push(schema.description.trim());
+  }
+  return lines;
+}
+
+// --- tag parsing ---
+
+function _parseTags(lines: string[] = []) {
   const parsedTags: { tag: string; contents: string }[] = [];
 
   let tag = "";
@@ -155,8 +191,25 @@ function parseTags(lines: string[] = []) {
   return parsedTags;
 }
 
-// Silly, but works!
-function simpleArgType(tsType = "") {
+// --- function signature ---
+
+function _generateFunctionSig(name: string, meta: Schema) {
+  return `${name}(${(meta.args || [])
+    .map((arg) => {
+      let str = arg.name;
+      if (arg.optional) {
+        str += "?";
+      }
+      const tsType = _simpleArgType(arg.tsType);
+      if (tsType) {
+        str += `: ${tsType}`;
+      }
+      return str;
+    })
+    .join(", ")})`;
+}
+
+function _simpleArgType(tsType = "") {
   return tsType
     .split(/\s*\|\s*/)
     .filter((t) => t && t !== "object" && t.startsWith("{"))

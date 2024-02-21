@@ -59,22 +59,6 @@ bun install -D automd@^0.3.2
 
 <!-- /automd -->
 
-## `jsdocs`
-
-<!-- automd:jsdocs -->
-
-### `add(a, b)`
-
-Adds two numbers together.
-
-**Example:**
-
-```js
-add(1, 2); // 3
-```
-
-<!-- /automd -->
-
 ## `jsimport`
 
 <!-- automd:jsimport cjs=true cdn=true name=pkg imports=foo,bar -->
@@ -147,5 +131,75 @@ Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/a
 <a href="https://github.com/unjs/automd/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=unjs/automd" />
 </a>
+
+<!-- /automd -->
+
+## `jsdocs`
+
+<!-- automd:jsdocs -->
+
+### `config`
+
+#### `checked`
+
+- **Type**: `boolean`
+- **Default**: `false`
+
+checked state
+
+#### `dimensions`
+
+Configure the dimensions
+
+**Example:**
+
+```js
+{ width: 10, height: 10 }
+```
+
+##### `height`
+
+- **Type**: `number`
+- **Default**: `10`
+
+Height in px
+
+##### `width`
+
+- **Type**: `number`
+- **Default**: `10`
+
+Width in px
+
+#### `name`
+
+- **Type**: `string`
+- **Default**: `"default"`
+
+The name of the configuration
+
+#### `price`
+
+- **Type**: `number`
+- **Default**: `12.5`
+
+The price
+
+#### `tags`
+
+- **Type**: `array`
+- **Default**: `["tag1",null]`
+
+A list of tags
+
+### `sendMessage(message, date, flash?)`
+
+Send a message
+
+**Example:**
+
+```js
+sendMessage("Hello", "7/1/1995", false); // => "OK"
+```
 
 <!-- /automd -->

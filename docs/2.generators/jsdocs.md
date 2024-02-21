@@ -6,16 +6,16 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 ## Example
 
-<!-- automd:example generator=jsdocs src="test/fixture/src/index" -->
+<!-- automd:example generator=jsdocs src="test/fixture/src/example" -->
 
 ### Input
 
-    <!-- automd:jsdocs src="test/fixture/src/index" -->
+    <!-- automd:jsdocs src="test/fixture/src/example" -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:jsdocs src="test/fixture/src/index" -->
+    <!-- automd:jsdocs src="test/fixture/src/example" -->
     
     ### `add(a, b)`
     
@@ -26,6 +26,19 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
     ```js
     add(1, 2); // 3
     ```
+    
+    ### `object`
+    
+    #### `key`
+    
+    An object key
+    
+    ##### `subkey`
+    
+    - **Type**: `string`
+    - **Default**: `"value"`
+    
+    A subkey
     
     <!-- /automd -->
 
