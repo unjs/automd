@@ -23,7 +23,6 @@
   "scripts": {
     "automd": "jiti src/cli.ts",
     "docs:dev": "cd docs && bun i && bun dev",
-    "docs:automd": "pnpm automd --dir docs --input '**/*.md'  --watch",
     "build": "pnpm automd && unbuild",
     "dev": "vitest -u",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src",
@@ -61,7 +60,8 @@
     "prettier": "^3.2.5",
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
-    "vitest": "^1.2.2"
+    "vitest": "^1.2.2",
+    "automd": "link:."
   },
   "packageManager": "pnpm@8.15.1"
 }
