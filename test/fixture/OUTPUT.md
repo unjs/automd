@@ -30,31 +30,31 @@ bunx automd@0.3.3 .
 
 ## `pm-install`
 
-<!-- automd:pm-install dev separate-->
+<!-- automd:pm-install no-version dev separate-->
 
 ```sh
 # ✨ Auto-detect
-npx nypm i -D automd@^0.3.3
+npx nypm i -D automd
 ```
 
 ```sh
 # npm
-npm install -D automd@^0.3.3
+npm install -D automd
 ```
 
 ```sh
 # yarn
-yarn add -D automd@^0.3.3
+yarn add -D automd
 ```
 
 ```sh
 # pnpm
-pnpm install -D automd@^0.3.3
+pnpm install -D automd
 ```
 
 ```sh
 # bun
-bun install -D automd@^0.3.3
+bun install -D automd
 ```
 
 <!-- /automd -->
