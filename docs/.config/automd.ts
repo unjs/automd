@@ -1,4 +1,4 @@
-import { defineGenerator, type Config } from "../../src";
+import { defineGenerator, type Config } from "automd";
 import { kebabCase } from "scule";
 
 export default <Config>{
