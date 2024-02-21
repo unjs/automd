@@ -1,4 +1,5 @@
 import { destr } from "destr";
+import { camelCase } from "scule";
 
 export interface Block {
   generator: string;
@@ -43,7 +44,8 @@ export function parseRawArgs(rawArgs: string) {
   const args = Object.create(null);
 
   for (const part of rawArgs.split(/\s+/)) {
-    const [key, value] = part.split("=");
+    const [_key, value] = part.split("=");
+    const key = _key && camelCase(_key);
     if (key && value) {
       args[key] = destr(value);
     } else if (part.startsWith("no-")) {
