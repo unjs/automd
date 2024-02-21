@@ -2,21 +2,22 @@
 
 The `with-automd` generator generates a benner that notifies docs are updated with automd + the last update time.
 
-<!-- automd:example generator=with-automd lastUpdate="now" -->
+<!-- automd:example generator=with-automd -->
 
 ## Example
 
 ### Input
 
-    <!-- automd:with-automd lastUpdate="now" -->
+    <!-- automd:with-automd  -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:with-automd lastUpdate="now" -->
+    <!-- automd:with-automd  -->
     
     ---
-    _🤖 auto updated with [automd](https://automd.unjs.io) (last updated: now)_
+    
+    _🤖 auto updated with [automd](https://automd.unjs.io)_
     
     <!-- /automd -->
 
@@ -24,5 +25,5 @@ The `with-automd` generator generates a benner that notifies docs are updated wi
 
 ## Arguments
 
-- `lastUpdate`: Can override last updated time. Use `no-lastUpdate` to disable.
+- `lastUpdate`: Show last updated date. (use string for static value)
 - `no-separator`: Disable addition of separator `---`

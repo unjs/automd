@@ -105,7 +105,7 @@ import { foo, bar } from "https://esm.sh/pkg";
 
 ---
 
-_🤖 auto updated with [automd](https://automd.unjs.io) (last updated: Tue Feb 20 2024)_
+_🤖 auto updated with [automd](https://automd.unjs.io)_
 
 <!-- /automd -->
 
