@@ -4,16 +4,16 @@ The `pm-install` or `pm-i` generator generates installation commands for several
 
 ## Example
 
-<!-- automd:example generator=pm-install no-version name=package-name dev -->
+<!-- automd:example generator=pm-install name=package-name dev -->
 
 ### Input
 
-    <!-- automd:pm-install no-version name="package-name" dev -->
+    <!-- automd:pm-install name="package-name" dev -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:pm-install no-version name="package-name" dev -->
+    <!-- automd:pm-install name="package-name" dev -->
     
     ```sh
     # ✨ Auto-detect
@@ -42,3 +42,4 @@ The `pm-install` or `pm-i` generator generates installation commands for several
 - `dev`: Install as a dev dependency (defaults to `false`).
 - `separate`: Separate code blocks for each package manager (defaults to `false`).
 - `auto`: Auto-detect package manager using [unjs/nypm](https://github.com/unjs/nypm#-nypm) (defaults to `true`).
+- `version`: Show version in install command

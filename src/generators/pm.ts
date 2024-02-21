@@ -30,9 +30,15 @@ export const pmInstall = defineGenerator({
       INSTALL_COMMANDS.unshift(["npx nypm", "i"]);
     }
 
+    let versionSuffix = "";
+    if (args.version) {
+      versionSuffix =
+        typeof args.version === "string" ? `@${args.version}` : `@^${version}`;
+    }
+
     const contents = INSTALL_COMMANDS.map(
       ([cmd, install]) =>
-        `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}${version ? `@^${version}` : ""}`,
+        `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}${versionSuffix}`,
     );
 
     if ((args.separate ?? false) === false) {

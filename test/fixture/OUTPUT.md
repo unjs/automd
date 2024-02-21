@@ -30,7 +30,7 @@ bunx automd@0.3.3 .
 
 ## `pm-install`
 
-<!-- automd:pm-install no-version dev separate-->
+<!-- automd:pm-install dev separate-->
 
 ```sh
 # ✨ Auto-detect

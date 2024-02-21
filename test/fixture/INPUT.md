@@ -12,7 +12,7 @@
 
 ## `pm-install`
 
-<!-- automd:pm-install no-version dev separate-->
+<!-- automd:pm-install dev separate-->
 <!-- /automd -->
 
 ## `jsdocs`
