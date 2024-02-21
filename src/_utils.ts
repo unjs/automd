@@ -1,6 +1,18 @@
 import type { PackageJson } from "pkg-types";
 import { readPackageJSON } from "pkg-types";
 import { defu } from "defu";
+import { fileURLToPath } from "mlly";
+import { resolve, join } from "pathe";
+
+export function resolvePath(
+  path: string,
+  { url, dir }: { url?: string; dir: string },
+) {
+  if (path.startsWith("/")) {
+    return join(dir, path);
+  }
+  return url ? fileURLToPath(new URL(path, url)) : resolve(dir, path);
+}
 
 export async function getPkg(dir: string, input: Record<string, string> = {}) {
   const pkg = await readPackageJSON(dir).catch(() => undefined);

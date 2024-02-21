@@ -1,7 +1,7 @@
 import type { Schema } from "untyped";
-import { resolve } from "pathe";
 import { titleCase } from "scule";
 import { defineGenerator } from "../generator";
+import { resolvePath } from "../_utils";
 
 type RenderOptions = {
   group?: string | string[];
@@ -10,10 +10,11 @@ type RenderOptions = {
 
 export const jsdocs = defineGenerator({
   name: "jsdocs",
-  async generate({ config, args }) {
+  async generate({ config, args, url }) {
     const { loadSchema } = await import("untyped/loader");
-    const entryPath = resolve(config.dir, args.src || "./src/index");
-    const schema = await loadSchema(entryPath);
+    const fullPath = resolvePath(args.src, { url, dir: config.dir });
+
+    const schema = await loadSchema(fullPath);
 
     const lines = _render(
       schema,

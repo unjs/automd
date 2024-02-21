@@ -1,6 +1,7 @@
 import { existsSync, promises as fsp } from "node:fs";
 import { resolve, relative } from "pathe";
 import type { SubscribeCallback } from "@parcel/watcher";
+import { pathToFileURL } from "mlly";
 import type { Config, ResolvedConfig } from "./config";
 import { type TransformResult, transform } from "./transform";
 import { loadConfig } from "./config";
@@ -77,7 +78,11 @@ async function _automd(
     return cachedResult;
   }
 
-  const transformResult = await transform(contents, config);
+  const transformResult = await transform(
+    contents,
+    config,
+    pathToFileURL(input),
+  );
 
   const output = multiFiles
     ? resolve(config.dir, config.output || ".", relativeInput)

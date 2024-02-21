@@ -13,7 +13,9 @@
  */
 export function sendMessage(
   message: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   date = new Date(),
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   flash?: boolean,
 ): string {
   return "OK";

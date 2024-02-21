@@ -15,6 +15,7 @@ export interface TransformResult {
 export async function transform(
   contents: string,
   _config?: Config,
+  url?: string,
 ): Promise<TransformResult> {
   const start = performance.now();
   const config = resolveConfig(_config);
@@ -31,7 +32,7 @@ export async function transform(
   const blocks = findBlocks(contents);
 
   for (const block of blocks) {
-    const result = await _transformBlock(block, config, generators);
+    const result = await _transformBlock(block, config, generators, url);
     if (result.unwrap) {
       editor.overwrite(
         block._loc.start,
@@ -65,6 +66,7 @@ async function _transformBlock(
   block: Block,
   config: ResolvedConfig,
   generators: Record<string, any>,
+  url?: string,
 ): Promise<GenerateResult> {
   const args = parseRawArgs(block.rawArgs);
   const generator = generators[block.generator];
@@ -83,7 +85,8 @@ async function _transformBlock(
     args,
     config,
     block,
-    transform: (contents: string) => transform(contents, config),
+    transform: (contents: string) => transform(contents, config, url),
+    url,
   };
 
   try {
@@ -93,7 +96,7 @@ async function _transformBlock(
       result.unwrap = true;
     }
     if (result.unwrap) {
-      const nestedRes = await transform(result.contents, config);
+      const nestedRes = await context.transform(result.contents);
       result.contents = nestedRes.contents;
       // TODO: inherit time, issues, etc.
       if (nestedRes.hasIssues) {

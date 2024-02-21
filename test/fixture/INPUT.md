@@ -17,7 +17,7 @@
 
 ## `jsdocs`
 
-<!-- automd:jsdocs -->
+<!-- automd:jsdocs src=./src/test -->
 <!-- /automd -->
 
 ## `jsimport`
