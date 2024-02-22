@@ -35,3 +35,4 @@ The `pm-x` generator generates commands for running/executing a package through 
 - `name`: The package name (by default tries to read from the `name` field in `package.json`).
 - `separate`: Separate code blocks for each package manager (defaults to `false`).
 - `args`: An additional string appended at the end of each command suggesting arguments to be used with the program. (defaults to `""`).
+- `version`: Show version in exec command

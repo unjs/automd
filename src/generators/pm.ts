@@ -64,9 +64,15 @@ export const pmX = defineGenerator({
       };
     }
 
+    let versionSuffix = "";
+    if (args.version) {
+      versionSuffix =
+        typeof args.version === "string" ? `@${args.version}` : `@${version}`;
+    }
+
     const contents = RUN_COMMANDS.map(
       ([pm, cmd]) =>
-        `# ${pm}\n${cmd} ${name}@${version ? `${version}` : ""}${args.args ? ` ${args.args}` : ""}`,
+        `# ${pm}\n${cmd} ${name}${versionSuffix}${args.args ? ` ${args.args}` : ""}`,
     );
 
     if ((args.separate ?? false) === false) {

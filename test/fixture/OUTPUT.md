@@ -17,13 +17,13 @@
 
 ```sh
 # npm
-npx automd@0.3.4 .
+npx automd .
 
 # pnpm
-pnpm dlx automd@0.3.4 .
+pnpm dlx automd .
 
 # bun
-bunx automd@0.3.4 .
+bunx automd .
 ```
 
 <!-- /automd -->
