@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.3.5
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.4...v0.3.5)
+
+### 🩹 Fixes
+
+- **pm-x:** Make version optional ([ffada82](https://github.com/unjs/automd/commit/ffada82))
+
+### 🏡 Chore
+
+- **release:** V0.3.4 ([988535d](https://github.com/unjs/automd/commit/988535d))
+- Apply automated fixes ([6c6ee1e](https://github.com/unjs/automd/commit/6c6ee1e))
+- Upate docs ([5fe253e](https://github.com/unjs/automd/commit/5fe253e))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.3.4
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.3...v0.3.4)
