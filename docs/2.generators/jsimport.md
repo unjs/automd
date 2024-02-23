@@ -43,7 +43,7 @@ The `jsimport` generator generates JavaScript usage example to be imported.
     ::field{name="name" type="string"}
     The package name (by default tries to read from the `name` field in `package.json`).
     ::
-    ::field{name="import" type="string"}
+    ::field{name="import/imports" type="string"}
     Array or comma seperated list of export names.
     ::
     ::field{name="no-esm" type="boolean"}
