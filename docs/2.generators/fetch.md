@@ -29,7 +29,11 @@ The `fetch` generator fetches a URL (using [unjs/ofetch](https://ofetch.unjs.io)
 
 ## Arguments
 
-- `url`: The URL to fetch from
+::field-group
+    ::field{name="url" type="string"}
+    The URL to fetch from
+    ::
+::
 
 > [!TIP]
 > You can start url with `gh:` to use github contents!
