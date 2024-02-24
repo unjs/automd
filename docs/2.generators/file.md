@@ -4,24 +4,44 @@ The `file` generator reads a file and inlines it's contents.
 
 ## Example
 
-<!-- automd:example generator=file src="../../test/fixture/TEST.md" -->
+<!-- automd:example generator=file src="../../test/fixture/src/example.ts" code -->
 
 ### Input
 
-    <!-- automd:file src="../../test/fixture/TEST.md" -->
+    <!-- automd:file src="../../test/fixture/src/example.ts" code -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:file src="../../test/fixture/TEST.md" -->
+    <!-- automd:file src="../../test/fixture/src/example.ts" code -->
 
-    ## The Lazy Coder's Guide to Programming
+    ```ts [example.ts]
+    /**
+    * Adds two numbers together.
+    *
+    * @example
+    *
+    * ```js
+    * add(1, 2); // 3
+    * ```
+    */
+    export function add(a: number, b: number) {
+    return a + b;
+    }
 
-    Programming can be hard. But fear not! With the power of copy-paste, you can conquer any coding challenge without breaking a sweat. Just remember: if it works once, it'll work a thousand times. Who needs original code anyway?
+    export const object = {
+    /**
+    * An object key
+    */
+    key: {
+    /**
+    * A subkey
+    */
+    subkey: "value",
+    },
+    };
 
-    When your code doesn't work, don't blame yourself. It's clearly the compiler's fault for not understanding your genius. Remember, the more error messages you get, the closer you are to becoming a programming master.
-
-    Why waste time solving problems when someone else has already done it for you? Stack Overflow is your best friend, your mentor, and your savior. Just make sure to upvote the answers that save your bacon.
+    ```
 
     <!-- /automd -->
 
@@ -33,6 +53,18 @@ The `file` generator reads a file and inlines it's contents.
 
 ::field{name="src" type="string"}
 Relative path to the file.
+::
+
+::field{name="code" type="boolean"}
+Render file as code.
+::
+
+::field{name="lang" type="string"}
+Code lang.
+::
+
+::field{name="name" type="string|boolean"}
+File name in code. Use `no-name` to disable name in code.
 ::
 
 ::
