@@ -1,6 +1,48 @@
 # Changelog
 
 
+## v0.3.6
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.5...v0.3.6)
+
+### 🚀 Enhancements
+
+- **file:** Allow rendering in code block ([fbb4003](https://github.com/unjs/automd/commit/fbb4003))
+
+### 🩹 Fixes
+
+- **pm-x:** Make version optional ([ffada82](https://github.com/unjs/automd/commit/ffada82))
+- **parser:** Support unicode ([21ed0e1](https://github.com/unjs/automd/commit/21ed0e1))
+- **parser:** Support unicode ([7ed127a](https://github.com/unjs/automd/commit/7ed127a))
+- **watcher:** Debounce event handling ([0ad9c81](https://github.com/unjs/automd/commit/0ad9c81))
+- **pm-i:** Don't modify global array! ([977c2c3](https://github.com/unjs/automd/commit/977c2c3))
+- Respect multiline description ([#39](https://github.com/unjs/automd/pull/39))
+
+### 💅 Refactors
+
+- Switch to mdbox ([5698d0d](https://github.com/unjs/automd/commit/5698d0d))
+
+### 📖 Documentation
+
+- Use `field-group` & `field` component in args section ([#34](https://github.com/unjs/automd/pull/34))
+- Update `file` to `input` for cli usage ([#38](https://github.com/unjs/automd/pull/38))
+- Update undocs ([f3c90e3](https://github.com/unjs/automd/commit/f3c90e3))
+- Update `src` values to use relative path ([bbe3c12](https://github.com/unjs/automd/commit/bbe3c12))
+
+### 🏡 Chore
+
+- Upate docs ([5fe253e](https://github.com/unjs/automd/commit/5fe253e))
+- **release:** V0.3.5 ([cd31db1](https://github.com/unjs/automd/commit/cd31db1))
+- Format docs ([cbf800f](https://github.com/unjs/automd/commit/cbf800f))
+- Apply automated fixes ([3ec3668](https://github.com/unjs/automd/commit/3ec3668))
+- Remove unused code ([#40](https://github.com/unjs/automd/pull/40))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Estéban ([@Barbapapazes](http://github.com/Barbapapazes))
+- Christian Preston ([@cpreston321](http://github.com/cpreston321))
+
 ## v0.3.5
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.4...v0.3.5)
