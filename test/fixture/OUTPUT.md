@@ -121,6 +121,10 @@ A list of tags
 
 Send a message
 
+This is another description of the function that spans multiple lines.
+
+Again, this is another description of the function that spans multiple lines.
+
 **Example:**
 
 ```js
