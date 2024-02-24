@@ -16,14 +16,6 @@ export const jsdocs = defineGenerator({
 
     const schema = await loadSchema(fullPath);
 
-    const lines = _render(
-      schema,
-      args as RenderOptions,
-      Number.parseInt(args.headingLevel) || 2,
-    );
-
-    lines.push(..._renderBody(schema));
-
     return {
       contents: _render(
         schema,
