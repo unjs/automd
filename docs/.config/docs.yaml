@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://unpkg.com/undocs/schema/config.json
+
+name: "AutoMD"
+shortDescription: "Markdown, Automated."
+description: "your automated markdown maintainer"
+github: "unjs/automd"
+url: "https://automd.unjs.io"
+automd: true
+landing:
+  contributors: true
