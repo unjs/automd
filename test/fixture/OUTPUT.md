@@ -34,7 +34,7 @@ bunx automd .
 
 ```sh
 # ✨ Auto-detect
-npx nypm i -D automd
+npx nypm install -D automd
 ```
 
 ```sh
