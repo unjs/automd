@@ -2,6 +2,7 @@ import { existsSync, promises as fsp } from "node:fs";
 import { resolve, relative } from "pathe";
 import type { SubscribeCallback } from "@parcel/watcher";
 import { pathToFileURL } from "mlly";
+import { debounce } from "perfect-debounce";
 import type { Config, ResolvedConfig } from "./config";
 import { type TransformResult, transform } from "./transform";
 import { loadConfig } from "./config";
@@ -108,7 +109,7 @@ async function _watch(
 ) {
   const watcher = await import("@parcel/watcher");
 
-  const watchCb: SubscribeCallback = async (_err, events) => {
+  const watchCb: SubscribeCallback = debounce(async (_err, events) => {
     const filesToUpdate = events
       .map((e) => relative(config.dir, e.path))
       .filter((p) => inputFiles.includes(p));
@@ -120,7 +121,7 @@ async function _watch(
     if (config.onWatch) {
       config.onWatch({ results, time });
     }
-  };
+  });
 
   const subscription = await watcher.subscribe(config.dir, watchCb, {
     ignore: config.ignore,
