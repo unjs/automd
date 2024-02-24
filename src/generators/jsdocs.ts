@@ -156,7 +156,7 @@ function _renderBody(schema: Schema) {
     lines.push(schema.title.trim());
   }
   if (schema.title && schema.description) {
-     // Insert an empty line between the title and the description to separate them.
+    // Insert an empty line between the title and the description to separate them.
     lines.push("");
   }
   if (schema.description) {
@@ -167,7 +167,7 @@ function _renderBody(schema: Schema) {
         .map((line) => line.trim())
         .join("\n\n")
         .split("\n"),
-        );
+    );
   }
 
   return lines;
