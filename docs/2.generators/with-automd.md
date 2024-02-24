@@ -25,5 +25,11 @@ The `with-automd` generator generates a benner that notifies docs are updated wi
 
 ## Arguments
 
-- `lastUpdate`: Show last updated date. (use string for static value)
-- `no-separator`: Disable addition of separator `---`
+::field-group
+    ::field{name="lastUpdate" type="string"}
+    Show last updated date. (use string for static value)
+    ::
+    ::field{name="no-separator" type="boolean"}
+    Disable addition of separator `---`
+    ::
+::
