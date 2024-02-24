@@ -7,13 +7,15 @@ const INSTALL_COMMANDS = [
   ["yarn", "add"],
   ["pnpm", "install"],
   ["bun", "install"],
-];
+] as const;
+
+const NYPM_COMMAND = ["npx nypm", "install"] as const;
 
 const RUN_COMMANDS = [
   ["npm", "npx"],
   ["pnpm", "pnpm dlx"],
   ["bun", "bunx"],
-];
+] as const;
 
 export const pmInstall = defineGenerator({
   name: "pm-install",
@@ -26,17 +28,18 @@ export const pmInstall = defineGenerator({
       };
     }
 
-    if (args.auto ?? true) {
-      INSTALL_COMMANDS.unshift(["npx nypm", "i"]);
-    }
-
     let versionSuffix = "";
     if (args.version) {
       versionSuffix =
         typeof args.version === "string" ? `@${args.version}` : `@^${version}`;
     }
 
-    const contents = INSTALL_COMMANDS.map(
+    const commands =
+      args.auto === false
+        ? INSTALL_COMMANDS
+        : [NYPM_COMMAND, ...INSTALL_COMMANDS];
+
+    const contents = commands.map(
       ([cmd, install]) =>
         `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}${versionSuffix}`,
     );
