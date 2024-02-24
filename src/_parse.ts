@@ -14,7 +14,7 @@ export function findBlocks(md: string): Block[] {
 
   // Regex is stateful, so we need to reset it
   const AUTOMD_RE =
-    /^(?<open><!--\s*automd:(?<generator>.+?)\s+(?<args>.*?)\s*-->)(?<contents>.+?)(?<close>^<!--\s*\/automd\s*-->)/gims;
+    /^(?<open><!--\s*automd:(?<generator>.+?)\s+(?<args>.*?)\s*-->)(?<contents>.+?)(?<close>^<!--\s*\/automd\s*-->)/gimsu;
 
   for (const match of md.matchAll(AUTOMD_RE)) {
     if (match.index === undefined || !match.groups) {
