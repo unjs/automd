@@ -37,7 +37,7 @@ export function findBlocks(md: string): Block[] {
 }
 
 export function containsAutomd(md: string) {
-  return /^<!--\s*automd:/gims.test(md);
+  return /^<!--\s*automd:/gimsu.test(md);
 }
 
 export function parseRawArgs(rawArgs: string) {
