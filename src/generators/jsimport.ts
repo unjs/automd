@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { codeBlock } from "omark";
+import { md } from "mdbox";
 import { findExportNames, resolvePath } from "mlly";
 import { getPkg } from "../_utils";
 import { defineGenerator } from "../generator";
@@ -48,14 +48,14 @@ export const jsimport = defineGenerator({
       const code = formatMultiLine(
         `import {${fmtImports}} from "${importPath}";`,
       );
-      lines.push("**ESM** (Node.js, Bun)", codeBlock(code, "js"));
+      lines.push("**ESM** (Node.js, Bun)", md.codeBlock(code, "js"));
     }
 
     if (args.cjs) {
       const code = formatMultiLine(
         `const {${fmtImports}} = require("${importPath}");`,
       );
-      lines.push("**CommonJS** (Legacy Node.js)", codeBlock(code, "js"));
+      lines.push("**CommonJS** (Legacy Node.js)", md.codeBlock(code, "js"));
     }
 
     if (args.cdn) {
@@ -63,7 +63,7 @@ export const jsimport = defineGenerator({
       const code = formatMultiLine(
         `import {${fmtImports}} from "${cdnBase}${importPath}";`,
       );
-      lines.push("**CDN** (Deno, Bun and Browsers)", codeBlock(code, "js"));
+      lines.push("**CDN** (Deno, Bun and Browsers)", md.codeBlock(code, "js"));
     }
 
     return {

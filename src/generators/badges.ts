@@ -1,4 +1,4 @@
-import { image, link } from "omark";
+import { image, link } from "mdbox";
 import { defineGenerator } from "../generator";
 import { getPkg } from "../_utils";
 

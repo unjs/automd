@@ -1,4 +1,4 @@
-import { codeBlock } from "omark";
+import { md } from "mdbox";
 import { defineGenerator } from "../generator";
 import { getPkg } from "../_utils";
 
@@ -46,12 +46,12 @@ export const pmInstall = defineGenerator({
 
     if ((args.separate ?? false) === false) {
       return {
-        contents: codeBlock(contents.join("\n\n"), "sh"),
+        contents: md.codeBlock(contents.join("\n\n"), "sh"),
       };
     }
 
     return {
-      contents: contents.map((cmd) => codeBlock(cmd, "sh")).join("\n\n"),
+      contents: contents.map((cmd) => md.codeBlock(cmd, "sh")).join("\n\n"),
     };
   },
 });
@@ -80,12 +80,12 @@ export const pmX = defineGenerator({
 
     if ((args.separate ?? false) === false) {
       return {
-        contents: codeBlock(contents.join("\n\n"), "sh"),
+        contents: md.codeBlock(contents.join("\n\n"), "sh"),
       };
     }
 
     return {
-      contents: contents.map((cmd) => codeBlock(cmd, "sh")).join("\n\n"),
+      contents: contents.map((cmd) => md.codeBlock(cmd, "sh")).join("\n\n"),
     };
   },
 });
