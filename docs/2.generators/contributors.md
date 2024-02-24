@@ -29,23 +29,25 @@ The `contributors` generator generates an image of contributors using [contrib.r
 ## Arguments
 
 ::field-group
-    ::field{name="github" type="string"}
-    Github repository name (by default tries to read from `package.json`)
-    ::
 
-    ::field{name="max" type="number"}
-    Max contributor count (100 by default)
-    ::
+::field{name="github" type="string"}
+Github repository name (by default tries to read from `package.json`)
+::
 
-    ::field{name="anon" type="boolean"}
-    Include anonymous users (false by default)
-    ::
+::field{name="max" type="number"}
+Max contributor count (100 by default)
+::
 
-    ::field{name="author" type="string"}
-    Comma separated list of github usersnames.
-    ::
+::field{name="anon" type="boolean"}
+Include anonymous users (false by default)
+::
 
-    ::field{name="license" type="string"}
-    Name of license.
-    ::
+::field{name="author" type="string"}
+Comma separated list of github usersnames.
+::
+
+::field{name="license" type="string"}
+Name of license.
+::
+
 ::

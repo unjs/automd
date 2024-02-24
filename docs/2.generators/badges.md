@@ -29,41 +29,43 @@ The `badges` generator generates badges for the latest npm version, npm download
 ## Arguments
 
 ::field-group
-    ::field{name="name" type="string"}
-    The npm package name. By default tries to infer from `package.json`
-    ::
 
-    ::field{name="github" type="string"}
-    Github repository name. By default tries to infer from `package.json`
-    ::
+::field{name="name" type="string"}
+The npm package name. By default tries to infer from `package.json`
+::
 
-    ::field{name="license" type="boolean"}
-    Show license badge (requires `github`)
-    ::
+::field{name="github" type="string"}
+Github repository name. By default tries to infer from `package.json`
+::
 
-    ::field{name="licenseBranch" type="string"}
-    Branch to use for license badge defaults to `main`
-    ::
+::field{name="license" type="boolean"}
+Show license badge (requires `github`)
+::
 
-    ::field{name="bundlephobia" type="boolean"}
-    Show [Bundlephobia](https://bundlephobia.com/) badge (requires `name`)
-    ::
+::field{name="licenseBranch" type="string"}
+Branch to use for license badge defaults to `main`
+::
 
-    ::field{name="codecov" type="boolean"}
-    Enable [Codecov](https://codecov.io) badge (requires `github`)
-    ::
+::field{name="bundlephobia" type="boolean"}
+Show [Bundlephobia](https://bundlephobia.com/) badge (requires `name`)
+::
 
-    ::field{name="no-npmDownloads" type="boolean"}
-    Hide npm downloads badge
-    ::
+::field{name="codecov" type="boolean"}
+Enable [Codecov](https://codecov.io) badge (requires `github`)
+::
 
-    ::field{name="no-npmVersion" type="boolean"}
-    Hide npm version badge
-    ::
+::field{name="no-npmDownloads" type="boolean"}
+Hide npm downloads badge
+::
 
-    ::field{name="provider" type="string"}
-    Can be one of `shields` (for [shields.io](https://shields.io/)) or `badgen` / `badgenClassic` (for [badgen.net](https://badgen.net/)). Default is `badgen`.
-    ::
+::field{name="no-npmVersion" type="boolean"}
+Hide npm version badge
+::
+
+::field{name="provider" type="string"}
+Can be one of `shields` (for [shields.io](https://shields.io/)) or `badgen` / `badgenClassic` (for [badgen.net](https://badgen.net/)). Default is `badgen`.
+::
+
 ::
 
 > [!TIP]

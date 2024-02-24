@@ -30,7 +30,9 @@ The `file` generator reads a file and inlines it's contents.
 ## Arguments
 
 ::field-group
+
 ::field{name="src" type="string"}
 Relative path to the file.
 ::
+
 ::
