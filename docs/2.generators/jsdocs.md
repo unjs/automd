@@ -6,16 +6,16 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 
 ## Example
 
-<!-- automd:example generator=jsdocs src="/test/fixture/src/example" -->
+<!-- automd:example generator=jsdocs src="../../test/fixture/src/example" -->
 
 ### Input
 
-    <!-- automd:jsdocs src="/test/fixture/src/example" -->
+    <!-- automd:jsdocs src="../../test/fixture/src/example" -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:jsdocs src="/test/fixture/src/example" -->
+    <!-- automd:jsdocs src="../../test/fixture/src/example" -->
 
     ### `add(a, b)`
 
@@ -47,9 +47,9 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
 ## Arguments
 
 ::field-group
-    ::field{name="src" type="string"}
-    Path to the source file. The default is `./src/index` and can be omitted.
-    ::
+::field{name="src" type="string"}
+Path to the source file. The default is `./src/index` and can be omitted.
+::
 
     ::field{name="headingLevel" type="number"}
     Nested level for markdown group headings (default is `2` => `##`). Note: Each function uses `headingLevel+1` for the title in nested levels.
@@ -58,4 +58,5 @@ Internally it uses [untyped](https://untyped.unjs.io/) and [jiti](https://github
     ::field{name="group" type="string"}
     Only render function exports annotated with `@group name`. By default, there is no group filter. Value can be a string or an array of strings.
     ::
+
 ::

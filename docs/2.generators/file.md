@@ -4,16 +4,16 @@ The `file` generator reads a file and inlines it's contents.
 
 ## Example
 
-<!-- automd:example generator=file src="/test/fixture/TEST.md" -->
+<!-- automd:example generator=file src="../../test/fixture/TEST.md" -->
 
 ### Input
 
-    <!-- automd:file src="/test/fixture/TEST.md" -->
+    <!-- automd:file src="../../test/fixture/TEST.md" -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:file src="/test/fixture/TEST.md" -->
+    <!-- automd:file src="../../test/fixture/TEST.md" -->
 
     ## The Lazy Coder's Guide to Programming
 
@@ -30,7 +30,7 @@ The `file` generator reads a file and inlines it's contents.
 ## Arguments
 
 ::field-group
-    ::field{name="src" type="string"}
-    Relative path to the file.
-    ::
+::field{name="src" type="string"}
+Relative path to the file.
+::
 ::
