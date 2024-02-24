@@ -155,9 +155,21 @@ function _renderBody(schema: Schema) {
   if (schema.title) {
     lines.push(schema.title.trim());
   }
-  if (schema.description) {
-    lines.push(schema.description.trim());
+  if (schema.title && schema.description) {
+     // Insert an empty line between the title and the description to separate them.
+    lines.push("");
   }
+  if (schema.description) {
+    // Insert an empty line between each line of the description that contains a newline.
+    lines.push(
+      ...schema.description
+        .split("\n")
+        .map((line) => line.trim())
+        .join("\n\n")
+        .split("\n"),
+        );
+  }
+
   return lines;
 }
 

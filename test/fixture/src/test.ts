@@ -1,6 +1,11 @@
 /**
  * Send a message
  *
+ * This is another description of the
+ * function that spans multiple lines.
+ *
+ * Again, this is another description of the function that spans multiple lines.
+ *
  * @param message - The message to send
  * @param date - The date to send the message
  * @param flash - Whether to flash the message
