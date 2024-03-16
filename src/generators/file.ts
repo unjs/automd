@@ -19,19 +19,16 @@ export const file = defineGenerator({
 
       const lines = contents.split("\n");
 
+      console.log(lines);
+
       const startLine = _startLine === "" ? 0 : Number(_startLine);
       const endLine = _endLine === "" ? lines.length : Number(_endLine);
 
       if (startLine < 1) {
         throw new Error("first line's index can not be smaller than 1");
       }
-      if (endLine > lines.length) {
-        throw new Error(
-          `line ${endLine} was specified while file ${fullPath} has only ${lines.length} lines`,
-        );
-      }
 
-      contents = lines.slice(startLine - 1, endLine - 1).join("\n");
+      contents = lines.slice(startLine - 1, endLine).join("\n");
     }
 
     if (args.code) {
