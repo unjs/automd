@@ -37,7 +37,7 @@
 
 ## `file`
 
-<!-- automd:file src="./TEST.md" -->
+<!-- automd:file src="./TEST.md" from-line=1 to-line=5 -->
 <!-- /automd -->
 
 ## `contributors`
