@@ -3,13 +3,22 @@ import { readPackageJSON } from "pkg-types";
 import { defu } from "defu";
 import { fileURLToPath } from "mlly";
 import { resolve, join } from "pathe";
+import { resolveAlias } from "pathe/utils";
 
 export function resolvePath(
   path: string,
-  { url, dir }: { url?: string; dir: string },
+  {
+    url,
+    dir,
+    alias,
+  }: { url?: string; dir: string; alias?: Record<string, string> },
 ) {
   if (path.startsWith("/")) {
     return join(dir, path);
+  }
+
+  if (alias) {
+    return resolveAlias(path, alias);
   }
   return url ? fileURLToPath(new URL(path, url)) : resolve(dir, path);
 }

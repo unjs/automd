@@ -7,7 +7,11 @@ import { resolvePath } from "../_utils";
 export const file = defineGenerator({
   name: "file",
   async generate({ args, config, url }) {
-    const fullPath = resolvePath(args.src, { url, dir: config.dir });
+    const fullPath = resolvePath(args.src, {
+      url,
+      dir: config.dir,
+      alias: config.alias,
+    });
     let contents = await readFile(fullPath, "utf8");
 
     if (args.code) {

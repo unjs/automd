@@ -1,4 +1,5 @@
 import { resolve } from "pathe";
+import { normalizeAliases } from "pathe/utils";
 import type { Generator } from "./generator";
 import type { AutomdResult } from "./automd";
 
@@ -43,6 +44,11 @@ export interface Config {
 
   /** Custom generators */
   generators?: Record<string, Generator>;
+
+  /**
+   * Custom alias, works when handle `automd:(jsdocs|file)` src
+   */
+  alias?: Record<string, string>;
 }
 
 const RESOLVED_CONFIG_SYMBOL = Symbol("automdConfig");
@@ -73,6 +79,10 @@ export function resolveConfig(
   _config.input = (
     Array.isArray(_config.input) ? _config.input : [_config.input]
   ).filter(Boolean);
+
+  if (_config.alias) {
+    _config.alias = normalizeAliases(_config.alias);
+  }
 
   return _config;
 }

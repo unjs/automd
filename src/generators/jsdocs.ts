@@ -12,7 +12,11 @@ export const jsdocs = defineGenerator({
   name: "jsdocs",
   async generate({ config, args, url }) {
     const { loadSchema } = await import("untyped/loader");
-    const fullPath = resolvePath(args.src, { url, dir: config.dir });
+    const fullPath = resolvePath(args.src, {
+      url,
+      dir: config.dir,
+      alias: config.alias,
+    });
 
     const schema = await loadSchema(fullPath);
 
