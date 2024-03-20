@@ -1,5 +1,6 @@
 import type { Schema } from "untyped";
 import { titleCase } from "scule";
+import consola from "consola";
 import { defineGenerator } from "../generator";
 import { resolvePath } from "../_utils";
 
@@ -104,6 +105,10 @@ function _renderSection(
   if (schema.type === "function") {
     // Function signature in heading
     heading = `\`${_generateFunctionSig(key, schema)}\``;
+
+    if (!schema.description) {
+      consola.warn(`No description found in function ${heading}`);
+    }
   } else if (schema.type !== "object") {
     // JS value
     lines.push(
