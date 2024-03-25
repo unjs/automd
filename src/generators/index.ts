@@ -1,7 +1,7 @@
 import { Generator } from "../generator";
 import { jsdocs } from "./jsdocs";
 import { badges } from "./badges";
-import { pmX, pmInstall } from "./pm";
+import { pmX, pmInstall, pmG } from "./pm";
 import { fetch as _fetch } from "./fetch";
 import { jsimport } from "./jsimport";
 import { withAutomd } from "./with-automd";
@@ -14,6 +14,7 @@ export default {
   "pm-i": pmInstall,
   "pm-install": pmInstall,
   "pm-x": pmX,
+  "pm-g": pmG,
   fetch: _fetch,
   file,
   jsimport,
