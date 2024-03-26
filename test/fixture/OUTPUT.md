@@ -4,10 +4,9 @@
 
 <!-- automd:badges bundlephobia packagephobia  -->
 
-[![npm version](https://flat.badgen.net/npm/v/automd)](https://npmjs.com/package/automd)
-[![npm downloads](https://flat.badgen.net/npm/dm/automd)](https://npmjs.com/package/automd)
-[![bundle size](https://flat.badgen.net/bundlephobia/minzip/automd)](https://bundlephobia.com/package/automd)
-[![install size](https://flat.badgen.net/packagephobia/publish/automd)](https://packagephobia.com/result?p=automd)
+[![npm version](https://img.shields.io/npm/v/automd)](https://npmjs.com/package/automd)
+[![npm downloads](https://img.shields.io/npm/dm/automd)](https://npmjs.com/package/automd)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/automd)](https://bundlephobia.com/package/automd)
 
 <!-- /automd -->
 
