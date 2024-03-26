@@ -17,7 +17,7 @@
 
 ## `pm-g`
 
-<!-- automd:pm-g args=. -->
+<!-- automd:pm-g -->
 <!-- /automd -->
 
 ## `jsdocs`

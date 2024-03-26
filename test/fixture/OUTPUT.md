@@ -61,7 +61,7 @@ bun install -D automd
 
 ## `pm-g`
 
-<!-- automd:pm-g args=. -->
+<!-- automd:pm-g -->
 
 ```sh
 # npm

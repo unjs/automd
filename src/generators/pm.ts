@@ -93,7 +93,7 @@ export const pmX = defineGenerator({
 export const pmG = defineGenerator({
   name: "pm-g",
   async generate({ config, args }) {
-    const { name, version } = await getPkg(config.dir, args);
+    const { name } = await getPkg(config.dir, args);
 
     if (!name) {
       return {
@@ -101,14 +101,8 @@ export const pmG = defineGenerator({
       };
     }
 
-    let versionSuffix = "";
-    if (args.version) {
-      versionSuffix =
-        typeof args.version === "string" ? `@${args.version}` : `@${version}`;
-    }
-
     const contents = INSTALL_COMMANDS.map(
-      ([pm, cmd]) => `# ${pm}\n${pm} ${cmd} -g ${name}${versionSuffix}`,
+      ([pm, cmd]) => `# ${pm}\n${pm} ${cmd} -g ${name}`,
     );
 
     if ((args.separate ?? false) === false) {
