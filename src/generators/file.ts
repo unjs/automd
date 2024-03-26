@@ -10,6 +10,27 @@ export const file = defineGenerator({
     const fullPath = resolvePath(args.src, { url, dir: config.dir });
     let contents = await readFile(fullPath, "utf8");
 
+    if (args.lines) {
+      if (!/^(\d+)?:(\d+)?$/.test(args.lines)) {
+        throw new Error("invalid lines format");
+      }
+
+      const [_startLine, _endLine] = args.lines.split(":");
+
+      const lines = contents.split("\n");
+
+      console.log(lines);
+
+      const startLine = _startLine === "" ? 0 : Number(_startLine);
+      const endLine = _endLine === "" ? lines.length : Number(_endLine);
+
+      if (startLine < 1) {
+        throw new Error("first line's index can not be smaller than 1");
+      }
+
+      contents = lines.slice(startLine - 1, endLine).join("\n");
+    }
+
     if (args.code) {
       contents = md.codeBlock(
         contents,
