@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.3.7
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.6...v0.3.7)
+
+### 🚀 Enhancements
+
+- **badges:** Support `bundlejs` ([0ab578e](https://github.com/unjs/automd/commit/0ab578e))
+
+### 💅 Refactors
+
+- **badges:** Switch to `shields` by default ([308381c](https://github.com/unjs/automd/commit/308381c))
+
+### 🏡 Chore
+
+- Update docs ([cc8b1c8](https://github.com/unjs/automd/commit/cc8b1c8))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.3.6
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.5...v0.3.6)
