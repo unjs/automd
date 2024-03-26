@@ -18,6 +18,10 @@ const badgeTypes = {
     name: "bundle size",
     to: "https://bundlephobia.com/package/{name}",
   },
+  bundlejs: {
+    name: "bundle size",
+    to: "https://bundlejs.com/?q={name}",
+  },
   packagephobia: {
     name: "install size",
     to: "https://packagephobia.com/result?p={name}",
@@ -39,6 +43,7 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmDownloads: "https://img.shields.io/npm/dm/{name}",
     bundlephobia: "https://img.shields.io/bundlephobia/minzip/{name}",
     packagephobia: false, // https://github.com/badges/shields/issues/1701
+    bundlejs: "https://img.shields.io/bundlejs/size/{name}",
     codecov: "https://img.shields.io/codecov/c/gh/{github}",
     license: "https://img.shields.io/github/license/{github}",
   },
@@ -47,6 +52,7 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmVersion: "https://flat.badgen.net/npm/v/{name}",
     npmDownloads: "https://flat.badgen.net/npm/dm/{name}",
     bundlephobia: "https://flat.badgen.net/bundlephobia/minzip/{name}",
+    bundlejs: false, // https://github.com/badgen/badgen/issues/82
     packagephobia: "https://flat.badgen.net/packagephobia/publish/{name}",
     codecov: "https://flat.badgen.net/codecov/c/github/{github}",
     license: "https://flat.badgen.net/github/license/{github}",
@@ -55,6 +61,7 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmVersion: "https://badgen.net/npm/v/{name}",
     npmDownloads: "https://badgen.net/npm/dm/{name}",
     bundlephobia: "https://badgen.net/bundlephobia/minzip/{name}",
+    bundlejs: false, // https://github.com/badgen/badgen/issues/82
     packagephobia: "https://badgen.net/packagephobia/publish/{name}",
     codecov: "https://badgen.net/codecov/c/github/{github}",
     license: "https://badgen.net/github/license/{github}",
@@ -97,6 +104,10 @@ export const badges = defineGenerator({
       bundlephobia: {
         enabled: args.bundlephobia && ctx.name,
         ...badgeTypes.bundlephobia,
+      },
+      bundlejs: {
+        enabled: args.bundlejs && ctx.name,
+        ...badgeTypes.bundlejs,
       },
       packagephobia: {
         enabled: args.packagephobia && ctx.name,
