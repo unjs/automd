@@ -89,30 +89,3 @@ export const pmX = defineGenerator({
     };
   },
 });
-
-export const pmG = defineGenerator({
-  name: "pm-g",
-  async generate({ config, args }) {
-    const { name } = await getPkg(config.dir, args);
-
-    if (!name) {
-      return {
-        contents: "<!-- package name is unspecified -->",
-      };
-    }
-
-    const contents = INSTALL_COMMANDS.map(
-      ([pm, cmd]) => `# ${pm}\n${pm} ${cmd} -g ${name}`,
-    );
-
-    if ((args.separate ?? false) === false) {
-      return {
-        contents: md.codeBlock(contents.join("\n\n"), "sh"),
-      };
-    }
-
-    return {
-      contents: contents.map((cmd) => md.codeBlock(cmd, "sh")).join("\n\n"),
-    };
-  },
-});

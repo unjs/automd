@@ -15,11 +15,6 @@
 <!-- automd:pm-install dev separate-->
 <!-- /automd -->
 
-## `pm-g`
-
-<!-- automd:pm-g -->
-<!-- /automd -->
-
 ## `jsdocs`
 
 <!-- automd:jsdocs src=./src/test -->

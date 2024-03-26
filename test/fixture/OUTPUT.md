@@ -59,26 +59,6 @@ bun install -D automd
 
 <!-- /automd -->
 
-## `pm-g`
-
-<!-- automd:pm-g -->
-
-```sh
-# npm
-npm install -g automd
-
-# yarn
-yarn add -g automd
-
-# pnpm
-pnpm install -g automd
-
-# bun
-bun install -g automd
-```
-
-<!-- /automd -->
-
 ## `jsdocs`
 
 <!-- automd:jsdocs src=./src/test -->
