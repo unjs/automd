@@ -5,13 +5,50 @@ import { Block, containsAutomd, findBlocks, parseRawArgs } from "./_parse";
 import { Config, ResolvedConfig, resolveConfig } from "./config";
 
 export interface TransformResult {
+  /**
+   * Wether if the document has been modified at all.
+   */
   hasChanged: boolean;
+
+  /**
+   * Whether if there were any problems found in the document.
+   */
   hasIssues: boolean;
+
+  /**
+   * The text of the document after it was transformed.
+   */
   contents: string;
-  updates: { block: Block; result: GenerateResult }[];
+
+  /**
+   * A list of specific parts that have been transformed in the document.
+   */
+  updates: {
+    /**
+    * The specific part of the document that has been transformed.
+    */
+    block: Block;
+
+    /**
+     * What the transform has done to this part of the document.
+     */
+    result: GenerateResult
+  }[];
+
+  /**
+   * How long the editing process took, measured in milliseconds.
+   */
   time: number;
 }
 
+/**
+ * Edits a markdown document based on certain rules and configurations.
+ * 
+ * @param contents - The text of the markdown document you want to edit.
+ * @param _config - Optional. The settings that affect how the document will be edited. See {@link Config}.
+ * @param url - Optional. The URL associated with the document, if any.
+ * @returns - The result of the transformation, including any changes made and how long it took. See {@link TransformResult}.
+ */
 export async function transform(
   contents: string,
   _config?: Config,

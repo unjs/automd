@@ -12,12 +12,42 @@ export interface AutomdResult extends TransformResult {
   output: string;
 }
 
-export async function automd(_config: Config = {}): Promise<{
+/**
+ * Describes what you get back from the `automd` function.
+ */
+export interface AutomdReturn {
+  /**
+   * A list of the changes made to the file(s) by `automd`.
+   */
   results: AutomdResult[];
+
+  /**
+   * How long it took to make the changes, in milliseconds.
+   */
   time: number;
+
+  /**
+   * The resolved configuration that were used for these changes.
+   */
   config: ResolvedConfig;
+
+  /**
+   * If you started watching the file(s) for changes, this function can be called to stop watching.
+   */
   unwatch?: () => void | Promise<void>;
-}> {
+}
+
+/**
+ * Scans a markdown file looking for special comments. 
+ * These comments tell the function to add or update certain parts of the file automatically.
+ * You can change how this works by giving it different settings in the `_config` option.
+ * 
+ * @param _config - The settings to use for the update process. See {@link Config}.
+ * @returns - An object containing the results of the update, including any changes made and any problems found. See {@link AutomdReturn}.
+ * 
+ * @see https://automd.unjs.io/guide
+ */
+export async function automd(_config: Config = {}): Promise<AutomdReturn> {
   const start = performance.now();
   const config = await loadConfig(_config.dir, _config);
 
