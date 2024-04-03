@@ -30,7 +30,7 @@ export interface Block {
 
 /**
  * Searches a markdown document for special sections that `automd` can update.
- * 
+ *
  * @param md - The markdown document as a string.
  * @returns an array of blocks that can be updated automatically. {@link Block}
  */
@@ -63,7 +63,7 @@ export function findBlocks(md: string): Block[] {
 
 /**
  * Checks if a markdown document contains sections that can be automatically updated.
- * 
+ *
  * @param md - The markdown document as a string.
  * @returns true if there are `automd` sections, false otherwise.
  */
@@ -74,12 +74,12 @@ export function containsAutomd(md: string) {
 /**
  * Converts a string of raw arguments to an object.
  * Each argument is separated by spaces. Arguments can be key-value pairs separated by '='.
- * If an argument starts with "no-", the key is set to false. 
+ * If an argument starts with "no-", the key is set to false.
  * Otherwise it sets the key to true. Keys are converted to camelCase.
  * Values are processed to determine their actual type (e.g. string, boolean).
- * 
+ *
  * @param {string} rawArgs - The string of arguments to parse.
- * @return {Object} - An object with keys derived from the arguments. 
+ * @return {Object} - An object with keys derived from the arguments.
  * Keys are in camelCase. Values are true, false, or strings.
  */
 export function parseRawArgs(rawArgs: string) {

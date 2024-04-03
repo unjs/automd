@@ -25,14 +25,14 @@ export interface TransformResult {
    */
   updates: {
     /**
-    * The specific part of the document that has been transformed.
-    */
+     * The specific part of the document that has been transformed.
+     */
     block: Block;
 
     /**
      * What the transform has done to this part of the document.
      */
-    result: GenerateResult
+    result: GenerateResult;
   }[];
 
   /**
@@ -43,7 +43,7 @@ export interface TransformResult {
 
 /**
  * Edits a markdown document based on certain rules and configurations.
- * 
+ *
  * @param contents - The text of the markdown document you want to edit.
  * @param _config - Optional. The settings that affect how the document will be edited. See {@link Config}.
  * @param url - Optional. The URL associated with the document, if any.

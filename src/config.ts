@@ -20,7 +20,7 @@ export interface Config {
   /**
    * Name or path of the output files. If not provided, the input file will be overwritten.
    *
-   * @default input 
+   * @default input
    */
   output?: string;
 
