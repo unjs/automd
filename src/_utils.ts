@@ -19,7 +19,7 @@ export async function getPkg(dir: string, input: Record<string, string> = {}) {
   return defu(
     {
       name: input.name,
-      version: input.version,
+      version: typeof input.version === "string" ? input.version : undefined,
       github: input.github || input.gh,
     },
     {
