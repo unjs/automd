@@ -34,7 +34,7 @@ describe("findBlocks", () => {
 <!-- /automd -->
   `;
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
+   
   const mkBlock = (generator: string, rawArgs: string, contents: string) => ({
     generator,
     rawArgs,
