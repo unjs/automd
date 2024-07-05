@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.3.8
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.7...v0.3.8)
+
+### 🚀 Enhancements
+
+- Upgrade c12 with jiti v2 with esm support ([a42d4d2](https://github.com/unjs/automd/commit/a42d4d2))
+
+### 🩹 Fixes
+
+- `version` should be obtained automatically when set to `true` ([#59](https://github.com/unjs/automd/pull/59))
+
+### 📖 Documentation
+
+- Add jsdocs for main exports ([#55](https://github.com/unjs/automd/pull/55))
+
+### 🏡 Chore
+
+- Apply automated fixes ([5ce5ba3](https://github.com/unjs/automd/commit/5ce5ba3))
+- Update deps ([cde3b3a](https://github.com/unjs/automd/commit/cde3b3a))
+- Update eslint to v9 ([9e68077](https://github.com/unjs/automd/commit/9e68077))
+
+### ❤️ Contributors
+
+- Byron ([@byronogis](http://github.com/byronogis))
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Max ([@onmax](http://github.com/onmax))
+
 ## v0.3.7
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.6...v0.3.7)
