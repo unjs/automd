@@ -27,8 +27,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       didyoumean2:
-        specifier: ^6.0.1
-        version: 6.0.1
+        specifier: ^7.0.4
+        version: 7.0.4
       globby:
         specifier: ^14.0.2
         version: 14.0.2
@@ -175,8 +175,8 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  '@babel/runtime@7.24.7':
-    resolution: {integrity: sha512-UwgBRMjJP+xv857DCngvqXI3Iq6J4v0wXmwc6sapg+zyhbwmQX67LUEFrkK5tbyJ30jGuG3ZvWpBiB9LCy1kWw==}
+  '@babel/runtime@7.25.6':
+    resolution: {integrity: sha512-VBj9MYyDb9tuLq7yzqjgzt6Q+IBQLrGZfdjOekyEirZPHxXWoTSGUTMrpsfi58Up73d13NfYLv8HT9vmznjzhQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/standalone@7.24.7':
@@ -1288,9 +1288,9 @@ packages:
     engines: {node: '>=0.10'}
     hasBin: true
 
-  didyoumean2@6.0.1:
-    resolution: {integrity: sha512-PSy0zQwMg5O+LjT5Mz7vnKC8I7DfWLPF6M7oepqW7WP5mn2CY3hz46xZOa1GJY+KVfyXhdmz6+tdgXwrHlZc5g==}
-    engines: {node: ^16.14.0 || >=18.12.0}
+  didyoumean2@7.0.4:
+    resolution: {integrity: sha512-+yW4SNY7W2DOWe2Jx5H4c2qMTFbLGM6wIyoDPkAPy66X+sD1KfYjBPAIWPVsYqMxelflaMQCloZDudELIPhLqA==}
+    engines: {node: ^18.12.0 || >=20.9.0}
 
   diff-sequences@29.6.3:
     resolution: {integrity: sha512-EjePK1srD3P08o2j4f0ExnylqRs5B9tJjcp9t1krH2qRi8CCdsYfwe9JgSLurFBWwq4uOlipzfk5fHNvwFKr8Q==}
@@ -2810,7 +2810,7 @@ snapshots:
     dependencies:
       '@babel/types': 7.24.7
 
-  '@babel/runtime@7.24.7':
+  '@babel/runtime@7.25.6':
     dependencies:
       regenerator-runtime: 0.14.1
 
@@ -3786,9 +3786,9 @@ snapshots:
 
   detect-libc@1.0.3: {}
 
-  didyoumean2@6.0.1:
+  didyoumean2@7.0.4:
     dependencies:
-      '@babel/runtime': 7.24.7
+      '@babel/runtime': 7.25.6
       fastest-levenshtein: 1.0.16
       lodash.deburr: 4.1.0
 
