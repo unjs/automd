@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-<!-- automd:toc -->
+<!-- automd:toc max-level="4" -->
 <!-- /automd -->
 
 ## Heading test

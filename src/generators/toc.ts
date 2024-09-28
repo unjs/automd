@@ -21,8 +21,8 @@ function getTextContentFromAst(tree: ParsedTree): string {
 export const toc = defineGenerator({
   name: "toc",
   async generate({ args, url }) {
-    const minLevel: number = args.minLevel ?? 2;
-    const maxLevel: number = args.maxLevel ?? 3;
+    const minLevel: number = Number.parseInt(args.minLevel ?? 2);
+    const maxLevel: number = Number.parseInt(args.maxLevel ?? 3);
 
     if (url === undefined) {
       throw new Error("URL is required for toc generator");
@@ -31,8 +31,6 @@ export const toc = defineGenerator({
     const contents = await readFile(fileURLToPath(url), "utf8");
     const parser = await initMdAstParser();
     const { tree } = parser.parse(contents);
-
-    console.log(JSON.stringify(tree, undefined, 2));
 
     const toc = [];
     const allowedNodeTypes = new Set(
