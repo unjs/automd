@@ -4,18 +4,43 @@
 
 <!-- automd:toc -->
 
-- Table of Contents
-- `badges`
-- `pm-x`
-- `pm-install`
-- `jsdocs`
-- `jsimport`
-- `with-automd`
-- `fetch`
-- `file`
-- `contributors`
+- [Table of Contents](#table-of-contents)
+- [Heading test](#heading-test)
+  - [sub heading 1](#sub-heading-1)
+  - [sub heading 2](#sub-heading-2)
+- [heading with link](#heading-with-link)
+- [heading with footnote](#heading-with-footnote)
+- [badges](#badges)
+- [pm-x](#pm-x)
+- [pm-install](#pm-install)
+- [jsdocs](#jsdocs)
+- [jsimport](#jsimport)
+- [with-automd](#with-automd)
+- [fetch](#fetch)
+- [file](#file)
+- [contributors](#contributors)
 
 <!-- /automd -->
+
+## Heading test
+
+### sub heading 1
+
+#### sub sub heading
+
+### sub heading 2
+
+#### sub sub heading 1
+
+#### sub sub heading 2
+
+##### do you really need this many headings?
+
+## heading with [link](#)
+
+## heading with footnote[^1]
+
+[^1]: this is a footnote
 
 ## `badges`
 
