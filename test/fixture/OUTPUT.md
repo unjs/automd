@@ -1,5 +1,22 @@
 # Automd built-in generator fixtures
 
+## Table of Contents
+
+<!-- automd:toc -->
+
+- Table of Contents
+- `badges`
+- `pm-x`
+- `pm-install`
+- `jsdocs`
+- `jsimport`
+- `with-automd`
+- `fetch`
+- `file`
+- `contributors`
+
+<!-- /automd -->
+
 ## `badges`
 
 <!-- automd:badges bundlephobia packagephobia  -->

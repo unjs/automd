@@ -1,5 +1,10 @@
 # Automd built-in generator fixtures
 
+## Table of Contents
+
+<!-- automd:toc -->
+<!-- /automd -->
+
 ## `badges`
 
 <!-- automd:badges bundlephobia packagephobia  -->
