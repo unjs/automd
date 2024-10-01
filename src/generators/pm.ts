@@ -7,7 +7,7 @@ const INSTALL_COMMANDS = [
   ["yarn", "add"],
   ["pnpm", "install"],
   ["bun", "install"],
-  ["deno", "install", "--dev"],
+  ["deno", "install", " --dev"],
 ] as const;
 
 const NYPM_COMMAND = ["npx nypm", "install"] as const;

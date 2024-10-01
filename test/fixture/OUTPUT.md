@@ -61,7 +61,7 @@ bun install -D automd
 
 ```sh
 # deno
-deno install--dev automd
+deno install --dev automd
 ```
 
 <!-- /automd -->
