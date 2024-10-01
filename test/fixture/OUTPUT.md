@@ -23,6 +23,9 @@ pnpm dlx automd .
 
 # bun
 bunx automd .
+
+# deno
+deno run -A npm:automd .
 ```
 
 <!-- /automd -->
@@ -54,6 +57,11 @@ pnpm install -D automd
 ```sh
 # bun
 bun install -D automd
+```
+
+```sh
+# deno
+deno install --dev automd
 ```
 
 <!-- /automd -->
@@ -136,7 +144,7 @@ sendMessage("Hello", "7/1/1995", false); // => "OK"
 
 <!-- automd:jsimport cjs=true cdn=true name=pkg imports=foo,bar -->
 
-**ESM** (Node.js, Bun)
+**ESM** (Node.js, Bun, Deno)
 
 ```js
 import { foo, bar } from "pkg";

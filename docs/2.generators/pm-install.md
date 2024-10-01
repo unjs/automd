@@ -30,6 +30,9 @@ The `pm-install` or `pm-i` generator generates installation commands for several
 
     # bun
     bun install -D package-name
+
+    # deno
+    deno install --dev package-name
     ```
 
     <!-- /automd -->
