@@ -1,5 +1,30 @@
 # Automd built-in generator fixtures
 
+## Table of Contents
+
+<!-- automd:toc max-level="4" -->
+<!-- /automd -->
+
+## Heading test
+
+### sub heading 1
+
+#### sub sub heading
+
+### sub heading 2
+
+#### sub sub heading 1
+
+#### sub sub heading 2
+
+##### do you really need this many headings?
+
+## heading with [link](#)
+
+## heading with footnote[^1]
+
+[^1]: this is a footnote
+
 ## `badges`
 
 <!-- automd:badges bundlephobia packagephobia  -->

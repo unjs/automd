@@ -40,6 +40,7 @@
     "defu": "^6.1.4",
     "destr": "^2.0.3",
     "didyoumean2": "^6.0.1",
+    "github-slugger": "^2.0.0",
     "globby": "^14.0.2",
     "magic-string": "^0.30.11",
     "mdbox": "^0.1.0",
