@@ -7,6 +7,7 @@ const INSTALL_COMMANDS = [
   ["yarn", "add"],
   ["pnpm", "install"],
   ["bun", "install"],
+  ["deno", "install"],
 ] as const;
 
 const NYPM_COMMAND = ["npx nypm", "install"] as const;
@@ -15,6 +16,7 @@ const RUN_COMMANDS = [
   ["npm", "npx"],
   ["pnpm", "pnpm dlx"],
   ["bun", "bunx"],
+  ["deno", "deno run -A npm:"],
 ] as const;
 
 export const pmInstall = defineGenerator({

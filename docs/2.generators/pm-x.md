@@ -24,6 +24,9 @@ The `pm-x` generator generates commands for running/executing a package through 
 
     # bun
     bunx package-name@latest "[files]
+
+    # deno
+    deno run -A npm: package-name@latest "[files]
     ```
 
     <!-- /automd -->
