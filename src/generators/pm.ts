@@ -7,7 +7,7 @@ const INSTALL_COMMANDS = [
   ["yarn", "add"],
   ["pnpm", "install"],
   ["bun", "install"],
-  ["deno", "install"],
+  ["deno", "install", "--dev"],
 ] as const;
 
 const NYPM_COMMAND = ["npx nypm", "install"] as const;
@@ -42,8 +42,8 @@ export const pmInstall = defineGenerator({
         : [NYPM_COMMAND, ...INSTALL_COMMANDS];
 
     const contents = commands.map(
-      ([cmd, install]) =>
-        `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}${versionSuffix}`,
+      ([cmd, install, dev = " -D"]) =>
+        `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? dev : ""} ${name}${versionSuffix}`,
     );
 
     if ((args.separate ?? false) === false) {
