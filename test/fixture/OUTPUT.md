@@ -25,7 +25,7 @@ pnpm dlx automd .
 bunx automd .
 
 # deno
-deno run -A npm: automd .
+deno run -A npm:automd .
 ```
 
 <!-- /automd -->

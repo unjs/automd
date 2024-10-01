@@ -13,9 +13,9 @@ const INSTALL_COMMANDS = [
 const NYPM_COMMAND = ["npx nypm", "install"] as const;
 
 const RUN_COMMANDS = [
-  ["npm", "npx"],
-  ["pnpm", "pnpm dlx"],
-  ["bun", "bunx"],
+  ["npm", "npx "],
+  ["pnpm", "pnpm dlx "],
+  ["bun", "bunx "],
   ["deno", "deno run -A npm:"],
 ] as const;
 
@@ -77,7 +77,7 @@ export const pmX = defineGenerator({
 
     const contents = RUN_COMMANDS.map(
       ([pm, cmd]) =>
-        `# ${pm}\n${cmd} ${name}${versionSuffix}${args.args ? ` ${args.args}` : ""}`,
+        `# ${pm}\n${cmd}${name}${versionSuffix}${args.args ? ` ${args.args}` : ""}`,
     );
 
     if ((args.separate ?? false) === false) {
