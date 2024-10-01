@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.3.9
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.8...v0.3.9)
+
+### 🚀 Enhancements
+
+- Add support for deno as package manager ([#74](https://github.com/unjs/automd/pull/74))
+
+### 🏡 Chore
+
+- Update dependencies ([0828a0b](https://github.com/unjs/automd/commit/0828a0b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Bartek Iwańczuk <biwanczuk@gmail.com>
+
 ## v0.3.8
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.7...v0.3.8)
