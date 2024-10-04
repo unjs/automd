@@ -3,7 +3,7 @@
 <!-- automd:badges license color=yellow -->
 
 [![npm version](https://img.shields.io/npm/v/automd?color=yellow)](https://npmjs.com/package/automd)
-[![npm downloads](https://img.shields.io/npm/dm/automd?color=yellow)](https://npmjs.com/package/automd)
+[![npm downloads](https://img.shields.io/npm/dm/automd?color=yellow)](https://npm.chart.dev/automd)
 [![license](https://img.shields.io/github/license/unjs/automd?color=yellow)](https://github.com/unjs/automd/blob/main/LICENSE)
 
 <!-- /automd -->
