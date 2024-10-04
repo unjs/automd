@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.3.10
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.9...v0.3.10)
+
+### 💅 Refactors
+
+- **badges:** Link to `npm.chart.dev` for npm downloads ([#75](https://github.com/unjs/automd/pull/75))
+
+### 🏡 Chore
+
+- Update deps ([3ad5dd2](https://github.com/unjs/automd/commit/3ad5dd2))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Sébastien Chopin <seb@nuxtlabs.com>
+
 ## v0.3.9
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.8...v0.3.9)
