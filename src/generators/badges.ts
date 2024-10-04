@@ -12,7 +12,7 @@ const badgeTypes = {
   },
   npmDownloads: {
     name: "npm downloads",
-    to: "https://npmjs.com/package/{name}",
+    to: "https://npm.chart.dev/{name}",
   },
   bundlephobia: {
     name: "bundle size",
