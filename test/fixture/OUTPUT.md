@@ -5,7 +5,7 @@
 <!-- automd:badges bundlephobia packagephobia  -->
 
 [![npm version](https://img.shields.io/npm/v/automd)](https://npmjs.com/package/automd)
-[![npm downloads](https://img.shields.io/npm/dm/automd)](https://npmjs.com/package/automd)
+[![npm downloads](https://img.shields.io/npm/dm/automd)](https://npm.chart.dev/automd)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/automd)](https://bundlephobia.com/package/automd)
 
 <!-- /automd -->
