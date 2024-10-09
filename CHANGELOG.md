@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.3.11
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.10...v0.3.11)
+
+### 🩹 Fixes
+
+- **transform:** Filter empty issues and keep stack trace ([83845d6](https://github.com/unjs/automd/commit/83845d6))
+
+### 🏡 Chore
+
+- **release:** V0.3.10 ([b88f28c](https://github.com/unjs/automd/commit/b88f28c))
+- Add automd to `lint:fix` script ([1ed252e](https://github.com/unjs/automd/commit/1ed252e))
+- Update dependencies ([0c038a2](https://github.com/unjs/automd/commit/0c038a2))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.3.10
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.9...v0.3.10)
