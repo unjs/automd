@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.12
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.11...v0.3.12)
+
+### 🩹 Fixes
+
+- **jsdocs:** Disable jiti fs cache and module cache to avoid race conditions ([4c7138b](https://github.com/unjs/automd/commit/4c7138b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.3.11
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.10...v0.3.11)
