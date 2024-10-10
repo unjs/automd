@@ -11,18 +11,19 @@ export const file = defineGenerator({
     let contents = await readFile(fullPath, "utf8");
 
     if (args.lines) {
-      if (!/^(\d+)?:(\d+)?$/.test(args.lines)) {
+      const groups = /^(?<startLine>\d+)?:(?<endLine>\d+)?$/.exec(
+        "args.lines",
+      )?.groups;
+
+      if (!groups) {
         throw new Error("invalid lines format");
       }
 
-      const [_startLine, _endLine] = args.lines.split(":");
-
       const lines = contents.split("\n");
 
-      console.log(lines);
-
-      const startLine = _startLine === "" ? 0 : Number(_startLine);
-      const endLine = _endLine === "" ? lines.length : Number(_endLine);
+      const startLine = Number(groups.startLine) || 1;
+      // eslint-disable-next-line unicorn/explicit-length-check
+      const endLine = Number(groups.endLine) || lines.length;
 
       if (startLine < 1) {
         throw new Error("first line's index can not be smaller than 1");
