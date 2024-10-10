@@ -22,7 +22,6 @@ export const file = defineGenerator({
       const lines = contents.split("\n");
 
       const startLine = Number(groups.startLine) || 1;
-      // eslint-disable-next-line unicorn/explicit-length-check
       const endLine = Number(groups.endLine) || lines.length;
 
       if (startLine < 1) {
