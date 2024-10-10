@@ -201,6 +201,20 @@ When your code doesn't work, don't blame yourself. It's clearly the compiler's f
 
 <!-- /automd -->
 
+## `src-link`
+
+<!-- automd:src-link src="./TEST.md" pattern="Lazy Coder's Guide" label="fixture source" -->
+
+[fixture source](./TEST.md#L1)
+
+<!-- /automd -->
+
+<!-- automd:src-link src="gh:unjs/automd/blob/main/test/fixture/TEST.md" pattern="/Programming can be hard[\\s\\S]*compiler's fault/i" label="remote fixture source" -->
+
+[remote fixture source](https://github.com/unjs/automd/blob/main/test/fixture/TEST.md#L3-L5)
+
+<!-- /automd -->
+
 ## `contributors`
 
 <!-- automd:contributors author=pi0 license=MIT -->

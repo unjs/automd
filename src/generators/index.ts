@@ -8,6 +8,7 @@ import { withAutomd } from "./with-automd.ts";
 import { file } from "./file.ts";
 import { contributors } from "./contributors.ts";
 import { dirTree } from "./dir-tree.ts";
+import { srcLink } from "./src-link.ts";
 
 export default {
   jsdocs,
@@ -21,4 +22,5 @@ export default {
   "with-automd": withAutomd,
   contributors,
   "dir-tree": dirTree,
+  "src-link": srcLink,
 } as Record<string, Generator>;

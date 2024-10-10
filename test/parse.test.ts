@@ -7,6 +7,7 @@ describe("parseRawArgs", () => {
     [`no-foo`, { foo: false }],
     [`foo="bar"`, { foo: "bar" }],
     [`foo=bar`, { foo: "bar" }],
+    [`foo="bar baz" query="a=b c"`, { foo: "bar baz", query: "a=b c" }],
     [`a-key=a-value another-key=another-value`, { aKey: "a-value", anotherKey: "another-value" }],
   ] as const;
   for (const [input, expected] of tests) {
