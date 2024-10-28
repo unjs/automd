@@ -9,6 +9,7 @@ export const file = defineGenerator({
   async generate({ args, config, url }) {
     const fullPath = resolvePath(args.src, { url, dir: config.dir });
     let contents = await readFile(fullPath, "utf8");
+    contents = contents.trim();
 
     if (args.code) {
       contents = md.codeBlock(

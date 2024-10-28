@@ -40,7 +40,6 @@ The `file` generator reads a file and inlines it's contents.
     subkey: "value",
     },
     };
-
     ```
 
     <!-- /automd -->
