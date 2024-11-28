@@ -66,4 +66,6 @@ Code lang.
 File name in code. Use `no-name` to disable name in code.
 ::
 
+::field{name="noTrim" type="boolean"}
+Don't trim the file contents.
 ::
