@@ -36,7 +36,7 @@
     "@parcel/watcher": "^2.5.0",
     "c12": "^2.0.1",
     "citty": "^0.1.6",
-    "consola": "^3.2.3",
+    "consola": "^3.3.0",
     "defu": "^6.1.4",
     "destr": "^2.0.3",
     "didyoumean2": "^7.0.4",
@@ -64,5 +64,5 @@
     "unbuild": "^2.0.0",
     "vitest": "^2.1.8"
   },
-  "packageManager": "pnpm@9.15.0"
+  "packageManager": "pnpm@9.15.1"
 }
