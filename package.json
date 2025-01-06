@@ -52,7 +52,7 @@
     "untyped": "^1.5.2"
   },
   "devDependencies": {
-    "@types/node": "^22.10.3",
+    "@types/node": "^22.10.5",
     "@vitest/coverage-v8": "^2.1.8",
     "automd": "^0.3.12",
     "changelogen": "^0.5.7",
@@ -64,5 +64,5 @@
     "unbuild": "^2.0.0",
     "vitest": "^2.1.8"
   },
-  "packageManager": "pnpm@9.15.2"
+  "packageManager": "pnpm@9.15.3"
 }
