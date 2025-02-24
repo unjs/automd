@@ -33,14 +33,14 @@
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
-    "@parcel/watcher": "^2.5.0",
-    "c12": "^2.0.1",
+    "@parcel/watcher": "^2.5.1",
+    "c12": "^2.0.4",
     "citty": "^0.1.6",
     "consola": "^3.4.0",
     "defu": "^6.1.4",
     "destr": "^2.0.3",
     "didyoumean2": "^7.0.4",
-    "globby": "^14.0.2",
+    "globby": "^14.1.0",
     "magic-string": "^0.30.17",
     "mdbox": "^0.1.1",
     "mlly": "^1.7.4",
@@ -52,17 +52,17 @@
     "untyped": "^1.5.2"
   },
   "devDependencies": {
-    "@types/node": "^22.10.10",
-    "@vitest/coverage-v8": "^2.1.8",
+    "@types/node": "^22.13.5",
+    "@vitest/coverage-v8": "^2.1.9",
     "automd": "^0.3.12",
     "changelogen": "^0.5.7",
-    "eslint": "^9.19.0",
+    "eslint": "^9.21.0",
     "eslint-config-unjs": "^0.4.2",
     "jiti": "^2.4.2",
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.2",
     "typescript": "^5.7.3",
     "unbuild": "^2.0.0",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.9"
   },
-  "packageManager": "pnpm@9.15.4"
+  "packageManager": "pnpm@9.15.6"
 }
