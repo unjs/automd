@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@parcel/watcher": "^2.5.1",
-    "c12": "^2.0.4",
+    "c12": "^3.0.1",
     "citty": "^0.1.6",
     "consola": "^3.4.0",
     "defu": "^6.1.4",
@@ -42,9 +42,9 @@
     "mdbox": "^0.1.1",
     "mlly": "^1.7.4",
     "ofetch": "^1.4.1",
-    "pathe": "^1.1.2",
+    "pathe": "^2.0.3",
     "perfect-debounce": "^1.0.0",
-    "pkg-types": "^1.3.1",
+    "pkg-types": "^2.0.0",
     "scule": "^1.3.0",
     "untyped": "^1.5.2"
   },
