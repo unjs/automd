@@ -1,6 +1,62 @@
 # Changelog
 
 
+## v0.4.0
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.12...v0.4.0)
+
+### 🚀 Enhancements
+
+- **file:** Trim contents by default ([#81](https://github.com/unjs/automd/pull/81))
+- **file:** Support `lines` arg to limit content ([#46](https://github.com/unjs/automd/pull/46))
+- **pm-install:** Support `global` arg ([#53](https://github.com/unjs/automd/pull/53))
+- Add support for `markupgo` provider in contributors generator ([#67](https://github.com/unjs/automd/pull/67))
+
+### 🩹 Fixes
+
+- **badges:** Add packagephobia badge from badgen ([441c1df](https://github.com/unjs/automd/commit/441c1df))
+
+### 💅 Refactors
+
+- Migrate globby to tinyglobby ([607981d](https://github.com/unjs/automd/commit/607981d))
+- Update to untyped v2 ([8cf342d](https://github.com/unjs/automd/commit/8cf342d))
+
+### 📦 Build
+
+- ⚠️  Esm-only dist ([162abd8](https://github.com/unjs/automd/commit/162abd8))
+
+### 🏡 Chore
+
+- Update deps ([43eaf8c](https://github.com/unjs/automd/commit/43eaf8c))
+- Update major deps ([9d498f7](https://github.com/unjs/automd/commit/9d498f7))
+- Update ci ([f71953c](https://github.com/unjs/automd/commit/f71953c))
+- Lint ([a20f2ea](https://github.com/unjs/automd/commit/a20f2ea))
+- Update snapshot ([3d30099](https://github.com/unjs/automd/commit/3d30099))
+- Fix typo ([70a8bd0](https://github.com/unjs/automd/commit/70a8bd0))
+- Apply automated fixes ([1dc4f8e](https://github.com/unjs/automd/commit/1dc4f8e))
+- Update test ([0a8ed83](https://github.com/unjs/automd/commit/0a8ed83))
+- Update tsconfig ([f6e5dd8](https://github.com/unjs/automd/commit/f6e5dd8))
+- Update docs ([01397b0](https://github.com/unjs/automd/commit/01397b0))
+- Apply automated fixes ([1dd1048](https://github.com/unjs/automd/commit/1dd1048))
+- Fix lint:fix script ([f6947de](https://github.com/unjs/automd/commit/f6947de))
+
+### ✅ Tests
+
+- Fix typo ([#85](https://github.com/unjs/automd/pull/85))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Esm-only dist ([162abd8](https://github.com/unjs/automd/commit/162abd8))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- Abdullah <abdullah.mara@skillshare.com>
+- Hugo Richard ([@HugoRCD](https://github.com/HugoRCD))
+- Horu ([@HigherOrderLogic](https://github.com/HigherOrderLogic))
+- Daiki ([@k1tikurisu](https://github.com/k1tikurisu))
+- Patryk Tomczyk ([@patzick](https://github.com/patzick))
+
 ## v0.3.12
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.11...v0.3.12)
