@@ -37,7 +37,6 @@
     "defu": "^6.1.4",
     "destr": "^2.0.3",
     "didyoumean2": "^7.0.4",
-    "globby": "^14.1.0",
     "magic-string": "^0.30.17",
     "mdbox": "^0.1.1",
     "mlly": "^1.7.4",
@@ -46,6 +45,7 @@
     "perfect-debounce": "^1.0.0",
     "pkg-types": "^2.0.0",
     "scule": "^1.3.0",
+    "tinyglobby": "^0.2.12",
     "untyped": "^1.5.2"
   },
   "devDependencies": {
