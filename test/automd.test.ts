@@ -13,7 +13,7 @@ describe("automd generators", () => {
       output: "OUTPUT.md",
     });
     output = results[0].contents;
-    expect(output).toMatchFileSnapshot(`fixture/OUTPUT.md`);
+    await expect(output).toMatchFileSnapshot(`fixture/OUTPUT.md`);
 
     const issues = results
       .flatMap((r) => r.updates.flatMap((u) => u.result.issues))
