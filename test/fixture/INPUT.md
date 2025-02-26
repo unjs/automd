@@ -45,5 +45,5 @@
 <!-- automd:contributors author=pi0 license=MIT -->
 <!-- /automd -->
 
-<!-- automd:contributors author=pi0 license=MIT provider=markupgo circleSize=48 center=true  -->
+<!-- automd:contributors author=pi0 license=MIT provider=markupgo  -->
 <!-- /automd -->

@@ -213,13 +213,13 @@ Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/a
 
 <!-- /automd -->
 
-<!-- automd:contributors author=pi0 license=MIT provider=markupgo circleSize=48 center=true  -->
+<!-- automd:contributors author=pi0 license=MIT provider=markupgo  -->
 
 Published under the [MIT](https://github.com/unjs/automd/blob/main/LICENSE) license.
 Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/automd/graphs/contributors) 💛
 <br><br>
 <a href="https://github.com/unjs/automd/graphs/contributors">
-<img src="https://markupgo.com/github/unjs/automd/contributors?circleSize=48&center=true" />
+<img src="https://markupgo.com/github/unjs/automd/contributors?circleSize=64&center=true&removeLogo=true" />
 </a>
 
 <!-- /automd -->

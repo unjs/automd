@@ -43,6 +43,12 @@ export const contributors = defineGenerator({
     if (provider === PROVIDERS.MARKUPGO) {
       const params = [];
 
+      args = {
+        circleSize: "64",
+        center: "true",
+        ...args,
+      };
+
       if (Number(args.max) >= 0) {
         params.push(["count", args.max]);
       }
@@ -67,8 +73,8 @@ export const contributors = defineGenerator({
         params.push(["center", Boolean(args.center).toString()]);
       }
 
-      if (args.removeLogo) {
-        params.push(["removeLogo", Boolean(args.removeLogo).toString()]);
+      if (!args.markupGoLogo) {
+        params.push(["removeLogo", "true"]);
       }
 
       if (args.anon) {
