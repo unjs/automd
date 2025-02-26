@@ -39,7 +39,7 @@ Github repository name (by default tries to read from `package.json`) e.g. `unjs
 ::
 
 ::field{name="max" type="number"}
-Max contributor count (100 by default). 
+Max contributor count (100 by default).
 
 Set to 0 for all contributors. Max avatar count is 500. (Only available for `markupgo`)
 ::
@@ -60,8 +60,8 @@ Radius of contributor circle (40 by default) (Only available for `markupgo`)
 Center the contributor circles (false by default) (Only available for `markupgo`)
 ::
 
-::field{name="removeLogo" type="boolean"}
-Remove the logo (false by default) (Only available for `markupgo`)
+::field{name="markupGoLogo" type="boolean"}
+Show markupGo logo for credits.
 ::
 
 ::field{name="width" type="number"}
