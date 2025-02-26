@@ -14,7 +14,13 @@ export const jsdocs = defineGenerator({
     const { loadSchema } = await import("untyped/loader");
     const fullPath = resolvePath(args.src, { url, dir: config.dir });
 
-    const schema = await loadSchema(fullPath);
+    const schema = await loadSchema(fullPath, {
+      jiti: {
+        // TODO: untyped should be able to reuse same jiti instance to avoid race conditions
+        fsCache: false,
+        moduleCache: false,
+      },
+    });
 
     return {
       contents: _render(

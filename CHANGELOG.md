@@ -1,6 +1,118 @@
 # Changelog
 
 
+## v0.3.12
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.11...v0.3.12)
+
+### 🩹 Fixes
+
+- **jsdocs:** Disable jiti fs cache and module cache to avoid race conditions ([4c7138b](https://github.com/unjs/automd/commit/4c7138b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
+## v0.3.11
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.10...v0.3.11)
+
+### 🩹 Fixes
+
+- **transform:** Filter empty issues and keep stack trace ([83845d6](https://github.com/unjs/automd/commit/83845d6))
+
+### 🏡 Chore
+
+- **release:** V0.3.10 ([b88f28c](https://github.com/unjs/automd/commit/b88f28c))
+- Add automd to `lint:fix` script ([1ed252e](https://github.com/unjs/automd/commit/1ed252e))
+- Update dependencies ([0c038a2](https://github.com/unjs/automd/commit/0c038a2))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
+## v0.3.10
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.9...v0.3.10)
+
+### 💅 Refactors
+
+- **badges:** Link to `npm.chart.dev` for npm downloads ([#75](https://github.com/unjs/automd/pull/75))
+
+### 🏡 Chore
+
+- Update deps ([3ad5dd2](https://github.com/unjs/automd/commit/3ad5dd2))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Sébastien Chopin <seb@nuxtlabs.com>
+
+## v0.3.9
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.8...v0.3.9)
+
+### 🚀 Enhancements
+
+- Add support for deno as package manager ([#74](https://github.com/unjs/automd/pull/74))
+
+### 🏡 Chore
+
+- Update dependencies ([0828a0b](https://github.com/unjs/automd/commit/0828a0b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Bartek Iwańczuk <biwanczuk@gmail.com>
+
+## v0.3.8
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.7...v0.3.8)
+
+### 🚀 Enhancements
+
+- Upgrade c12 with jiti v2 with esm support ([a42d4d2](https://github.com/unjs/automd/commit/a42d4d2))
+
+### 🩹 Fixes
+
+- `version` should be obtained automatically when set to `true` ([#59](https://github.com/unjs/automd/pull/59))
+
+### 📖 Documentation
+
+- Add jsdocs for main exports ([#55](https://github.com/unjs/automd/pull/55))
+
+### 🏡 Chore
+
+- Apply automated fixes ([5ce5ba3](https://github.com/unjs/automd/commit/5ce5ba3))
+- Update deps ([cde3b3a](https://github.com/unjs/automd/commit/cde3b3a))
+- Update eslint to v9 ([9e68077](https://github.com/unjs/automd/commit/9e68077))
+
+### ❤️ Contributors
+
+- Byron ([@byronogis](http://github.com/byronogis))
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Max ([@onmax](http://github.com/onmax))
+
+## v0.3.7
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.6...v0.3.7)
+
+### 🚀 Enhancements
+
+- **badges:** Support `bundlejs` ([0ab578e](https://github.com/unjs/automd/commit/0ab578e))
+
+### 💅 Refactors
+
+- **badges:** Switch to `shields` by default ([308381c](https://github.com/unjs/automd/commit/308381c))
+
+### 🏡 Chore
+
+- Update docs ([cc8b1c8](https://github.com/unjs/automd/commit/cc8b1c8))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.3.6
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.5...v0.3.6)

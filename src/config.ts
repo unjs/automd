@@ -4,30 +4,30 @@ import type { AutomdResult } from "./automd";
 
 export interface Config {
   /**
-   * Working directory
+   * The working directory
    *
-   * Defaults to the current working directory
+   * @default "." (current directory)
    */
   dir?: string;
 
   /**
    * Name or path to the input file or files with glob patterns.
    *
-   * Default is `README.md`.
+   * @default "README.md"
    */
   input?: string | string[];
 
   /**
-   * Name or path of the output files.
+   * Name or path of the output files. If not provided, the input file will be overwritten.
    *
-   * Default output is same as input.
+   * @default input
    */
   output?: string;
 
   /**
    * Ignore patterns if input is a glob pattern
    *
-   * By default `node_modules`, `dist` and `.*` files are ignored.
+   * @default ["node_modules", "dist", "/.*"]
    */
   ignore?: string[];
 

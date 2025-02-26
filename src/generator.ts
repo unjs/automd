@@ -10,9 +10,23 @@ export interface GenerateContext {
   transform: (contents: string) => Promise<TransformResult>;
 }
 
+/**
+ * The result of generating a component.
+ */
 export interface GenerateResult {
+  /**
+   * The generated component
+   */
   contents: string;
+
+  /**
+   * A list of issues that occurred during generation.
+   */
   issues?: string[];
+
+  /**
+   * Whether to unwrap the component.
+   */
   unwrap?: boolean;
 }
 

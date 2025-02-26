@@ -15,12 +15,11 @@ The `badges` generator generates badges for the latest npm version, npm download
 
     <!-- automd:badges color="yellow" license name="defu" codecov bundlephobia packagephobia -->
 
-    [![npm version](https://flat.badgen.net/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
-    [![npm downloads](https://flat.badgen.net/npm/dm/defu?color=yellow)](https://npmjs.com/package/defu)
-    [![bundle size](https://flat.badgen.net/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
-    [![install size](https://flat.badgen.net/packagephobia/publish/defu?color=yellow)](https://packagephobia.com/result?p=defu)
-    [![codecov](https://flat.badgen.net/codecov/c/github/unjs/automd?color=yellow)](https://codecov.io/gh/unjs/automd)
-    [![license](https://flat.badgen.net/github/license/unjs/automd?color=yellow)](https://github.com/unjs/automd/blob/main/LICENSE)
+    [![npm version](https://img.shields.io/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
+    [![npm downloads](https://img.shields.io/npm/dm/defu?color=yellow)](https://npm.chart.dev/defu)
+    [![bundle size](https://img.shields.io/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
+    [![codecov](https://img.shields.io/codecov/c/gh/unjs/automd?color=yellow)](https://codecov.io/gh/unjs/automd)
+    [![license](https://img.shields.io/github/license/unjs/automd?color=yellow)](https://github.com/unjs/automd/blob/main/LICENSE)
 
     <!-- /automd -->
 
