@@ -1,19 +1,16 @@
 {
   "name": "automd",
-  "version": "0.3.8",
+  "version": "0.3.12",
   "description": "Your automated markdown maintainer!",
   "repository": "unjs/automd",
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
+    "types": "./dist/index.d.mts",
+    "default": "./dist/index.mjs"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "bin": {
     "automd": "dist/cli.mjs"
   },
@@ -26,43 +23,43 @@
     "build": "pnpm automd && unbuild",
     "dev": "vitest -u",
     "lint": "eslint --cache . && prettier -c src",
-    "lint:fix": "eslint --cache . --fix && prettier -c src -w",
+    "lint:fix": "automd && eslint --cache . --fix && prettier -c src -w",
     "prepack": "pnpm build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags && pnpm build --stub",
     "test": "pnpm lint && pnpm test:types && vitest run --coverage",
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
-    "@parcel/watcher": "^2.4.1",
-    "c12": "2.0.0-beta.1",
+    "@parcel/watcher": "^2.5.1",
+    "c12": "^3.0.1",
     "citty": "^0.1.6",
-    "consola": "^3.2.3",
+    "consola": "^3.4.0",
     "defu": "^6.1.4",
     "destr": "^2.0.3",
-    "didyoumean2": "^6.0.1",
-    "globby": "^14.0.2",
-    "magic-string": "^0.30.10",
-    "mdbox": "^0.1.0",
-    "mlly": "^1.7.1",
-    "ofetch": "^1.3.4",
-    "pathe": "^1.1.2",
+    "didyoumean2": "^7.0.4",
+    "magic-string": "^0.30.17",
+    "mdbox": "^0.1.1",
+    "mlly": "^1.7.4",
+    "ofetch": "^1.4.1",
+    "pathe": "^2.0.3",
     "perfect-debounce": "^1.0.0",
-    "pkg-types": "^1.1.3",
+    "pkg-types": "^2.0.0",
     "scule": "^1.3.0",
-    "untyped": "^1.4.2"
+    "tinyglobby": "^0.2.12",
+    "untyped": "^1.5.2"
   },
   "devDependencies": {
-    "@types/node": "^20.14.9",
-    "@vitest/coverage-v8": "^1.6.0",
-    "automd": "link:",
-    "changelogen": "^0.5.5",
-    "eslint": "^9.6.0",
-    "eslint-config-unjs": "^0.3.2",
-    "jiti": "^2.0.0-beta.3",
-    "prettier": "^3.3.2",
-    "typescript": "^5.5.3",
-    "unbuild": "^3.0.0-rc.6",
-    "vitest": "^1.6.0"
+    "@types/node": "^22.13.5",
+    "@vitest/coverage-v8": "^3.0.7",
+    "automd": "^0.3.12",
+    "changelogen": "^0.6.0",
+    "eslint": "^9.21.0",
+    "eslint-config-unjs": "^0.4.2",
+    "jiti": "^2.4.2",
+    "prettier": "^3.5.2",
+    "typescript": "^5.7.3",
+    "unbuild": "^3.4.0",
+    "vitest": "^3.0.7"
   },
-  "packageManager": "pnpm@9.4.0"
+  "packageManager": "pnpm@10.5.0"
 }

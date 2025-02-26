@@ -48,7 +48,7 @@ export const jsimport = defineGenerator({
       const code = formatMultiLine(
         `import {${fmtImports}} from "${importPath}";`,
       );
-      lines.push("**ESM** (Node.js, Bun)", md.codeBlock(code, "js"));
+      lines.push("**ESM** (Node.js, Bun, Deno)", md.codeBlock(code, "js"));
     }
 
     if (args.cjs) {

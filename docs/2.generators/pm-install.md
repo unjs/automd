@@ -30,6 +30,9 @@ The `pm-install` or `pm-i` generator generates installation commands for several
 
     # bun
     bun install -D package-name
+
+    # deno
+    deno install --dev package-name
     ```
 
     <!-- /automd -->
@@ -46,6 +49,10 @@ The package name (by default tries to read from the `name` field in `package.jso
 
 ::field{name="dev" type="boolean"}
 Install as a dev dependency (defaults to `false`).
+::
+
+::field{name="global" type="boolean"}
+Install globally (useful for CLIs) (defaults to `false`).
 ::
 
 ::field{name="separate" type="boolean"}

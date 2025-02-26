@@ -87,7 +87,9 @@ export async function transform(
   }
 
   const hasChanged = editor.hasChanged();
-  const hasIssues = updates.some((u) => u.result.issues?.length);
+  const hasIssues = updates.some(
+    (u) => u.result.issues?.filter(Boolean).length,
+  );
   const time = performance.now() - start;
 
   return {
@@ -140,15 +142,14 @@ async function _transformBlock(
         result.issues = [
           ...(result.issues || []),
           ...nestedRes.updates.flatMap((u) => u.result.issues || []),
-        ];
+        ].filter(Boolean);
       }
     }
 
     return result;
-  } catch (_error: any) {
-    const error = `(${block.generator}) ${_error.message || _error}`;
+  } catch (error: any) {
     return {
-      contents: `<!-- ⚠️  ${error} -->`,
+      contents: `<!-- ⚠️  (${block.generator}) ${error.message || error} -->`,
       issues: [error],
     };
   }

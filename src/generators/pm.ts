@@ -7,14 +7,16 @@ const INSTALL_COMMANDS = [
   ["yarn", "add"],
   ["pnpm", "install"],
   ["bun", "install"],
+  ["deno", "install", " --dev"],
 ] as const;
 
 const NYPM_COMMAND = ["npx nypm", "install"] as const;
 
 const RUN_COMMANDS = [
-  ["npm", "npx"],
-  ["pnpm", "pnpm dlx"],
-  ["bun", "bunx"],
+  ["npm", "npx "],
+  ["pnpm", "pnpm dlx "],
+  ["bun", "bunx "],
+  ["deno", "deno run -A npm:"],
 ] as const;
 
 export const pmInstall = defineGenerator({
@@ -40,8 +42,9 @@ export const pmInstall = defineGenerator({
         : [NYPM_COMMAND, ...INSTALL_COMMANDS];
 
     const contents = commands.map(
-      ([cmd, install]) =>
-        `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? " -D" : ""} ${name}${versionSuffix}`,
+      ([cmd, install, dev = " -D"]) =>
+        // prettier-ignore
+        `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? dev : (args.global ? "g" : "")} ${name}${versionSuffix}`,
     );
 
     if ((args.separate ?? false) === false) {
@@ -75,7 +78,7 @@ export const pmX = defineGenerator({
 
     const contents = RUN_COMMANDS.map(
       ([pm, cmd]) =>
-        `# ${pm}\n${cmd} ${name}${versionSuffix}${args.args ? ` ${args.args}` : ""}`,
+        `# ${pm}\n${cmd}${name}${versionSuffix}${args.args ? ` ${args.args}` : ""}`,
     );
 
     if ((args.separate ?? false) === false) {

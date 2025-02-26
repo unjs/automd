@@ -1,6 +1,70 @@
 # Changelog
 
 
+## v0.3.12
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.11...v0.3.12)
+
+### 🩹 Fixes
+
+- **jsdocs:** Disable jiti fs cache and module cache to avoid race conditions ([4c7138b](https://github.com/unjs/automd/commit/4c7138b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
+## v0.3.11
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.10...v0.3.11)
+
+### 🩹 Fixes
+
+- **transform:** Filter empty issues and keep stack trace ([83845d6](https://github.com/unjs/automd/commit/83845d6))
+
+### 🏡 Chore
+
+- **release:** V0.3.10 ([b88f28c](https://github.com/unjs/automd/commit/b88f28c))
+- Add automd to `lint:fix` script ([1ed252e](https://github.com/unjs/automd/commit/1ed252e))
+- Update dependencies ([0c038a2](https://github.com/unjs/automd/commit/0c038a2))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
+## v0.3.10
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.9...v0.3.10)
+
+### 💅 Refactors
+
+- **badges:** Link to `npm.chart.dev` for npm downloads ([#75](https://github.com/unjs/automd/pull/75))
+
+### 🏡 Chore
+
+- Update deps ([3ad5dd2](https://github.com/unjs/automd/commit/3ad5dd2))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Sébastien Chopin <seb@nuxtlabs.com>
+
+## v0.3.9
+
+[compare changes](https://github.com/unjs/automd/compare/v0.3.8...v0.3.9)
+
+### 🚀 Enhancements
+
+- Add support for deno as package manager ([#74](https://github.com/unjs/automd/pull/74))
+
+### 🏡 Chore
+
+- Update dependencies ([0828a0b](https://github.com/unjs/automd/commit/0828a0b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Bartek Iwańczuk <biwanczuk@gmail.com>
+
 ## v0.3.8
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.7...v0.3.8)

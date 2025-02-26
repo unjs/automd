@@ -53,8 +53,8 @@ export async function automd(_config: Config = {}): Promise<AutomdReturn> {
 
   let inputFiles = config.input;
   if (inputFiles.some((i) => i.includes("*"))) {
-    const { globby } = await import("globby");
-    inputFiles = await globby(inputFiles, {
+    const { glob } = await import("tinyglobby");
+    inputFiles = await glob(inputFiles, {
       cwd: config.dir,
       absolute: false,
       onlyFiles: true,
