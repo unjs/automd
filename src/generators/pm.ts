@@ -43,7 +43,8 @@ export const pmInstall = defineGenerator({
 
     const contents = commands.map(
       ([cmd, install, dev = " -D"]) =>
-        `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? dev : ""} ${name}${versionSuffix}`,
+        // prettier-ignore
+        `# ${cmd.includes("nypm") ? "✨ Auto-detect" : cmd}\n${cmd} ${install}${args.dev ? dev : (args.global ? "g" : "")} ${name}${versionSuffix}`,
     );
 
     if ((args.separate ?? false) === false) {

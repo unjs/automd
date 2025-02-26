@@ -51,6 +51,10 @@ The package name (by default tries to read from the `name` field in `package.jso
 Install as a dev dependency (defaults to `false`).
 ::
 
+::field{name="global" type="boolean"}
+Install globally (useful for CLIs) (defaults to `false`).
+::
+
 ::field{name="separate" type="boolean"}
 Separate code blocks for each package manager (defaults to `false`).
 ::
