@@ -25,7 +25,7 @@ export const file = defineGenerator({
       const lines = contents.split("\n");
 
       const startLine = Number(groups.startLine) || 1;
-      const endLine = Number(groups.endLine) || lines.length;
+      const endLine = Number(groups.endLine) || (lines.length as number);
 
       if (startLine < 1) {
         throw new Error("first line's index can not be smaller than 1");
