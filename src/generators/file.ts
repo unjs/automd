@@ -15,7 +15,7 @@ export const file = defineGenerator({
 
     if (args.lines) {
       const groups = /^(?<startLine>\d+)?:(?<endLine>\d+)?$/.exec(
-        "args.lines",
+        args.lines,
       )?.groups;
 
       if (!groups) {
