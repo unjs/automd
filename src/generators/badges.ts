@@ -42,7 +42,7 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmVersion: "https://img.shields.io/npm/v/{name}",
     npmDownloads: "https://img.shields.io/npm/dm/{name}",
     bundlephobia: "https://img.shields.io/bundlephobia/minzip/{name}",
-    packagephobia: false, // https://github.com/badges/shields/issues/1701
+    packagephobia: "https://badgen.net/packagephobia/install/{name}", // https://github.com/badges/shields/issues/1701
     bundlejs: "https://img.shields.io/bundlejs/size/{name}",
     codecov: "https://img.shields.io/codecov/c/gh/{github}",
     license: "https://img.shields.io/github/license/{github}",
@@ -53,7 +53,7 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmDownloads: "https://flat.badgen.net/npm/dm/{name}",
     bundlephobia: "https://flat.badgen.net/bundlephobia/minzip/{name}",
     bundlejs: false, // https://github.com/badgen/badgen/issues/82
-    packagephobia: "https://flat.badgen.net/packagephobia/publish/{name}",
+    packagephobia: "https://flat.badgen.net/packagephobia/install/{name}",
     codecov: "https://flat.badgen.net/codecov/c/github/{github}",
     license: "https://flat.badgen.net/github/license/{github}",
   },
@@ -62,7 +62,7 @@ const badgeProviders = <Record<string, BadgeProvider>>{
     npmDownloads: "https://badgen.net/npm/dm/{name}",
     bundlephobia: "https://badgen.net/bundlephobia/minzip/{name}",
     bundlejs: false, // https://github.com/badgen/badgen/issues/82
-    packagephobia: "https://badgen.net/packagephobia/publish/{name}",
+    packagephobia: "https://badgen.net/packagephobia/install/{name}",
     codecov: "https://badgen.net/codecov/c/github/{github}",
     license: "https://badgen.net/github/license/{github}",
   },
