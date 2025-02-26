@@ -57,8 +57,8 @@ importers:
         specifier: ^0.2.12
         version: 0.2.12
       untyped:
-        specifier: ^1.5.2
-        version: 1.5.2
+        specifier: ^2.0.0
+        version: 2.0.0
     devDependencies:
       '@types/node':
         specifier: ^22.13.5
@@ -88,8 +88,8 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
       unbuild:
-        specifier: ^3.4.0
-        version: 3.4.0(typescript@5.7.3)
+        specifier: ^3.4.1
+        version: 3.4.1(typescript@5.7.3)
       vitest:
         specifier: ^3.0.7
         version: 3.0.7(@types/node@22.13.5)
@@ -2461,8 +2461,8 @@ packages:
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
 
-  unbuild@3.4.0:
-    resolution: {integrity: sha512-FWVvN3LYU+rEL+hm3jqd1KlMpCbjSkmJFzjXEwQSxDq0LQ4MV67gvb91WF4AxAZWTBEQKSBxXhndRKg7iGGosA==}
+  unbuild@3.4.1:
+    resolution: {integrity: sha512-kSndFOB0knmsBUlRRuy3oEhibF0KgLDb+vS1VRQBfOv2WVx1fu4+xGY80j1ER4BlnsX5ly26fvXgwp76R6lggg==}
     hasBin: true
     peerDependencies:
       typescript: ^5.7.3
@@ -2482,6 +2482,10 @@ packages:
 
   untyped@1.5.2:
     resolution: {integrity: sha512-eL/8PlhLcMmlMDtNPKhyyz9kEBDS3Uk4yMu/ewlkT2WFbtzScjHWPJLdQLmaGPUKjXzwe9MumOtOgc4Fro96Kg==}
+    hasBin: true
+
+  untyped@2.0.0:
+    resolution: {integrity: sha512-nwNCjxJTjNuLCgFr42fEak5OcLuB3ecca+9ksPFNvtfYSLpjf+iJqSIaSnIile6ZPbKYxI5k2AfXqeopGudK/g==}
     hasBin: true
 
   update-browserslist-db@1.1.2:
@@ -4855,7 +4859,7 @@ snapshots:
 
   ufo@1.5.4: {}
 
-  unbuild@3.4.0(typescript@5.7.3):
+  unbuild@3.4.1(typescript@5.7.3):
     dependencies:
       '@rollup/plugin-alias': 5.1.1(rollup@4.34.8)
       '@rollup/plugin-commonjs': 28.0.2(rollup@4.34.8)
@@ -4908,6 +4912,14 @@ snapshots:
       scule: 1.3.0
     transitivePeerDependencies:
       - supports-color
+
+  untyped@2.0.0:
+    dependencies:
+      citty: 0.1.6
+      defu: 6.1.4
+      jiti: 2.4.2
+      knitwork: 1.2.0
+      scule: 1.3.0
 
   update-browserslist-db@1.1.2(browserslist@4.24.4):
     dependencies:
