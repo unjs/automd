@@ -1,5 +1,5 @@
 import { existsSync, promises as fsp } from "node:fs";
-import { resolve, relative } from "pathe";
+import { resolve, relative, dirname } from "pathe";
 import type { SubscribeCallback } from "@parcel/watcher";
 import { pathToFileURL } from "mlly";
 import { debounce } from "perfect-debounce";
@@ -119,6 +119,7 @@ async function _automd(
     ? resolve(config.dir, config.output || ".", relativeInput)
     : resolve(config.dir, config.output || relativeInput);
 
+  await fsp.mkdir(dirname(output), { recursive: true });
   await fsp.writeFile(output, transformResult.contents, "utf8");
 
   const result: AutomdResult = {
