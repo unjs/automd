@@ -85,7 +85,7 @@ function _renderSection(
   // Parse tag annotations
   const tags = _parseTags(schema.tags);
 
-  // Ignore deprecated and intenral functions
+  // Ignore deprecated and internal functions
   if (tags.some((t) => t.tag === "@deprecated" || t.tag === "@internal")) {
     return;
   }
