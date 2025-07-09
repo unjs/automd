@@ -27,7 +27,7 @@ export interface AutomdReturn {
   time: number;
 
   /**
-   * The resolved configuration that were used for these changes.
+   * The resolved configuration that was used for these changes.
    */
   config: ResolvedConfig;
 

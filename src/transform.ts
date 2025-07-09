@@ -6,12 +6,12 @@ import { Config, ResolvedConfig, resolveConfig } from "./config";
 
 export interface TransformResult {
   /**
-   * Wether if the document has been modified at all.
+   * Whether the document has been modified at all.
    */
   hasChanged: boolean;
 
   /**
-   * Whether if there were any problems found in the document.
+   * Whether there were any problems found in the document.
    */
   hasIssues: boolean;
 
