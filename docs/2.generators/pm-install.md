@@ -32,7 +32,7 @@ The `pm-install` or `pm-i` generator generates installation commands for several
     bun install -D package-name
 
     # deno
-    deno install --dev package-name
+    deno install --dev npm:package-name
     ```
 
     <!-- /automd -->

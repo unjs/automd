@@ -62,7 +62,7 @@ bun install -D automd
 
 ```sh
 # deno
-deno install --dev automd
+deno install --dev npm:automd
 ```
 
 <!-- /automd -->
