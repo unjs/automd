@@ -63,7 +63,7 @@ export const jsimport = defineGenerator({
       const code = formatMultiLine(
         `import {${fmtImports}} from "${cdnBase}${importPath}";`,
       );
-      lines.push("**CDN** (Deno, Bun and Browsers)", md.codeBlock(code, "js"));
+      lines.push("**CDN** (Deno and Browsers)", md.codeBlock(code, "js"));
     }
 
     return {
