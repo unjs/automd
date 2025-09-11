@@ -5,7 +5,7 @@ import { getPkg } from "../_utils";
 const INSTALL_COMMANDS = [
   ["npm", "install"],
   ["yarn", "add"],
-  ["pnpm", "install"],
+  ["pnpm", "add"],
   ["bun", "install"],
   ["deno", "install", " --dev"],
 ] as const;
