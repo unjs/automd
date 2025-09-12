@@ -52,7 +52,7 @@ yarn add -D automd
 
 ```sh
 # pnpm
-pnpm install -D automd
+pnpm add -D automd
 ```
 
 ```sh
