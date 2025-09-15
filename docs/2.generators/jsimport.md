@@ -27,7 +27,7 @@ The `jsimport` generator generates JavaScript usage example to be imported.
     const { foo, bar } = require("pkg");
     ```
 
-    **CDN** (Deno, Bun and Browsers)
+    **CDN** (Deno and Browsers)
 
     ```js
     import { foo, bar } from "https://esm.sh/pkg";
