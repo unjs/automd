@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.4.1
+
+[compare changes](https://github.com/unjs/automd/compare/v0.4.0...v0.4.1)
+
+### 🩹 Fixes
+
+- **pm-install:** Use `pnpm add` instead of `pnpm install` ([#122](https://github.com/unjs/automd/pull/122))
+- **pm, pm-install:** Add `npm:` prefix for deno ([#115](https://github.com/unjs/automd/pull/115))
+- **jsimport:** Bun doesn't support url imports ([#112](https://github.com/unjs/automd/pull/112))
+- Create missing output dir ([#106](https://github.com/unjs/automd/pull/106))
+
+### 📖 Documentation
+
+- Update config section ([#107](https://github.com/unjs/automd/pull/107))
+
+### 🏡 Chore
+
+- Update deps ([a63bb3e](https://github.com/unjs/automd/commit/a63bb3e))
+
+### ❤️ Contributors
+
+- Daniel Rentz ([@danielrentz](https://github.com/danielrentz))
+- Yvbopeng ([@yvbopeng](https://github.com/yvbopeng))
+- Huseeiin ([@huseeiin](https://github.com/huseeiin))
+- Keito ([@mst-mkt](https://github.com/mst-mkt))
+- Selemon Brahanu ([@selemondev](https://github.com/selemondev))
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+
 ## v0.4.0
 
 [compare changes](https://github.com/unjs/automd/compare/v0.3.12...v0.4.0)
