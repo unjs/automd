@@ -26,7 +26,7 @@ The `pm-install` or `pm-i` generator generates installation commands for several
     yarn add -D package-name
 
     # pnpm
-    pnpm install -D package-name
+    pnpm add -D package-name
 
     # bun
     bun install -D package-name
