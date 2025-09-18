@@ -1,12 +1,12 @@
 {
   "private": true,
-  "name": "docs",
-  "repository": "unjs/automd",
+  "type": "module",
   "scripts": {
-    "dev": "undocs dev",
-    "build": "undocs build"
+    "build": "undocs build",
+    "dev": "undocs dev"
   },
   "devDependencies": {
-    "undocs": "^0.3.10"
-  }
+    "undocs": "^0.4.1"
+  },
+  "packageManager": "pnpm@10.17.0"
 }
