@@ -18,6 +18,7 @@ const main = defineCommand({
     dir: {
       description: "current working directory",
       type: "string",
+      default: "."
     },
     input: {
       description: "name or path the markdown input to update",

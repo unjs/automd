@@ -224,3 +224,58 @@ Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/a
 </a>
 
 <!-- /automd -->
+
+## `cli-usage`
+
+<!-- automd:cli-usage command="srvx"-->
+
+```sh
+srvx - Start an HTTP server with the specified entry path.
+
+USAGE
+
+// server.ts
+export default {
+  fetch(req: Request) {
+    return new Response("Hello, World!");
+  }
+}
+
+# srvx [options] [entry]
+$ srvx ./server.ts            # Start development server
+$ srvx --prod                 # Start production  server
+$ srvx --port=8080            # Listen on port 8080
+$ srvx --host=localhost       # Bind to localhost only
+$ srvx --import=jiti/register # Enable [jiti](https://github.com/unjs/jiti) loader
+$ srvx --tls --cert=cert.pem --key=key.pem  # Enable TLS (HTTPS/HTTP2)
+
+
+ARGUMENTS
+
+  <entry>                  Server entry path to serve.
+                           Default: server, index, src/server, src/index, server/index (.mts,.ts,.cts,.js,.mjs,.cjs,.jsx,.tsx)
+
+OPTIONS
+
+  -p, --port <port>        Port to listen on (default: 3000)
+  --host <host>            Host to bind to (default: all interfaces)
+  -s, --static <dir>       Serve static files from the specified directory (default: public)
+  --prod                   Run in production mode (no watch, no debug)
+  --import <loader>        ES module to preload
+  --tls                    Enable TLS (HTTPS/HTTP2)
+  --cert <file>            TLS certificate file
+  --key  <file>            TLS private key file
+  -h, --help               Show this help message
+  -v, --version            Show server and runtime versions
+
+ENVIRONMENT
+
+  PORT                     Override port
+  HOST                     Override host
+  NODE_ENV                 Set to production for production mode.
+
+➤ [Documentation](https://srvx.h3.dev)
+➤ [Report issues](https://github.com/h3js/srvx/issues)
+```
+
+<!-- /automd -->
