@@ -5,6 +5,11 @@ shortDescription: "Markdown, Automated."
 description: "your automated markdown maintainer"
 github: "unjs/automd"
 url: "https://automd.unjs.io"
+socials:
+  twitter: "https://twitter.com/unjsio"
+  bluesky: "https://bsky.app/profile/unjs.io"
+sponsors:
+  api: https://sponsors.pi0.io/sponsors.json
 automd: true
 landing:
   contributors: true
