@@ -225,9 +225,9 @@ Made by [@pi0](https://github.com/pi0) and [community](https://github.com/unjs/a
 
 <!-- /automd -->
 
-## `cli-usage`
+## `cli-output`
 
-<!-- automd:cli-usage command="srvx"-->
+<!-- automd:cli-output command="srvx" usage -->
 
 ```sh
 srvx - Start an HTTP server with the specified entry path.
