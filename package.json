@@ -49,11 +49,11 @@
     "untyped": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "^24.4.0",
+    "@types/node": "^24.5.2",
     "@vitest/coverage-v8": "^3.2.4",
-    "automd": "^0.4.0",
+    "automd": "^0.4.2",
     "changelogen": "^0.6.2",
-    "eslint": "^9.35.0",
+    "eslint": "^9.36.0",
     "eslint-config-unjs": "^0.5.0",
     "jiti": "^2.5.1",
     "prettier": "^3.6.2",
@@ -61,5 +61,5 @@
     "unbuild": "^3.6.1",
     "vitest": "^3.2.4"
   },
-  "packageManager": "pnpm@10.16.1"
+  "packageManager": "pnpm@10.17.0"
 }
