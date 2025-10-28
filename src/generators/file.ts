@@ -34,6 +34,18 @@ export const file = defineGenerator({
       contents = lines.slice(startLine - 1, endLine).join("\n");
     }
 
+    if (args.delimiter) {
+      const delimiter = args.delimiter;
+      const startIndex = contents.indexOf(delimiter);
+      const endIndex = contents.lastIndexOf(delimiter);
+      if (startIndex === -1) {
+        throw new Error(`delimiter "${delimiter}" not found`);
+      } else if (endIndex === -1) {
+        throw new Error(`second delimiter "${delimiter}" not found`);
+      }
+      contents = contents.slice(startIndex + delimiter.length, endIndex);
+    }
+
     if (args.code) {
       contents = md.codeBlock(
         contents,
