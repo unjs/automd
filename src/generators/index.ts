@@ -7,6 +7,7 @@ import { jsimport } from "./jsimport";
 import { withAutomd } from "./with-automd";
 import { file } from "./file";
 import { contributors } from "./contributors";
+import { cliOutput } from "./cli-output";
 
 export default {
   jsdocs,
@@ -19,4 +20,5 @@ export default {
   jsimport,
   "with-automd": withAutomd,
   contributors,
+  "cli-output": cliOutput,
 } as Record<string, Generator>;

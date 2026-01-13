@@ -47,3 +47,8 @@
 
 <!-- automd:contributors author=pi0 license=MIT provider=markupgo  -->
 <!-- /automd -->
+
+## `cli-output`
+
+<!-- automd:cli-output command="srvx" usage -->
+<!-- /automd -->
