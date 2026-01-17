@@ -5,6 +5,7 @@ import { pmX, pmInstall } from "./pm";
 import { fetch as _fetch } from "./fetch";
 import { jsimport } from "./jsimport";
 import { withAutomd } from "./with-automd";
+import { srcLink } from "./src-link";
 import { file } from "./file";
 import { contributors } from "./contributors";
 
@@ -19,4 +20,5 @@ export default {
   jsimport,
   "with-automd": withAutomd,
   contributors,
+  "src-link": srcLink,
 } as Record<string, Generator>;
