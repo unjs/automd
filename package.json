@@ -20,7 +20,7 @@
   "scripts": {
     "automd": "jiti src/cli.ts",
     "docs:dev": "cd docs && bun i && bun dev",
-    "build": "pnpm automd && unbuild",
+    "build": "pnpm automd && obuild",
     "dev": "vitest -u",
     "lint": "oxlint --cache . && oxfmt --check src",
     "lint:fix": "pnpm automd && oxlint --cache . --fix && oxfmt --check src -w",
@@ -54,12 +54,11 @@
     "@vitest/coverage-v8": "^4.0.18",
     "automd": "^0.4.2",
     "changelogen": "^0.6.2",
-    "eslint-config-unjs": "^0.6.2",
     "jiti": "^2.6.1",
+    "obuild": "^0.4.22",
     "oxfmt": "^0.27.0",
     "oxlint": "^1.42.0",
     "typescript": "^5.9.3",
-    "unbuild": "^3.6.1",
     "vitest": "^4.0.18"
   },
   "packageManager": "pnpm@10.28.2"
