@@ -75,9 +75,6 @@ importers:
       changelogen:
         specifier: ^0.6.2
         version: 0.6.2(magicast@0.5.1)
-      jiti:
-        specifier: ^2.6.1
-        version: 2.6.1
       obuild:
         specifier: ^0.4.22
         version: 0.4.22(@typescript/native-preview@7.0.0-dev.20260129.1)(magicast@0.5.1)(typescript@5.9.3)

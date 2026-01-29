@@ -18,7 +18,7 @@
     "default": "./dist/index.mjs"
   },
   "scripts": {
-    "automd": "jiti src/cli.ts",
+    "automd": "node src/cli.ts",
     "docs:dev": "cd docs && bun i && bun dev",
     "build": "pnpm automd && obuild",
     "dev": "vitest -u",
@@ -54,7 +54,6 @@
     "@vitest/coverage-v8": "^4.0.18",
     "automd": "^0.4.2",
     "changelogen": "^0.6.2",
-    "jiti": "^2.6.1",
     "obuild": "^0.4.22",
     "oxfmt": "^0.27.0",
     "oxlint": "^1.42.0",

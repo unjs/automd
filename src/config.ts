@@ -58,13 +58,13 @@ export function resolveConfig(config?: Config | ResolvedConfig): ResolvedConfig 
     return config as ResolvedConfig;
   }
 
-  const _config = <ResolvedConfig>{
+  const _config = {
     dir: ".",
     input: "README.md",
     generators: {},
     [RESOLVED_CONFIG_SYMBOL]: true,
-    ...config,
-  };
+    ...config as Partial<ResolvedConfig>,
+  } as ResolvedConfig;
 
   _config.dir = resolve(_config.dir);
 

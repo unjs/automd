@@ -36,7 +36,7 @@ const badgeTypes = {
   },
 };
 
-const badgeProviders = <Record<string, BadgeProvider>>{
+const badgeProviders: Record<string, BadgeProvider> = {
   // https://shields.io/badges/static-badge
   shields: {
     npmVersion: "https://img.shields.io/npm/v/{name}",
