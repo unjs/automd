@@ -1,4 +1,4 @@
-import { defineGenerator } from "../generator";
+import { defineGenerator } from "../generator.ts";
 
 export const withAutomd = defineGenerator({
   name: "with-automd",

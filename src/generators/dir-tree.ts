@@ -1,7 +1,7 @@
 import { readdir, stat, readFile } from "node:fs/promises";
 import { join } from "pathe";
-import { defineGenerator } from "../generator";
-import { resolvePath } from "../_utils";
+import { defineGenerator } from "../generator.ts";
+import { resolvePath } from "../_utils.ts";
 
 interface TreeEntry {
   name: string;
@@ -100,7 +100,7 @@ function renderTree(entries: TreeEntry[], isLast: boolean[] = []): string[] {
   const lines: string[] = [];
 
   for (let i = 0; i < entries.length; i++) {
-    const entry = entries[i];
+    const entry = entries[i]!;
     const isLastEntry = i === entries.length - 1;
 
     let linePrefix = "";

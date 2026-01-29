@@ -1,6 +1,6 @@
-import type { Block } from "./_parse";
-import type { ResolvedConfig } from "./config";
-import type { TransformResult } from "./transform";
+import type { Block } from "./_parse.ts";
+import type { ResolvedConfig } from "./config.ts";
+import type { TransformResult } from "./transform.ts";
 
 export interface GenerateContext {
   args: Record<string, any>;

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { transform } from "../src";
+import { transform } from "../src/index.ts";
 
 describe("transform", () => {
   it("basic transform works", async () => {
@@ -26,7 +26,7 @@ describe("transform", () => {
     `);
 
     expect(result.updates).toHaveLength(1);
-    expect(result.updates[0].block).toMatchInlineSnapshot(`
+    expect(result.updates[0]!.block).toMatchInlineSnapshot(`
       {
         "_loc": {
           "end": 46,

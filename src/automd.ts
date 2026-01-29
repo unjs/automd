@@ -3,9 +3,9 @@ import { resolve, relative, dirname } from "pathe";
 import type { SubscribeCallback } from "@parcel/watcher";
 import { pathToFileURL } from "mlly";
 import { debounce } from "perfect-debounce";
-import type { Config, ResolvedConfig } from "./config";
-import { type TransformResult, transform } from "./transform";
-import { loadConfig } from "./config";
+import type { Config, ResolvedConfig } from "./config.ts";
+import { type TransformResult, transform } from "./transform.ts";
+import { loadConfig } from "./config.ts";
 
 export interface AutomdResult extends TransformResult {
   input: string;

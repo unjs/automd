@@ -1,6 +1,6 @@
 import { resolve } from "pathe";
-import type { Generator } from "./generator";
-import type { AutomdResult } from "./automd";
+import type { Generator } from "./generator.ts";
+import type { AutomdResult } from "./automd.ts";
 
 export interface Config {
   /**

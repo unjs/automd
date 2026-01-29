@@ -46,13 +46,13 @@ export function findBlocks(md: string): Block[] {
       continue;
     }
 
-    const start = match.index + match.groups.open.length;
-    const end = start + match.groups.contents.length;
+    const start = match.index + match.groups.open!.length || 0;
+    const end = start + match.groups.contents!.length;
 
     blocks.push({
-      generator: match.groups.generator,
-      rawArgs: match.groups.args,
-      contents: match.groups.contents,
+      generator: match.groups.generator!,
+      rawArgs: match.groups.args!,
+      contents: match.groups.contents!,
       loc: { start, end },
       _loc: { start: match.index, end: match.index + match[0].length },
     });

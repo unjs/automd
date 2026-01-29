@@ -1,8 +1,8 @@
 import MagicString from "magic-string";
-import builtinGenerators from "./generators";
-import { GenerateContext, GenerateResult } from "./generator";
-import { Block, containsAutomd, findBlocks, parseRawArgs } from "./_parse";
-import { Config, ResolvedConfig, resolveConfig } from "./config";
+import builtinGenerators from "./generators/index.ts";
+import type { GenerateContext, GenerateResult } from "./generator.ts";
+import { type Block, containsAutomd, findBlocks, parseRawArgs } from "./_parse.ts";
+import { type Config, type ResolvedConfig, resolveConfig } from "./config.ts";
 
 export interface TransformResult {
   /**

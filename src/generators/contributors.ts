@@ -1,5 +1,5 @@
-import { getPkg } from "../_utils";
-import { defineGenerator } from "../generator";
+import { getPkg } from "../_utils.ts";
+import { defineGenerator } from "../generator.ts";
 
 const PROVIDERS = {
   CONTRIB_ROCKS: "contrib.rocks",

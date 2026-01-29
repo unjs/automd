@@ -1,4 +1,4 @@
-import { automd } from "../src";
+import { automd } from "../src/index.ts";
 
 console.log("Starting automd with watcher on repo...");
 const { unwatch } = await automd({

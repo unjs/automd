@@ -1,13 +1,13 @@
-import { Generator } from "../generator";
-import { jsdocs } from "./jsdocs";
-import { badges } from "./badges";
-import { pmX, pmInstall } from "./pm";
-import { fetch as _fetch } from "./fetch";
-import { jsimport } from "./jsimport";
-import { withAutomd } from "./with-automd";
-import { file } from "./file";
-import { contributors } from "./contributors";
-import { dirTree } from "./dir-tree";
+import type { Generator } from "../generator.ts";
+import { jsdocs } from "./jsdocs.ts";
+import { badges } from "./badges.ts";
+import { pmX, pmInstall } from "./pm.ts";
+import { fetch as _fetch } from "./fetch.ts";
+import { jsimport } from "./jsimport.ts";
+import { withAutomd } from "./with-automd.ts";
+import { file } from "./file.ts";
+import { contributors } from "./contributors.ts";
+import { dirTree } from "./dir-tree.ts";
 
 export default {
   jsdocs,

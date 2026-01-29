@@ -4,15 +4,15 @@ import { relative } from "pathe";
 import { defineCommand, runMain } from "citty";
 import consola from "consola";
 import { colorize } from "consola/utils";
-import { name, description, version } from "../package.json";
-import { AutomdResult, automd } from "./automd";
-import { ResolvedConfig } from "./config";
+import pkg from "../package.json" with { type: "json" };
+import { type AutomdResult, automd } from "./automd.ts";
+import { type ResolvedConfig } from "./config.ts";
 
 const main = defineCommand({
   meta: {
-    name,
-    description,
-    version,
+    name: pkg.name,
+    description: pkg.description,
+    version: pkg.version,
   },
   args: {
     dir: {

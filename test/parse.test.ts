@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { parseRawArgs, findBlocks } from "../src/_parse";
+import { parseRawArgs, findBlocks } from "../src/_parse.ts";
 
 describe("parseRawArgs", () => {
   const tests = [

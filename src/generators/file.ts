@@ -1,8 +1,8 @@
 import { readFile } from "node:fs/promises";
 import { basename, extname } from "pathe";
 import { md } from "mdbox";
-import { defineGenerator } from "../generator";
-import { resolvePath } from "../_utils";
+import { defineGenerator } from "../generator.ts";
+import { resolvePath } from "../_utils.ts";
 
 export const file = defineGenerator({
   name: "file",

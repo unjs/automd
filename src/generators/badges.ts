@@ -1,6 +1,6 @@
 import { image, link } from "mdbox";
-import { defineGenerator } from "../generator";
-import { getPkg } from "../_utils";
+import { defineGenerator } from "../generator.ts";
+import { getPkg } from "../_utils.ts";
 
 type BadgeType = keyof typeof badgeTypes;
 type BadgeProvider = Record<BadgeType, string | false>;
@@ -81,7 +81,7 @@ export const badges = defineGenerator({
 
     const fillStr = (str: string) => str.replace(/{(\w+)}/g, (_, key) => ctx[key] || "");
 
-    const provider = badgeProviders[args.provider] || badgeProviders.shields;
+    const provider = badgeProviders[args.provider]! || badgeProviders.shields;
     const providerParams = Object.entries({
       color: args.color,
       labelColor: args.labelColor,

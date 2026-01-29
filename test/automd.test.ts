@@ -1,7 +1,7 @@
 import { fileURLToPath } from "node:url";
 import { expect, describe, it } from "vitest";
 import { format } from "prettier";
-import { automd } from "../src";
+import { automd } from "../src/index.ts";
 
 describe("automd generators", () => {
   let output: string;
@@ -12,7 +12,7 @@ describe("automd generators", () => {
       input: "INPUT.md",
       output: "OUTPUT.md",
     });
-    output = results[0].contents;
+    output = results[0]!.contents;
     await expect(output).toMatchFileSnapshot(`fixture/OUTPUT.md`);
 
     const issues = results

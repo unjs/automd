@@ -1,6 +1,6 @@
 import { md } from "mdbox";
-import { defineGenerator } from "../generator";
-import { getPkg } from "../_utils";
+import { defineGenerator } from "../generator.ts";
+import { getPkg } from "../_utils.ts";
 
 const INSTALL_COMMANDS = [
   ["npm", "install"],

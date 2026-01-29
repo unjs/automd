@@ -1,7 +1,7 @@
 import type { Schema } from "untyped";
 import { titleCase } from "scule";
-import { defineGenerator } from "../generator";
-import { resolvePath } from "../_utils";
+import { defineGenerator } from "../generator.ts";
+import { resolvePath } from "../_utils.ts";
 
 type RenderOptions = {
   group?: string | string[];
@@ -40,7 +40,7 @@ function _render(schema: Schema, opts: RenderOptions, headingLevel: number) {
       continue;
     }
     sections[section.group] = sections[section.group] || [];
-    sections[section.group].push([section.heading, section.lines]);
+    sections[section.group]!.push([section.heading, section.lines]);
   }
 
   const lines: string[] = [];
@@ -58,7 +58,7 @@ function _render(schema: Schema, opts: RenderOptions, headingLevel: number) {
     if (group) {
       lines.push(`\n${"#".repeat(headingLevel)} ${titleCase(group)}\n`);
     }
-    const sortedSections = sections[group].sort((a, b) => a[0].localeCompare(b[0]));
+    const sortedSections = sections[group]!.sort((a, b) => a[0].localeCompare(b[0]));
     for (const section of sortedSections) {
       const heading = `\n${"#".repeat(headingLevel + 1)} ${section[0]}\n`;
       lines.push(heading, ...section[1]);
@@ -172,7 +172,7 @@ function _parseTags(lines: string[] = []) {
         });
       }
       const [_tag, ...rest] = line.split(" ");
-      tag = _tag;
+      tag = _tag!;
       contentLines = rest;
     } else {
       contentLines.push(line);
