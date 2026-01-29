@@ -69,30 +69,17 @@ const _types = {
   issues: { label: "with issues", color: "yellow" },
 } as const;
 
-function _printResults(
-  results: AutomdResult[],
-  time: number,
-  config: ResolvedConfig,
-) {
+function _printResults(results: AutomdResult[], time: number, config: ResolvedConfig) {
   const rDir = relative(process.cwd(), config.dir);
-  consola.success(
-    `Automd updated${rDir ? ` in \`${rDir}\` dir` : ""} ${_formatTime(time)}\n`,
-  );
+  consola.success(`Automd updated${rDir ? ` in \`${rDir}\` dir` : ""} ${_formatTime(time)}\n`);
   for (const res of results) {
     const type = _getChangeType(res);
     const input = relative(config.dir, res.input);
     const output = relative(config.dir, res.output);
     const name = `${input === output ? `  ${input}` : `  ${input} ~> ${output}`}`;
-    consola.log(
-      colorize(
-        type.color,
-        `  ─  ${name} ${type.label} ${_formatTime(res.time)}`,
-      ),
-    );
+    consola.log(colorize(type.color, `  ─  ${name} ${type.label} ${_formatTime(res.time)}`));
   }
-  const issues = results
-    .filter((res) => res.hasIssues)
-    .map((res) => _formatIssues(res, config));
+  const issues = results.filter((res) => res.hasIssues).map((res) => _formatIssues(res, config));
   if (issues.length > 0) {
     consola.warn(`Some issues happened during automd update:`);
     for (const issue of issues) {

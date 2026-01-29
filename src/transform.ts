@@ -71,25 +71,15 @@ export async function transform(
   for (const block of blocks) {
     const result = await _transformBlock(block, config, generators, url);
     if (result.unwrap) {
-      editor.overwrite(
-        block._loc.start,
-        block._loc.end,
-        `${result.contents.trim()}`,
-      );
+      editor.overwrite(block._loc.start, block._loc.end, `${result.contents.trim()}`);
     } else {
-      editor.overwrite(
-        block.loc.start,
-        block.loc.end,
-        `\n\n${result.contents.trim()}\n\n`,
-      );
+      editor.overwrite(block.loc.start, block.loc.end, `\n\n${result.contents.trim()}\n\n`);
     }
     updates.push({ block, result });
   }
 
   const hasChanged = editor.hasChanged();
-  const hasIssues = updates.some(
-    (u) => u.result.issues?.filter(Boolean).length,
-  );
+  const hasIssues = updates.some((u) => u.result.issues?.filter(Boolean).length);
   const time = performance.now() - start;
 
   return {

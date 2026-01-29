@@ -32,14 +32,10 @@ export const pmInstall = defineGenerator({
 
     let versionSuffix = "";
     if (args.version) {
-      versionSuffix =
-        typeof args.version === "string" ? `@${args.version}` : `@^${version}`;
+      versionSuffix = typeof args.version === "string" ? `@${args.version}` : `@^${version}`;
     }
 
-    const commands =
-      args.auto === false
-        ? INSTALL_COMMANDS
-        : [NYPM_COMMAND, ...INSTALL_COMMANDS];
+    const commands = args.auto === false ? INSTALL_COMMANDS : [NYPM_COMMAND, ...INSTALL_COMMANDS];
 
     const contents = commands.map(
       ([cmd, install, dev = " -D", pkgPrefix = ""]) =>
@@ -72,13 +68,11 @@ export const pmX = defineGenerator({
 
     let versionSuffix = "";
     if (args.version) {
-      versionSuffix =
-        typeof args.version === "string" ? `@${args.version}` : `@${version}`;
+      versionSuffix = typeof args.version === "string" ? `@${args.version}` : `@${version}`;
     }
 
     const contents = RUN_COMMANDS.map(
-      ([pm, cmd]) =>
-        `# ${pm}\n${cmd}${name}${versionSuffix}${args.args ? ` ${args.args}` : ""}`,
+      ([pm, cmd]) => `# ${pm}\n${cmd}${name}${versionSuffix}${args.args ? ` ${args.args}` : ""}`,
     );
 
     if ((args.separate ?? false) === false) {

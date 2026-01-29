@@ -79,8 +79,7 @@ export const badges = defineGenerator({
       ...args,
     };
 
-    const fillStr = (str: string) =>
-      str.replace(/{(\w+)}/g, (_, key) => ctx[key] || "");
+    const fillStr = (str: string) => str.replace(/{(\w+)}/g, (_, key) => ctx[key] || "");
 
     const provider = badgeProviders[args.provider] || badgeProviders.shields;
     const providerParams = Object.entries({

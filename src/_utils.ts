@@ -4,10 +4,7 @@ import { defu } from "defu";
 import { fileURLToPath } from "mlly";
 import { resolve, join } from "pathe";
 
-export function resolvePath(
-  path: string,
-  { url, dir }: { url?: string; dir: string },
-) {
+export function resolvePath(path: string, { url, dir }: { url?: string; dir: string }) {
   if (path.startsWith("/")) {
     return join(dir, path);
   }
@@ -39,8 +36,7 @@ function _getGitRepo(repo: PackageJson["repository"]) {
   if (!url || typeof url !== "string") {
     return;
   }
-  const match =
-    /(?:https:\/\/github\.com\/|gh:|github:|)([\w-]+)\/([\w-]+)/.exec(url);
+  const match = /(?:https:\/\/github\.com\/|gh:|github:|)([\w-]+)\/([\w-]+)/.exec(url);
   if (match && match[1] && match[2]) {
     return `${match[1]}/${match[2]}`;
   }

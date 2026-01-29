@@ -15,9 +15,7 @@ export const withAutomd = defineGenerator({
       lines.push("---", "");
     }
 
-    lines.push(
-      `_${emoji}auto updated with [automd](https://automd.unjs.io)${lastUpdate}_`,
-    );
+    lines.push(`_${emoji}auto updated with [automd](https://automd.unjs.io)${lastUpdate}_`);
 
     return {
       contents: lines.join("\n"),

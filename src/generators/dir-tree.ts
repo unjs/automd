@@ -35,11 +35,7 @@ async function parseGitignore(dir: string): Promise<string[]> {
   }
 }
 
-function shouldIgnore(
-  name: string,
-  ignorePatterns: string[],
-  defaultIgnore: string[],
-): boolean {
+function shouldIgnore(name: string, ignorePatterns: string[], defaultIgnore: string[]): boolean {
   const allPatterns = [...defaultIgnore, ...ignorePatterns];
   for (const pattern of allPatterns) {
     const cleanPattern = pattern.replace(/^\//, "").replace(/\/$/, "");
@@ -84,12 +80,7 @@ async function buildTree(
     };
 
     if (isDirectory) {
-      treeEntry.children = await buildTree(
-        fullPath,
-        ignorePatterns,
-        maxDepth,
-        currentDepth + 1,
-      );
+      treeEntry.children = await buildTree(fullPath, ignorePatterns, maxDepth, currentDepth + 1);
     }
 
     result.push(treeEntry);

@@ -23,11 +23,7 @@ export const jsdocs = defineGenerator({
     });
 
     return {
-      contents: _render(
-        schema,
-        args as RenderOptions,
-        Number.parseInt(args.headingLevel) || 2,
-      )
+      contents: _render(schema, args as RenderOptions, Number.parseInt(args.headingLevel) || 2)
         .join("\n")
         .replace(/\n{3,}/g, "\n\n"),
     };
@@ -62,9 +58,7 @@ function _render(schema: Schema, opts: RenderOptions, headingLevel: number) {
     if (group) {
       lines.push(`\n${"#".repeat(headingLevel)} ${titleCase(group)}\n`);
     }
-    const sortedSections = sections[group].sort((a, b) =>
-      a[0].localeCompare(b[0]),
-    );
+    const sortedSections = sections[group].sort((a, b) => a[0].localeCompare(b[0]));
     for (const section of sortedSections) {
       const heading = `\n${"#".repeat(headingLevel + 1)} ${section[0]}\n`;
       lines.push(heading, ...section[1]);
@@ -76,12 +70,7 @@ function _render(schema: Schema, opts: RenderOptions, headingLevel: number) {
 
 // --- section renderer ---
 
-function _renderSection(
-  key: string,
-  schema: Schema,
-  opts: RenderOptions,
-  headingLevel: number,
-) {
+function _renderSection(key: string, schema: Schema, opts: RenderOptions, headingLevel: number) {
   // Parse tag annotations
   const tags = _parseTags(schema.tags);
 
@@ -91,15 +80,12 @@ function _renderSection(
   }
 
   // Find group
-  const group =
-    tags.find((t) => t.tag === "@group")?.contents || opts.defaultGroup || "";
+  const group = tags.find((t) => t.tag === "@group")?.contents || opts.defaultGroup || "";
 
   // Filter by group if specified
   if (
     opts.group &&
-    (typeof opts.group === "string"
-      ? group !== opts.group
-      : !opts.group.includes(group))
+    (typeof opts.group === "string" ? group !== opts.group : !opts.group.includes(group))
   ) {
     return;
   }
@@ -112,9 +98,7 @@ function _renderSection(
     heading = `\`${_generateFunctionSig(key, schema)}\``;
   } else if (schema.type !== "object") {
     // JS value
-    lines.push(
-      `- **Type**: \`${schema.markdownType || schema.tsType || schema.type}\``,
-    );
+    lines.push(`- **Type**: \`${schema.markdownType || schema.tsType || schema.type}\``);
     if ("default" in schema) {
       lines.push(`- **Default**: \`${JSON.stringify(schema.default)}\``);
     }

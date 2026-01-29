@@ -53,9 +53,7 @@ export type ResolvedConfig = { [P in keyof Config]-?: Config[P] } & {
   output?: string;
 };
 
-export function resolveConfig(
-  config?: Config | ResolvedConfig,
-): ResolvedConfig {
+export function resolveConfig(config?: Config | ResolvedConfig): ResolvedConfig {
   if (config && RESOLVED_CONFIG_SYMBOL in config) {
     return config as ResolvedConfig;
   }
@@ -70,17 +68,12 @@ export function resolveConfig(
 
   _config.dir = resolve(_config.dir);
 
-  _config.input = (
-    Array.isArray(_config.input) ? _config.input : [_config.input]
-  ).filter(Boolean);
+  _config.input = (Array.isArray(_config.input) ? _config.input : [_config.input]).filter(Boolean);
 
   return _config;
 }
 
-export async function loadConfig(
-  dir = ".",
-  overrides: Config,
-): Promise<ResolvedConfig> {
+export async function loadConfig(dir = ".", overrides: Config): Promise<ResolvedConfig> {
   const { loadConfig } = await import("c12");
 
   dir = resolve(dir);

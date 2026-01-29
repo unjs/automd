@@ -45,24 +45,18 @@ export const jsimport = defineGenerator({
     };
 
     if (args.esm !== false) {
-      const code = formatMultiLine(
-        `import {${fmtImports}} from "${importPath}";`,
-      );
+      const code = formatMultiLine(`import {${fmtImports}} from "${importPath}";`);
       lines.push("**ESM** (Node.js, Bun, Deno)", md.codeBlock(code, "js"));
     }
 
     if (args.cjs) {
-      const code = formatMultiLine(
-        `const {${fmtImports}} = require("${importPath}");`,
-      );
+      const code = formatMultiLine(`const {${fmtImports}} = require("${importPath}");`);
       lines.push("**CommonJS** (Legacy Node.js)", md.codeBlock(code, "js"));
     }
 
     if (args.cdn) {
       const cdnBase = typeof args.cdn === "string" ? args.cdn : DEFAULT_CDN;
-      const code = formatMultiLine(
-        `import {${fmtImports}} from "${cdnBase}${importPath}";`,
-      );
+      const code = formatMultiLine(`import {${fmtImports}} from "${cdnBase}${importPath}";`);
       lines.push("**CDN** (Deno and Browsers)", md.codeBlock(code, "js"));
     }
 

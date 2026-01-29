@@ -70,9 +70,7 @@ export async function automd(_config: Config = {}): Promise<AutomdReturn> {
 
   const cache: ResultCache = new Map();
 
-  const results = await Promise.all(
-    inputFiles.map((i) => _automd(i, config, multiFiles, cache)),
-  );
+  const results = await Promise.all(inputFiles.map((i) => _automd(i, config, multiFiles, cache)));
 
   let unwatch;
   if (config.watch) {
@@ -109,11 +107,7 @@ async function _automd(
     return cachedResult;
   }
 
-  const transformResult = await transform(
-    contents,
-    config,
-    pathToFileURL(input),
-  );
+  const transformResult = await transform(contents, config, pathToFileURL(input));
 
   const output = multiFiles
     ? resolve(config.dir, config.output || ".", relativeInput)

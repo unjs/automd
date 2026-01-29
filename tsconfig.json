@@ -8,9 +8,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "automd": [
-        "./src/index.ts"
-      ]
+      "automd": ["./src/index.ts"]
     }
   }
 }

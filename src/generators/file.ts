@@ -14,9 +14,7 @@ export const file = defineGenerator({
     }
 
     if (args.lines) {
-      const groups = /^(?<startLine>\d+)?:(?<endLine>\d+)?$/.exec(
-        args.lines,
-      )?.groups;
+      const groups = /^(?<startLine>\d+)?:(?<endLine>\d+)?$/.exec(args.lines)?.groups;
 
       if (!groups) {
         throw new Error("invalid lines format");
@@ -35,14 +33,10 @@ export const file = defineGenerator({
     }
 
     if (args.code) {
-      contents = md.codeBlock(
-        contents,
-        args.lang || extname(fullPath).slice(1),
-        {
-          // prettier-ignore
-          ext: args.name === false ? undefined : (typeof args.name === 'string' ? args.name : `[${basename(fullPath)}]`),
-        },
-      );
+      contents = md.codeBlock(contents, args.lang || extname(fullPath).slice(1), {
+        // prettier-ignore
+        ext: args.name === false ? undefined : (typeof args.name === 'string' ? args.name : `[${basename(fullPath)}]`),
+      });
     }
 
     return {
