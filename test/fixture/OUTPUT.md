@@ -125,7 +125,7 @@ The price
 
 A list of tags
 
-### `sendMessage(message, date, flash?)`
+### `sendMessage(_message, date, flash?)`
 
 Send a message
 
