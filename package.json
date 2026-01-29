@@ -26,7 +26,7 @@
     "format": "pnpm automd && oxlint . --fix && oxfmt --write src",
     "prepack": "pnpm build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags && pnpm build --stub",
-    "test": "pnpm lint && pnpm test:types && vitest run --coverage",
+    "test": "pnpm lint && pnpm typecheck && vitest run --coverage",
     "typecheck": "tsgo --noEmit --skipLibCheck"
   },
   "dependencies": {
