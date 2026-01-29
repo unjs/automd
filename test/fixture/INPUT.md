@@ -40,6 +40,12 @@
 <!-- automd:file src="./TEST.md" lines=1:5 -->
 <!-- /automd -->
 
+## `file-with-delimiters`
+
+<!-- will look for the word "can" and extract the content between the two "can" strings -->
+<!-- automd:file src="./TEST.md" delimiter=can -->
+<!-- /automd -->
+
 ## `contributors`
 
 <!-- automd:contributors author=pi0 license=MIT -->

@@ -201,6 +201,15 @@ When your code doesn't work, don't blame yourself. It's clearly the compiler's f
 
 <!-- /automd -->
 
+## `file-with-delimiters`
+
+<!-- will look for the word "can" and extract the content between the two "can" strings -->
+<!-- automd:file src="./TEST.md" delimiter=can -->
+
+be hard. But fear not! With the power of copy-paste, you
+
+<!-- /automd -->
+
 ## `contributors`
 
 <!-- automd:contributors author=pi0 license=MIT -->

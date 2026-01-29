@@ -69,3 +69,13 @@ File name in code. Use `no-name` to disable name in code.
 ::field{name="noTrim" type="boolean"}
 Don't trim the file contents.
 ::
+
+::field{name="lines" type="string"}
+Limit content to specific lines. e.g. `1:10` for lines 1 to 10.
+::
+
+::field{name="delimiter" type="string"}
+Limit content using a delimiter string. e.g. `// #######MyFunction#######`   
+Delimiter strings can only come in pairs on the src file.
+::
+
