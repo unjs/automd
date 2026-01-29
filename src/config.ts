@@ -63,7 +63,7 @@ export function resolveConfig(config?: Config | ResolvedConfig): ResolvedConfig 
     input: "README.md",
     generators: {},
     [RESOLVED_CONFIG_SYMBOL]: true,
-    ...config as Partial<ResolvedConfig>,
+    ...(config as Partial<ResolvedConfig>),
   } as ResolvedConfig;
 
   _config.dir = resolve(_config.dir);

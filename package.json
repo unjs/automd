@@ -23,7 +23,7 @@
     "build": "pnpm automd && obuild",
     "dev": "vitest -u",
     "lint": "oxlint . && oxfmt --check src",
-    "format": "pnpm automd && oxlint --cache . --fix && oxfmt --check src -w",
+    "format": "pnpm automd && oxlint . --fix && oxfmt --write src",
     "prepack": "pnpm build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags && pnpm build --stub",
     "test": "pnpm lint && pnpm test:types && vitest run --coverage",
