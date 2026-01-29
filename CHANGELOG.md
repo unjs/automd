@@ -1,6 +1,36 @@
 # Changelog
 
 
+## v0.4.3
+
+[compare changes](https://github.com/unjs/automd/compare/v0.4.2...v0.4.3)
+
+### 🚀 Enhancements
+
+- `dir-tree` generator ([#132](https://github.com/unjs/automd/pull/132))
+
+### 📦 Build
+
+- Switch to obuild ([bdf7c15](https://github.com/unjs/automd/commit/bdf7c15))
+
+### 🏡 Chore
+
+- Update undocs ([af08d15](https://github.com/unjs/automd/commit/af08d15))
+- Update docs ([21f1c63](https://github.com/unjs/automd/commit/21f1c63))
+- Migrate to oxlint and oxfmt ([5d236fc](https://github.com/unjs/automd/commit/5d236fc))
+- Update ([562c1e9](https://github.com/unjs/automd/commit/562c1e9))
+- Improve types ([b8b4af3](https://github.com/unjs/automd/commit/b8b4af3))
+- Use native typescript support ([da3cea6](https://github.com/unjs/automd/commit/da3cea6))
+- Fix lint issues ([180add9](https://github.com/unjs/automd/commit/180add9))
+- Lint ([3816fad](https://github.com/unjs/automd/commit/3816fad))
+- Update ci ([982c3bb](https://github.com/unjs/automd/commit/982c3bb))
+- Update test script ([529c4b1](https://github.com/unjs/automd/commit/529c4b1))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- Rihan Arfan ([@RihanArfan](https://github.com/RihanArfan))
+
 ## v0.4.2
 
 [compare changes](https://github.com/unjs/automd/compare/v0.4.1...v0.4.2)
