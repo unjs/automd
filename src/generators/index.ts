@@ -8,6 +8,7 @@ import { withAutomd } from "./with-automd.ts";
 import { file } from "./file.ts";
 import { contributors } from "./contributors.ts";
 import { dirTree } from "./dir-tree.ts";
+import { uiCodeTree } from "./ui-code-tree.ts";
 
 export default {
   jsdocs,
@@ -21,4 +22,5 @@ export default {
   "with-automd": withAutomd,
   contributors,
   "dir-tree": dirTree,
+  "ui-code-tree": uiCodeTree,
 } as Record<string, Generator>;
