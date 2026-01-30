@@ -60,11 +60,7 @@ async function parseGitignore(dir: string): Promise<string[]> {
   }
 }
 
-function shouldIgnore(
-  name: string,
-  ignorePatterns: string[],
-  defaultIgnore: string[],
-): boolean {
+function shouldIgnore(name: string, ignorePatterns: string[], defaultIgnore: string[]): boolean {
   const allPatterns = [...defaultIgnore, ...ignorePatterns];
   for (const pattern of allPatterns) {
     const cleanPattern = pattern.replace(/^\//, "").replace(/\/$/, "");
@@ -207,12 +203,7 @@ export const uiCodeTree = defineGenerator({
     const defaultValue = args.defaultValue || args.default;
     const expandAll = args.expandAll !== undefined && args.expandAll !== "false";
 
-    const files = await collectFiles(
-      fullPath,
-      fullPath,
-      ignorePatterns,
-      maxDepth,
-    );
+    const files = await collectFiles(fullPath, fullPath, ignorePatterns, maxDepth);
 
     if (files.length === 0) {
       return {
