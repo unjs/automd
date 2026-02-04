@@ -15,7 +15,7 @@ The `badges` generator generates badges for the latest npm version, npm download
 
     <!-- automd:badges color="yellow" license name="defu" codecov bundlephobia packagephobia -->
 
-    [![npm version](https://img.shields.io/npm/v/defu?color=yellow)](https://npmjs.com/package/defu)
+    [![npm version](https://img.shields.io/npm/v/defu?color=yellow)](https://npmx.dev/defu)
     [![npm downloads](https://img.shields.io/npm/dm/defu?color=yellow)](https://npm.chart.dev/defu)
     [![bundle size](https://img.shields.io/bundlephobia/minzip/defu?color=yellow)](https://bundlephobia.com/package/defu)
     [![install size](https://badgen.net/packagephobia/install/defu?color=yellow)](https://packagephobia.com/result?p=defu)

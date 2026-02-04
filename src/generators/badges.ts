@@ -8,7 +8,7 @@ type BadgeProvider = Record<BadgeType, string | false>;
 const badgeTypes = {
   npmVersion: {
     name: "npm version",
-    to: "https://npmjs.com/package/{name}",
+    to: "https://npmx.dev/{name}",
   },
   npmDownloads: {
     name: "npm downloads",
