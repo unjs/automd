@@ -62,6 +62,10 @@ Hide npm downloads badge
 Hide npm version badge
 ::
 
+::field{name="npmx" type="boolean"}
+Link npm version badge to [npmx.dev](https://npmx.dev) instead of npmjs.com
+::
+
 ::field{name="provider" type="string"}
 Can be one of `shields` (for [shields.io](https://shields.io/)) or `badgen` / `badgenClassic` (for [badgen.net](https://badgen.net/)). Default is `badgen`.
 ::
