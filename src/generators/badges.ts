@@ -8,7 +8,8 @@ type BadgeProvider = Record<BadgeType, string | false>;
 const badgeTypes = {
   npmVersion: {
     name: "npm version",
-    to: "https://npmx.dev/{name}",
+    to: "https://npmjs.com/package/{name}",
+    toNpmx: "https://npmx.dev/{name}",
   },
   npmDownloads: {
     name: "npm downloads",
@@ -94,7 +95,8 @@ export const badges = defineGenerator({
     const badges = {
       npmVersion: {
         enabled: ctx.name && args.npmVersion !== false,
-        ...badgeTypes.npmVersion,
+        name: badgeTypes.npmVersion.name,
+        to: args.npmx ? badgeTypes.npmVersion.toNpmx : badgeTypes.npmVersion.to,
       },
       npmDownloads: {
         enabled: ctx.name && args.npmDownloads !== false,
