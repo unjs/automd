@@ -66,6 +66,16 @@ const badgeProviders: Record<string, BadgeProvider> = {
     codecov: "https://badgen.net/codecov/c/github/{github}",
     license: "https://badgen.net/github/license/{github}",
   },
+  // https://docs.npmx.dev/guide/features#custom-badges
+  npmx: {
+    npmVersion: "https://npmx.dev/api/registry/badge/version/{name}",
+    npmDownloads: "https://npmx.dev/api/registry/badge/downloads-month/{name}",
+    bundlephobia: false,
+    bundlejs: false,
+    packagephobia: "https://npmx.dev/api/registry/badge/size/{name}",
+    codecov: false,
+    license: "https://npmx.dev/api/registry/badge/license/{name}",
+  },
 };
 
 export const badges = defineGenerator({
