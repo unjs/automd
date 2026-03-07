@@ -5,6 +5,9 @@
 <!-- automd:badges bundlephobia packagephobia  -->
 <!-- /automd -->
 
+<!-- automd:badges provider=npmx license packagephobia -->
+<!-- /automd -->
+
 ## `pm-x`
 
 <!-- automd:pm-x args=. -->

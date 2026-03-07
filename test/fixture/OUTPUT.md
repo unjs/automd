@@ -11,6 +11,15 @@
 
 <!-- /automd -->
 
+<!-- automd:badges provider=npmx license packagephobia -->
+
+[![npm version](https://npmx.dev/api/registry/badge/version/automd)](https://npmjs.com/package/automd)
+[![npm downloads](https://npmx.dev/api/registry/badge/downloads-month/automd)](https://npm.chart.dev/automd)
+[![install size](https://npmx.dev/api/registry/badge/size/automd)](https://packagephobia.com/result?p=automd)
+[![license](https://npmx.dev/api/registry/badge/license/automd)](https://github.com/unjs/automd/blob/main/LICENSE)
+
+<!-- /automd -->
+
 ## `pm-x`
 
 <!-- automd:pm-x args=. -->
