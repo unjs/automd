@@ -46,7 +46,7 @@ The package name (by default tries to read from the `name` field in `package.jso
 ::
 
 ::field{name="import/imports" type="string"}
-Array or comma seperated list of export names.
+Array or comma separated list of export names.
 ::
 
 ::field{name="no-esm" type="boolean"}
