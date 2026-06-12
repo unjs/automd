@@ -6,6 +6,7 @@ import consola from "consola";
 import { colorize } from "consola/utils";
 import pkg from "../package.json" with { type: "json" };
 import { type AutomdResult, automd } from "./automd.ts";
+import { normalizeCliInput } from "./cli-input.ts";
 import { type ResolvedConfig } from "./config.ts";
 
 const main = defineCommand({
@@ -36,7 +37,7 @@ const main = defineCommand({
   async setup({ args }) {
     const { results, config, time } = await automd({
       dir: args.dir,
-      input: args.input?.split(",").map((i) => i.trim()),
+      input: normalizeCliInput(args.input, args._),
       output: args.output,
       watch: args.watch,
       onWatch: (event) => {

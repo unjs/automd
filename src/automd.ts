@@ -1,4 +1,4 @@
-import { existsSync, promises as fsp } from "node:fs";
+import { existsSync, promises as fsp, statSync } from "node:fs";
 import { resolve, relative, dirname } from "pathe";
 import type { SubscribeCallback } from "@parcel/watcher";
 import { pathToFileURL } from "mlly";
@@ -63,7 +63,7 @@ export async function automd(_config: Config = {}): Promise<AutomdReturn> {
   } else {
     inputFiles = inputFiles
       .map((i) => resolve(config.dir, i))
-      .filter((i) => existsSync(i))
+      .filter((i) => existsSync(i) && statSync(i).isFile())
       .map((i) => relative(config.dir, i));
   }
   const multiFiles = inputFiles.length > 1;
