@@ -85,10 +85,12 @@ export function containsAutomd(md: string) {
 export function parseRawArgs(rawArgs: string) {
   const args = Object.create(null);
 
-  for (const part of rawArgs.split(/\s+/)) {
-    const [_key, value] = part.split("=");
+  for (const part of rawArgs.match(/(?:[^\s"]+|"(?:\\.|[^"\\])*")+/g) || []) {
+    const separatorIndex = part.indexOf("=");
+    const _key = separatorIndex === -1 ? part : part.slice(0, separatorIndex);
+    const value = separatorIndex === -1 ? undefined : part.slice(separatorIndex + 1);
     const key = _key && camelCase(_key);
-    if (key && value) {
+    if (key && value !== undefined) {
       args[key] = destr(value);
     } else if (part.startsWith("no-")) {
       args[part.slice(3)] = false;

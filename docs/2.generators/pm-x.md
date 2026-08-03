@@ -8,25 +8,25 @@ The `pm-x` generator generates commands for running/executing a package through 
 
 ### Input
 
-    <!-- automd:pm-x version="latest" name="package-name" args="\"[files]" <flags>" -->
+    <!-- automd:pm-x version="latest" name="package-name" args="[files] <flags>" -->
     <!-- /automd -->
 
 ### Output
 
-    <!-- automd:pm-x version="latest" name="package-name" args="\"[files]" <flags>" -->
+    <!-- automd:pm-x version="latest" name="package-name" args="[files] <flags>" -->
 
     ```sh
     # npm
-    npx package-name@latest "[files]
+    npx package-name@latest [files] <flags>
 
     # pnpm
-    pnpm dlx package-name@latest "[files]
+    pnpm dlx package-name@latest [files] <flags>
 
     # bun
-    bunx package-name@latest "[files]
+    bunx package-name@latest [files] <flags>
 
     # deno
-    deno run -A npm:package-name@latest "[files]
+    deno run -A npm:package-name@latest [files] <flags>
     ```
 
     <!-- /automd -->
