@@ -183,6 +183,28 @@ describe("automd input patterns and CLI", () => {
     ).rejects.toThrow(/resolves outside output directory/);
   });
 
+  it.each([{ flags: ["--input", ""] }, { flags: ["--input="] }])(
+    "rejects an explicitly empty input ($flags)",
+    async ({ flags }) => {
+      const dir = await createTempDir();
+      const readme = join(dir, "README.md");
+      const contents = '<!-- automd:file src="/snippet.txt" -->\n<!-- /automd -->\n';
+      await fsp.writeFile(readme, contents, "utf8");
+      await fsp.writeFile(join(dir, "snippet.txt"), "Generated content", "utf8");
+
+      await expect(
+        execFileAsync(process.execPath, [cliPath, "--dir", dir, ...flags]),
+      ).rejects.toMatchObject({
+        code: 1,
+        stderr: expect.stringContaining("--input requires at least one path"),
+      });
+      expect(await fsp.readFile(readme, "utf8")).toBe(contents);
+
+      await execFileAsync(process.execPath, [cliPath, "--dir", dir]);
+      expect(await fsp.readFile(readme, "utf8")).toContain("Generated content");
+    },
+  );
+
   it("processes all shell-expanded CLI inputs and ignores directory entries without EISDIR", async () => {
     const dir = await createTempDir();
     await fsp.mkdir(join(dir, "content/1.getting-started"), { recursive: true });

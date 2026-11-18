@@ -40,13 +40,18 @@ export function resolveCliInputs(
       flagInputs.push(arg.slice("--input=".length));
     }
   }
+  if (flagInputs.length === 0 && args.input !== undefined) {
+    flagInputs.push(args.input);
+  }
   const baseDir = resolve(args.dir || ".");
-  const rawFlagInputs = flagInputs.length > 0 ? flagInputs : args.input ? [args.input] : [];
-  const parsedFlagInputs = rawFlagInputs.flatMap((value) => {
+  const parsedFlagInputs = flagInputs.flatMap((value) => {
     return value && safeStat(resolve(baseDir, value)) ? [value] : _splitInput(value);
   });
   const positionalInputs = (args._ || []).filter(Boolean);
   const resolved = [...parsedFlagInputs, ...positionalInputs];
+  if (flagInputs.length > 0 && resolved.length === 0) {
+    throw new Error("--input requires at least one path");
+  }
   return resolved.length > 0 ? resolved : undefined;
 }
 
