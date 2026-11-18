@@ -183,13 +183,24 @@ describe("automd input patterns and CLI", () => {
     ).rejects.toThrow(/resolves outside output directory/);
   });
 
-  it.each([{ flags: ["--input", ""] }, { flags: ["--input="] }, { flags: ["--input"] }])(
-    "rejects an explicitly empty input ($flags)",
+  it.each([
+    { flags: ["--input", ""] },
+    { flags: ["--input="] },
+    { flags: ["--input"] },
+    { flags: ["--input", "--input=one.md"] },
+    { flags: ["--input", "--dir", "."] },
+    { flags: ["--input=", "one.md"] },
+    { flags: ["--input=", "--input=one.md"] },
+    { flags: ["--input", " , ", "one.md"] },
+  ])(
+    "rejects an explicitly empty or missing input ($flags)",
     async ({ flags }) => {
       const dir = await createTempDir();
       const readme = join(dir, "README.md");
+      const one = join(dir, "one.md");
       const contents = '<!-- automd:file src="/snippet.txt" -->\n<!-- /automd -->\n';
       await fsp.writeFile(readme, contents, "utf8");
+      await fsp.writeFile(one, contents, "utf8");
       await fsp.writeFile(join(dir, "snippet.txt"), "Generated content", "utf8");
 
       await expect(
@@ -199,11 +210,34 @@ describe("automd input patterns and CLI", () => {
         stderr: expect.stringContaining("--input requires at least one path"),
       });
       expect(await fsp.readFile(readme, "utf8")).toBe(contents);
+      expect(await fsp.readFile(one, "utf8")).toBe(contents);
 
       await execFileAsync(process.execPath, [cliPath, "--dir", dir]);
       expect(await fsp.readFile(readme, "utf8")).toContain("Generated content");
     },
   );
+
+  it("accepts dash-prefixed filenames and attached option-shaped filenames", async () => {
+    const dir = await createTempDir();
+    const dashFile = join(dir, "-draft.md");
+    const optFile = join(dir, "--input=one.md");
+    const template = '<!-- automd:file src="/snippet.txt" -->\n<!-- /automd -->\n';
+    await fsp.writeFile(join(dir, "snippet.txt"), "Dash ok", "utf8");
+    await fsp.writeFile(dashFile, template, "utf8");
+    await fsp.writeFile(optFile, template, "utf8");
+
+    await execFileAsync(process.execPath, [
+      cliPath,
+      "--dir",
+      dir,
+      "--input",
+      "-draft.md",
+      "--input=--input=one.md",
+    ]);
+
+    expect(await fsp.readFile(dashFile, "utf8")).toContain("Dash ok");
+    expect(await fsp.readFile(optFile, "utf8")).toContain("Dash ok");
+  });
 
   it("checks a trimmed whole input before splitting a comma list", async () => {
     const dir = await createTempDir();
