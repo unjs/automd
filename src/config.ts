@@ -67,7 +67,7 @@ export function resolveConfig(config?: Config | ResolvedConfig): ResolvedConfig 
   } as ResolvedConfig;
 
   _config.dir = resolve(_config.dir);
-
+  _config.input ??= "README.md" as unknown as string[];
   _config.input = (Array.isArray(_config.input) ? _config.input : [_config.input]).filter(Boolean);
 
   return _config;
@@ -88,6 +88,10 @@ export async function loadConfig(dir = ".", overrides: Config): Promise<Resolved
       dir,
     },
   });
+
+  if (overrides?.input !== undefined && config) {
+    config.input = overrides.input;
+  }
 
   return resolveConfig(config as Config);
 }
