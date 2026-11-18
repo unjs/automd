@@ -86,6 +86,24 @@ describe("resolveCliInputs", () => {
 });
 
 describe("automd input patterns and CLI", () => {
+  it.skipIf(process.platform === "win32")(
+    "preserves whitespace in exact CLI filenames",
+    async () => {
+      const dir = await createTempDir();
+      const first = " leading.md";
+      const second = "trailing.md ";
+      const template = '<!-- automd:file src="/snippet.txt" -->\n<!-- /automd -->\n';
+      await fsp.writeFile(join(dir, "snippet.txt"), "Exact path");
+      await fsp.writeFile(join(dir, first), template);
+      await fsp.writeFile(join(dir, second), template);
+
+      await execFileAsync(process.execPath, [cliPath, "--dir", dir, "--input", first, second]);
+
+      expect(await fsp.readFile(join(dir, first), "utf8")).toContain("Exact path");
+      expect(await fsp.readFile(join(dir, second), "utf8")).toContain("Exact path");
+    },
+  );
+
   it("expands brace/wildcard globs, skips directories, and deduplicates files", async () => {
     const dir = await createTempDir();
     await fsp.mkdir(join(dir, "content/sub"), { recursive: true });

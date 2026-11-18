@@ -43,16 +43,9 @@ export function resolveCliInputs(
   const baseDir = resolve(args.dir || ".");
   const rawFlagInputs = flagInputs.length > 0 ? flagInputs : args.input ? [args.input] : [];
   const parsedFlagInputs = rawFlagInputs.flatMap((value) => {
-    const trimmed = value.trim();
-    if (!trimmed) {
-      return [];
-    }
-    if (safeStat(resolve(baseDir, trimmed))) {
-      return [trimmed];
-    }
-    return _splitInput(value);
+    return value && safeStat(resolve(baseDir, value)) ? [value] : _splitInput(value);
   });
-  const positionalInputs = (args._ || []).map((i) => i.trim()).filter(Boolean);
+  const positionalInputs = (args._ || []).filter(Boolean);
   const resolved = [...parsedFlagInputs, ...positionalInputs];
   return resolved.length > 0 ? resolved : undefined;
 }
