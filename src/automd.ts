@@ -1,8 +1,9 @@
-import { existsSync, promises as fsp } from "node:fs";
-import { resolve, relative, dirname } from "pathe";
+import { promises as fsp } from "node:fs";
+import { resolve, relative, dirname, isAbsolute } from "pathe";
 import type { SubscribeCallback } from "@parcel/watcher";
 import { pathToFileURL } from "mlly";
 import { debounce } from "perfect-debounce";
+import { safeStat } from "./_utils.ts";
 import type { Config, ResolvedConfig } from "./config.ts";
 import { type TransformResult, transform } from "./transform.ts";
 import { loadConfig } from "./config.ts";
@@ -51,21 +52,51 @@ export async function automd(_config: Config = {}): Promise<AutomdReturn> {
   const start = performance.now();
   const config = await loadConfig(_config.dir, _config);
 
-  let inputFiles = config.input;
-  if (inputFiles.some((i) => i.includes("*"))) {
-    const { glob } = await import("tinyglobby");
-    inputFiles = await glob(inputFiles, {
-      cwd: config.dir,
-      absolute: false,
-      onlyFiles: true,
-      ignore: config.ignore,
-    });
-  } else {
-    inputFiles = inputFiles
-      .map((i) => resolve(config.dir, i))
-      .filter((i) => existsSync(i))
-      .map((i) => relative(config.dir, i));
+  const literalFiles: string[] = [];
+  const globPatterns: string[] = [];
+
+  for (const rawInput of config.input) {
+    const fullPath = resolve(config.dir, rawInput);
+    const stat = safeStat(fullPath);
+    if (stat) {
+      if (stat.isFile()) {
+        literalFiles.push(relative(config.dir, fullPath));
+      }
+      continue;
+    }
+    const normalized =
+      process.platform === "win32" ? rawInput.replace(/\\(?![[\]{}()!\\])/g, "/") : rawInput;
+    if (/[*?[\]{}()!]/.test(normalized)) {
+      globPatterns.push(normalized);
+    }
   }
+
+  let inputFiles = literalFiles;
+  if (globPatterns.length > 0) {
+    const { escapePath, glob, isDynamicPattern } = await import("tinyglobby");
+    const dynamicPatterns = globPatterns.filter((p) => isDynamicPattern(p));
+    if (dynamicPatterns.length > 0) {
+      const externalLiterals: string[] = [];
+      const inDirPatterns: string[] = [];
+      for (const file of literalFiles) {
+        if (file === ".." || file.startsWith("../") || isAbsolute(file)) {
+          externalLiterals.push(file);
+        } else {
+          inDirPatterns.push(escapePath(file));
+        }
+      }
+      const matched = await glob([...inDirPatterns, ...dynamicPatterns], {
+        cwd: config.dir,
+        absolute: false,
+        onlyFiles: true,
+        ignore: config.ignore,
+      });
+      const globFiles = matched.map((f) => relative(config.dir, resolve(config.dir, f)));
+      inputFiles = [...externalLiterals, ...globFiles];
+    }
+  }
+
+  inputFiles = [...new Set(inputFiles)];
   const multiFiles = inputFiles.length > 1;
 
   const cache: ResultCache = new Map();
@@ -109,9 +140,23 @@ async function _automd(
 
   const transformResult = await transform(contents, config, pathToFileURL(input));
 
-  const output = multiFiles
-    ? resolve(config.dir, config.output || ".", relativeInput)
-    : resolve(config.dir, config.output || relativeInput);
+  let output: string;
+  if (multiFiles) {
+    if (config.output) {
+      const outputDir = resolve(config.dir, config.output);
+      output = resolve(outputDir, relativeInput);
+      const relOutput = relative(outputDir, output);
+      if (relOutput === ".." || relOutput.startsWith("../") || isAbsolute(relOutput)) {
+        throw new Error(
+          `Input "${relativeInput}" resolves outside output directory "${config.output}"`,
+        );
+      }
+    } else {
+      output = resolve(config.dir, relativeInput);
+    }
+  } else {
+    output = resolve(config.dir, config.output || relativeInput);
+  }
 
   await fsp.mkdir(dirname(output), { recursive: true });
   await fsp.writeFile(output, transformResult.contents, "utf8");

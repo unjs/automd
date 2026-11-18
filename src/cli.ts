@@ -5,6 +5,7 @@ import { defineCommand, runMain } from "citty";
 import consola from "consola";
 import { colorize } from "consola/utils";
 import pkg from "../package.json" with { type: "json" };
+import { resolveCliInputs } from "./_utils.ts";
 import { type AutomdResult, automd } from "./automd.ts";
 import { type ResolvedConfig } from "./config.ts";
 
@@ -20,9 +21,8 @@ const main = defineCommand({
       type: "string",
     },
     input: {
-      description: "name or path the markdown input to update",
+      description: "name or path the markdown input to update (default: README.md)",
       type: "string",
-      default: "README.md",
     },
     output: {
       description: "name or path the markdown output (defaults to input)",
@@ -33,10 +33,11 @@ const main = defineCommand({
       type: "boolean",
     },
   },
-  async setup({ args }) {
+  async setup({ args, rawArgs }) {
+    const input = resolveCliInputs(args, rawArgs);
     const { results, config, time } = await automd({
       dir: args.dir,
-      input: args.input?.split(",").map((i) => i.trim()),
+      ...(input ? { input } : {}),
       output: args.output,
       watch: args.watch,
       onWatch: (event) => {
@@ -44,14 +45,15 @@ const main = defineCommand({
         _printResults(event.results, event.time, config);
       },
     });
-    if (args.watch) {
-      console.clear();
-      consola.info(`Watching for changes in \`${args.input}\``);
-    }
-
     if (results.length === 0) {
       consola.warn(`No files processed!`);
       process.exit(1);
+    }
+
+    if (args.watch) {
+      console.clear();
+      const watchedInputs = results.map((res) => relative(config.dir, res.input));
+      consola.info(`Watching for changes in \`${watchedInputs.join(", ")}\``);
     }
 
     _printResults(results, time, config);
