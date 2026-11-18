@@ -34,18 +34,31 @@ export function resolveCliInputs(
       i++;
       continue;
     }
-    if (arg === "--input" && i + 1 < rawArgs.length) {
-      flagInputs.push(rawArgs[++i]!);
+    if (arg === "--input") {
+      const value = rawArgs[i + 1];
+      if (value === undefined || value === "--") {
+        flagInputs.push("");
+      } else {
+        flagInputs.push(value);
+        i++;
+      }
     } else if (arg.startsWith("--input=")) {
       flagInputs.push(arg.slice("--input=".length));
     }
   }
-  if (flagInputs.length === 0 && args.input !== undefined) {
+  if (flagInputs.length === 0 && typeof args.input === "string") {
     flagInputs.push(args.input);
   }
   const baseDir = resolve(args.dir || ".");
   const parsedFlagInputs = flagInputs.flatMap((value) => {
-    return value && safeStat(resolve(baseDir, value)) ? [value] : _splitInput(value);
+    if (value && safeStat(resolve(baseDir, value))) {
+      return [value];
+    }
+    const trimmed = value.trim();
+    if (trimmed && trimmed !== value && safeStat(resolve(baseDir, trimmed))) {
+      return [trimmed];
+    }
+    return _splitInput(value);
   });
   const positionalInputs = (args._ || []).filter(Boolean);
   const resolved = [...parsedFlagInputs, ...positionalInputs];

@@ -183,7 +183,7 @@ describe("automd input patterns and CLI", () => {
     ).rejects.toThrow(/resolves outside output directory/);
   });
 
-  it.each([{ flags: ["--input", ""] }, { flags: ["--input="] }])(
+  it.each([{ flags: ["--input", ""] }, { flags: ["--input="] }, { flags: ["--input"] }])(
     "rejects an explicitly empty input ($flags)",
     async ({ flags }) => {
       const dir = await createTempDir();
@@ -204,6 +204,20 @@ describe("automd input patterns and CLI", () => {
       expect(await fsp.readFile(readme, "utf8")).toContain("Generated content");
     },
   );
+
+  it("checks a trimmed whole input before splitting a comma list", async () => {
+    const dir = await createTempDir();
+    const names = ["release.md,notes.md", "release.md", "notes.md"];
+    const template = '<!-- automd:file src="/snippet.txt" -->\n<!-- /automd -->\n';
+    await fsp.writeFile(join(dir, "snippet.txt"), "Release notes");
+    await Promise.all(names.map((name) => fsp.writeFile(join(dir, name), template)));
+
+    await execFileAsync(process.execPath, [cliPath, "--dir", dir, "--input", " release.md,notes.md "]);
+
+    expect(await fsp.readFile(join(dir, names[0]!), "utf8")).toContain("Release notes");
+    expect(await fsp.readFile(join(dir, "release.md"), "utf8")).toBe(template);
+    expect(await fsp.readFile(join(dir, "notes.md"), "utf8")).toBe(template);
+  });
 
   it("processes all shell-expanded CLI inputs and ignores directory entries without EISDIR", async () => {
     const dir = await createTempDir();
